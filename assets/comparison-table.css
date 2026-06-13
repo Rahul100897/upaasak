@@ -1,0 +1,202 @@
+/* ============================================
+   Comparison Table Section â€” comparison-table.css
+   Place in: assets/comparison-table.css
+   ============================================ */
+
+.comparison-section {
+    padding: 60px 0px;
+}
+
+.comparison-wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0px 20px;
+}
+
+.comparison-section-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 500;
+    color: #000;
+    letter-spacing: -.02em;
+    line-height: 130%;
+    margin-bottom: 24px;
+    margin-top: 0px;
+    display: block;
+}
+
+/* TABLE */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* HEADER */
+.comparison-table thead tr th {
+  padding-bottom: 0;
+  vertical-align: bottom;
+  text-align: center;
+}
+
+.th-feature {
+  width: 45%;
+  text-align: left !important;
+}
+
+.th-our,
+.th-others {
+  width: 27.5%;
+}
+
+/* Our Product card header */
+.our-header-card {
+  border-radius: 20px 20px 0 0;
+  padding: 24px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.our-header-card h2 {
+  color: #fff;
+  font-size: clamp(1rem, 2.2vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.badge-original {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #7a5c2e;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.01em;
+}
+
+.badge-original svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+/* Others header */
+.others-header {
+  padding: 24px 16px 20px;
+  text-align: center;
+}
+
+.others-header h2 {
+  font-size: clamp(1rem, 2.2vw, 1.4rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 4px;
+}
+
+.others-header .knockoff {
+  font-size: 0.78rem;
+  color: #999;
+  font-weight: 400;
+}
+
+/* BODY ROWS */
+.comparison-table tbody tr {
+  border-top: 1px solid #e5e0d8;
+}
+
+.comparison-table tbody tr:last-child .td-our {
+  border-radius: 0 0 20px 20px;
+}
+
+.td-feature {
+  padding: 22px 16px 22px 0;
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
+  color: #333;
+  font-weight: 400;
+  line-height: 1.45;
+  vertical-align: middle;
+}
+
+.td-our {
+  text-align: center;
+  vertical-align: middle;
+  padding: 18px 10px;
+}
+
+.td-others {
+  text-align: center;
+  vertical-align: middle;
+  padding: 18px 10px;
+}
+
+/* ICONS */
+.icon-check,
+.icon-x {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-check {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.icon-check--dark {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.icon-x {
+  background: #2d2d2d;
+}
+
+.icon-check svg,
+.icon-x svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 767px) {
+  .comparison-section {
+    padding: 24px 16px;
+  }
+
+  .td-feature {
+    padding: 14px 8px 14px 0;
+    font-size: 0.8rem;
+  }
+
+  .our-header-card {
+    padding: 16px 8px 14px;
+  }
+
+  .others-header {
+    padding: 16px 8px 14px;
+  }
+
+  .icon-check,
+  .icon-x {
+    width: 24px;
+    height: 24px;
+  }
+
+  .icon-check svg,
+  .icon-x svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .badge-original {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+}

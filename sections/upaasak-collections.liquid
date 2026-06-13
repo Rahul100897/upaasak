@@ -1,0 +1,66 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-collections" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    <div class="u-section-head is-centered">
+      {% if section.settings.eyebrow != blank %}<span class="u-eyebrow is-centered" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2 class="u-title" data-reveal style="--d:80ms">{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}<p class="u-lead" data-reveal style="--d:160ms">{{ section.settings.subheading }}</p>{% endif %}
+    </div>
+
+    <div class="u-collections__grid">
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.link | default: '#' }}" class="u-coll-card" data-reveal="zoom" style="--d:{{ forloop.index0 | times: 90 }}ms" {{ block.shopify_attributes }}>
+          {% if block.settings.image != blank %}
+            <img class="u-coll-card__img" src="{{ block.settings.image | image_url: width: 700 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="700" height="933">
+          {% endif %}
+          <span class="u-coll-card__veil"></span>
+          <span class="u-coll-card__edge"></span>
+          <span class="u-coll-card__body">
+            {% if block.settings.label != blank %}<span class="u-coll-card__label">{{ block.settings.label }}</span>{% endif %}
+            <h3 class="u-coll-card__title">{{ block.settings.title }}</h3>
+            <span class="u-coll-card__go">{{ block.settings.cta | default: 'Explore' }}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Collections",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Curated Collections" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Shop by Sacred Intention" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "From the single-faced 1 Mukhi to the divine 5 Mukhi mala — discover the bead that aligns with your spiritual path." }
+  ],
+  "blocks": [
+    {
+      "type": "collection_card",
+      "name": "Collection card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Authentic & Sacred" },
+        { "type": "text", "id": "title", "label": "Title", "default": "5 Mukhi Rudraksha Malas" },
+        { "type": "text", "id": "cta", "label": "CTA text", "default": "Shop Now" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Collections",
+      "blocks": [
+        { "type": "collection_card", "settings": { "label": "Most Popular", "title": "5 Mukhi Rudraksha Malas", "cta": "Shop Now" } },
+        { "type": "collection_card", "settings": { "label": "For Daily Devotion", "title": "Japa & Meditation Malas", "cta": "Shop Now" } },
+        { "type": "collection_card", "settings": { "label": "Rare & Powerful", "title": "Premium Multi-Mukhi", "cta": "Shop Now" } },
+        { "type": "collection_card", "settings": { "label": "Everyday Grace", "title": "Bracelets & Accessories", "cta": "Shop Now" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

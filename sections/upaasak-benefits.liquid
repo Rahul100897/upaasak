@@ -1,0 +1,67 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-benefits" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    <div class="u-section-head is-centered">
+      {% if section.settings.eyebrow != blank %}<span class="u-eyebrow is-centered" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2 class="u-title" data-reveal style="--d:80ms">{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}<p class="u-lead" data-reveal style="--d:160ms">{{ section.settings.subheading }}</p>{% endif %}
+    </div>
+
+    <div class="u-benefits__grid">
+      {% for block in section.blocks %}
+        <article class="u-benefit" data-reveal style="--d:{{ forloop.index0 | times: 90 }}ms" {{ block.shopify_attributes }}>
+          <div class="u-benefit__icon">{% render 'upaasak-icon', icon: block.settings.icon %}</div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Benefits",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why Rudraksha" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The Power of the Sacred Bead" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Worn by sages for millennia, Rudraksha is believed to harmonise body, mind and spirit." }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "select", "id": "icon", "label": "Icon", "default": "peace",
+          "options": [
+            { "value": "peace", "label": "Peace" },
+            { "value": "focus", "label": "Focus" },
+            { "value": "protection", "label": "Protection" },
+            { "value": "health", "label": "Health" },
+            { "value": "lotus", "label": "Lotus" },
+            { "value": "sun", "label": "Sun" },
+            { "value": "moon", "label": "Moon" },
+            { "value": "om", "label": "Om" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Inner Peace" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Calms the nervous system and quietens a restless mind during meditation." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Benefits",
+      "blocks": [
+        { "type": "benefit", "settings": { "icon": "peace", "title": "Inner Peace", "text": "Calms the nervous system and quietens a restless mind during meditation." } },
+        { "type": "benefit", "settings": { "icon": "focus", "title": "Clarity & Focus", "text": "Sharpens concentration and supports a steady, devoted practice." } },
+        { "type": "benefit", "settings": { "icon": "protection", "title": "Divine Protection", "text": "Traditionally worn as a shield against negative energy and harm." } },
+        { "type": "benefit", "settings": { "icon": "health", "title": "Vital Balance", "text": "Believed to stabilise blood pressure, energy and emotional wellbeing." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

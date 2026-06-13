@@ -1,0 +1,55 @@
+{%- comment -%}
+  About Us Commitments Section for Lesure
+{%- endcomment -%}
+
+<div class="lesure-about-wrapper">
+  <section class="lesure-about-commit">
+    <div class="wrap">
+      <div class="commit-left">
+        <span class="slabel">{{ section.settings.label }}</span>
+        <h2>{{ section.settings.title }}</h2>
+        <div class="commit-content">
+          {{ section.settings.content }}
+        </div>
+      </div>
+      <div class="commit-list">
+        {%- for block in section.blocks -%}
+          <div class="commit-item" {{ block.shopify_attributes }}>
+            <div class="commit-icon">
+              {{ block.settings.svg_icon }}
+            </div>
+            <div class="commit-text">
+              <strong>{{ block.settings.title }}</strong>
+              <span>{{ block.settings.text }}</span>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Lesure About Commit",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "Our promise" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Every order. <i>No exceptions.</i>" },
+    { "type": "richtext", "id": "content", "label": "Content" }
+  ],
+  "blocks": [
+    {
+      "type": "commitment",
+      "name": "Commitment",
+      "settings": [
+        { "type": "html", "id": "svg_icon", "label": "SVG Icon" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Lesure About Commit" }
+  ]
+}
+{% endschema %}

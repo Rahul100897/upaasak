@@ -1,0 +1,415 @@
+<style>
+  .trust-section {
+    padding: 60px 0px;
+    background-color: #ffffff;
+  }
+  .trust-header {
+    text-align: left;
+    margin-bottom: 40px;
+  }
+
+  .trust-header h2 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+
+  .trust-header p {
+    font-size: 16px;
+    color: #666666;
+    line-height: 1.6;
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+
+  .trust-card {
+    padding: 40px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .trust-card:hover {
+      border-color: #d1d5db;
+      box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+  }
+  .trust-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f0f4f8, #f8f9fa);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .trust-card:hover .trust-icon {
+    background: linear-gradient(135deg, #e5eef7, #f0f4f8);
+    transform: scale(1.12) rotate(5deg);
+  }
+
+  .trust-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .trust-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+
+  .trust-description {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  @media (max-width: 1200px) {
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .trust-section {
+      padding: 40px 15px;
+    }
+
+    .trust-header {
+      margin-bottom: 35px;
+    }
+
+    .trust-header h2 {
+      font-size: 28px;
+    }
+
+    .trust-grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .trust-card {
+      padding: 30px 20px;
+    }
+
+    .trust-icon {
+      width: 60px;
+      height: 60px;
+    }
+
+    .trust-icon svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    .trust-title {
+      font-size: 18px;
+    }
+
+    .trust-description {
+      font-size: 13px;
+    }
+  }
+</style>
+
+<section class="trust-section" style="padding: {{ section.settings.padding_top }}px {{ section.settings.padding_right }}px {{ section.settings.padding_bottom }}px {{ section.settings.padding_left }}px; background-color: {{ section.settings.background_color }};">
+  <div class="section
+    section--page-width">
+    <!-- Header Row -->
+    <div class="trust-header">
+      <h2 style="color: {{ section.settings.heading_color }};">{{ section.settings.heading }}</h2>
+      <p style="color: {{ section.settings.subheading_color }};">{{ section.settings.subheading }}</p>
+    </div>
+
+    <!-- Cards Row - 4 Columns -->
+    <div class="trust-grid">
+      {% for block in section.blocks %}
+        <div class="trust-card" style="background: {{ section.settings.card_background }}; border-color: {{ section.settings.card_border_color }}; border-radius: {{ section.settings.border_radius }}px; padding: {{ section.settings.card_padding }}px;">
+          <div class="trust-icon" style="background: linear-gradient(135deg, {{ section.settings.icon_background }}, {{ section.settings.icon_background_hover }}); border-radius: {{ section.settings.border_radius }}px;">
+            {% case block.settings.icon %}
+              {% when 'truck' %}
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="24px" width="24px">
+<path fill="#4a4540" d="M16.5 6H3V17.25H3.375H4.5H4.52658C4.70854 18.5221 5.80257 19.5 7.125 19.5C8.44743 19.5 9.54146 18.5221 9.72342 17.25H15.0266C15.2085 18.5221 16.3026 19.5 17.625 19.5C18.9474 19.5 20.0415 18.5221 20.2234 17.25H21.75V12.4393L18.3107 9H16.5V6ZM16.5 10.5V14.5026C16.841 14.3406 17.2224 14.25 17.625 14.25C18.6721 14.25 19.5761 14.8631 19.9974 15.75H20.25V13.0607L17.6893 10.5H16.5ZM15 15.75V9V7.5H4.5V15.75H4.75261C5.17391 14.8631 6.07785 14.25 7.125 14.25C8.17215 14.25 9.07609 14.8631 9.49739 15.75H15ZM17.625 18C17.0037 18 16.5 17.4963 16.5 16.875C16.5 16.2537 17.0037 15.75 17.625 15.75C18.2463 15.75 18.75 16.2537 18.75 16.875C18.75 17.4963 18.2463 18 17.625 18ZM8.25 16.875C8.25 17.4963 7.74632 18 7.125 18C6.50368 18 6 17.4963 6 16.875C6 16.2537 6.50368 15.75 7.125 15.75C7.74632 15.75 8.25 16.2537 8.25 16.875Z" clip-rule="evenodd" fill-rule="evenodd"></path>
+</svg>
+              {% when 'headphones' %}
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: #4a4540;width: 30px;height: 30px;" height="24px" width="24px">
+                  <path d="M12 1C6.48 1 2 5.48 2 11v8a3 3 0 003 3h2v-8H5v-3a7 7 0 0114 0v3h-2v8h2a3 3 0 003-3v-8c0-5.52-4.48-10-10-10zm-4 11h3v8H8zm8 0h3v8h-3z"/>
+                </svg>
+              {% when 'refresh' %}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" height="24px" width="24px">
+
+                  <path fill="none" d="M0 0h48v48H0z"/>
+                  <g id="Shopicon">
+                    <path d="M10,22v2c0,7.72,6.28,14,14,14s14-6.28,14-14s-6.28-14-14-14h-6.662l3.474-4.298l-3.11-2.515L10.577,12l7.125,8.813   l3.11-2.515L17.338,14H24c5.514,0,10,4.486,10,10s-4.486,10-10,10s-10-4.486-10-10v-2H10z"/>
+                  </g>
+                  <script xmlns=""/></svg>
+              {% when 'lock' %}
+                  
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="24px" width="24px">
+                    <rect stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#4a4540" rx="2" height="13" width="18" y="6" x="3"></rect>
+                    <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#4a4540" d="M3 10H20.5"></path>
+                    <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#4a4540" d="M7 15H9"></path>
+                    </svg>
+              {% endcase %}
+          </div>
+          <h3 class="trust-title" style="color: {{ section.settings.title_color }};">{{ block.settings.title }}</h3>
+          <p class="trust-description" style="color: {{ section.settings.description_color }};">{{ block.settings.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Premium Trust Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Choose Us"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "We're committed to delivering excellence in every interaction"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "min": 0,
+      "max": 60,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding Left",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "min": 0,
+      "max": 60,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding Right",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Card Padding",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading Color",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card Border Color",
+      "default": "#e5e7eb"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "icon_background",
+      "label": "Icon Background",
+      "default": "#f0f4f8"
+    },
+    {
+      "type": "color",
+      "id": "icon_background_hover",
+      "label": "Icon Background Hover",
+      "default": "#e5eef7"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon Color",
+      "default": "#4a4540"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Border Radius",
+      "default": 12
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Trust Card",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "truck",
+              "label": "Truck (Shipping)"
+            },
+            {
+              "value": "headphones",
+              "label": "Headphones (Support)"
+            },
+            {
+              "value": "refresh",
+              "label": "Refresh (Returns)"
+            },
+            {
+              "value": "lock",
+              "label": "Lock (Security)"
+            }
+          ],
+          "default": "truck"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Free Shipping"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "On orders above $200. Fast and reliable delivery to your doorstep"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Trust Section",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "icon": "truck",
+            "title": "Free Shipping",
+            "description": "On orders above $200. Fast and reliable delivery to your doorstep"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "icon": "headphones",
+            "title": "24/7 Support",
+            "description": "Contact us anytime. Our dedicated team is always here to help"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "icon": "refresh",
+            "title": "30 Days Return",
+            "description": "Hassle-free returns within 30 days for exchanges or refunds"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "icon": "lock",
+            "title": "Secure Payment",
+            "description": "Bank-level encryption ensures your payment stays completely safe"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

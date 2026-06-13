@@ -1,0 +1,239 @@
+{{ 'comparison-table.css' | asset_url | stylesheet_tag }}
+
+<section class="comparison-section" id="comparison-{{ section.id }}">
+  <div class="comparison-wrapper">
+
+    {% if section.settings.section_title != blank %}
+      <h2 class="comparison-section-title">{{ section.settings.section_title }}</h2>
+    {% endif %}
+
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th class="th-feature"></th>
+
+          <!-- Our Product Column -->
+          <th class="th-our">
+            <div class="our-header-card" style="background: {{ section.settings.our_column_color }};">
+              <h2>{{ section.settings.our_product_title }}</h2>
+              {% if section.settings.show_badge and section.settings.badge_text != blank %}
+                <span class="badge-original">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="16" height="16" fill="currentColor"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.31c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.52,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-52.2,6.84-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                  {{ section.settings.badge_text }}
+                </span>
+              {% endif %}
+            </div>
+          </th>
+
+          <!-- Others Column -->
+          <th class="th-others">
+            <div class="others-header">
+              <h2>{{ section.settings.others_title }}</h2>
+              {% if section.settings.others_subtitle != blank %}
+                <div class="knockoff">{{ section.settings.others_subtitle }}</div>
+              {% endif %}
+            </div>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for block in section.blocks %}
+          {% if block.type == 'feature_row' %}
+            <tr {{ block.shopify_attributes }}>
+              <td class="td-feature">{{ block.settings.feature_text }}</td>
+
+              <td class="td-our" style="background: {{ section.settings.our_column_color }};">
+                {% if block.settings.our_has_feature %}
+                  <span class="icon-check">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M5 13l4 4L19 7" stroke="{{ section.settings.our_column_color }}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                {% else %}
+                  <span class="icon-x">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                {% endif %}
+              </td>
+
+              <td class="td-others">
+                {% if block.settings.others_has_feature %}
+                  <span class="icon-check icon-check--dark">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M5 13l4 4L19 7" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                {% else %}
+                  <span class="icon-x">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                {% endif %}
+              </td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+</section>
+
+<style>
+  #comparison-{{ section.id }} .our-header-card {
+    background: {{ section.settings.our_column_color }};
+  }
+  #comparison-{{ section.id }} .td-our {
+    background: {{ section.settings.our_column_color }};
+  }
+  #comparison-{{ section.id }} .icon-check svg path {
+    stroke: {{ section.settings.our_column_color }};
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Comparison Table",
+  "tag": "section",
+  "class": "comparison-section-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "info": "Optional heading above the table"
+    },
+    {
+      "type": "header",
+      "content": "Our Product Column"
+    },
+    {
+      "type": "text",
+      "id": "our_product_title",
+      "label": "Column Title",
+      "default": "Our Product"
+    },
+    {
+      "type": "color",
+      "id": "our_column_color",
+      "label": "Column Background Color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Show Badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "Original"
+    },
+    {
+      "type": "color",
+      "id": "badge_icon_color",
+      "label": "Badge Icon Color",
+      "default": "#7a5c2e"
+    },
+    {
+      "type": "header",
+      "content": "Others Column"
+    },
+    {
+      "type": "text",
+      "id": "others_title",
+      "label": "Column Title",
+      "default": "Others"
+    },
+    {
+      "type": "text",
+      "id": "others_subtitle",
+      "label": "Column Subtitle",
+      "default": "Knock-off"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_row",
+      "name": "Feature Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_text",
+          "label": "Feature Description",
+          "default": "Feature name — short description"
+        },
+        {
+          "type": "checkbox",
+          "id": "our_has_feature",
+          "label": "Our Product has this feature",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "others_has_feature",
+          "label": "Others have this feature",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison Table",
+      "blocks": [
+        {
+          "type": "feature_row",
+          "settings": {
+            "feature_text": "Reinforced steel frame — rated to 40 lbs",
+            "our_has_feature": true,
+            "others_has_feature": false
+          }
+        },
+        {
+          "type": "feature_row",
+          "settings": {
+            "feature_text": "90° foldable — stores flat in seconds",
+            "our_has_feature": true,
+            "others_has_feature": false
+          }
+        },
+        {
+          "type": "feature_row",
+          "settings": {
+            "feature_text": "Non-slip clamp — zero desk damage",
+            "our_has_feature": true,
+            "others_has_feature": false
+          }
+        },
+        {
+          "type": "feature_row",
+          "settings": {
+            "feature_text": "Removable, machine washable cover",
+            "our_has_feature": true,
+            "others_has_feature": false
+          }
+        },
+        {
+          "type": "feature_row",
+          "settings": {
+            "feature_text": "Deep-bowl nest design for natural curling",
+            "our_has_feature": true,
+            "others_has_feature": false
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,80 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-story" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    <div class="u-story__grid">
+      <div class="u-story__media" data-reveal="left">
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | image_url: width: 900 }}" alt="{{ section.settings.heading | escape }}" loading="lazy" width="900" height="1125">
+        {% else %}
+          <div style="aspect-ratio:4/5;display:grid;place-items:center;background:var(--u-grad-ivory);border-radius:var(--u-radius-lg);color:var(--u-maroon);font-family:var(--u-font-display);font-size:7rem;opacity:.5;">ॐ</div>
+        {% endif %}
+        {% if section.settings.stat_value != blank %}
+          <div class="u-story__stat">
+            <strong>{{ section.settings.stat_value }}</strong>
+            <span>{{ section.settings.stat_label }}</span>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="u-story__content" data-reveal="right">
+        {% if section.settings.eyebrow != blank %}<span class="u-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+        <h2 class="u-title">{{ section.settings.heading }}</h2>
+        {% if section.settings.body != blank %}<div class="u-lead">{{ section.settings.body }}</div>{% endif %}
+        {% if section.blocks.size > 0 %}
+          <ul class="u-story__points">
+            {% for block in section.blocks %}
+              <li {{ block.shopify_attributes }}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="m8.5 12 2.4 2.4 4.6-5"/></svg>
+                <span>{{ block.settings.text }}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% if section.settings.btn_label != blank %}
+          <a href="{{ section.settings.btn_link | default: '#' }}" class="u-btn u-btn--primary">{{ section.settings.btn_label }}</a>
+        {% endif %}
+        {% if section.settings.signature != blank %}<div class="u-story__sign">{{ section.settings.signature }}</div>{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Story",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Story" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Rooted in Faith, Guided by Tradition" },
+    { "type": "richtext", "id": "body", "label": "Body", "default": "<p>At Upaasak, we believe spirituality belongs in everyday life. Inspired by the timeless significance of Rudraksha, we travel to trusted sources in Nepal and India to bring you beads that are pure, potent and ethically gathered.</p>" },
+    { "type": "header", "content": "Floating stat" },
+    { "type": "text", "id": "stat_value", "label": "Stat value", "default": "100%" },
+    { "type": "text", "id": "stat_label", "label": "Stat label", "default": "Hand-verified" },
+    { "type": "header", "content": "Call to action" },
+    { "type": "text", "id": "btn_label", "label": "Button label", "default": "Read Our Story" },
+    { "type": "url", "id": "btn_link", "label": "Button link" },
+    { "type": "text", "id": "signature", "label": "Signature line", "default": "— With devotion, Team Upaasak" }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Checklist point",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Sourced from sacred origins in Nepal & Indonesia" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Story",
+      "blocks": [
+        { "type": "point", "settings": { "text": "Sourced from sacred origins in Nepal & Indonesia" } },
+        { "type": "point", "settings": { "text": "Each bead lab-tested for authenticity" } },
+        { "type": "point", "settings": { "text": "Energized with Vedic mantras before it reaches you" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

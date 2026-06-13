@@ -1,0 +1,70 @@
+{% render 'upaasak-design-system' %}
+
+{%- liquid
+  assign icons = 'shield,leaf,certificate,truck,return,headset,lotus,om' | split: ','
+-%}
+
+<section class="u-section u-trust" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    {% if section.settings.heading != blank %}
+      <div class="u-section-head is-centered">
+        {% if section.settings.eyebrow != blank %}<span class="u-eyebrow is-centered" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
+        <h2 class="u-title" data-reveal style="--d:80ms">{{ section.settings.heading }}</h2>
+      </div>
+    {% endif %}
+    <div class="u-trust__grid">
+      {% for block in section.blocks %}
+        <div class="u-trust__card" data-reveal style="--d:{{ forloop.index0 | times: 90 }}ms" {{ block.shopify_attributes }}>
+          <div class="u-trust__icon">{% render 'upaasak-icon', icon: block.settings.icon %}</div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Trust Strip",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Upaasak Promise" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Sacred. Certified. Trusted." }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Trust card",
+      "settings": [
+        {
+          "type": "select", "id": "icon", "label": "Icon", "default": "certificate",
+          "options": [
+            { "value": "certificate", "label": "Certificate" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "lotus", "label": "Lotus" },
+            { "value": "om", "label": "Om" },
+            { "value": "truck", "label": "Shipping" },
+            { "value": "return", "label": "Returns" },
+            { "value": "headset", "label": "Support" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Lab Certified" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Every bead verified for authenticity & origin." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Trust Strip",
+      "blocks": [
+        { "type": "card", "settings": { "icon": "certificate", "title": "Lab Certified", "text": "Every bead verified for authenticity & origin." } },
+        { "type": "card", "settings": { "icon": "om", "title": "Energized & Abhimantrit", "text": "Activated with Vedic mantras before dispatch." } },
+        { "type": "card", "settings": { "icon": "leaf", "title": "100% Natural", "text": "Hand-picked, untreated, ethically sourced beads." } },
+        { "type": "card", "settings": { "icon": "truck", "title": "Free & Fast Shipping", "text": "Carefully packed, delivered across India free." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

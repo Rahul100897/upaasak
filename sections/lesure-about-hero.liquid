@@ -1,0 +1,67 @@
+{%- comment -%}
+  About Us Hero Section for Lesure
+{%- endcomment -%}
+
+{{ 'lesure-about.css' | asset_url | stylesheet_tag }}
+
+<div class="lesure-about-wrapper">
+  <div class="lesure-about-hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">{{ section.settings.eyebrow }}</div>
+      <h1>{{ section.settings.title }}</h1>
+      <p class="hero-sub">{{ section.settings.subtitle }}</p>
+      <div class="hero-divider"></div>
+      <div class="hero-claims">
+        {%- for block in section.blocks -%}
+          <div class="hero-claim" {{ block.shopify_attributes }}>
+            <div class="hero-claim-dot"></div>
+            <span>{{ block.settings.text }}</span>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class="hero-right">
+      {%- if section.settings.image != blank -%}
+        <img src="{{ section.settings.image | img_url: '1400x' }}" alt="{{ section.settings.title | escape }}" style="width:100%;height:100%;object-fit:cover;">
+      {%- else -%}
+        <div class="hero-img-ph">Your hero image here</div>
+      {%- endif -%}
+      <div class="hero-badge">
+        <strong>{{ section.settings.badge_title }}</strong>
+        <span>{{ section.settings.badge_subtitle }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Lesure About Hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our story" },
+    { "type": "text", "id": "title", "label": "Title", "default": "We solve the thing<br>others <i>overlook.</i>" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Most products address the visible symptom. We started from the cause — working backwards with material scientists and independent testers until we had something that holds up to real scrutiny." },
+    { "type": "image_picker", "id": "image", "label": "Hero Image" },
+    { "type": "text", "id": "badge_title", "label": "Badge Title", "default": "Founded on one principle" },
+    { "type": "text", "id": "badge_subtitle", "label": "Badge Subtitle", "default": "Verify everything. Assume nothing." }
+  ],
+  "blocks": [
+    {
+      "type": "claim",
+      "name": "Claim",
+      "settings": [
+        { "type": "html", "id": "text", "label": "Text (HTML allowed)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lesure About Hero",
+      "blocks": [
+        { "type": "claim", "settings": { "text": "<strong>Every claim verified</strong> by independent third-party laboratories" } },
+        { "type": "claim", "settings": { "text": "<strong>12,400+ verified customers</strong> · 4.8/5 average review score" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

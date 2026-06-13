@@ -1,0 +1,131 @@
+/* ============================================================================
+   UPAASAK — interactions for upaasak-* sections
+   Idempotent: safe to load/run more than once. Re-scans on Shopify editor events.
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  function initReveal(root) {
+    var els = (root || document).querySelectorAll('[data-reveal]:not([data-reveal-bound])');
+    if (!els.length) return;
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('is-in'); el.setAttribute('data-reveal-bound', '1'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { el.setAttribute('data-reveal-bound', '1'); io.observe(el); });
+  }
+
+  function initCountUp(root) {
+    var nums = (root || document).querySelectorAll('[data-count]:not([data-count-bound])');
+    if (!nums.length || !('IntersectionObserver' in window)) {
+      nums.forEach(function (n) { n.textContent = n.getAttribute('data-count') + (n.getAttribute('data-suffix') || ''); n.setAttribute('data-count-bound', '1'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target; io.unobserve(el);
+        var target = parseFloat(el.getAttribute('data-count')) || 0;
+        var suffix = el.getAttribute('data-suffix') || '';
+        var dur = 1400, start = null;
+        function tick(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          var val = target * eased;
+          el.textContent = (target % 1 ? val.toFixed(1) : Math.round(val).toLocaleString()) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.6 });
+    nums.forEach(function (n) { n.setAttribute('data-count-bound', '1'); io.observe(n); });
+  }
+
+  function initBars(root) {
+    var bars = (root || document).querySelectorAll('.u-rev__bar-fill[data-pct]:not([data-bar-bound])');
+    if (!bars.length) return;
+    var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.style.width = e.target.getAttribute('data-pct') + '%'; io.unobserve(e.target); } });
+    }, { threshold: 0.4 }) : null;
+    bars.forEach(function (b) {
+      b.setAttribute('data-bar-bound', '1');
+      if (io) io.observe(b); else b.style.width = b.getAttribute('data-pct') + '%';
+    });
+  }
+
+  function initFaq(root) {
+    var qs = (root || document).querySelectorAll('.u-faq__q:not([data-faq-bound])');
+    qs.forEach(function (q) {
+      q.setAttribute('data-faq-bound', '1');
+      q.addEventListener('click', function () {
+        var item = q.closest('.u-faq__item');
+        var ans = item.querySelector('.u-faq__a');
+        var open = item.classList.contains('is-open');
+        var list = q.closest('.u-faq__list');
+        if (list) list.querySelectorAll('.u-faq__item.is-open').forEach(function (it) {
+          if (it !== item) { it.classList.remove('is-open'); var a = it.querySelector('.u-faq__a'); if (a) a.style.maxHeight = null; }
+        });
+        if (open) { item.classList.remove('is-open'); ans.style.maxHeight = null; }
+        else { item.classList.add('is-open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+      });
+    });
+  }
+
+  function initCarousels(root) {
+    var carousels = (root || document).querySelectorAll('[data-carousel]:not([data-carousel-bound])');
+    carousels.forEach(function (c) {
+      c.setAttribute('data-carousel-bound', '1');
+      var track = c.querySelector('.u-tmls__track');
+      var prev = c.querySelector('[data-prev]');
+      var next = c.querySelector('[data-next]');
+      if (!track) return;
+      var index = 0;
+      function perView() { return window.innerWidth <= 600 ? 1 : (window.innerWidth <= 980 ? 2 : 3); }
+      function maxIndex() { return Math.max(0, track.children.length - perView()); }
+      function go(i) {
+        index = Math.max(0, Math.min(i, maxIndex()));
+        var card = track.children[0];
+        if (!card) return;
+        var step = card.getBoundingClientRect().width + 26; /* gap */
+        track.style.transform = 'translateX(' + (-index * step) + 'px)';
+      }
+      if (prev) prev.addEventListener('click', function () { go(index - 1); });
+      if (next) next.addEventListener('click', function () { go(index + 1); });
+      window.addEventListener('resize', function () { go(index); });
+      go(0);
+    });
+  }
+
+  function initAll(root) {
+    initReveal(root);
+    initCountUp(root);
+    initBars(root);
+    initFaq(root);
+    initCarousels(root);
+  }
+
+  if (window.__upaasakInit) { window.__upaasakRescan && window.__upaasakRescan(); return; }
+  window.__upaasakInit = true;
+  window.__upaasakRescan = function () { initAll(document); };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () { initAll(document); });
+  } else {
+    initAll(document);
+  }
+
+  /* Shopify Theme Editor: re-bind when sections load/reorder */
+  if (window.Shopify && Shopify.designMode) {
+    document.addEventListener('shopify:section:load', function (e) { initAll(e.target); });
+    document.addEventListener('shopify:section:reorder', function () { initAll(document); });
+  }
+})();

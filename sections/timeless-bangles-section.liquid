@@ -1,0 +1,530 @@
+{% stylesheet %}
+.timeless-bangles-section {
+    background: #faf5ec;
+    padding: 30px 20px 60px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
+}
+  .timeless-bangles-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* Hero Section */
+  .hero-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+
+  .hero-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin: 0 0 20px 0;
+    font-family: 'Georgia', 'Garamond', serif;
+    letter-spacing: -1px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+    color: #666666;
+    line-height: 1.6;
+    margin: 0 0 40px 0;
+    max-width: 500px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: none;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .btn-primary {
+      background-color: #7b0b2c;
+      color: #fff;
+  }
+
+  .btn-primary:hover {
+    background-color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-secondary {
+    background-color: white;
+    color: #3d3d3d;
+    border: 1px solid #3d3d3d;
+  }
+
+  .btn-secondary:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-2px);
+  }
+
+  /* Hero Image Section */
+  .hero-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-image {
+      height: 500px;
+      object-fit: cover;
+      width: 500px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px #0000001a;
+  }
+
+  .discount-badge {
+      position: absolute;
+      bottom: 60px;
+      width: 110px;
+      height: 110px;
+      left: 20px;
+      background: linear-gradient(135deg, #7b0b2c, #780c28);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 10px 30px #00000026;
+      text-align: center;
+  }
+
+  .discount-badge-label {
+    font-size: 12px;
+    color: #cecece;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .discount-badge-amount {
+    font-size: 18px;
+    color: #f9f1eb;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  /* Collections Grid */
+  .collections-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+
+  .collection-card {
+    background: linear-gradient(135deg, #e8d5c4 0%, #f2e5d8 100%);
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .collection-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .collection-card-label {
+    font-size: 14px;
+    color: #666666;
+    font-weight: 500;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+.collection-card-title {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 20px;
+    font-family: Georgia, Garamond, serif;
+}
+
+.collection-card .btn {
+    margin-top: 10px;
+    padding: 8px 30px;
+    font-size: 14px;
+}
+
+  /* Mobile Responsiveness */
+  @media (max-width: 1024px) {
+    .hero-wrapper {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .hero-content h1 {
+      font-size: 42px;
+    }
+
+    .collections-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .timeless-bangles-section {
+      padding: 40px 15px;
+    }
+
+    .hero-content h1 {
+      font-size: 32px;
+    }
+
+    .hero-content p {
+      font-size: 15px;
+      margin-bottom: 30px;
+    }
+
+    .cta-buttons {
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      font-size: 14px;
+    }
+
+    .discount-badge {
+      width: 110px;
+      height: 110px;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    .discount-badge-amount {
+      font-size: 28px;
+    }
+
+    .collections-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .collection-card-title {
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-content {
+        order: 1;
+    }
+
+    .hero-image {height: 300px;width: 100%;}
+
+    .timeless-bangles-section {
+      padding: 30px 12px;
+    }
+
+    .hero-content h1 {
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    .hero-content p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px 20px;
+    }
+
+    .discount-badge {
+      width: 100px;
+      height: 100px;
+      bottom: 15px;
+      right: 15px;
+    }
+
+    .discount-badge-label {
+      font-size: 12px;
+    }
+
+    .discount-badge-amount {
+      font-size: 15px;
+    }
+
+    .collection-card {
+      padding: 30px 20px;
+    }
+
+    .collection-card-title {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  }
+{% endstylesheet %}
+
+<div class="timeless-bangles-section">
+  <div class="timeless-bangles-container">
+    <!-- Hero Section -->
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <h1>{{ section.settings.hero_heading }}</h1>
+        <p>{{ section.settings.hero_description }}</p>
+        <div class="cta-buttons">
+          <a href="{{ section.settings.button_1_link }}" class="btn btn-primary">
+            {{ section.settings.button_1_text }}
+          </a>
+          <a href="{{ section.settings.button_2_link }}" class="btn btn-secondary">
+            {{ section.settings.button_2_text }}
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-image-wrapper">
+        {% if section.settings.hero_image %}
+          {{ section.settings.hero_image | image_url: width: 600 | image_tag: class: 'hero-image' }}
+        {% endif %}
+        
+        <div class="discount-badge">
+          <div class="discount-badge-label">{{ section.settings.badge_label }}</div>
+          <div class="discount-badge-amount">{{ section.settings.badge_amount }}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collections Grid -->
+    <div class="collections-grid">
+      <!-- Collection Card 1 -->
+      <div class="collection-card">
+        <div class="collection-card-label">{{ section.settings.collection_1_label }}</div>
+        <h3 class="collection-card-title">{{ section.settings.collection_1_title }}</h3>
+        <a href="{{ section.settings.collection_1_link }}" class="btn btn-secondary">
+          {{ section.settings.collection_1_button }}
+        </a>
+      </div>
+
+      <!-- Collection Card 2 -->
+      <div class="collection-card">
+        <div class="collection-card-label">{{ section.settings.collection_2_label }}</div>
+        <h3 class="collection-card-title">{{ section.settings.collection_2_title }}</h3>
+        <a href="{{ section.settings.collection_2_link }}" class="btn btn-secondary">
+          {{ section.settings.collection_2_button }}
+        </a>
+      </div>
+
+      <!-- Collection Card 3 -->
+      <div class="collection-card">
+        <div class="collection-card-label">{{ section.settings.collection_3_label }}</div>
+        <h3 class="collection-card-title">{{ section.settings.collection_3_title }}</h3>
+        <a href="{{ section.settings.collection_3_link }}" class="btn btn-secondary">
+          {{ section.settings.collection_3_button }}
+        </a>
+      </div>
+
+      <!-- Collection Card 4 -->
+      <div class="collection-card">
+        <div class="collection-card-label">{{ section.settings.collection_4_label }}</div>
+        <h3 class="collection-card-title">{{ section.settings.collection_4_title }}</h3>
+        <a href="{{ section.settings.collection_4_link }}" class="btn btn-secondary">
+          {{ section.settings.collection_4_button }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Timeless Hero Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_heading",
+      "label": "Hero Heading",
+      "default": "Timeless Bangles\nFor Every Moment"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_description",
+      "label": "Hero Description",
+      "default": "Celebrate elegance with handcrafted bangles that blend tradition and modern design. From everyday grace to wedding grandeur, discover bangles crafted to shine with you."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Button 1 Text",
+      "default": "Shop Collection"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Button 2 Text",
+      "default": "Explore New Arrivals"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Button 2 Link"
+    },
+    {
+      "type": "text",
+      "id": "badge_label",
+      "label": "Discount Badge Label",
+      "default": "Save Upto"
+    },
+    {
+      "type": "text",
+      "id": "badge_amount",
+      "label": "Discount Badge Amount",
+      "default": "50%\nOFF"
+    },
+    {
+      "type": "header",
+      "content": "Collection Card 1"
+    },
+    {
+      "type": "text",
+      "id": "collection_1_label",
+      "label": "Collection 1 Label",
+      "default": "Select from the best"
+    },
+    {
+      "type": "text",
+      "id": "collection_1_title",
+      "label": "Collection 1 Title",
+      "default": "Classic Gold Bangles"
+    },
+    {
+      "type": "url",
+      "id": "collection_1_link",
+      "label": "Collection 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "collection_1_button",
+      "label": "Collection 1 Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "header",
+      "content": "Collection Card 2"
+    },
+    {
+      "type": "text",
+      "id": "collection_2_label",
+      "label": "Collection 2 Label",
+      "default": "Upto 20% off only today"
+    },
+    {
+      "type": "text",
+      "id": "collection_2_title",
+      "label": "Collection 2 Title",
+      "default": "Silver Grace Collection"
+    },
+    {
+      "type": "url",
+      "id": "collection_2_link",
+      "label": "Collection 2 Link"
+    },
+    {
+      "type": "text",
+      "id": "collection_2_button",
+      "label": "Collection 2 Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "header",
+      "content": "Collection Card 3"
+    },
+    {
+      "type": "text",
+      "id": "collection_3_label",
+      "label": "Collection 3 Label",
+      "default": "Select from the best"
+    },
+    {
+      "type": "text",
+      "id": "collection_3_title",
+      "label": "Collection 3 Title",
+      "default": "Bridal Heritage Bangles"
+    },
+    {
+      "type": "url",
+      "id": "collection_3_link",
+      "label": "Collection 3 Link"
+    },
+    {
+      "type": "text",
+      "id": "collection_3_button",
+      "label": "Collection 3 Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "header",
+      "content": "Collection Card 4"
+    },
+    {
+      "type": "text",
+      "id": "collection_4_label",
+      "label": "Collection 4 Label",
+      "default": "Never go out of style"
+    },
+    {
+      "type": "text",
+      "id": "collection_4_title",
+      "label": "Collection 4 Title",
+      "default": "Designer Bangles"
+    },
+    {
+      "type": "url",
+      "id": "collection_4_link",
+      "label": "Collection 4 Link"
+    },
+    {
+      "type": "text",
+      "id": "collection_4_button",
+      "label": "Collection 4 Button Text",
+      "default": "Shop Now"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Timeless Hero Section"
+    }
+  ]
+}
+{% endschema %}

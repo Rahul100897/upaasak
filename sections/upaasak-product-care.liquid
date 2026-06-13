@@ -1,0 +1,67 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-care" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    <div class="u-section-head is-centered">
+      {% if section.settings.eyebrow != blank %}<span class="u-eyebrow is-centered" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2 class="u-title" data-reveal style="--d:80ms">{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}<p class="u-lead" data-reveal style="--d:160ms">{{ section.settings.subheading }}</p>{% endif %}
+    </div>
+
+    <div class="u-care__grid">
+      {% for block in section.blocks %}
+        <div class="u-care__card" data-reveal style="--d:{{ forloop.index0 | times: 90 }}ms" {{ block.shopify_attributes }}>
+          <div class="u-care__icon">{% render 'upaasak-icon', icon: block.settings.icon %}</div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Wear & Care",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Rituals" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "How to Wear & Care for Your Mala" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "A few simple practices to keep your Rudraksha potent, beautiful and blessed for years." }
+  ],
+  "blocks": [
+    {
+      "type": "tip",
+      "name": "Tip",
+      "settings": [
+        {
+          "type": "select", "id": "icon", "label": "Icon", "default": "om",
+          "options": [
+            { "value": "om", "label": "Om" },
+            { "value": "mantra", "label": "Mantra" },
+            { "value": "water", "label": "Water" },
+            { "value": "sun", "label": "Sun" },
+            { "value": "moon", "label": "Moon" },
+            { "value": "hand", "label": "Hand" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "bead", "label": "Bead" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Activate It" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "On a Monday morning, dip in Ganga jal or clean water, then chant the beej mantra 9 times before wearing." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Wear & Care",
+      "blocks": [
+        { "type": "tip", "settings": { "icon": "water", "title": "Activate It", "text": "On a Monday morning, rinse with clean water or Ganga jal and chant the beej mantra 9 times before first wear." } },
+        { "type": "tip", "settings": { "icon": "hand", "title": "Wear It Right", "text": "Wear against the skin or use for japa with your right hand, crossing the Sumeru (head) bead — never over it." } },
+        { "type": "tip", "settings": { "icon": "leaf", "title": "Keep It Pure", "text": "Avoid harsh chemicals, perfumes and excess moisture. Remove before bathing or sleeping." } },
+        { "type": "tip", "settings": { "icon": "sun", "title": "Recharge It", "text": "Oil the beads with sandalwood or mustard oil occasionally and let them rest in sunlight to retain lustre." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

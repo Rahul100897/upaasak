@@ -1,0 +1,58 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-faq" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    <div class="u-section-head is-centered">
+      {% if section.settings.eyebrow != blank %}<span class="u-eyebrow is-centered" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2 class="u-title" data-reveal style="--d:80ms">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="u-faq__list" data-reveal style="--d:140ms">
+      {% for block in section.blocks %}
+        <div class="u-faq__item{% if forloop.first and section.settings.open_first %} is-open{% endif %}" {{ block.shopify_attributes }}>
+          <button type="button" class="u-faq__q">
+            <span>{{ block.settings.question }}</span>
+            <span class="u-faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="u-faq__a"{% if forloop.first and section.settings.open_first %} style="max-height:600px"{% endif %}>
+            <div class="u-faq__a-inner">{{ block.settings.answer }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak FAQ",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "You Asked, We Answered" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Frequently Asked Questions" },
+    { "type": "checkbox", "id": "open_first", "label": "Open first item by default", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "What is Rudraksha?" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Rudraksha is a sacred seed associated with Lord Shiva, used for centuries in meditation and prayer to promote peace, focus and positive energy.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak FAQ",
+      "blocks": [
+        { "type": "faq", "settings": { "question": "What is Rudraksha?", "answer": "<p>Rudraksha is a sacred seed traditionally associated with Lord Shiva. It has been used for centuries in meditation, prayer and spiritual practice to promote peace, focus and positive energy.</p>" } },
+        { "type": "faq", "settings": { "question": "How do I choose the right Mukhi?", "answer": "<p>It depends on your spiritual goals. The 5 Mukhi is the most universal and is ideal for daily wear, meditation and overall wellbeing. Reach out and we'll help you choose.</p>" } },
+        { "type": "faq", "settings": { "question": "Are your Rudraksha beads certified?", "answer": "<p>Yes. Every bead is lab-tested for authenticity and origin, and ships with a certificate of authenticity.</p>" } },
+        { "type": "faq", "settings": { "question": "Can I wear my mala every day?", "answer": "<p>Absolutely. Many devotees wear Rudraksha daily during meditation, prayer and throughout the day as a symbol of devotion.</p>" } },
+        { "type": "faq", "settings": { "question": "How should I care for my mala?", "answer": "<p>Keep it clean and dry, and avoid harsh chemicals, perfumes and excessive moisture. Oiling the beads occasionally preserves their natural lustre.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

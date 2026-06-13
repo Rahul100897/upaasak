@@ -1,0 +1,156 @@
+{%- comment -%}
+  FAQ Section for Lesure PDP
+{%- endcomment -%}
+
+<div class="lesure-pdp-wrapper">
+  <div class="faqsec">
+    <div class="wrap">
+      <div class="faqsec-left">
+        <span class="slabel">{{ section.settings.label }}</span>
+        <h2>{{ section.settings.title }}<br>
+        {% if section.settings.subtitle != blank %}
+          <i style="font-style:italic;color: var(--sage-lt);font-weight:300;">{{ section.settings.subtitle }}</i>
+        {% endif %}
+        </h2>
+        <p class="faq-intro">{{ section.settings.intro }}</p>
+        {%- if section.settings.contact_text != blank -%}
+          <div class="faq-contact-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="width:16px;height:16px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            {{ section.settings.contact_text }}
+          </div>
+        {%- endif -%}
+      </div>
+      <div class="faq-list" id="faqList">
+        {%- for block in section.blocks -%}
+          <div class="faq-item">
+            <button class="faq-q" onclick="pfToggleFaq(this)">
+              {{ block.settings.question }}
+              <div class="faq-q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="6 9 12 15 18 9"/></svg></div>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">{{ block.settings.answer }}</div></div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* ── FAQ ── */
+.faqsec{padding:88px 40px calc(88px - 16px);border-top:1px solid var(--border);background:var(--off);}
+.faqsec .wrap{max-width:860px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:80px;align-items:start;}
+{% comment %} .faqsec-left{position:sticky;top:80px;} {% endcomment %}
+.faqsec .slabel{font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:14px;}
+.faqsec h2{font-size:clamp(28px,3vw,42px);font-weight:600;letter-spacing:-.4px;margin-bottom:14px;line-height:1.15;}
+.faqsec .faq-intro{font-size:13.5px;color:var(--muted);font-weight:300;line-height:1.75;margin-bottom:24px;}
+.faq-contact-note{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--sage);font-weight:400;}
+.faq-contact-note svg{width:13px;height:13px;flex-shrink:0;}
+.faq-list{display:flex;flex-direction:column;background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-item:last-child{border-bottom:none;}
+/* 1. Hover = soft sage-xlt, consistent with brand */
+.faq-q{width:100%;background:none;border:none;padding:7px 24px;font-family:var(--f);font-size:14px;font-weight:500;color:var(--black);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;line-height:1.4;transition:color .2s;    padding: 20px 24px;}
+/* .faq-q:hover{background:var(--sage-xlt);} */
+.faq-q:focus{background:none;}
+.faq-q-icon{width:22px;height:22px;min-width:22px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;background:#fff;}
+.faq-q-icon svg{width:10px;height:10px;color:var(--muted);transition:transform .25s;}
+/* 2. Open state — no gaps, clean connection */
+.faq-item.open .faq-q {
+    background: #f8f1ea;
+    color: #000000;
+}
+.faq-item.open .faq-q-icon{background:var(--sage);border-color:#70433e;}
+.faq-item.open .faq-q-icon svg{transform:rotate(180deg);color:#70433e;}
+/* 3 & 4. Answer — no border-top on inner, use item border; smooth collapse */
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+.faq-a-inner{padding:14px 24px 22px;font-size:14px;color:var(--muted);font-weight:300;line-height:1.8;background:#fff;}
+.faq-item.open .faq-a{max-height:500px;}
+@media(max-width:860px){
+  .faqsec .wrap{grid-template-columns:1fr;gap:40px;}
+  .faqsec-left{position:static;}
+}
+@media(max-width:640px){
+  .faqsec{padding:56px 20px;}
+  .faqsec h2{font-size:22px;}
+  .faqsec .faq-intro{font-size:13px;}
+  .faq-q{font-size:13.5px;padding:16px 20px;}
+  .faq-a-inner{font-size:13px;padding:4px 20px 16px;}
+}
+
+</style>
+
+<script>
+
+// ── FAQ ──
+  function pfToggleFaq(el) {
+    var item = el.closest('.faq-item');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('#faqList .faq-item').forEach(function(i) { 
+      i.classList.remove('open'); 
+    });
+    if (!isOpen) item.classList.add('open');
+  }
+  window.pfToggleFaq = pfToggleFaq;
+
+</script>
+
+
+{% schema %}
+{
+  "name": "Lesure FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "FAQ"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "You asked."
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "We answered."
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro Text"
+    },
+    {
+      "type": "text",
+      "id": "contact_text",
+      "label": "Contact Info",
+      "default": "hello@lesure.com — reply in 24h"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lesure FAQ"
+    }
+  ]
+}
+{% endschema %}

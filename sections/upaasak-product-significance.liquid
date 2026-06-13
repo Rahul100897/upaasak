@@ -1,0 +1,79 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-sig" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    <div class="u-sig__grid">
+      <div class="u-sig__media" data-reveal="left">
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.heading | escape }}" loading="lazy" width="800" height="800">
+        {% elsif product != blank and product.featured_image != blank %}
+          <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}" loading="lazy" width="800" height="800">
+        {% else %}
+          <div style="position:absolute;inset:0;display:grid;place-items:center;color:var(--u-maroon);font-family:var(--u-font-display);font-size:7rem;opacity:.5;">ॐ</div>
+        {% endif %}
+      </div>
+
+      <div class="u-sig__content" data-reveal="right">
+        {% if section.settings.eyebrow != blank %}<span class="u-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+        <h2 class="u-title">{{ section.settings.heading }}</h2>
+        {% if section.settings.body != blank %}<div class="u-lead">{{ section.settings.body }}</div>{% endif %}
+
+        {% if section.blocks.size > 0 %}
+          <div class="u-sig__facts">
+            {% for block in section.blocks %}
+              <div class="u-fact" {{ block.shopify_attributes }}>
+                <span>{{ block.settings.label }}</span>
+                <strong>{{ block.settings.value }}</strong>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.mantra != blank %}
+          <div class="u-sig__mantra">
+            <small>{{ section.settings.mantra_label }}</small>
+            <p>{{ section.settings.mantra }}</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Product Significance",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image (defaults to product image)" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Spiritual Significance" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The Sacred Meaning of This Bead" },
+    { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Each Mukhi (face) of a Rudraksha carries its own ruling deity, planet and blessing. Worn close to the skin, it is believed to balance the chakras, steady the mind and invite the grace it represents into your life.</p>" },
+    { "type": "header", "content": "Mantra" },
+    { "type": "text", "id": "mantra_label", "label": "Mantra label", "default": "Beej Mantra" },
+    { "type": "text", "id": "mantra", "label": "Mantra", "default": "॥ ॐ नमः शिवाय ॥" }
+  ],
+  "blocks": [
+    {
+      "type": "fact",
+      "name": "Fact",
+      "limit": 6,
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Ruling Deity" },
+        { "type": "text", "id": "value", "label": "Value", "default": "Lord Shiva" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Product Significance",
+      "blocks": [
+        { "type": "fact", "settings": { "label": "Ruling Deity", "value": "Lord Shiva" } },
+        { "type": "fact", "settings": { "label": "Ruling Planet", "value": "Jupiter" } },
+        { "type": "fact", "settings": { "label": "Chakra", "value": "Vishuddhi" } },
+        { "type": "fact", "settings": { "label": "Origin", "value": "Nepal" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

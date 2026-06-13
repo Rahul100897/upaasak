@@ -1,0 +1,42 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-marquee" data-section-id="{{ section.id }}" aria-label="Announcements">
+  <div class="u-marquee__track">
+    {% for i in (1..2) %}
+      <div class="u-marquee__group" {% if i == 2 %}aria-hidden="true"{% endif %}>
+        {% for block in section.blocks %}
+          <span class="u-marquee__item" {{ block.shopify_attributes }}><span class="u-om">ॐ</span>{{ block.settings.text }}</span>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Marquee",
+  "tag": "section",
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Marquee item",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Authentic & Energized" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Marquee",
+      "blocks": [
+        { "type": "item", "settings": { "text": "100% Original Rudraksha" } },
+        { "type": "item", "settings": { "text": "Lab Certified Authenticity" } },
+        { "type": "item", "settings": { "text": "Energized with Vedic Mantras" } },
+        { "type": "item", "settings": { "text": "Free Shipping Across India" } },
+        { "type": "item", "settings": { "text": "Cash on Delivery Available" } },
+        { "type": "item", "settings": { "text": "Easy 7-Day Returns" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

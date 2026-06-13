@@ -1,0 +1,374 @@
+{% comment %}
+  Section: perrch-how-it-works.liquid
+  "How It Works" — 3-step visual section for Shopify Horizon theme
+{% endcomment %}
+
+<section
+  class="perrch-hiw-section"
+  id="perrch-hiw-{{ section.id }}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+  "
+>
+
+  <!-- Header -->
+  <div class="perrch-hiw-header">
+    <h2 class="perrch-hiw-heading">
+      {{ section.settings.heading_black }}
+      <span class="perrch-hiw-heading--gold">{{ section.settings.heading_gold }}</span>
+    </h2>
+    {% if section.settings.subheading != blank %}
+      <p class="perrch-hiw-subheading">{{ section.settings.subheading }}</p>
+    {% endif %}
+  </div>
+
+  <!-- Steps Grid -->
+  <div class="perrch-hiw-grid">
+    {% for block in section.blocks %}
+      {% if block.type == 'step' %}
+        {%- assign step_num = forloop.index -%}
+        <div class="perrch-hiw-card" {{ block.shopify_attributes }}>
+
+          <!-- Image -->
+          <div class="perrch-hiw-img-wrap">
+            {% if block.settings.image != blank %}
+              <img
+                src="{{ block.settings.image | image_url: width: 900 }}"
+                alt="{{ block.settings.title | escape }}"
+                loading="lazy"
+                class="perrch-hiw-img"
+                width="900"
+                height="675"
+              >
+            {% else %}
+              <div class="perrch-hiw-img-placeholder">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              </div>
+            {% endif %}
+          </div>
+
+          <!-- Step Body -->
+          <div class="perrch-hiw-body">
+            <div class="perrch-hiw-step-row">
+              <span class="perrch-hiw-step-num">{{ step_num }}</span>
+              <h3 class="perrch-hiw-step-title">{{ block.settings.title }}</h3>
+            </div>
+            {% if block.settings.description != blank %}
+              <p class="perrch-hiw-step-desc">{{ block.settings.description }}</p>
+            {% endif %}
+          </div>
+
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+</section>
+
+{% stylesheet %}
+/* ============================================================
+   PERRCH HOW IT WORKS SECTION
+   ============================================================ */
+
+  .perrch-hiw-section {
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* ---------- Header ---------- */
+  .perrch-hiw-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .perrch-hiw-heading {
+      font-size: 36px;
+      font-weight: 500;
+      color: #000;
+      letter-spacing: -.02em;
+      line-height: 130%;
+      margin-bottom: 4px;
+      margin-top: 0px;
+      display: block;
+  }
+
+  .perrch-hiw-heading--gold {
+    color: #c8a84b;
+  }
+
+.perrch-hiw-subheading {
+    font-size: 18px;
+    color: #3d3d3d;
+    margin: 0;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+  /* ---------- Grid ---------- */
+  .perrch-hiw-grid {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: start;
+  }
+
+  @media (max-width: 900px) {
+    .perrch-hiw-grid {
+      gap: 16px;
+    }
+  }
+
+  @media (min-width: 901px) and (max-width: 1100px) {
+    .perrch-hiw-grid {
+      gap: 16px;
+    }
+  }
+
+  /* ---------- Card ---------- */
+  .perrch-hiw-card {
+      border: 1px dashed #cfac78;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      max-width: 330px;
+      transition: box-shadow .25s ease, transform .25s ease;
+      width: 100%;
+  }
+
+  .perrch-hiw-card:hover {
+    box-shadow: 0 8px 28px rgba(0,0,0,0.09);
+    transform: translateY(-3px);
+  }
+
+  /* ---------- Image ---------- */
+  .perrch-hiw-img-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #ede8df;
+    flex-shrink: 0;
+  }
+
+  .perrch-hiw-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .perrch-hiw-card:hover .perrch-hiw-img {
+    transform: scale(1.04);
+  }
+
+  .perrch-hiw-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    background: #f0ece4;
+  }
+
+  /* ---------- Body ---------- */
+  .perrch-hiw-body {
+    padding: 20px 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* ---------- Step Row ---------- */
+  .perrch-hiw-step-row {
+    display: flex;
+    align-items: center;
+  }
+
+  .perrch-hiw-step-num {
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed #cfac78;
+      font-weight: 400;
+      font-size: 20px;
+      color: #3d3d3d;
+      flex-shrink: 0;
+  }
+
+  .perrch-hiw-step-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  /* ---------- Description ---------- */
+  .perrch-hiw-step-desc {
+      font-size: 12px;
+      line-height: 1.4;
+      color: #3d3d3d;
+      margin-bottom: 0;
+      margin-top: 2px;
+  }
+
+  @media (max-width: 767px) {
+  .perrch-hiw-section {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+
+    .perrch-hiw-step-title {
+      font-size: 16px;
+    }
+
+    .perrch-hiw-step-desc {
+      padding-left: 0;
+    }
+    .perrch-hiw-card {
+        max-width: unset;
+    }
+    .perrch-hiw-grid {
+        flex-direction: column;
+        gap: 24px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "How It Works",
+  "tag": "section",
+  "class": "perrch-hiw-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading_black",
+      "label": "Heading (bold black part)",
+      "default": "How"
+    },
+    {
+      "type": "text",
+      "id": "heading_gold",
+      "label": "Heading (gold part)",
+      "default": "It Works"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Learn its setup in three easy steps"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Step image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Step title",
+          "default": "Clamp to Your Desk Edge"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Step description",
+          "default": "Slide the steel clamp onto any desk, windowsill, or bed frame. Tighten until secure."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How It Works",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "Clamp to Your Desk Edge",
+            "description": "Slide the steel clamp onto any desk, windowsill, or bed frame. Tighten until secure."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Attach the Metal Frame",
+            "description": "Fit the cover onto the frame first, then snap the two pieces together — much easier that way."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Introduce Your Cat",
+            "description": "Set your cat inside or let them find it. Most claim it within the hour."
+          }
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}

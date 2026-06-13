@@ -1,0 +1,299 @@
+{% stylesheet %}
+  .features-section {
+    background-color: #ffffff;
+    padding: 60px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .features-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+  }
+
+  .feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .feature-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+  }
+
+  .feature-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .feature-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .feature-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .feature-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .feature-description {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    .features-section {
+      padding: 50px 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 35px;
+    }
+
+    .features-section {
+      padding: 40px 15px;
+    }
+
+    .feature-title {
+      font-size: 18px;
+    }
+
+    .feature-description {
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .features-grid {
+      gap: 25px;
+    }
+
+    .features-section {
+      padding: 30px 15px;
+    }
+
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+    }
+
+    .feature-title {
+      font-size: 16px;
+    }
+
+    .feature-description {
+      font-size: 12px;
+    }
+  }
+{% endstylesheet %}
+
+<div class="features-section">
+  <div class="features-container">
+    <div class="features-grid">
+      <!-- Feature 1 -->
+      <div class="feature-item">
+        <div class="feature-icon">
+          {% if section.settings.feature1_icon %}
+            {{ section.settings.feature1_icon | image_url: width: 120 | image_tag: class: 'feature-icon-img' }}
+          {% else %}
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.13v-5.36c0-.87-.46-1.66-1.19-2.09l-8.4-5.32a2.5 2.5 0 0 0-2.82 0L2.19 3.68C1.46 4.11 1 4.9 1 5.77v5.36c0 .87.46 1.66 1.19 2.09l8.4 5.32a2.5 2.5 0 0 0 2.82 0l8.4-5.32c.73-.43 1.19-1.22 1.19-2.09Z"/>
+            </svg>
+          {% endif %}
+        </div>
+        <div class="feature-content">
+          <h3 class="feature-title">{{ section.settings.feature1_title }}</h3>
+          <p class="feature-description">{{ section.settings.feature1_description }}</p>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-item">
+        <div class="feature-icon">
+          {% if section.settings.feature2_icon %}
+            {{ section.settings.feature2_icon | image_url: width: 120 | image_tag: class: 'feature-icon-img' }}
+          {% else %}
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          {% endif %}
+        </div>
+        <div class="feature-content">
+          <h3 class="feature-title">{{ section.settings.feature2_title }}</h3>
+          <p class="feature-description">{{ section.settings.feature2_description }}</p>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-item">
+        <div class="feature-icon">
+          {% if section.settings.feature3_icon %}
+            {{ section.settings.feature3_icon | image_url: width: 120 | image_tag: class: 'feature-icon-img' }}
+          {% else %}
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 4v6h6M23 20v-6h-6"/>
+              <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22-4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+            </svg>
+          {% endif %}
+        </div>
+        <div class="feature-content">
+          <h3 class="feature-title">{{ section.settings.feature3_title }}</h3>
+          <p class="feature-description">{{ section.settings.feature3_description }}</p>
+        </div>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-item">
+        <div class="feature-icon">
+          {% if section.settings.feature4_icon %}
+            {{ section.settings.feature4_icon | image_url: width: 120 | image_tag: class: 'feature-icon-img' }}
+          {% else %}
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+            </svg>
+          {% endif %}
+        </div>
+        <div class="feature-content">
+          <h3 class="feature-title">{{ section.settings.feature4_title }}</h3>
+          <p class="feature-description">{{ section.settings.feature4_description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Features Section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Feature 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature1_icon",
+      "label": "Feature 1 Icon (or use default)"
+    },
+    {
+      "type": "text",
+      "id": "feature1_title",
+      "label": "Feature 1 Title",
+      "default": "Free Shipping"
+    },
+    {
+      "type": "textarea",
+      "id": "feature1_description",
+      "label": "Feature 1 Description",
+      "default": "Free Shipping On All US Order Or Order Above $200"
+    },
+    {
+      "type": "header",
+      "content": "Feature 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature2_icon",
+      "label": "Feature 2 Icon (or use default)"
+    },
+    {
+      "type": "text",
+      "id": "feature2_title",
+      "label": "Feature 2 Title",
+      "default": "Support 24/7"
+    },
+    {
+      "type": "textarea",
+      "id": "feature2_description",
+      "label": "Feature 2 Description",
+      "default": "Contact Us 24 Hours A Day, 7 Days A Week"
+    },
+    {
+      "type": "header",
+      "content": "Feature 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature3_icon",
+      "label": "Feature 3 Icon (or use default)"
+    },
+    {
+      "type": "text",
+      "id": "feature3_title",
+      "label": "Feature 3 Title",
+      "default": "30 Days Return"
+    },
+    {
+      "type": "textarea",
+      "id": "feature3_description",
+      "label": "Feature 3 Description",
+      "default": "Simply Return It Within 30 Days For An Exchange"
+    },
+    {
+      "type": "header",
+      "content": "Feature 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature4_icon",
+      "label": "Feature 4 Icon (or use default)"
+    },
+    {
+      "type": "text",
+      "id": "feature4_title",
+      "label": "Feature 4 Title",
+      "default": "100% Payment Secure"
+    },
+    {
+      "type": "textarea",
+      "id": "feature4_description",
+      "label": "Feature 4 Description",
+      "default": "We Ensure Secure Payment With PEV"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Features Section"
+    }
+  ]
+}
+{% endschema %}

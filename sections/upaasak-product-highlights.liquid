@@ -1,0 +1,58 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-phl" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    <div class="u-phl__grid">
+      {% for block in section.blocks %}
+        <div class="u-phl__item" data-reveal style="--d:{{ forloop.index0 | times: 80 }}ms" {{ block.shopify_attributes }}>
+          <span class="u-phl__icon">{% render 'upaasak-icon', icon: block.settings.icon %}</span>
+          <div>
+            <h4>{{ block.settings.title }}</h4>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Product Highlights",
+  "tag": "section",
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Highlight",
+      "settings": [
+        {
+          "type": "select", "id": "icon", "label": "Icon", "default": "certificate",
+          "options": [
+            { "value": "certificate", "label": "Certificate" },
+            { "value": "om", "label": "Om" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "truck", "label": "Shipping" },
+            { "value": "return", "label": "Returns" },
+            { "value": "lock", "label": "Secure" },
+            { "value": "gift", "label": "Gift" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Lab Certified" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Certificate included" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Product Highlights",
+      "blocks": [
+        { "type": "item", "settings": { "icon": "certificate", "title": "Lab Certified", "text": "Authenticity guaranteed" } },
+        { "type": "item", "settings": { "icon": "om", "title": "Energized", "text": "Abhimantrit before dispatch" } },
+        { "type": "item", "settings": { "icon": "truck", "title": "Free Shipping", "text": "COD available pan-India" } },
+        { "type": "item", "settings": { "icon": "return", "title": "Easy Returns", "text": "7-day hassle-free returns" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

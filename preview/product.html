@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Upaasak — Product (Preview)</title>
+<link rel="stylesheet" href="../assets/upaasak.css">
+<style>
+  body { margin: 0; background: var(--u-ivory); }
+  .pv-head { position: sticky; top: 0; z-index: 50; background: rgba(251,246,236,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--u-line); }
+  .pv-head__in { max-width: var(--u-maxw); margin: 0 auto; padding: 16px clamp(18px,5vw,64px); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .pv-logo { font-family: var(--u-font-display); font-weight: 700; font-size: 1.6rem; color: var(--u-maroon); display:flex; align-items:center; gap:10px; }
+  .pv-logo .u-om { font-size: 1.7rem; }
+  .pv-nav { display: flex; gap: 28px; font-family: var(--u-font-label); letter-spacing:.08em; font-size: .8rem; text-transform: uppercase; color: var(--u-ink); }
+  .pv-nav a { color: inherit; text-decoration: none; }
+  .pv-foot { background: var(--u-charcoal); color: #e9dcc6; text-align:center; padding: 40px 20px; }
+  .pv-foot .u-om { color: var(--u-gold); font-size: 1.6rem; }
+  /* native-style product top (theme renders this; shown for context) */
+  .pdp { background: var(--u-paper); padding-block: clamp(32px,5vw,56px); }
+  .pdp__grid { max-width: var(--u-maxw); margin:0 auto; padding-inline: clamp(18px,5vw,64px); display:grid; grid-template-columns: 1fr 1fr; gap: clamp(28px,5vw,64px); align-items:flex-start; }
+  .pdp__gallery { display:grid; grid-template-columns: 64px 1fr; gap: 14px; }
+  .pdp__thumbs { display:flex; flex-direction:column; gap:10px; }
+  .pdp__thumb { aspect-ratio:1; border-radius:12px; overflow:hidden; border:1px solid var(--u-line); background:var(--u-cream); cursor:pointer; }
+  .pdp__thumb.is-active { border-color: var(--u-gold); }
+  .pdp__main-img { aspect-ratio:1; border-radius:var(--u-radius-lg); overflow:hidden; border:1px solid var(--u-gold-line); background:linear-gradient(160deg,#f3e3c8,#e7d0ad); box-shadow: var(--u-shadow); }
+  .pdp__crumb { font-family:var(--u-font-label); letter-spacing:.06em; font-size:.74rem; text-transform:uppercase; color:var(--u-muted); margin:0 0 14px; }
+  .pdp__title { font-family:var(--u-font-display); font-weight:600; font-size: clamp(2rem,4vw,2.9rem); line-height:1.08; color:var(--u-charcoal); margin:0 0 14px; }
+  .pdp__rating { display:flex; align-items:center; gap:10px; font-size:.85rem; color:var(--u-muted); margin-bottom:18px; }
+  .pdp__price { display:flex; align-items:baseline; gap:12px; margin-bottom:20px; }
+  .pdp__price .now { font-family:var(--u-font-display); font-size:2rem; font-weight:700; color:var(--u-maroon); }
+  .pdp__price .was { text-decoration:line-through; color:var(--u-muted); }
+  .pdp__price .save { background:var(--u-maroon-wash); color:var(--u-maroon); font-size:.74rem; padding:4px 10px; border-radius:999px; font-weight:600; }
+  .pdp__desc { color:var(--u-muted); line-height:1.7; margin-bottom:24px; }
+  .pdp__qty { display:flex; gap:14px; margin-bottom:18px; }
+  .pdp__stepper { display:flex; align-items:center; border:1px solid var(--u-line); border-radius:var(--u-radius-pill); overflow:hidden; }
+  .pdp__stepper button { width:44px; height:48px; border:0; background:#fff; font-size:1.2rem; cursor:pointer; color:var(--u-maroon); }
+  .pdp__stepper span { width:40px; text-align:center; }
+  .pdp__buy { display:grid; gap:12px; margin-bottom:22px; }
+  .pdp__meta { display:flex; flex-wrap:wrap; gap:18px; font-size:.82rem; color:var(--u-muted); border-top:1px solid var(--u-line); padding-top:18px; }
+  .pdp__meta b { color:var(--u-ink); }
+  @media (max-width:860px){ .pdp__grid{ grid-template-columns:1fr; } .pv-nav{ display:none; } }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="beadG" cx="38%" cy="32%" r="75%"><stop offset="0%" stop-color="#a8543a"/><stop offset="45%" stop-color="#7b2c1e"/><stop offset="100%" stop-color="#3d130e"/></radialGradient>
+    <linearGradient id="threadG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#caa24b"/><stop offset="100%" stop-color="#8a6a26"/></linearGradient>
+  </defs>
+  <symbol id="bead" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="44" fill="url(#beadG)"/>
+    <g stroke="#2c0d08" stroke-width="1.4" fill="none" opacity=".55" stroke-linecap="round">
+      <path d="M50 8 C 40 30, 40 70, 50 92"/><path d="M50 8 C 62 30, 62 70, 50 92"/><path d="M50 8 C 28 32, 30 68, 50 92"/><path d="M50 8 C 74 32, 70 68, 50 92"/>
+    </g>
+    <ellipse cx="38" cy="34" rx="12" ry="8" fill="#fff" opacity=".18"/>
+  </symbol>
+</svg>
+
+<header class="pv-head">
+  <div class="pv-head__in">
+    <div class="pv-logo"><span class="u-om">ॐ</span> UPAASAK</div>
+    <nav class="pv-nav"><a href="index.html">Home</a><a href="#">Rudraksha</a><a href="#">Malas</a><a href="#">Bracelets</a><a href="#">Our Story</a></nav>
+    <div style="color:var(--u-maroon);display:flex;gap:16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 7h13l-1.5 9h-10z"/><path d="M6 7 5 3H3"/><circle cx="9" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg></div>
+  </div>
+</header>
+
+<!-- ===== Native-style product top (theme renders this part) ===== -->
+<section class="pdp">
+  <div class="pdp__grid">
+    <div class="pdp__gallery">
+      <div class="pdp__thumbs">
+        <div class="pdp__thumb is-active"><svg viewBox="0 0 100 100" style="width:100%"><rect width="100" height="100" fill="#e7d0ad"/><use href="#bead" x="22" y="22" width="56" height="56"/></svg></div>
+        <div class="pdp__thumb"><svg viewBox="0 0 100 100" style="width:100%"><rect width="100" height="100" fill="#dcc09a"/><use href="#bead" x="28" y="28" width="44" height="44"/></svg></div>
+        <div class="pdp__thumb"><svg viewBox="0 0 100 100" style="width:100%"><rect width="100" height="100" fill="#e7d0ad"/><use href="#bead" x="18" y="18" width="64" height="64"/></svg></div>
+      </div>
+      <div class="pdp__main-img"><svg viewBox="0 0 100 100" style="width:100%;display:block"><use href="#bead" x="14" y="14" width="72" height="72"/></svg></div>
+    </div>
+    <div class="pdp__details">
+      <p class="pdp__crumb">Home / Bracelets / 2 Mukhi</p>
+      <h1 class="pdp__title">2 Mukhi &amp; Red Sandalwood Bracelet</h1>
+      <div class="pdp__rating"><span class="u-rating"><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg></span> 4.9 · 1,284 reviews</div>
+      <div class="pdp__price"><span class="now">₹60.00</span><span class="was">₹90.00</span><span class="save">Save 33%</span></div>
+      <p class="pdp__desc">A sacred 2 Mukhi Rudraksha paired with fragrant red sandalwood — worn for harmony in relationships, emotional balance and the blessings of Ardhanarishvara. Lab-certified, energized and ready to wear.</p>
+      <div class="pdp__qty">
+        <div class="pdp__stepper"><button type="button">−</button><span>1</span><button type="button">+</button></div>
+      </div>
+      <div class="pdp__buy">
+        <a href="#" class="u-btn u-btn--primary" style="width:100%">Add to Cart — ₹60</a>
+        <a href="#" class="u-btn u-btn--gold" style="width:100%">Buy it Now</a>
+      </div>
+      <div class="pdp__meta"><span><b>✓ In stock</b> · ships in 24h</span><span><b>Free</b> shipping</span><span><b>COD</b> available</span><span><b>7-day</b> returns</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEW: Highlights bar ===== -->
+<section class="u-section u-phl">
+  <div class="u-wrap">
+    <div class="u-phl__grid">
+      <div class="u-phl__item" data-reveal style="--d:0ms"><span class="u-phl__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M9 13.5 7.5 21l4.5-2.4L16.5 21 15 13.5"/><path d="m9.6 9 1.6 1.6L14.6 7"/></svg></span><div><h4>Lab Certified</h4><p>Authenticity guaranteed</p></div></div>
+      <div class="u-phl__item" data-reveal style="--d:80ms"><span class="u-phl__icon"><svg viewBox="0 0 24 24" fill="currentColor"><text x="12" y="19" text-anchor="middle" font-size="20" font-family="Marcellus, serif">ॐ</text></svg></span><div><h4>Energized</h4><p>Abhimantrit before dispatch</p></div></div>
+      <div class="u-phl__item" data-reveal style="--d:160ms"><span class="u-phl__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5h10v9H3zM13 9.5h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span><div><h4>Free Shipping</h4><p>COD available pan-India</p></div></div>
+      <div class="u-phl__item" data-reveal style="--d:240ms"><span class="u-phl__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9a8 8 0 1 1-1 4"/><path d="M4 4v5h5"/></svg></span><div><h4>Easy Returns</h4><p>7-day hassle-free returns</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEW: Significance ===== -->
+<section class="u-section u-sig">
+  <div class="u-wrap">
+    <div class="u-sig__grid">
+      <div class="u-sig__media" data-reveal="left"><svg viewBox="0 0 100 100" style="position:absolute;inset:0;width:100%;height:100%"><use href="#bead" x="14" y="14" width="72" height="72"/></svg></div>
+      <div class="u-sig__content" data-reveal="right">
+        <span class="u-eyebrow">Spiritual Significance</span>
+        <h2 class="u-title">The Sacred Meaning of This Bead</h2>
+        <div class="u-lead"><p>Each Mukhi (face) of a Rudraksha carries its own ruling deity, planet and blessing. Worn close to the skin, it is believed to balance the chakras, steady the mind and invite the grace it represents into your life.</p></div>
+        <div class="u-sig__facts">
+          <div class="u-fact"><span>Ruling Deity</span><strong>Ardhanarishvara</strong></div>
+          <div class="u-fact"><span>Ruling Planet</span><strong>Moon</strong></div>
+          <div class="u-fact"><span>Chakra</span><strong>Swadhisthana</strong></div>
+          <div class="u-fact"><span>Origin</span><strong>Nepal</strong></div>
+        </div>
+        <div class="u-sig__mantra"><small>Beej Mantra</small><p>॥ ओं नमः ॥</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEW: Wear & Care ===== -->
+<section class="u-section u-care">
+  <div class="u-wrap">
+    <div class="u-section-head is-centered"><span class="u-eyebrow is-centered" data-reveal>Rituals</span><h2 class="u-title" data-reveal style="--d:80ms">How to Wear &amp; Care for Your Mala</h2><p class="u-lead" data-reveal style="--d:160ms">A few simple practices to keep your Rudraksha potent, beautiful and blessed for years.</p></div>
+    <div class="u-care__grid">
+      <div class="u-care__card" data-reveal style="--d:0ms"><div class="u-care__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></div><h3>Activate It</h3><p>On a Monday morning, rinse with clean water and chant the beej mantra 9 times before first wear.</p></div>
+      <div class="u-care__card" data-reveal style="--d:90ms"><div class="u-care__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1V4.5a1.5 1.5 0 0 1 3 0V11m0-.5v-4a1.5 1.5 0 0 1 3 0V13c0 4-2.5 7.5-6.5 7.5S5 17.5 5 14v-2a1.5 1.5 0 0 1 3 0"/></svg></div><h3>Wear It Right</h3><p>Use for japa with your right hand, crossing the Sumeru bead — never over it.</p></div>
+      <div class="u-care__card" data-reveal style="--d:180ms"><div class="u-care__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c0-8 6-14 16-14 0 10-6 16-14 16-2 0-2-2-2-2Z"/><path d="M9 15c2.5-3 5-4.5 8-5.5"/></svg></div><h3>Keep It Pure</h3><p>Avoid harsh chemicals, perfumes and excess moisture. Remove before bathing.</p></div>
+      <div class="u-care__card" data-reveal style="--d:270ms"><div class="u-care__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M5 5l1.8 1.8M17.2 17.2 19 19M19 5l-1.8 1.8M6.8 17.2 5 19"/></svg></div><h3>Recharge It</h3><p>Oil the beads occasionally and let them rest in sunlight to retain lustre.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEW: Promise ===== -->
+<section class="u-section u-promise">
+  <div class="u-wrap">
+    <div class="u-section-head is-centered"><span class="u-eyebrow is-centered" data-reveal>The Upaasak Promise</span><h2 class="u-title" data-reveal style="--d:80ms">Buy With Complete Confidence</h2><p class="u-lead" data-reveal style="--d:160ms">Every order is backed by our authenticity guarantee and arrives ready to bless.</p></div>
+    <div class="u-promise__grid">
+      <div class="u-promise__item" data-reveal style="--d:0ms"><div class="u-promise__seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M9 13.5 7.5 21l4.5-2.4L16.5 21 15 13.5"/><path d="m9.6 9 1.6 1.6L14.6 7"/></svg></div><h3>Certificate of Authenticity</h3><p>A lab-verified certificate accompanies every bead.</p></div>
+      <div class="u-promise__item" data-reveal style="--d:100ms"><div class="u-promise__seal"><svg viewBox="0 0 24 24" fill="currentColor"><text x="12" y="19" text-anchor="middle" font-size="20" font-family="Marcellus, serif">ॐ</text></svg></div><h3>Energized &amp; Blessed</h3><p>Abhimantrit with the appropriate Vedic mantras.</p></div>
+      <div class="u-promise__item" data-reveal style="--d:200ms"><div class="u-promise__seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="8.5" width="17" height="4" rx="1"/><path d="M5 12.5v8h14v-8M12 8.5v12"/></svg></div><h3>Gift-Ready Packaging</h3><p>Arrives in a premium pouch with a care guide.</p></div>
+      <div class="u-promise__item" data-reveal style="--d:300ms"><div class="u-promise__seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 4.6 3.2 8.2 7.5 10 4.3-1.8 7.5-5.4 7.5-10v-6L12 2.5Z"/><path d="m9 12 2 2 4-4.5"/></svg></div><h3>Money-Back Guarantee</h3><p>Not satisfied? Return within 7 days, no questions.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEW: Reviews ===== -->
+<section class="u-section u-rev">
+  <div class="u-wrap">
+    <div class="u-section-head is-centered"><span class="u-eyebrow is-centered" data-reveal>Verified Reviews</span><h2 class="u-title" data-reveal style="--d:80ms">What Devotees Are Saying</h2></div>
+    <div class="u-rev__summary" data-reveal>
+      <div class="u-rev__score"><strong>4.9</strong><div class="u-rating"><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg></div><span>1,284 reviews</span></div>
+      <div class="u-rev__bars">
+        <div class="u-rev__bar"><span>5★</span><span class="u-rev__bar-track"><span class="u-rev__bar-fill" data-pct="92"></span></span></div>
+        <div class="u-rev__bar"><span>4★</span><span class="u-rev__bar-track"><span class="u-rev__bar-fill" data-pct="6"></span></span></div>
+        <div class="u-rev__bar"><span>3★</span><span class="u-rev__bar-track"><span class="u-rev__bar-fill" data-pct="1"></span></span></div>
+        <div class="u-rev__bar"><span>2★</span><span class="u-rev__bar-track"><span class="u-rev__bar-fill" data-pct="1"></span></span></div>
+        <div class="u-rev__bar"><span>1★</span><span class="u-rev__bar-track"><span class="u-rev__bar-fill" data-pct="0"></span></span></div>
+      </div>
+    </div>
+    <div class="u-rev__grid">
+      <article class="u-rev__card" data-reveal style="--d:0ms"><div class="u-rev__head"><div class="u-rev__who"><div class="u-rev__av">R</div><div><div class="u-tml__name">Ravi K.</div><span class="u-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.4 2.4 4.6-5" stroke-linecap="round" stroke-linejoin="round"/></svg> Verified Buyer</span></div></div></div><div class="u-rating"><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg></div><p>Beautiful bead, clearly authentic. Came with a certificate and a lovely pouch. Wearing it daily now.</p></article>
+      <article class="u-rev__card" data-reveal style="--d:70ms"><div class="u-rev__head"><div class="u-rev__who"><div class="u-rev__av">S</div><div><div class="u-tml__name">Sneha P.</div><span class="u-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.4 2.4 4.6-5" stroke-linecap="round" stroke-linejoin="round"/></svg> Verified Buyer</span></div></div></div><div class="u-rating"><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg></div><p>I was nervous buying online but the quality exceeded my expectations. Feels genuinely energized.</p></article>
+      <article class="u-rev__card" data-reveal style="--d:140ms"><div class="u-rev__head"><div class="u-rev__who"><div class="u-rev__av">A</div><div><div class="u-tml__name">Arjun M.</div><span class="u-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.4 2.4 4.6-5" stroke-linecap="round" stroke-linejoin="round"/></svg> Verified Buyer</span></div></div></div><div class="u-rating"><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg></div><p>Fast delivery, premium packaging and great customer support. Will be ordering the 5 Mukhi next.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEW: FAQ ===== -->
+<section class="u-section u-faq">
+  <div class="u-wrap">
+    <div class="u-section-head is-centered"><span class="u-eyebrow is-centered" data-reveal>Good to Know</span><h2 class="u-title" data-reveal style="--d:80ms">Questions About This Mala</h2></div>
+    <div class="u-faq__list" data-reveal style="--d:140ms">
+      <div class="u-faq__item is-open"><button type="button" class="u-faq__q"><span>Is this Rudraksha original and certified?</span><span class="u-faq__icon" aria-hidden="true"></span></button><div class="u-faq__a" style="max-height:600px"><div class="u-faq__a-inner">Yes. This bead is 100% natural, lab-tested for authenticity and origin, and ships with a certificate.</div></div></div>
+      <div class="u-faq__item"><button type="button" class="u-faq__q"><span>Is it already energized?</span><span class="u-faq__icon" aria-hidden="true"></span></button><div class="u-faq__a"><div class="u-faq__a-inner">Every Upaasak Rudraksha is abhimantrit (energized) with the appropriate Vedic mantra before dispatch, so it's ready to wear.</div></div></div>
+      <div class="u-faq__item"><button type="button" class="u-faq__q"><span>How long will delivery take?</span><span class="u-faq__icon" aria-hidden="true"></span></button><div class="u-faq__a"><div class="u-faq__a-inner">Orders are dispatched within 24–48 hours and typically delivered in 3–7 days across India, with free shipping and COD available.</div></div></div>
+      <div class="u-faq__item"><button type="button" class="u-faq__q"><span>What if it doesn't feel right for me?</span><span class="u-faq__icon" aria-hidden="true"></span></button><div class="u-faq__a"><div class="u-faq__a-inner">You're covered by our 7-day, no-questions return policy. Reach out and we'll make it right.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="pv-foot">
+  <div class="u-om">ॐ</div>
+  <p style="font-family:var(--u-font-display);font-size:1.4rem;margin:8px 0 4px">UPAASAK</p>
+  <p style="opacity:.7;font-size:.85rem">Authentic · Certified · Energized Rudraksha — © Upaasak</p>
+</footer>
+
+<script src="../assets/upaasak.js"></script>
+</body>
+</html>

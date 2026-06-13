@@ -1,0 +1,144 @@
+{%- comment -%}
+  Trust Badges Section for Lesure PDP - With Color Schema
+{%- endcomment -%}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .badge-text strong {
+    color: {{ section.settings.color_title }};
+  }
+  #shopify-section-{{ section.id }} .badge-text span {
+    color: {{ section.settings.color_subtitle }};
+  }
+  #shopify-section-{{ section.id }} .badge-icon {
+    background-color: {{ section.settings.color_icon_bg }};
+  }
+  #shopify-section-{{ section.id }} .badge-icon svg {
+    stroke: {{ section.settings.color_icon_stroke }};
+    stroke-width: 3px;
+  }
+  #shopify-section-{{ section.id }} .trust-badges {
+    background-color: {{ section.settings.badges_bg }};
+  }
+
+
+  /* ── TRUST BADGES ── */
+.trust-badges{background:#f5f5f7;padding:20px 32px;}
+.badges-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:960px;margin:0 auto;}
+.badge-item{background:#fff;border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:9px;border:none;min-width:0;overflow:hidden;}
+.badge-icon{width:30px;height:30px;min-width:30px;border-radius:50%;background:var(--sage-lt);display:flex;align-items:center;justify-content:center;}
+.badge-icon svg{width:14px;height:14px;}
+.badge-text{min-width:0;overflow:hidden;}
+.badge-text strong{display:block;font-size:13px;font-weight:500;color:var(--black);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.badge-text span{font-size:12px;color:var(--muted);font-weight:300;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;}
+
+@media(max-width:640px){
+ /* trust badges 2-col, ellipsis */
+  .trust-badges{padding:16px;}
+  .badges-grid{grid-template-columns:1fr 1fr;gap:7px;}
+  .badge-item{padding:10px 12px;gap:7px;}
+  .badge-icon{width:26px;height:26px;min-width:26px;}
+  .badge-icon svg{width:12px;height:12px;}
+  .badge-text strong{font-size:10px;}
+  .badge-text span{font-size:9px;}
+} 
+  
+{%- endstyle -%}
+
+<div class="lesure-pdp-wrapper">
+  <div class="trust-badges">
+    <div class="badges-grid">
+      {%- for block in section.blocks -%}
+        <div class="badge-item" {{ block.shopify_attributes }}>
+          <div class="badge-icon">
+            {%- if block.settings.icon_svg != blank -%}
+              {{ block.settings.icon_svg }}
+            {%- else -%}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            {%- endif -%}
+          </div>
+          <div class="badge-text">
+            <strong>{{ block.settings.title }}</strong>
+            <span>{{ block.settings.subtitle }}</span>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Lesure Trust Badges",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Color Schema"
+    },
+    {
+      "type": "color",
+      "id": "badges_bg",
+      "label": "Section Background Color",
+      "default": "#f5f5f7"
+    },
+    {
+      "type": "color",
+      "id": "color_title",
+      "label": "Title Color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "color_subtitle",
+      "label": "Subtitle Color",
+      "default": "#6e6e73"
+    },
+    {
+      "type": "color",
+      "id": "color_icon_stroke",
+      "label": "Icon Stroke Color",
+      "default": "#2e6b4a"
+    },
+    {
+      "type": "color",
+      "id": "color_icon_bg",
+      "label": "Icon Background Color",
+      "default": "#f0f7f2"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lesure Trust Badges",
+      "blocks": [
+        { "type": "badge", "settings": { "title": "Free Shipping", "subtitle": "On all orders" } },
+        { "type": "badge", "settings": { "title": "30-Day Returns", "subtitle": "Risk-free trial" } },
+        { "type": "badge", "settings": { "title": "1-Year Warranty", "subtitle": "Quality guaranteed" } },
+        { "type": "badge", "settings": { "title": "Eco-Friendly", "subtitle": "Sustainable materials" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

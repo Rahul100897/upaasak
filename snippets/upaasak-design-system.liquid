@@ -1,0 +1,9 @@
+{%- comment -%}
+  Upaasak luxury design system loader.
+  Render at the top of every upaasak-* section: {% render 'upaasak-design-system' %}
+  Loads the shared stylesheet + interactions once (JS is idempotent / re-scans safely).
+{%- endcomment -%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{{ 'upaasak.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'upaasak.js' | asset_url }}" defer></script>

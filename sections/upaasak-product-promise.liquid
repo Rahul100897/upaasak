@@ -1,0 +1,65 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-promise" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    <div class="u-section-head is-centered">
+      {% if section.settings.eyebrow != blank %}<span class="u-eyebrow is-centered" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2 class="u-title" data-reveal style="--d:80ms">{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}<p class="u-lead" data-reveal style="--d:160ms">{{ section.settings.subheading }}</p>{% endif %}
+    </div>
+
+    <div class="u-promise__grid">
+      {% for block in section.blocks %}
+        <div class="u-promise__item" data-reveal style="--d:{{ forloop.index0 | times: 100 }}ms" {{ block.shopify_attributes }}>
+          <div class="u-promise__seal">{% render 'upaasak-icon', icon: block.settings.icon %}</div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Promise",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Upaasak Promise" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Buy With Complete Confidence" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Every order is backed by our authenticity guarantee and arrives ready to bless." }
+  ],
+  "blocks": [
+    {
+      "type": "seal",
+      "name": "Seal",
+      "settings": [
+        {
+          "type": "select", "id": "icon", "label": "Icon", "default": "certificate",
+          "options": [
+            { "value": "certificate", "label": "Certificate" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "om", "label": "Om" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "sparkle", "label": "Sparkle" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Certificate of Authenticity" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "A lab-verified certificate accompanies every bead." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Promise",
+      "blocks": [
+        { "type": "seal", "settings": { "icon": "certificate", "title": "Certificate of Authenticity", "text": "A lab-verified certificate accompanies every bead." } },
+        { "type": "seal", "settings": { "icon": "om", "title": "Energized & Blessed", "text": "Abhimantrit with the appropriate Vedic mantras." } },
+        { "type": "seal", "settings": { "icon": "gift", "title": "Gift-Ready Packaging", "text": "Arrives in a premium pouch with a care guide." } },
+        { "type": "seal", "settings": { "icon": "shield", "title": "Money-Back Guarantee", "text": "Not satisfied? Return within 7 days, no questions." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

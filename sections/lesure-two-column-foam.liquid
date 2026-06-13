@@ -1,0 +1,634 @@
+{%- comment -%}
+  2-Column Section: Foam
+{%- endcomment -%}
+
+{%- style -%}
+  .twocol {
+    border-top-color: {{ section.settings.color_border_top }};
+  }
+  .col-img img {
+    width: 100%;
+}
+  .col-img-v2 {
+    background: {{ section.settings.color_image_background }};
+  }
+  .col-img-v2 .iph {
+    background: {{ section.settings.color_image_placeholder_background }};
+    color: {{ section.settings.color_image_placeholder_text }};
+  }
+  .col-txt .slabel {
+    color: {{ section.settings.color_label }};
+  }
+  .col-txt h2 {
+    color: {{ section.settings.color_title }};
+  }
+  .col-txt p {
+    color: {{ section.settings.color_paragraph }};
+  }
+  .col-txt p strong {
+    color: {{ section.settings.color_strong_text }};
+  }
+  .proofbox {
+    background: {{ section.settings.color_proofbox_background }};
+    border-left-color: {{ section.settings.color_proofbox_border }};
+  }
+  .proofbox p {
+    color: {{ section.settings.color_proofbox_text }};
+  } 
+  .twocol.twocol--fs.twocol--reverse .col-img {order: 2;}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);}
+  .col-img{background:var(--cream);overflow:hidden;position:relative;padding-top:100%;}
+  .col-img .iph{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--sage);text-align:center;padding:32px;line-height:1.5;padding:0px !important;}
+  .col-txt{padding:72px 56px 72px 64px;display:flex;flex-direction:column;justify-content:center;}
+  .col-txt.bg{padding:72px 64px 72px 56px;}
+  .col-txt.bg{background:#fff;}
+  .col-txt h2{font-size:28px;font-weight:600;letter-spacing:-.3px;margin-bottom:0px;line-height:1.18;color: #111;}
+  .col-txt p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:0px;font-weight:300;}
+  .col-txt p strong{color:var(--black);font-weight:500;}
+  .col-txt p:last-child{margin-bottom:0;}
+  .proofbox{background:var(--sage-lt);border-left:2px solid var(--sage);padding:16px 20px;margin:16px 0;border-radius:0 6px 6px 0;}
+  .proofbox p{font-size:13px;color:var(--sage);line-height:1.7;margin:0;font-weight:400;}
+
+
+.vers-intro{
+  font-size:14px;
+  color:var(--muted);
+  font-weight:300;
+  line-height:1.7;
+  margin:0 0 20px;
+  max-width:540px;
+}
+.vers-acc{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+      margin-top: 30px;
+}
+.vers-item{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+  transition:border-color .25s ease,box-shadow .25s ease;
+}
+.vers-item.open{
+  border-color:var(--sage-lt);
+  box-shadow:0 4px 18px rgba(46,107,74,0.06);
+}
+.vers-q{
+  width:100%;
+  background:none;
+  border:none;
+  padding:11px 16px;
+  font-family:var(--f);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-align:left;
+  -webkit-tap-highlight-color:transparent;
+}
+    .vers-q-icon{
+      width:30px;height:30px;
+      min-width:30px;
+      border-radius:50%;
+      background: {{ section.settings.color_vers_q_icon_background }};
+      color: {{ section.settings.color_vers_q_icon_text }};
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:-.2px;
+      font-family:var(--f);
+      transition:background .25s ease,color .25s ease;
+    }
+    .vers-item.open .vers-q-icon{
+      background: {{ section.settings.color_vers_q_active_icon_background }};
+      color: {{ section.settings.color_vers_q_active_icon_text }};
+    }
+.vers-q-title{
+  flex:1;
+  font-size:14px;
+  font-weight:600;
+  color:var(--black);
+  letter-spacing:-.1px;
+  line-height:1.3;
+}
+.vers-q-chev{
+  width:22px;height:22px;
+  min-width:22px;
+  border-radius:50%;
+  background:#fafaf8;
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--muted);
+  transition:transform .3s ease,background .25s ease,border-color .25s ease,color .25s ease;
+  flex-shrink:0;
+}
+.vers-q-chev svg{width:10px;height:10px;}
+.vers-item.open .vers-q-chev{
+  transform:rotate(180deg);
+  background:var(--sage);
+  border-color:var(--sage);
+  color:#6f453e;
+}
+.vers-a{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .25s cubic-bezier(.4,0,.2,1);
+}
+.vers-a-inner{
+  padding:0 16px 12px 60px;       /* aligns with title (icon 30 + gap 14 + 16 padding = 60px) */
+  font-size:13px;
+  color:var(--muted);
+  font-weight:300;
+  line-height:1.7;
+}
+.vers-item.open .vers-a{max-height:200px;}
+
+/* TABLET */
+@media(max-width:960px){
+  .vers-q{padding:12px 14px;gap:12px;}
+  .vers-q-icon{width:32px;height:32px;min-width:32px;font-size:13px;}
+  .vers-q-title{font-size:13.5px;}
+  .vers-a-inner{padding:0 14px 12px 58px;font-size:12.5px;}
+}
+/* MOBILE */
+@media(max-width:640px){
+  .vers-intro{font-size:13px;line-height:1.6;margin-bottom:16px;}
+  .vers-acc{gap:8px;}
+  .vers-item{border-radius:12px;}
+  .vers-q{padding:11px 12px;gap:11px;}
+  .vers-q-icon{width:30px;height:30px;min-width:30px;font-size:12.5px;}
+  .vers-q-title{font-size:13.5px;}
+  .vers-q-chev{width:20px;height:20px;min-width:20px;}
+  .vers-q-chev svg{width:9px;height:9px;}
+  .vers-a-inner{padding:0 12px 11px 53px;font-size:12.5px;line-height:1.65;}
+}  
+
+/* ── 2-COL FULLSCREEN VARIANT (desktop only) */
+@media(min-width:961px){
+  .twocol--fs{
+    /* height:calc(100vh - 64px); */
+    border-top:1px solid var(--border);
+  }
+  .twocol--fs .col-img{
+    background:var(--off);
+    padding:0;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100%;
+    overflow:hidden;
+  }
+.twocol--fs .col-img .iph {
+        position: relative;
+        top: auto;
+        left: auto;
+        max-width: 500px !important;
+        aspect-ratio: 4 / 5;
+        max-width: none;
+        border-radius: 0;
+    }
+  .twocol--fs .col-txt{
+    display:grid;
+    place-content:center start;  /* vertically + horizontally place content as one block */
+    height:100%;
+    background:#fff !important;
+  }
+  .twocol--fs .col-txt > *{
+    max-width:540px;
+  }
+    .twocol--fs .col-txt > *:first-child{margin-top:0 !important;}
+    .twocol--fs .col-txt > *:last-child{margin-bottom:0 !important;}
+  }
+@media(max-width:960px){
+  .twocol{grid-template-columns:1fr;height:auto;}
+  .col-txt{padding:44px 32px;}
+  .col-txt h2{font-size:24px;}
+  .col-img .iph {
+        padding: 0px;
+    }
+}
+@media(max-width:640px){
+  .col-img{padding:0!important;padding-top:0!important;position:static;}
+  .col-img .iph{position:static;border-radius:0;aspect-ratio:1/1;height:auto;width:100%;}
+  .col-txt{padding:32px 20px;text-align:left!important;}
+  .col-txt h2{font-size:22px;text-align:left;letter-spacing:-.3px;}
+  .stats-eyebrow{font-size:14px;font-weight:600;letter-spacing:.3px;text-transform:none;color:var(--black);margin-bottom:28px;line-height:1.3;}
+  .col-txt p{text-align:left;font-size:13.5px;}
+  .slabel{text-align:left;}
+  .proofbox p{font-size:12.5px;}
+}
+
+@media(max-width:380px){
+  .col-txt h2{font-size:20px;}
+  .sec-intro h2{font-size:20px;}
+}
+
+.twocol--fs .col-img .iph img {
+    width: 100%;
+}
+/* Mobile image ordering — image always above text */
+@media(max-width:640px){
+  .twocol .col-img{order:1 !important;}
+  .twocol .col-txt{order:2 !important;}
+  .twocol .col-txt.bg{order:2 !important;}
+}
+
+
+
+/* Desktop: boxed image with breathing space */
+@media(min-width:961px){
+  .col-img{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:48px 40px;
+    background:var(--cream);
+  }
+  .col-img .iph{
+    position:static;
+    width:100%;
+    max-width:340px;
+    aspect-ratio:4/5;
+    border-radius:12px;
+  }
+  /* Restore padding-top trick only on mobile */
+}
+
+.twocol--fs .col-img video {
+    width: 100%;
+}
+.twocol--fs .video,
+.twocol--fs .image-fallback {
+  display: none !important;
+}
+
+/* Show rules */
+.twocol--fs .show-both {
+  display: flex !important;
+}
+
+@media (max-width: 767px) {
+  .twocol--fs .show-mobile {
+    display: flex !important;
+  }
+  .twocol--fs .show-desktop {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .twocol--fs .show-desktop {
+    display: flex !important;
+  }
+  .twocol--fs .show-mobile {
+    display: none !important;
+  }
+}
+
+{%- endstyle -%}
+
+
+
+<div class="twocol twocol--fs {% if section.settings.reverse_layout %}twocol--reverse{% endif %}">
+<div class="col-img">
+
+  {% assign show_video = false %}
+
+  {% if section.settings.video != blank %}
+    {% if section.settings.video_visibility != 'none' %}
+      {% assign show_video = true %}
+    {% endif %}
+  {% endif %}
+
+  {% if show_video %}
+
+    <!-- VIDEO -->
+    <div class="iph">
+      <div class="video 
+        {% if section.settings.video_visibility == 'mobile' %}show-mobile{% endif %}
+        {% if section.settings.video_visibility == 'desktop' %}show-desktop{% endif %}
+        {% if section.settings.video_visibility == 'both' %}show-both{% endif %}
+      ">
+        {{ section.settings.video | video_tag: 
+          autoplay: true, 
+          loop: true, 
+          muted: true, 
+          controls: false, 
+          playsinline: true,
+          poster: section.settings.image
+        }}
+      </div>
+    </div>
+
+    <!-- IMAGE FALLBACK -->
+    {% if section.settings.image != blank %}
+      <div class="iph image-fallback 
+        {% if section.settings.video_visibility == 'mobile' %}show-desktop{% endif %}
+        {% if section.settings.video_visibility == 'desktop' %}show-mobile{% endif %}
+      ">
+        <img 
+          src="{{ section.settings.image | image_url: width: 1000 }}" 
+          alt="{{ section.settings.image.alt | escape }}" 
+          loading="lazy">
+      </div>
+    {% endif %}
+
+  {% elsif section.settings.image != blank %}
+
+    <!-- ONLY IMAGE -->
+    <div class="iph">
+      <img 
+        src="{{ section.settings.image | image_url: width: 1000 }}" 
+        alt="{{ section.settings.image.alt | escape }}" 
+        loading="lazy">
+    </div>
+
+  {% else %}
+
+    <!-- PLACEHOLDER (IMPORTANT - your requirement) -->
+    <div class="iph">
+      {{ section.settings.image_placeholder_text }}
+    </div>
+
+  {% endif %}
+
+</div>
+  <div class="col-txt">
+    <span class="slabel">{{ section.settings.label }}</span>
+    <h2>{{ section.settings.title }}</h2>
+    {{ section.settings.content_richtext }}
+    {% if section.settings.proofbox_text != blank %}
+      <div class="proofbox"><p>{{ section.settings.proofbox_text }}</p></div>
+    {% endif %}
+
+    <ul class="vers-acc">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'accordion_item' -%}
+          <li class="vers-item">
+            <button class="vers-q" onclick="toggleVers(this)">
+              <span class="vers-q-icon">{{ forloop.index }}</span>
+              <span class="vers-q-title">{{ block.settings.title }}</span>
+              <span class="vers-q-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="vers-a"><div class="vers-a-inner">{{ block.settings.content_richtext }}</div></div>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+
+
+  </div>
+</div>
+
+
+<script>
+function toggleFaq(el) {
+  const item = el.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('#faqList .faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+function toggleBuyAcc(el) {
+  el.closest('.buy-acc-item').classList.toggle('open');
+}
+function toggleVers(el) {
+  el.closest('.vers-item').classList.toggle('open');
+}
+</script>
+
+{% schema %}
+{
+  "name": "2-Column: Foam",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Color Schema"
+    },
+    {
+      "type": "color",
+      "id": "color_border_top",
+      "label": "Border Top Color",
+      "default": "#e2ddd8"
+    },
+    {
+      "type": "color",
+      "id": "color_image_background",
+      "label": "Image Column Background Color",
+      "default": "#f5f2ee"
+    },
+    {
+      "type": "text",
+      "id": "color_image_placeholder_background",
+      "label": "Image Placeholder Background (CSS Gradient)",
+      "default": "linear-gradient(145deg,#daeae1,#bfd8cc)"
+    },
+    {
+      "type": "color",
+      "id": "color_image_placeholder_text",
+      "label": "Image Placeholder Text Color",
+      "default": "#2e6b4a"
+    },
+    {
+      "type": "color",
+      "id": "color_label",
+      "label": "Label Color",
+      "default": "#6e6e73"
+    },
+    {
+      "type": "color",
+      "id": "color_title",
+      "label": "Title Color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "color_paragraph",
+      "label": "Paragraph Text Color",
+      "default": "#6e6e73"
+    },
+    {
+      "type": "color",
+      "id": "color_strong_text",
+      "label": "Strong Text Color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "color_proofbox_background",
+      "label": "Proofbox Background Color",
+      "default": "#e6f0ea"
+    },
+    {
+      "type": "color",
+      "id": "color_proofbox_border",
+      "label": "Proofbox Border Color",
+      "default": "#2e6b4a"
+    },
+    {
+      "type": "color",
+      "id": "color_proofbox_text",
+      "label": "Proofbox Text Color",
+      "default": "#2e6b4a"
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "select",
+      "id": "video_visibility",
+      "label": "Video Display",
+      "default": "none",
+      "options": [
+        { "value": "none", "label": "Image only" },
+        { "value": "both", "label": "Video on Mobile & Desktop" },
+        { "value": "mobile", "label": "Video on Mobile only" },
+        { "value": "desktop", "label": "Video on Desktop only" }
+      ]
+    },
+    {
+  "type": "video",
+  "id": "video",
+  "label": "Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "image_placeholder_text",
+      "label": "Image Placeholder Text",
+      "default": "[Image: egg-crate foam cross-section]"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Joint Support"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Soft enough to relieve pressure. Firm enough to support the spine."
+    },
+    {
+      "type": "richtext",
+      "id": "content_richtext",
+      "label": "Content",
+      "default": "<p>Most memory foam beds fail at one of two extremes. Too soft — the dog sinks until the spine is unsupported. Too firm — hard pressure points form at hips, elbows, and shoulders.</p><p><strong>Egg-crate foam at 6.8/10 firmness</strong> yields under isolated pressure points while maintaining full structural support for the spine and core.</p><p>The result is a sleeping position that keeps the skeleton aligned throughout the night — the difference between a dog that wakes up mobile and one that needs several minutes to loosen up.</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "proofbox_text",
+      "label": "Proofbox Text",
+      "default": "CertiPUR-US certification confirms no ozone depleters, heavy metals, formaldehyde, or prohibited phthalates — significant if your dog chews."
+    },
+    {
+      "type": "color",
+      "id": "color_vers_q_icon_text",
+      "label": "Accordion Icon Text Color",
+      "default": "#2e6b4a"
+    },
+    {
+      "type": "color",
+      "id": "color_vers_q_active_icon_background",
+      "label": "Accordion Active Icon Background Color",
+      "default": "#2e6b4a"
+    },
+    {
+      "type": "color",
+      "id": "color_vers_q_icon_background",
+      "label": "Accordion Icon Background Color",
+      "default": "#e6f0ea"
+    },
+    {
+      "type": "color",
+      "id": "color_vers_q_active_icon_text",
+      "label": "Accordion Active Icon Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_layout",
+      "label": "Reverse layout (image on right)",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "accordion_item",
+      "name": "Accordion Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Accordion Item Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_richtext",
+          "label": "Content",
+          "default": "<p>Accordion Item Content</p>"
+        }
+      ]
+    }
+  ],
+"presets": [
+  {
+    "name": "2-Column: Foam",
+    "blocks": [
+      {
+        "type": "accordion_item",
+        "settings": {
+          "title": "In a crate",
+          "content_richtext": "<p>L and XL sizes fit standard and XL wire crates exactly — flush, without bunching or cutting. The flat profile keeps your dog at natural height inside the crate.</p>"
+        }
+      },
+      {
+        "type": "accordion_item",
+        "settings": {
+          "title": "On the floor or couch",
+          "content_richtext": "<p>Non-slip base keeps it from sliding on hardwood, tile, or rugs. Neutral colorway blends into any room — looks like furniture, not utility equipment.</p>"
+        }
+      },
+      {
+        "type": "accordion_item",
+        "settings": {
+          "title": "Senior dogs with stiff joints",
+          "content_richtext": "<p>6.8/10 firmness egg-crate foam yields under hips, shoulders and elbows but supports the spine fully — the geometry that physical therapists recommend for joint pain.</p>"
+        }
+      },
+      {
+        "type": "accordion_item",
+        "settings": {
+          "title": "Dogs that run hot or shed heavily",
+          "content_richtext": "<p>Thick-coat breeds (Huskies, Goldens, Shepherds) overheat on standard polyester. The 0.5 Qmax cover pulls heat away on contact and keeps pulling all night — no cooling-mat saturation.</p>"
+        }
+      },
+      {
+        "type": "accordion_item",
+        "settings": {
+          "title": "Sizing — when in doubt, go up",
+          "content_richtext": "<p>Five sizes cover dogs from 0–90 lbs. If your dog falls between two, always go up — a dog at the upper limit compresses the foam too deeply and loses pressure-relief benefit.</p>"
+        }
+      }
+    ]
+  }
+]
+}
+{% endschema %}

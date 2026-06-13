@@ -1,0 +1,74 @@
+{% render 'upaasak-design-system' %}
+
+{%- liquid
+  assign stars = '★★★★★'
+-%}
+
+<section class="u-section u-tmls" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    <div class="u-section-head is-centered">
+      {% if section.settings.eyebrow != blank %}<span class="u-eyebrow is-centered" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2 class="u-title" data-reveal style="--d:80ms">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="u-tmls__carousel" data-carousel data-reveal style="--d:160ms">
+      <div class="u-tmls__viewport">
+        <div class="u-tmls__track">
+          {% for block in section.blocks %}
+            <article class="u-tml" {{ block.shopify_attributes }}>
+              <div class="u-tml__quote-mark">&ldquo;</div>
+              <div class="u-rating" aria-label="5 out of 5 stars">
+                {% for i in (1..5) %}<svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg>{% endfor %}
+              </div>
+              <p class="u-tml__text">{{ block.settings.quote }}</p>
+              <div class="u-tml__by">
+                <div class="u-tml__avatar">{{ block.settings.name | slice: 0 }}</div>
+                <div>
+                  <div class="u-tml__name">{{ block.settings.name }}</div>
+                  <div class="u-tml__role">{{ block.settings.role }}</div>
+                </div>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="u-tmls__nav">
+        <button type="button" data-prev aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button type="button" data-next aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Testimonials",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Devotee Stories" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Loved by Thousands of Seekers" }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "The energy of this mala is unreal. I feel calmer in my morning sadhana — and the certificate gave me total peace of mind." },
+        { "type": "text", "id": "name", "label": "Name", "default": "Ananya R." },
+        { "type": "text", "id": "role", "label": "Role / location", "default": "Mumbai · Verified Buyer" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Testimonials",
+      "blocks": [
+        { "type": "testimonial", "settings": { "quote": "The energy of this mala is unreal. I feel calmer in my morning sadhana — and the certificate gave me total peace of mind.", "name": "Ananya R.", "role": "Mumbai · Verified Buyer" } },
+        { "type": "testimonial", "settings": { "quote": "Authentic, beautifully packed and delivered with a guide on how to wear it. This is how a spiritual brand should feel.", "name": "Vikram S.", "role": "Pune · Verified Buyer" } },
+        { "type": "testimonial", "settings": { "quote": "I gifted the 5 Mukhi mala to my father. He wears it every day and swears his sleep has improved. Highly recommend.", "name": "Meera J.", "role": "Delhi · Verified Buyer" } },
+        { "type": "testimonial", "settings": { "quote": "Premium quality at a fair price. The bead is smooth, the thread is strong, and it truly feels energized.", "name": "Karthik N.", "role": "Bengaluru · Verified Buyer" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

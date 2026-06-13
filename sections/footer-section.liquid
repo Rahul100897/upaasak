@@ -1,0 +1,821 @@
+{% stylesheet %}
+.footer-section {
+    background-color: #73252d;
+    color: #000000;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
+    background-image: url(https://upaasak.vercel.app/images/footer-bg1.png);
+    background-image: url(https://cdn.shopify.com/s/files/1/0814/0659/1194/files/footer-bg.png?v=1781297415);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+  .footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Newsletter Section */
+  .newsletter-wrapper {
+    padding: 60px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .newsletter-content h2 {
+      font-size: 38px;
+      font-weight: 300;
+      line-height: 52px;
+      margin: 0;
+      font-family: Georgia, Garamond, serif;
+      letter-spacing: .5px;
+      max-width: 550px;
+  }
+  img.footer-logo {
+    max-width: 80px;
+}
+
+  .newsletter-form {
+    display: flex;
+    gap: 0;
+    align-items: flex-end;
+  }
+
+  .newsletter-input-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .newsletter-input-wrapper label {
+    font-size: 14px;
+    color: #000;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+  }
+
+  .newsletter-form input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(0 0 0 / 50%);
+    color: #000;
+    padding: 12px 0;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .newsletter-form input::placeholder {
+    color: #000;
+  }
+
+  .newsletter-form input:focus {
+    border-bottom-color: #000;
+  }
+
+.newsletter-submit {
+    background-color: #7d0e2c;
+    color: #fdf2e9;
+    border: 2px solid #ffffff;
+    padding: 15px 40px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+  .newsletter-submit:hover {
+    background-color: #000;
+    color: #ffffff;
+  }
+
+  /* Main Footer Content */
+  .footer-main {
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    gap: 80px;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-brand-name {
+    font-size: 48px;
+    font-weight: 400;
+    font-family: 'Georgia', 'Garamond', serif;
+    margin: 0;
+    font-style: italic;
+    letter-spacing: 1px;
+  }
+
+.footer-brand-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #7a0d2c;
+    max-width: 280px;
+    margin: 0px;
+}
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+
+  .social-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #7c1030;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+    font-size: 18px;
+  }
+
+  .social-icon:hover {
+    background-color: #000000;
+    transform: translateY(-3px);
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .footer-column-title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0;
+    color: #77102c;
+  }
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+  .footer-links li a {
+      color: #780a2b;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color .3s ease;
+      line-height: normal;
+  }
+
+  .footer-links li a:hover {
+    color: #000;
+  }
+  .social-icon path {
+      fill: #fff;
+  }
+
+  /* Footer Bottom */
+  .footer-bottom {
+      padding: 10px 0px 20px 0px;
+      border-top: 1px solid rgba(255, 255, 255, .15);
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+  }
+
+  .footer-bottom-left {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-copyright {
+      font-size: 14px;
+      color: #000000b3;
+      margin: 0;
+      font-weight: 500;
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-bottom-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+  }
+
+  .footer-bottom-links a:hover {
+    color: #ffffff;
+  }
+
+  .payment-methods {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .payment-icon {
+    height: 28px;
+    width: auto;
+    max-width: 50px;
+    object-fit: contain;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .newsletter-wrapper {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      padding: 40px 0;
+    }
+
+    .newsletter-content h2 {
+      font-size: 36px;
+    }
+
+    .footer-main {
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      padding: 50px 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .newsletter-wrapper {
+      padding: 30px 0;
+    }
+
+    .newsletter-content h2 {
+      font-size: 28px;
+    }
+
+    .newsletter-form {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .newsletter-submit {
+      width: 100%;
+    }
+
+    .footer-main {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 40px 0;
+    }
+
+    .footer-brand-name {
+      font-size: 36px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-bottom-left {
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+    }
+
+    .footer-bottom-links {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .payment-methods {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-section {
+      padding: 30px 15px;
+    }
+
+    .newsletter-content h2 {
+      font-size: 22px;
+    }
+
+    .footer-brand-name {
+      font-size: 28px;
+    }
+
+    .footer-column-title {
+      font-size: 11px;
+    }
+
+    .footer-copyright {
+      font-size: 12px;
+    }
+
+    .footer-bottom-links a {
+      font-size: 12px;
+    }
+
+    .payment-methods {
+      flex-wrap: wrap;
+    }
+  }
+{% endstylesheet %}
+
+<footer class="footer-section">
+  <div class="footer-container">
+    <!-- Newsletter Section -->
+    <div class="newsletter-wrapper">
+      <div class="newsletter-content">
+        <h2>{{ section.settings.newsletter_heading }}</h2>
+      </div>
+      
+      <form class="newsletter-form" method="post" action="/contact">
+        <div class="newsletter-input-wrapper">
+          <label for="newsletter-email">{{ section.settings.newsletter_label }}</label>
+          <input 
+            type="email" 
+            id="newsletter-email" 
+            name="contact[email]" 
+            placeholder="{{ section.settings.newsletter_placeholder }}"
+            required
+          >
+        </div>
+        <button type="submit" class="newsletter-submit">{{ section.settings.newsletter_button }}</button>
+      </form>
+    </div>
+
+    <!-- Main Footer Content -->
+    <div class="footer-main">
+      <!-- Brand Section -->
+      <div class="footer-brand">
+        <a href="{{ routes.root_url }}">
+          <img src="https://upaasak.com/cdn/shop/files/Logo-Upaasak.png" class="footer-logo">
+        </a>
+        <p class="footer-brand-desc">{{ section.settings.brand_description }}</p>
+        
+        <div class="social-icons">
+          {% if section.settings.facebook_url %}
+            <a href="{{ section.settings.facebook_url }}" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener">
+              
+<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 12.05C19.9813 10.5255 19.5273 9.03809 18.6915 7.76295C17.8557 6.48781 16.673 5.47804 15.2826 4.85257C13.8921 4.2271 12.3519 4.01198 10.8433 4.23253C9.33473 4.45309 7.92057 5.10013 6.7674 6.09748C5.61422 7.09482 4.77005 8.40092 4.3343 9.86195C3.89856 11.323 3.88938 12.8781 4.30786 14.3442C4.72634 15.8103 5.55504 17.1262 6.69637 18.1371C7.83769 19.148 9.24412 19.8117 10.75 20.05V14.38H8.75001V12.05H10.75V10.28C10.7037 9.86846 10.7483 9.45175 10.8807 9.05931C11.0131 8.66687 11.23 8.30827 11.5161 8.00882C11.8022 7.70936 12.1505 7.47635 12.5365 7.32624C12.9225 7.17612 13.3368 7.11255 13.75 7.14003C14.3498 7.14824 14.9482 7.20173 15.54 7.30003V9.30003H14.54C14.3676 9.27828 14.1924 9.29556 14.0276 9.35059C13.8627 9.40562 13.7123 9.49699 13.5875 9.61795C13.4627 9.73891 13.3667 9.88637 13.3066 10.0494C13.2464 10.2125 13.2237 10.387 13.24 10.56V12.07H15.46L15.1 14.4H13.25V20C15.1399 19.7011 16.8601 18.7347 18.0985 17.2761C19.3369 15.8175 20.0115 13.9634 20 12.05Z" fill="#33363F"/>
+</svg>
+            </a>
+          {% endif %}
+          {% if section.settings.twitter_url %}
+            <a href="{{ section.settings.twitter_url }}" class="social-icon" aria-label="Twitter" target="_blank" rel="noopener">
+              <svg viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="none" class="u01b__icon-home" style="width: 24px;height: 20px;"> 
+ <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"></path> 
+</svg>
+            </a>
+          {% endif %}
+          {% if section.settings.pinterest_url %}
+            <a href="{{ section.settings.pinterest_url }}" class="social-icon" aria-label="Pinterest" target="_blank" rel="noopener">
+              
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="24px" height="24px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>pinterest [#180]</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+
+</defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dribbble-Light-Preview" transform="translate(-220.000000, -7399.000000)" fill="#33363F">
+            <g id="icons" transform="translate(56.000000, 160.000000)">
+                <path d="M173.876,7239 C168.399,7239 164,7243.43481 164,7248.95866 C164,7253.05869 166.407,7256.48916 169.893,7258.07936 C169.893,7256.21186 169.88,7256.45286 171.303,7250.38046 C170.521,7248.80236 171.129,7246.19673 172.88,7246.19673 C175.31,7246.19673 173.659,7249.79964 173.378,7251.2174 C173.129,7252.30544 173.959,7253.14238 174.955,7253.14238 C176.864,7253.14238 178.108,7250.71524 178.108,7247.87063 C178.108,7245.69456 176.615,7244.10437 174.042,7244.10437 C169.467,7244.10437 168.307,7249.19966 169.893,7250.79893 C170.292,7251.40294 169.893,7251.43118 169.893,7252.22174 C169.616,7253.05768 167.403,7251.84259 167.403,7248.70757 C167.403,7245.86195 169.727,7242.51518 174.457,7242.51518 C178.191,7242.51518 180.681,7245.27609 180.681,7248.2054 C180.681,7252.13805 178.523,7254.98366 175.37,7254.98366 C174.291,7254.98366 173.295,7254.3978 172.963,7253.72824 C172.36,7256.07371 172.238,7257.26258 171.303,7258.58153 C172.216,7258.83261 173.129,7259 174.125,7259 C179.602,7259 184,7254.56519 184,7249.04235 C183.752,7243.43481 179.353,7239 173.876,7239" id="pinterest-[#180]">
+
+</path>
+            </g>
+        </g>
+    </g>
+</svg>
+            </a>
+          {% endif %}
+          {% if section.settings.instagram_url %}
+            <a href="{{ section.settings.instagram_url }}" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 11C3 7.22876 3 5.34315 4.17157 4.17157C5.34315 3 7.22876 3 11 3H13C16.7712 3 18.6569 3 19.8284 4.17157C21 5.34315 21 7.22876 21 11V13C21 16.7712 21 18.6569 19.8284 19.8284C18.6569 21 16.7712 21 13 21H11C7.22876 21 5.34315 21 4.17157 19.8284C3 18.6569 3 16.7712 3 13V11Z" stroke="#33363F" stroke-width="2"></path>
+<circle cx="16.5" cy="7.5" r="1.5" fill="#33363F"></circle>
+<circle cx="12" cy="12" r="3" stroke="#33363F" stroke-width="2"></circle>
+</svg>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Column 1: Customer Services -->
+      <div class="footer-column">
+        <h4 class="footer-column-title">{{ section.settings.column1_title }}</h4>
+        <ul class="footer-links">
+          {% if section.settings.col1_link1_text %}
+            <li><a href="{{ section.settings.col1_link1_url }}">{{ section.settings.col1_link1_text }}</a></li>
+          {% endif %}
+          {% if section.settings.col1_link2_text %}
+            <li><a href="{{ section.settings.col1_link2_url }}">{{ section.settings.col1_link2_text }}</a></li>
+          {% endif %}
+          {% if section.settings.col1_link3_text %}
+            <li><a href="{{ section.settings.col1_link3_url }}">{{ section.settings.col1_link3_text }}</a></li>
+          {% endif %}
+          {% if section.settings.col1_link4_text %}
+            <li><a href="{{ section.settings.col1_link4_url }}">{{ section.settings.col1_link4_text }}</a></li>
+          {% endif %}
+          {% if section.settings.col1_link5_text %}
+            <li><a href="{{ section.settings.col1_link5_url }}">{{ section.settings.col1_link5_text }}</a></li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <!-- Column 2: Our Resources -->
+      <div class="footer-column">
+        <h4 class="footer-column-title">{{ section.settings.column2_title }}</h4>
+        <ul class="footer-links">
+          {% if section.settings.col2_link1_text %}
+            <li><a href="{{ section.settings.col2_link1_url }}">{{ section.settings.col2_link1_text }}</a></li>
+          {% endif %}
+          {% if section.settings.col2_link2_text %}
+            <li><a href="{{ section.settings.col2_link2_url }}">{{ section.settings.col2_link2_text }}</a></li>
+          {% endif %}
+          {% if section.settings.col2_link3_text %}
+            <li><a href="{{ section.settings.col2_link3_url }}">{{ section.settings.col2_link3_text }}</a></li>
+          {% endif %}
+          {% if section.settings.col2_link4_text %}
+            <li><a href="{{ section.settings.col2_link4_url }}">{{ section.settings.col2_link4_text }}</a></li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <!-- Column 3: Company -->
+      <div class="footer-column">
+        <h4 class="footer-column-title">{{ section.settings.column3_title }}</h4>
+        <ul class="footer-links">
+          {% if section.settings.col3_link1_text %}
+            <li><a href="{{ section.settings.col3_link1_url }}">{{ section.settings.col3_link1_text }}</a></li>
+          {% endif %}
+          {% if section.settings.col3_link2_text %}
+            <li><a href="{{ section.settings.col3_link2_url }}">{{ section.settings.col3_link2_text }}</a></li>
+          {% endif %}
+          {% if section.settings.col3_link3_text %}
+            <li><a href="{{ section.settings.col3_link3_url }}">{{ section.settings.col3_link3_text }}</a></li>
+          {% endif %}
+          {% if section.settings.col3_link4_text %}
+            <li><a href="{{ section.settings.col3_link4_url }}">{{ section.settings.col3_link4_text }}</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <p class="footer-copyright">{{ section.settings.copyright_text }}</p>
+        {% comment %} <div class="footer-bottom-links">
+          {% if section.settings.bottom_link1_text %}
+            <a href="{{ section.settings.bottom_link1_url }}">{{ section.settings.bottom_link1_text }}</a>
+          {% endif %}
+          {% if section.settings.bottom_link2_text %}
+            <a href="{{ section.settings.bottom_link2_url }}">{{ section.settings.bottom_link2_text }}</a>
+          {% endif %}
+          {% if section.settings.bottom_link3_text %}
+            <a href="{{ section.settings.bottom_link3_url }}">{{ section.settings.bottom_link3_text }}</a>
+          {% endif %}
+        </div> {% endcomment %}
+      </div>
+
+      <div class="payment-methods">
+        {% if section.settings.payment_image %}
+          {{ section.settings.payment_image | image_url: width: 300 | image_tag: class: 'payment-icon' }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer Section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Newsletter Section"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Newsletter Heading",
+      "default": "Join Our Newsletter to\nKeep Up To Date With Us"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_label",
+      "label": "Email Label",
+      "default": "email"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_placeholder",
+      "label": "Email Placeholder",
+      "default": "Enter your email"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_button",
+      "label": "Subscribe Button Text",
+      "default": "Subscribe"
+    },
+    {
+      "type": "header",
+      "content": "Brand Information"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name",
+      "default": "Glamora"
+    },
+    {
+      "type": "textarea",
+      "id": "brand_description",
+      "label": "Brand Description",
+      "default": "Locus vestibulum sed arcu non odio euismod. Vulputate eu scelerisque felis imperdiet proin fermentum."
+    },
+    {
+      "type": "header",
+      "content": "Social Media Links"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "twitter_url",
+      "label": "Twitter URL"
+    },
+    {
+      "type": "url",
+      "id": "pinterest_url",
+      "label": "Pinterest URL"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "header",
+      "content": "Footer Column 1"
+    },
+    {
+      "type": "text",
+      "id": "column1_title",
+      "label": "Column 1 Title",
+      "default": "Customer Services"
+    },
+    {
+      "type": "text",
+      "id": "col1_link1_text",
+      "label": "Link 1 Text",
+      "default": "Contact Us"
+    },
+    {
+      "type": "url",
+      "id": "col1_link1_url",
+      "label": "Link 1 URL"
+    },
+    {
+      "type": "text",
+      "id": "col1_link2_text",
+      "label": "Link 2 Text",
+      "default": "Track Your Orders"
+    },
+    {
+      "type": "url",
+      "id": "col1_link2_url",
+      "label": "Link 2 URL"
+    },
+    {
+      "type": "text",
+      "id": "col1_link3_text",
+      "label": "Link 3 Text",
+      "default": "Book an Appointment"
+    },
+    {
+      "type": "url",
+      "id": "col1_link3_url",
+      "label": "Link 3 URL"
+    },
+    {
+      "type": "text",
+      "id": "col1_link4_text",
+      "label": "Link 4 Text",
+      "default": "FAQ"
+    },
+    {
+      "type": "url",
+      "id": "col1_link4_url",
+      "label": "Link 4 URL"
+    },
+    {
+      "type": "text",
+      "id": "col1_link5_text",
+      "label": "Link 5 Text",
+      "default": "Shipping & Returns"
+    },
+    {
+      "type": "url",
+      "id": "col1_link5_url",
+      "label": "Link 5 URL"
+    },
+    {
+      "type": "header",
+      "content": "Footer Column 2"
+    },
+    {
+      "type": "text",
+      "id": "column2_title",
+      "label": "Column 2 Title",
+      "default": "Our Resources"
+    },
+    {
+      "type": "text",
+      "id": "col2_link1_text",
+      "label": "Link 1 Text",
+      "default": "Plan & Pricing"
+    },
+    {
+      "type": "url",
+      "id": "col2_link1_url",
+      "label": "Link 1 URL"
+    },
+    {
+      "type": "text",
+      "id": "col2_link2_text",
+      "label": "Link 2 Text",
+      "default": "Client Business"
+    },
+    {
+      "type": "url",
+      "id": "col2_link2_url",
+      "label": "Link 2 URL"
+    },
+    {
+      "type": "text",
+      "id": "col2_link3_text",
+      "label": "Link 3 Text",
+      "default": "Sales & Purchase"
+    },
+    {
+      "type": "url",
+      "id": "col2_link3_url",
+      "label": "Link 3 URL"
+    },
+    {
+      "type": "text",
+      "id": "col2_link4_text",
+      "label": "Link 4 Text",
+      "default": "Product Quality"
+    },
+    {
+      "type": "url",
+      "id": "col2_link4_url",
+      "label": "Link 4 URL"
+    },
+    {
+      "type": "header",
+      "content": "Footer Column 3"
+    },
+    {
+      "type": "text",
+      "id": "column3_title",
+      "label": "Column 3 Title",
+      "default": "Company"
+    },
+    {
+      "type": "text",
+      "id": "col3_link1_text",
+      "label": "Link 1 Text",
+      "default": "About Us"
+    },
+    {
+      "type": "url",
+      "id": "col3_link1_url",
+      "label": "Link 1 URL"
+    },
+    {
+      "type": "text",
+      "id": "col3_link2_text",
+      "label": "Link 2 Text",
+      "default": "Our Products"
+    },
+    {
+      "type": "url",
+      "id": "col3_link2_url",
+      "label": "Link 2 URL"
+    },
+    {
+      "type": "text",
+      "id": "col3_link3_text",
+      "label": "Link 3 Text",
+      "default": "Terms & Conditions"
+    },
+    {
+      "type": "url",
+      "id": "col3_link3_url",
+      "label": "Link 3 URL"
+    },
+    {
+      "type": "text",
+      "id": "col3_link4_text",
+      "label": "Link 4 Text",
+      "default": "Privacy Policy"
+    },
+    {
+      "type": "url",
+      "id": "col3_link4_url",
+      "label": "Link 4 URL"
+    },
+    {
+      "type": "header",
+      "content": "Footer Bottom"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright Text",
+      "default": "© DesignThemes 2023"
+    },
+    {
+      "type": "text",
+      "id": "bottom_link1_text",
+      "label": "Bottom Link 1 Text",
+      "default": "Terms & Conditions"
+    },
+    {
+      "type": "url",
+      "id": "bottom_link1_url",
+      "label": "Bottom Link 1 URL"
+    },
+    {
+      "type": "text",
+      "id": "bottom_link2_text",
+      "label": "Bottom Link 2 Text",
+      "default": "Privacy Policy"
+    },
+    {
+      "type": "url",
+      "id": "bottom_link2_url",
+      "label": "Bottom Link 2 URL"
+    },
+    {
+      "type": "text",
+      "id": "bottom_link3_text",
+      "label": "Bottom Link 3 Text",
+      "default": "Cookies"
+    },
+    {
+      "type": "url",
+      "id": "bottom_link3_url",
+      "label": "Bottom Link 3 URL"
+    },
+    {
+      "type": "header",
+      "content": "Payment Methods"
+    },
+    {
+      "type": "image_picker",
+      "id": "payment_image",
+      "label": "Payment Methods Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer Section"
+    }
+  ]
+}
+{% endschema %}

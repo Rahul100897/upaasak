@@ -1,0 +1,108 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-hero" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    <div class="u-hero__grid">
+      <div class="u-hero__content">
+        {% if section.settings.chip != blank %}
+          <span class="u-hero__chip" data-reveal style="--d:0ms"><span class="u-dot"></span>{{ section.settings.chip }}</span>
+        {% endif %}
+        <h1 class="u-hero__title" data-reveal style="--d:80ms">{{ section.settings.title }}</h1>
+        {% if section.settings.subtitle != blank %}
+          <p class="u-hero__sub" data-reveal style="--d:180ms">{{ section.settings.subtitle }}</p>
+        {% endif %}
+        <div class="u-hero__cta" data-reveal style="--d:280ms">
+          {% if section.settings.btn1_label != blank %}
+            <a href="{{ section.settings.btn1_link | default: '#' }}" class="u-btn u-btn--primary">
+              {{ section.settings.btn1_label }}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          {% endif %}
+          {% if section.settings.btn2_label != blank %}
+            <a href="{{ section.settings.btn2_link | default: '#' }}" class="u-btn u-btn--ghost">{{ section.settings.btn2_label }}</a>
+          {% endif %}
+        </div>
+
+        {% if section.blocks.size > 0 %}
+          <div class="u-hero__trust" data-reveal style="--d:380ms">
+            {% for block in section.blocks %}
+              {% unless forloop.first %}<span class="u-hero__trust-sep"></span>{% endunless %}
+              <div class="u-hero__trust-item" {{ block.shopify_attributes }}>
+                <strong><span data-count="{{ block.settings.value }}" data-suffix="{{ block.settings.suffix }}">{{ block.settings.value }}{{ block.settings.suffix }}</span></strong>
+                <span>{{ block.settings.label }}</span>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="u-hero__media" data-reveal="zoom" style="--d:200ms">
+        <span class="u-hero__halo"></span>
+        <div class="u-hero__frame">
+          {% if section.settings.image != blank %}
+            {{ section.settings.image | image_url: width: 920 | image_tag: loading: 'eager', sizes: '(max-width: 980px) 90vw, 460px', widths: '460, 600, 920' }}
+          {% else %}
+            <div class="u-hero__placeholder" style="position:absolute;inset:0;display:grid;place-items:center;color:var(--u-maroon);font-family:var(--u-font-display);font-size:8rem;opacity:.5;">ॐ</div>
+          {% endif %}
+        </div>
+        {% if section.settings.badge_value != blank %}
+          <div class="u-hero__badge">
+            <small>{{ section.settings.badge_label }}</small>
+            <strong>{{ section.settings.badge_value }}</strong>
+          </div>
+        {% endif %}
+        {% if section.settings.seal_text != blank %}
+          <div class="u-hero__seal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5L12 20.5 7.6 22.7l.9-5.5-4-3.9 5.5-.8L12 2z" stroke-linejoin="round"/></svg>
+            {{ section.settings.seal_text }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Hero",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "chip", "label": "Top chip text", "default": "Energized & Authentic Rudraksha" },
+    { "type": "inline_richtext", "id": "title", "label": "Heading", "default": "Awaken Your <em>Inner Devotion</em>" },
+    { "type": "textarea", "id": "subtitle", "label": "Subheading", "default": "Hand-selected, lab-certified Rudraksha malas & bracelets — abhimantrit with sacred mantras to bring peace, focus and divine protection into your everyday sadhana." },
+    { "type": "image_picker", "id": "image", "label": "Hero image" },
+    { "type": "header", "content": "Buttons" },
+    { "type": "text", "id": "btn1_label", "label": "Primary button label", "default": "Shop the Collection" },
+    { "type": "url", "id": "btn1_link", "label": "Primary button link" },
+    { "type": "text", "id": "btn2_label", "label": "Secondary button label", "default": "Find Your Rudraksha" },
+    { "type": "url", "id": "btn2_link", "label": "Secondary button link" },
+    { "type": "header", "content": "Floating badge" },
+    { "type": "text", "id": "badge_label", "label": "Badge label", "default": "Up to" },
+    { "type": "text", "id": "badge_value", "label": "Badge value", "default": "40% OFF" },
+    { "type": "header", "content": "Floating seal" },
+    { "type": "text", "id": "seal_text", "label": "Seal text", "default": "Lab Certified" }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Trust stat",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "value", "label": "Value (number)", "default": "25000" },
+        { "type": "text", "id": "suffix", "label": "Suffix", "default": "+" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Happy Devotees" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Hero",
+      "blocks": [
+        { "type": "stat", "settings": { "value": "25000", "suffix": "+", "label": "Happy Devotees" } },
+        { "type": "stat", "settings": { "value": "100", "suffix": "%", "label": "Original & Certified" } },
+        { "type": "stat", "settings": { "value": "4.9", "suffix": "★", "label": "Avg. Rating" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

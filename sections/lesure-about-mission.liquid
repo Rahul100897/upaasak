@@ -1,0 +1,61 @@
+{%- comment -%}
+  About Us Mission Section for Lesure
+{%- endcomment -%}
+
+<div class="lesure-about-wrapper">
+  <section class="lesure-about-mission">
+    <div class="wrap">
+      <div class="mission-left">
+        <span class="slabel">{{ section.settings.label }}</span>
+        <h2>{{ section.settings.title }}</h2>
+        <div class="mission-content">
+          {{ section.settings.content }}
+        </div>
+        {%- if section.settings.proof_text != blank -%}
+          <div class="proofbox"><p>{{ section.settings.proof_text }}</p></div>
+        {%- endif -%}
+      </div>
+      <div class="mission-stats">
+        {%- for block in section.blocks -%}
+          <div class="mstat" {{ block.shopify_attributes }}>
+            <span class="mstat-val">{{ block.settings.value }}<sub>{{ block.settings.unit }}</sub></span>
+            <span class="mstat-lbl">{{ block.settings.label }}</span>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Lesure About Mission",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "Our mission" },
+    { "type": "text", "id": "title", "label": "Title", "default": "One problem. One <i>real</i> solution." },
+    { "type": "richtext", "id": "content", "label": "Content" },
+    { "type": "text", "id": "proof_text", "label": "Proof Box Text" }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Value" },
+        { "type": "text", "id": "unit", "label": "Unit/Subtext" },
+        { "type": "text", "id": "label", "label": "Label" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lesure About Mission",
+      "blocks": [
+        { "type": "stat", "settings": { "value": "12,400", "unit": "+", "label": "Customers who found what they were looking for" } },
+        { "type": "stat", "settings": { "value": "4.8", "unit": "/5", "label": "Average score from verified buyers" } },
+        { "type": "stat", "settings": { "value": "100", "unit": "%", "label": "Certified materials — every single product" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

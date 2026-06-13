@@ -1,0 +1,54 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-process" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    <div class="u-section-head is-centered">
+      {% if section.settings.eyebrow != blank %}<span class="u-eyebrow is-centered" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2 class="u-title" data-reveal style="--d:80ms">{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}<p class="u-lead" data-reveal style="--d:160ms">{{ section.settings.subheading }}</p>{% endif %}
+    </div>
+
+    <div class="u-process__grid">
+      {% for block in section.blocks %}
+        <div class="u-step" data-reveal style="--d:{{ forloop.index0 | times: 110 }}ms" {{ block.shopify_attributes }}>
+          <div class="u-step__num"></div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Process",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "From Sacred Source to You" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Crafted With Care & Reverence" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Every Upaasak mala passes through a deliberate, devotional journey before it reaches your hands." }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Sourced" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Hand-gathered from trusted growers in Nepal & Indonesia." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Process",
+      "blocks": [
+        { "type": "step", "settings": { "title": "Sourced", "text": "Hand-gathered from trusted growers in Nepal & Indonesia." } },
+        { "type": "step", "settings": { "title": "Verified", "text": "Each bead lab-tested for mukhi, origin and purity." } },
+        { "type": "step", "settings": { "title": "Energized", "text": "Abhimantrit by priests with the appropriate Vedic mantras." } },
+        { "type": "step", "settings": { "title": "Delivered", "text": "Wrapped with a certificate, care guide and free shipping." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

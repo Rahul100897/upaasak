@@ -1,0 +1,423 @@
+{%- comment -%}
+  Contact Us Main Section for Lesure
+{%- endcomment -%}
+
+{{ 'lesure-contact.css' | asset_url | stylesheet_tag }}
+
+<div class="lesure-contact-wrapper">
+  <div class="contact-body">
+    <!-- FORM -->
+    <div class="form-wrap">
+      <h2>{{ section.settings.form_title }}</h2>
+      <p class="form-sub">{{ section.settings.form_subtitle }}</p>
+
+{% for block in section.blocks %}
+
+  {% if block.type == 'contact_form' %}
+
+    {%- form 'contact', id: 'ContactForm' -%}
+
+      {%- if form.posted_successfully? -%}
+
+        <div class="form-success">
+
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+
+          <h3>{{ section.settings.success_title }}</h3>
+          <p>{{ section.settings.success_message }}</p>
+
+        </div>
+
+      {%- else -%}
+
+        {%- if form.errors -%}
+          <div style="color: var(--red); margin-bottom: 1rem; font-size: 14px;">
+            {{ form.errors | default_errors }}
+          </div>
+        {%- endif -%}
+
+        <div class="form-row">
+
+          <div class="form-group" style="margin-bottom:0;">
+
+            <label for="ContactForm-FirstName">
+              {{ block.settings.first_name_label }}
+            </label>
+
+            <input
+              type="text"
+              id="ContactForm-FirstName"
+              name="contact[first_name]"
+              placeholder="{{ block.settings.first_name_placeholder }}"
+              {% if block.settings.first_name_required %}
+                required
+              {% endif %}
+            >
+
+          </div>
+
+          <div class="form-group" style="margin-bottom:0;">
+
+            <label for="ContactForm-LastName">
+              {{ block.settings.last_name_label }}
+            </label>
+
+            <input
+              type="text"
+              id="ContactForm-LastName"
+              name="contact[last_name]"
+              placeholder="{{ block.settings.last_name_placeholder }}"
+              {% if block.settings.last_name_required %}
+                required
+              {% endif %}
+            >
+
+          </div>
+
+        </div>
+
+        <div class="form-group">
+
+          <label for="ContactForm-email">
+            {{ block.settings.email_label }}
+          </label>
+
+          <input
+            type="email"
+            id="ContactForm-email"
+            name="contact[email]"
+            placeholder="{{ block.settings.email_placeholder }}"
+            {% if block.settings.email_required %}
+              required
+            {% endif %}
+          >
+
+        </div>
+
+        <div class="form-group">
+
+          <label for="ContactForm-topic">
+            {{ block.settings.topic_label }}
+          </label>
+
+          <select
+            id="ContactForm-topic"
+            name="contact[topic]"
+            {% if block.settings.topic_required %}
+              required
+            {% endif %}
+          >
+
+            <option value="" disabled selected>
+              {{ block.settings.topic_placeholder }}
+            </option>
+
+            {% assign topic_options = block.settings.topic_options | newline_to_br | split: '<br />' %}
+
+            {% for option in topic_options %}
+
+              {% assign option_parts = option | split: '|' %}
+
+              {% assign option_value = option_parts[0] | strip %}
+              {% assign option_label = option_parts[1] | strip %}
+
+              {% if option_value != blank and option_label != blank %}
+
+                <option value="{{ option_value }}">
+                  {{ option_label }}
+                </option>
+
+              {% endif %}
+
+            {% endfor %}
+
+          </select>
+
+        </div>
+
+        <div class="form-group">
+
+          <label for="ContactForm-body">
+            {{ block.settings.message_label }}
+          </label>
+
+          <textarea
+            id="ContactForm-body"
+            name="contact[body]"
+            placeholder="{{ block.settings.message_placeholder }}"
+            {% if block.settings.message_required %}
+              required
+            {% endif %}
+          ></textarea>
+
+        </div>
+
+        <div class="form-submit">
+
+          <button type="submit" class="btn-submit">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+
+            {{ block.settings.button_text }}
+
+          </button>
+
+          <p class="form-note">
+            {{ section.settings.form_note }}
+          </p>
+
+        </div>
+
+      {%- endif -%}
+
+    {%- endform -%}
+
+  {% endif %}
+
+{% endfor %}
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="contact-sidebar">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'info_card' -%}
+            <div class="info-card" {{ block.shopify_attributes }}>
+              <div class="info-card-head">
+                <div class="info-icon">
+                  {{ block.settings.svg_icon }}
+                </div>
+                <h3>{{ block.settings.title }}</h3>
+              </div>
+              <p>{{ block.settings.text }}</p>
+              {%- if block.settings.badge_text != blank -%}
+                <div class="info-badge">{{ block.settings.badge_text }}</div>
+              {%- endif -%}
+              {%- if block.settings.link_text != blank -%}
+                <div style="margin-top: 1rem;">
+                  <a href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>
+                </div>
+              {%- endif -%}
+            </div>
+
+          {%- when 'faq_card' -%}
+            <div class="info-card" {{ block.shopify_attributes }}>
+              <div class="info-card-head">
+                <div class="info-icon">
+                  {{ block.settings.svg_icon }}
+                </div>
+                <h3>{{ block.settings.title }}</h3>
+              </div>
+              <div class="faq-list">
+                {%- for i in (1..4) -%}
+                  {%- capture q_id -%}q{{ i }}{%- endcapture -%}
+                  {%- capture a_id -%}a{{ i }}{%- endcapture -%}
+                  {%- if block.settings[q_id] != blank -%}
+                    <div class="faq-item">
+                      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                        {{ block.settings[q_id] }}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="6 9 12 15 18 9"/></svg>
+                      </div>
+                      <div class="faq-a">{{ block.settings[a_id] }}</div>
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+
+
+
+{% schema %}
+{
+  "name": "Lesure Contact Main",
+  "settings": [
+    { "type": "text", "id": "form_title", "label": "Form Title", "default": "Send us a message" },
+    { "type": "textarea", "id": "form_subtitle", "label": "Form Subtitle", "default": "Fill in the form and a real member of our team will reply to your email — typically within a few hours on weekdays." },
+    { "type": "text", "id": "form_note", "label": "Form Note", "default": "We'll reply to your email within 24 hours · No bots" },
+    { "type": "text", "id": "success_title", "label": "Success Title", "default": "Message received." },
+    { "type": "textarea", "id": "success_message", "label": "Success Message", "default": "Thanks for reaching out. A real member of our team will reply to your email within 24 hours." }
+  ],
+  "blocks": [
+    {
+      "type": "info_card",
+      "name": "Info Card",
+      "settings": [
+        { "type": "html", "id": "svg_icon", "label": "SVG Icon" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "text", "label": "Text" },
+        { "type": "text", "id": "badge_text", "label": "Badge Text" },
+        { "type": "text", "id": "link_text", "label": "Link Text" },
+        { "type": "url", "id": "link_url", "label": "Link URL" }
+      ]
+    },
+    {
+      "type": "faq_card",
+      "name": "FAQ Card",
+      "settings": [
+        { "type": "html", "id": "svg_icon", "label": "SVG Icon" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "q1", "label": "Question 1" },
+        { "type": "textarea", "id": "a1", "label": "Answer 1" },
+        { "type": "text", "id": "q2", "label": "Question 2" },
+        { "type": "textarea", "id": "a2", "label": "Answer 2" },
+        { "type": "text", "id": "q3", "label": "Question 3" },
+        { "type": "textarea", "id": "a3", "label": "Answer 3" },
+        { "type": "text", "id": "q4", "label": "Question 4" },
+        { "type": "textarea", "id": "a4", "label": "Answer 4" }
+      ]
+    },
+    {
+      "type": "contact_form",
+      "name": "Contact Form",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "First Name"
+        },
+        {
+          "type": "text",
+          "id": "first_name_label",
+          "label": "Label",
+          "default": "First name"
+        },
+        {
+          "type": "text",
+          "id": "first_name_placeholder",
+          "label": "Placeholder",
+          "default": "Sarah"
+        },
+        {
+          "type": "checkbox",
+          "id": "first_name_required",
+          "label": "Required",
+          "default": true
+        },
+
+        {
+          "type": "header",
+          "content": "Last Name"
+        },
+        {
+          "type": "text",
+          "id": "last_name_label",
+          "label": "Label",
+          "default": "Last name"
+        },
+        {
+          "type": "text",
+          "id": "last_name_placeholder",
+          "label": "Placeholder",
+          "default": "Mitchell"
+        },
+        {
+          "type": "checkbox",
+          "id": "last_name_required",
+          "label": "Required",
+          "default": false
+        },
+
+        {
+          "type": "header",
+          "content": "Email"
+        },
+        {
+          "type": "text",
+          "id": "email_label",
+          "label": "Label",
+          "default": "Email address"
+        },
+        {
+          "type": "text",
+          "id": "email_placeholder",
+          "label": "Placeholder",
+          "default": "sarah@example.com"
+        },
+        {
+          "type": "checkbox",
+          "id": "email_required",
+          "label": "Required",
+          "default": true
+        },
+
+        {
+          "type": "header",
+          "content": "Topic Dropdown"
+        },
+        {
+          "type": "text",
+          "id": "topic_label",
+          "label": "Label",
+          "default": "What can we help with?"
+        },
+        {
+          "type": "text",
+          "id": "topic_placeholder",
+          "label": "Placeholder",
+          "default": "Select a topic"
+        },
+        {
+          "type": "checkbox",
+          "id": "topic_required",
+          "label": "Required",
+          "default": true
+        },
+        {
+          "type": "textarea",
+          "id": "topic_options",
+          "label": "Dropdown Options",
+          "default": "order | Order status or tracking\nreturn | Return or exchange\nsize | Help choosing a size\nproduct | Product question\ndamaged | Damaged or missing item\nwholesale | Wholesale inquiry\nother | Something else",
+          "info": "Format: value | Label (One option per line)"
+        },
+
+        {
+          "type": "header",
+          "content": "Message"
+        },
+        {
+          "type": "text",
+          "id": "message_label",
+          "label": "Label",
+          "default": "Your message"
+        },
+        {
+          "type": "text",
+          "id": "message_placeholder",
+          "label": "Placeholder",
+          "default": "Tell us what's on your mind — the more detail you share, the faster we can help."
+        },
+        {
+          "type": "checkbox",
+          "id": "message_required",
+          "label": "Required",
+          "default": true
+        },
+      {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Send Message"
+        }
+        
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Lesure Contact Main" }
+  ]
+}
+{% endschema %}
