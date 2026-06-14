@@ -1,0 +1,61 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-catnav" data-section-id="{{ section.id }}">
+  <nav class="u-catnav__in" aria-label="Categories">
+    {% for block in section.blocks %}
+      <a class="u-catnav__item" href="{{ block.settings.link | default: '#' }}" {{ block.shopify_attributes }}>
+        {% if block.settings.image %}
+          <img class="u-catnav__ico" src="{{ block.settings.image | image_url: width: 44 }}" alt="" width="22" height="22">
+        {% else %}
+          {% render 'upaasak-icon', icon: block.settings.icon %}
+        {% endif %}
+        {{ block.settings.label }}
+      </a>
+    {% endfor %}
+  </nav>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Category Nav",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "cat",
+      "name": "Category",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Shop All" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "image_picker", "id": "image", "label": "Custom icon image (optional)" },
+        {
+          "type": "select", "id": "icon", "label": "Icon", "default": "bead",
+          "options": [
+            { "value": "bead", "label": "Bead" }, { "value": "lotus", "label": "Lotus" },
+            { "value": "om", "label": "Om" }, { "value": "gem", "label": "Gem / Stones" },
+            { "value": "mantra", "label": "Mala" }, { "value": "leaf", "label": "Leaf" },
+            { "value": "deity", "label": "Idol / Deity" }, { "value": "gift", "label": "Gifting" },
+            { "value": "sparkle", "label": "Sparkle" }, { "value": "certificate", "label": "Certificate / PDF" },
+            { "value": "shield", "label": "Shield" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Category Nav",
+      "blocks": [
+        { "type": "cat", "settings": { "label": "Shop All", "icon": "sparkle" } },
+        { "type": "cat", "settings": { "label": "Karungali", "icon": "bead" } },
+        { "type": "cat", "settings": { "label": "Rudraksha", "icon": "leaf" } },
+        { "type": "cat", "settings": { "label": "Spiritual Bracelets", "icon": "gem" } },
+        { "type": "cat", "settings": { "label": "Mala", "icon": "mantra" } },
+        { "type": "cat", "settings": { "label": "Stones", "icon": "gem" } },
+        { "type": "cat", "settings": { "label": "Idols", "icon": "deity" } },
+        { "type": "cat", "settings": { "label": "Gifting", "icon": "gift" } },
+        { "type": "cat", "settings": { "label": "Free PDFs", "icon": "certificate" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

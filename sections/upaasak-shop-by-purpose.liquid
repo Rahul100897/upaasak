@@ -1,0 +1,71 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-sec u-sec--paper" data-section-id="{{ section.id }}">
+  <div class="u-wrap" data-tabs>
+    <div class="u-section-head is-centered">
+      {% if section.settings.eyebrow != blank %}<span class="u-eyebrow is-centered" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2 class="u-title" data-reveal style="--d:60ms">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="u-pills u-pills--center" role="tablist">
+      {% for block in section.blocks %}
+        <button type="button" class="u-pill{% if forloop.first %} is-active{% endif %}" data-tab="{{ block.id }}" {{ block.shopify_attributes }}>{{ block.settings.label }}</button>
+      {% endfor %}
+    </div>
+
+    {% for block in section.blocks %}
+      <div class="u-panel{% if forloop.first %} is-active{% endif %}" data-panel="{{ block.id }}">
+        {% assign coll = block.settings.collection %}
+        {% if coll != blank and coll.products.size > 0 %}
+          <div class="u-prow">
+            {% for product in coll.products limit: section.settings.count %}
+              {% render 'upaasak-product-card', product: product %}
+            {% endfor %}
+          </div>
+          <div class="u-viewall">
+            <a href="{{ coll.url | default: '#' }}" class="u-btn u-btn--ghost">{{ section.settings.view_all_label }}</a>
+          </div>
+        {% else %}
+          <p style="text-align:center;color:var(--u-muted);padding:30px 0">Assign a collection to “{{ block.settings.label }}” in the theme editor.</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Shop by Purpose",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Find Your Path" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Shop by <em>Purpose</em>" },
+    { "type": "range", "id": "count", "min": 4, "max": 12, "step": 1, "label": "Products per filter", "default": 8 },
+    { "type": "text", "id": "view_all_label", "label": "View all label", "default": "View All" }
+  ],
+  "blocks": [
+    {
+      "type": "purpose",
+      "name": "Purpose filter",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Filter label", "default": "All" },
+        { "type": "collection", "id": "collection", "label": "Collection" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Shop by Purpose",
+      "blocks": [
+        { "type": "purpose", "settings": { "label": "All" } },
+        { "type": "purpose", "settings": { "label": "Bhakti" } },
+        { "type": "purpose", "settings": { "label": "Protection" } },
+        { "type": "purpose", "settings": { "label": "Prosperity" } },
+        { "type": "purpose", "settings": { "label": "Healing" } },
+        { "type": "purpose", "settings": { "label": "Gifting" } },
+        { "type": "purpose", "settings": { "label": "New Arrivals" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

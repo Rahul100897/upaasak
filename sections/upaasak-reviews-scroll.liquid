@@ -1,0 +1,67 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-revx" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    <div class="u-section-head">
+      {% if section.settings.eyebrow != blank %}<span class="u-eyebrow" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2 class="u-title" data-reveal style="--d:60ms">{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}<p class="u-lead" data-reveal style="--d:120ms">{{ section.settings.subheading }}</p>{% endif %}
+    </div>
+  </div>
+  <div class="u-wrap">
+    <div class="u-revx__scroll" data-reveal>
+      {% for block in section.blocks %}
+        <article class="u-revx__card" {{ block.shopify_attributes }}>
+          <div class="u-rating" aria-label="5 star">{% for i in (1..5) %}<svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg>{% endfor %}</div>
+          <p class="u-revx__quote">{{ block.settings.quote }}</p>
+          <div class="u-revx__who">
+            <span class="u-revx__av">{{ block.settings.name | slice: 0 }}</span>
+            <div>
+              <div class="u-revx__name">{{ block.settings.name }}</div>
+              <div class="u-revx__meta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.2-7-10.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 7 4.5C19 15.8 12 21 12 21Z"/></svg>
+                {{ block.settings.meta }}
+              </div>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Reviews Scroll",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Customer Reviews" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Trusted by families, seekers & devotees" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Real people. Real experiences. Every word unedited." }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Review", "default": "Authentic, beautifully packed and genuinely energized. Exactly what I hoped for." },
+        { "type": "text", "id": "name", "label": "Name", "default": "Ananya R." },
+        { "type": "text", "id": "meta", "label": "Location · date", "default": "Mumbai · Verified Buyer" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Reviews Scroll",
+      "blocks": [
+        { "type": "review", "settings": { "quote": "The energy of this mala is unreal. I feel calmer in my morning sadhana — and the certificate gave me total peace of mind.", "name": "Ananya R.", "meta": "Mumbai · Verified Buyer" } },
+        { "type": "review", "settings": { "quote": "Authentic, beautifully packed and delivered with a guide on how to wear it. This is how a spiritual brand should feel.", "name": "Vikram S.", "meta": "Pune · Verified Buyer" } },
+        { "type": "review", "settings": { "quote": "I gifted the 5 Mukhi mala to my father. He wears it daily and swears his sleep has improved. Highly recommend.", "name": "Meera J.", "meta": "Delhi · Verified Buyer" } },
+        { "type": "review", "settings": { "quote": "Premium quality at a fair price. The bead is smooth, the thread is strong, and it truly feels energized.", "name": "Karthik N.", "meta": "Bengaluru · Verified Buyer" } },
+        { "type": "review", "settings": { "quote": "Fast delivery and the Karungali bracelet is stunning. Customer support answered every question patiently.", "name": "Divya P.", "meta": "Chennai · Verified Buyer" } },
+        { "type": "review", "settings": { "quote": "Ordered for my whole family during Shravan. Each piece came certified. Will buy again for Diwali gifting.", "name": "Rohit & Family", "meta": "Jaipur · Verified Buyer" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

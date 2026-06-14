@@ -1,0 +1,73 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-slides" data-section-id="{{ section.id }}" data-slideshow data-interval="{{ section.settings.interval | times: 1000 }}" aria-label="Promotional banners">
+  <div class="u-slides__track">
+    {% for block in section.blocks %}
+      <div class="u-slide" {{ block.shopify_attributes }}>
+        {% if block.settings.image %}
+          <img class="u-slide__bg" src="{{ block.settings.image | image_url: width: 2400 }}" alt="{{ block.settings.heading | escape }}" {% if forloop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+        {% else %}
+          <span class="u-slide__bg--ph"></span>
+        {% endif %}
+        <div class="u-slide__inner">
+          <div class="u-slide__box">
+            {% if block.settings.tip != blank %}<span class="u-slide__tip">{{ block.settings.tip }}</span>{% endif %}
+            <h2 class="u-slide__h">{{ block.settings.heading }}</h2>
+            {% if block.settings.subheading != blank %}<p class="u-slide__sub">{{ block.settings.subheading }}</p>{% endif %}
+            {% if block.settings.cta_label != blank %}
+              <a href="{{ block.settings.cta_link | default: '#' }}" class="u-btn u-btn--gold">{{ block.settings.cta_label }}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if section.blocks.size > 1 %}
+    <button class="u-slides__arrow u-slides__arrow--prev" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button class="u-slides__arrow u-slides__arrow--next" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    <div class="u-slides__dots">
+      {% for block in section.blocks %}
+        <button class="{% if forloop.first %}is-active{% endif %}" aria-label="Go to slide {{ forloop.index }}"></button>
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Banner Slideshow",
+  "tag": "section",
+  "settings": [
+    { "type": "range", "id": "interval", "min": 3, "max": 10, "step": 1, "unit": "s", "label": "Auto-rotate every", "default": 6 }
+  ],
+  "blocks": [
+    {
+      "type": "banner",
+      "name": "Banner",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Background image (full-width)" },
+        { "type": "text", "id": "tip", "label": "Tool tip / eyebrow", "default": "New Arrival" },
+        { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Sacred Rudraksha, <em>Energized for You</em>" },
+        { "type": "textarea", "id": "subheading", "label": "Sub-heading", "default": "Hand-picked, lab-certified beads to elevate your daily sadhana." },
+        { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Shop Now" },
+        { "type": "url", "id": "cta_link", "label": "CTA link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Banner Slideshow",
+      "blocks": [
+        { "type": "banner", "settings": { "tip": "Bestseller", "heading": "Original 5 Mukhi <em>Rudraksha Mala</em>", "subheading": "The most revered bead for peace, focus and daily protection.", "cta_label": "Shop Now" } },
+        { "type": "banner", "settings": { "tip": "Rare & Powerful", "heading": "Karungali <em>Sacred Wood</em>", "subheading": "Ancient ebony beads cherished for grounding and protection.", "cta_label": "Shop Now" } },
+        { "type": "banner", "settings": { "tip": "For Daily Devotion", "heading": "Japa & <em>Meditation Malas</em>", "subheading": "108-bead malas crafted for your mantra practice.", "cta_label": "Shop Now" } },
+        { "type": "banner", "settings": { "tip": "Healing Energy", "heading": "Gemstone <em>Bracelets</em>", "subheading": "Certified natural stones aligned to your intention.", "cta_label": "Shop Now" } },
+        { "type": "banner", "settings": { "tip": "Thoughtful Gifts", "heading": "Spiritual <em>Gifting</em>", "subheading": "Beautifully packaged blessings for your loved ones.", "cta_label": "Shop Now" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,51 @@
+{%- comment -%}
+  Upaasak product card (client spec): name · Certified·Tested·Original · green discount %
+  · strikethrough MRP · sale price · red Add to cart.
+  Usage: {% render 'upaasak-product-card', product: product %}
+{%- endcomment -%}
+{%- liquid
+  assign p = product
+  assign on_sale = false
+  if p.compare_at_price > p.price
+    assign on_sale = true
+    assign disc = p.compare_at_price | minus: p.price | times: 100.0 | divided_by: p.compare_at_price | round
+  endif
+  assign variant_id = p.selected_or_first_available_variant.id
+-%}
+<div class="u-pcard">
+  <a class="u-pcard__media" href="{{ p.url }}">
+    {% if on_sale %}<span class="u-pcard__disc">{{ disc }}% OFF</span>{% endif %}
+    <span class="u-pcard__wish" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20.5C7 17 3.5 13.5 3.5 9.3 3.5 6.6 5.6 4.8 8 4.8c1.7 0 3.1.9 4 2.3.9-1.4 2.3-2.3 4-2.3 2.4 0 4.5 1.8 4.5 4.5 0 4.2-3.5 7.7-8.5 11.2Z"/></svg></span>
+    {% if p.featured_image %}
+      {{ p.featured_image | image_url: width: 540 | image_tag: loading: 'lazy', widths: '280,400,540', alt: p.title | escape }}
+    {% else %}
+      <span style="position:absolute;inset:0;display:grid;place-items:center;color:var(--u-maroon);font-family:var(--u-font-display);font-size:4rem;opacity:.5">ॐ</span>
+    {% endif %}
+  </a>
+  <div class="u-pcard__body">
+    <a class="u-pcard__name" href="{{ p.url }}">{{ p.title }}</a>
+    <div class="u-pcard__tags">
+      <span class="u-pcard__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.4 2.4 4.6-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Certified</span>
+      <span class="u-pcard__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.4 2.4 4.6-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Tested</span>
+      <span class="u-pcard__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.4 2.4 4.6-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Original</span>
+    </div>
+    <div class="u-pcard__price">
+      <span class="u-pcard__now">{{ p.price | money }}</span>
+      {% if on_sale %}<span class="u-pcard__was">{{ p.compare_at_price | money }}</span>{% endif %}
+    </div>
+    {% if p.available %}
+      <product-form>
+        <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="id" value="{{ variant_id }}">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" class="u-pcard__cta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M3 4h2l2.2 11.2a1.5 1.5 0 0 0 1.5 1.2h8.3a1.5 1.5 0 0 0 1.5-1.2L21 8H6"/></svg>
+            Add to cart
+          </button>
+        </form>
+      </product-form>
+    {% else %}
+      <a href="{{ p.url }}" class="u-pcard__cta" style="background:var(--u-muted)">Sold out</a>
+    {% endif %}
+  </div>
+</div>

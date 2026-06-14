@@ -1,0 +1,87 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-site" data-section-id="{{ section.id }}">
+  <div class="u-site__grid">
+    <div class="u-site__brand">
+      <a class="u-lockup" href="{{ routes.root_url }}">
+        <span class="u-lockup__mark">{{ section.settings.logo_letter | default: 'ॐ' }}</span>
+        <span>
+          <span class="u-lockup__name">{{ section.settings.brand_name }}</span>
+          <span class="u-lockup__slogan">{{ section.settings.slogan }}</span>
+        </span>
+      </a>
+      <p>{{ section.settings.about }}</p>
+      <div class="u-site__social">
+        {% if section.settings.whatsapp != blank %}
+          <a class="wa" href="{{ section.settings.whatsapp }}" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.5.1-1 .2-3.2-.7-2.7-1.1-4.4-3.8-4.5-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.1.2.6 1 1.3 1.6.9.8 1.6 1 1.8 1.1.2.1.4.1.5-.1l.6-.8c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/></svg>
+          </a>
+        {% endif %}
+        {% if section.settings.instagram != blank %}
+          <a class="ig" href="{{ section.settings.instagram }}" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    {% for block in section.blocks %}
+      <div class="u-site__col" {{ block.shopify_attributes }}>
+        <h4>{{ block.settings.title }}</h4>
+        <ul>
+          {%- assign labels = block.settings.labels | newline_to_br | split: '<br />' -%}
+          {%- assign links = block.settings.links | newline_to_br | split: '<br />' -%}
+          {% for label in labels %}
+            {%- assign lbl = label | strip -%}
+            {%- if lbl != blank -%}
+              {%- assign href = links[forloop.index0] | strip | default: '#' -%}
+              <li><a href="{{ href | default: '#' }}">{{ lbl }}</a></li>
+            {%- endif -%}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="u-site__bar">
+    <span>© {{ 'now' | date: '%Y' }} {{ section.settings.brand_name }}. All rights reserved.</span>
+    <span>{{ section.settings.bottom_note }}</span>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Sitemap Footer",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "logo_letter", "label": "Logo mark", "default": "ॐ" },
+    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "UPAASAK" },
+    { "type": "text", "id": "slogan", "label": "Slogan", "default": "Authentic Spiritual Essentials" },
+    { "type": "textarea", "id": "about", "label": "About text", "default": "Authentic, lab-certified and energized Rudraksha, malas and spiritual essentials — sourced with devotion, delivered across India." },
+    { "type": "url", "id": "whatsapp", "label": "WhatsApp link" },
+    { "type": "url", "id": "instagram", "label": "Instagram link" },
+    { "type": "text", "id": "bottom_note", "label": "Bottom note", "default": "Made with devotion · 🇮🇳 India" }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Link column",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Column title", "default": "Information" },
+        { "type": "textarea", "id": "labels", "label": "Link labels (one per line)", "default": "Contact us\nBlogs\nFAQ's\nFree PDF's" },
+        { "type": "textarea", "id": "links", "label": "Link URLs (one per line, match labels)", "default": "" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Sitemap Footer",
+      "blocks": [
+        { "type": "column", "settings": { "title": "Information", "labels": "Contact us\nBlogs\nFAQ's\nFree PDF's" } },
+        { "type": "column", "settings": { "title": "Policies", "labels": "Terms & Conditions\nPrivacy Policy\nShipping Policy\nRefunds & Cancellations" } },
+        { "type": "column", "settings": { "title": "Quick Links", "labels": "Track your order\nBest Sellers\nCorporate Gifting" } },
+        { "type": "column", "settings": { "title": "All Products", "labels": "Karungali\nRudraksha\nSpiritual Bracelets\nMala\nStones" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

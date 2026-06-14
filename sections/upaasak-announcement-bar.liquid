@@ -1,0 +1,52 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-ann" data-section-id="{{ section.id }}">
+  <div class="u-ann__in">
+    <span class="u-ann__side" aria-hidden="true"></span>
+    <div class="u-ann__rotator" data-announce>
+      {% for block in section.blocks %}
+        {%- if block.type == 'message' -%}
+          <span class="u-ann__msg{% if forloop.first %} is-active{% endif %}" {{ block.shopify_attributes }}>
+            <span class="u-om">ॐ</span>{{ block.settings.text }}
+          </span>
+        {%- endif -%}
+      {% endfor %}
+    </div>
+    {% if section.settings.show_track %}
+      <a class="u-ann__track" href="{{ section.settings.track_link | default: '#' }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17.5" cy="17" r="1.6"/></svg>
+        {{ section.settings.track_label }}
+      </a>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Announcement Bar",
+  "settings": [
+    { "type": "checkbox", "id": "show_track", "label": "Show 'Track your order' CTA", "default": true },
+    { "type": "text", "id": "track_label", "label": "Track CTA label", "default": "Track your order" },
+    { "type": "url", "id": "track_link", "label": "Track CTA link" }
+  ],
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Announcement",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Message", "default": "Free shipping on orders above ₹999" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Announcement Bar",
+      "blocks": [
+        { "type": "message", "settings": { "text": "Free shipping on orders above ₹999" } },
+        { "type": "message", "settings": { "text": "Extra 10% OFF on all prepaid orders" } },
+        { "type": "message", "settings": { "text": "100% Original · Lab-Certified · Energized Rudraksha" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
