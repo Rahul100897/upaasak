@@ -9,7 +9,7 @@
 
     <div class="u-why__banner" data-reveal="zoom">
       {% if section.settings.banner %}
-        <img src="{{ section.settings.banner | image_url: width: 2000 }}" alt="{{ section.settings.heading | escape }}" loading="lazy">
+        <img src="{{ section.settings.banner | image_url: width: 2000 }}" alt="{{ section.settings.heading | escape }}" width="2000" height="750" loading="lazy">
       {% else %}
         <div class="u-why__banner-ph">{{ section.settings.banner_placeholder }}</div>
       {% endif %}

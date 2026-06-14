@@ -5,7 +5,7 @@
     {% for block in section.blocks %}
       <div class="u-slide" {{ block.shopify_attributes }}>
         {% if block.settings.image %}
-          <img class="u-slide__bg" src="{{ block.settings.image | image_url: width: 2400 }}" alt="{{ block.settings.heading | escape }}" {% if forloop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+          <img class="u-slide__bg" src="{{ block.settings.image | image_url: width: 2400 }}" alt="{{ block.settings.heading | escape }}" width="2400" height="1100" {% if forloop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
         {% else %}
           <span class="u-slide__bg--ph"></span>
         {% endif %}
