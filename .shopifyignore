@@ -1,0 +1,6 @@
+# Files that are not part of the Shopify theme (don't upload these)
+preview/
+.claude/
+README.md
+.git/
+.gitignore
