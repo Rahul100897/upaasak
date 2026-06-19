@@ -1,1 +1,685 @@
-{"sections":{"main":{"type":"product-information","blocks":{"media-gallery":{"type":"_product-media-gallery","static":true,"settings":{"media_presentation":"carousel","media_columns":"one","image_gap":4,"large_first_image":true,"icons_style":"none","slideshow_controls_style":"counter","slideshow_mobile_controls_style":"dots","thumbnail_position":"right","thumbnail_width":44,"thumbnail_radius":0,"aspect_ratio":"1","constrain_to_viewport":true,"media_fit":"contain","media_radius":0,"extend_media":false,"zoom":true,"video_loop":false,"hide_variants":true,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"product-details":{"type":"_product-details","static":true,"settings":{"width":"fill","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","details_position":"flex-start","gap":28,"sticky_details_desktop":true,"inherit_color_scheme":true,"color_scheme":"scheme-1","background_media":"none","video_position":"cover","background_image_position":"cover","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"padding-block-start":24,"padding-block-end":24,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"group_icgrde":{"type":"group","name":"Header","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"flex-start","vertical_alignment_flex_direction_column":"center","gap":12,"width":"fill","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","custom_height":100,"inherit_color_scheme":true,"color_scheme":"","background_media":"none","video_position":"cover","background_image_position":"cover","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","link":"","open_in_new_tab":false,"placeholder":"","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"text_xrnftG":{"type":"text","name":"Product title","settings":{"text":"<h1>{{ closest.product.title }}</h1>","width":"100%","max_width":"normal","alignment":"left","type_preset":"h3","font":"var(--font-primary--family)","font_size":"","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"price_tVjtKg":{"type":"price","settings":{"show_sale_price_first":true,"show_installments":false,"show_tax_info":false,"type_preset":"paragraph","width":"100%","alignment":"left","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","color":"var(--color-foreground)","padding-block-start":4,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["text_xrnftG","price_tVjtKg"]},"divider_VJhene":{"type":"_divider","name":"t:names.divider","settings":{"thickness":1,"corner_radius":"square","width_percent":100,"padding-block-start":0,"padding-block-end":0},"blocks":{}},"variant_picker_R3rGDr":{"type":"variant-picker","settings":{"variant_style":"buttons","show_swatches":false,"alignment":"left","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"buy_buttons_eYQEYi":{"type":"buy-buttons","settings":{"stacking":true,"show_pickup_availability":false,"gift_card_form":true,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"quantity":{"type":"quantity","static":true,"settings":{},"blocks":{}},"add-to-cart":{"type":"add-to-cart","static":true,"settings":{"style_class":"button"},"blocks":{}},"accelerated-checkout":{"type":"accelerated-checkout","static":true,"settings":{},"blocks":{}}},"block_order":[]},"text_aEtTtq":{"type":"text","name":"Product description","settings":{"text":"{{ closest.product.description }}","width":"100%","max_width":"normal","alignment":"left","type_preset":"rte","font":"var(--font-primary--family)","font_size":"","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["group_icgrde","divider_VJhene","variant_picker_R3rGDr","buy_buttons_eYQEYi","text_aEtTtq"]}},"disabled":true,"settings":{"content_width":"content-center-aligned","desktop_media_position":"left","equal_columns":false,"limit_details_width":false,"gap":48,"enable_sticky_add_to_cart":true,"color_scheme":"","padding-block-start":0,"padding-block-end":0}},"product_recommendations_qggXJq":{"type":"product-recommendations","blocks":{"text_cbcgyb":{"type":"text","name":"t:names.header","settings":{"text":"<h3>You may also like </h3>","width":"fit-content","max_width":"normal","alignment":"left","type_preset":"h4","font":"var(--font-primary--family)","font_size":"","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"static-product-card":{"type":"_product-card","name":"t:names.product_card","static":true,"settings":{"product_card_gap":8,"inherit_color_scheme":true,"color_scheme":"","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"padding-block-start":0,"padding-block-end":8,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"product_card_gallery_DNizbJ":{"type":"_product-card-gallery","name":"t:names.product_card_media","settings":{"image_ratio":"adapt","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"product_title_M7MJkb":{"type":"product-title","name":"t:names.product_title","settings":{"width":"100%","max_width":"normal","alignment":"left","type_preset":"rte","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","color":"var(--color-foreground)","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":4,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"price_gLWgA6":{"type":"price","settings":{"show_sale_price_first":true,"show_installments":false,"show_tax_info":false,"type_preset":"h6","width":"100%","alignment":"left","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","color":"var(--color-foreground)","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["product_card_gallery_DNizbJ","product_title_M7MJkb","price_gLWgA6"]}},"block_order":["text_cbcgyb"],"disabled":true,"name":"t:names.product_recommendations","settings":{"product":"{{ closest.product }}","recommendation_type":"related","layout_type":"grid","carousel_on_mobile":false,"max_products":4,"columns":4,"mobile_columns":"2","columns_gap":12,"rows_gap":24,"icons_style":"arrow","icons_shape":"none","section_width":"page-width","gap":28,"color_scheme":"scheme-1","padding-block-start":48,"padding-block-end":48}},"lesure_hero_kNczMx":{"type":"lesure-hero","blocks":{"bullet_point_JwfpU6":{"type":"bullet_point","settings":{"text":"0.5 Qmax cooling — 66% faster"}},"bullet_point_WifJQF":{"type":"bullet_point","settings":{"text":"Orthopedic foam — joint support all night"}},"bullet_point_hMCfWd":{"type":"bullet_point","settings":{"text":"Bamboo fill — releases heat passively"}},"bullet_point_yp9db6":{"type":"bullet_point","settings":{"text":"Washable zip-off cover — OEKO-TEX"}},"gift_item_tQNN3N":{"type":"gift_item","settings":{"text":"Premium Craftsmanship","sub_text":"Detailed floral design with fine finishing."}},"gift_item_h7kpzc":{"type":"gift_item","settings":{"text":"Adjustable Fit","sub_text":"Open ring design fits most finger sizes comfortably."}},"gift_item_Dx7ka4":{"type":"gift_item","settings":{"text":"Versatile Styling","sub_text":"Perfect for ethnic, festive, and western outfits."}},"accordion_item_d7nmC6":{"type":"accordion_item","settings":{"title":"Description","content_richtext":"<p>The Adjustable Floral Statement Ring is crafted to make a lasting impression. Designed with an elegant floral motif and embellished with shimmering stones, this ring adds sophistication and charm to any look.</p><p>Whether you're attending a wedding, festive celebration, engagement party, or casual gathering, this statement ring effortlessly enhances your style. The adjustable band ensures a secure and comfortable fit without compromising on elegance.</p><p>Made from high-quality alloy with a durable finish, this ring is lightweight, comfortable to wear, and designed for long-lasting beauty.</p>"}},"accordion_item_V3brGR":{"type":"accordion_item","settings":{"title":"Shipping &amp; Returns","content_richtext":"<p><strong>Free shipping</strong> on every order. Ships within 24 hours from our US warehouse. Standard delivery: 3–5 business days.</p><p><strong>30-day risk-free trial.</strong> If your dog isn't sleeping deeper or moving easier within 30 days, send it back — full refund, return shipping covered, no questions asked.</p>"}}},"block_order":["bullet_point_JwfpU6","bullet_point_WifJQF","bullet_point_hMCfWd","bullet_point_yp9db6","gift_item_tQNN3N","gift_item_h7kpzc","gift_item_Dx7ka4","accordion_item_d7nmC6","accordion_item_V3brGR"],"name":"Lesure Hero Section","settings":{"stars_rating":"★★★★★","reviews_text":"4.8 · 2,341 reviews","product_subtitle":"The first dog bed designed around your dog's thermal regulation — not just comfort. Sleep deeper. Wake up without stiffness.","price_note":"Free shipping · Ships within 24 hours · 30-day returns","size_guide_link_text":"Size Guide","size_guide_section_id":"sizeSection","size_info":"S:0–20 lbs,M:20–35 lbs,L:35–50 lbs,XL:50–70 lbs,XXL:70–90 lbs","option_ui_type":"buttons"}},"lesure_trust_badges_rVtcxH":{"type":"lesure-trust-badges","blocks":{"badge_hi7Ear":{"type":"badge","settings":{"icon_svg":"","title":"Free Shipping","subtitle":"On all orders"}},"badge_C8KmXP":{"type":"badge","settings":{"icon_svg":"","title":"30-Day Returns","subtitle":"Risk-free trial"}},"badge_xHh9XP":{"type":"badge","settings":{"icon_svg":"","title":"1-Year Warranty","subtitle":"Quality guaranteed"}},"badge_gQJWBg":{"type":"badge","settings":{"icon_svg":"","title":"Eco-Friendly","subtitle":"Sustainable materials"}}},"block_order":["badge_hi7Ear","badge_C8KmXP","badge_xHh9XP","badge_gQJWBg"],"name":"Lesure Trust Badges","settings":{"badges_bg":"#f5f5f7","color_title":"#111111","color_subtitle":"#6e6e73","color_icon_stroke":"#70433e","color_icon_bg":"#f9f1eb"}},"lesure_two_column_foam_EM4X3y":{"type":"lesure-two-column-foam","blocks":{"accordion_item_jF3QRM":{"type":"accordion_item","settings":{"title":"In a crate","content_richtext":"<p>L and XL sizes fit standard and XL wire crates exactly — flush, without bunching or cutting. The flat profile keeps your dog at natural height inside the crate.</p>"}},"accordion_item_rYKNce":{"type":"accordion_item","settings":{"title":"On the floor or couch","content_richtext":"<p>Non-slip base keeps it from sliding on hardwood, tile, or rugs. Neutral colorway blends into any room — looks like furniture, not utility equipment.</p>"}},"accordion_item_iLHpUR":{"type":"accordion_item","settings":{"title":"Senior dogs with stiff joints","content_richtext":"<p>6.8/10 firmness egg-crate foam yields under hips, shoulders and elbows but supports the spine fully — the geometry that physical therapists recommend for joint pain.</p>"}}},"block_order":["accordion_item_jF3QRM","accordion_item_rYKNce","accordion_item_iLHpUR"],"name":"2-Column: Foam","settings":{"color_border_top":"#e2ddd8","color_image_background":"#f5f2ee","color_image_placeholder_background":"linear-gradient(145deg,#daeae1,#bfd8cc)","color_image_placeholder_text":"#2e6b4a","color_label":"#6e6e73","color_title":"#111111","color_paragraph":"#6e6e73","color_strong_text":"#111111","color_proofbox_background":"#e6f0ea","color_proofbox_border":"#2e6b4a","color_proofbox_text":"#2e6b4a","video_visibility":"none","image":"shopify://shop_images/img2.png","image_placeholder_text":"[Image: egg-crate foam cross-section]","label":"Joint Support","title":"Soft enough to relieve pressure. Firm enough to support the spine.","content_richtext":"<p>Most memory foam beds fail at one of two extremes. Too soft — the dog sinks until the spine is unsupported. Too firm — hard pressure points form at hips, elbows, and shoulders.</p><p><strong>Egg-crate foam at 6.8/10 firmness</strong> yields under isolated pressure points while maintaining full structural support for the spine and core.</p>","proofbox_text":"","color_vers_q_icon_text":"#6f453e","color_vers_q_active_icon_background":"#6f453e","color_vers_q_icon_background":"#f9f1eb","color_vers_q_active_icon_text":"#ffffff","reverse_layout":true}},"features_new_section_mHHbEb":{"type":"features-new-section","blocks":{"feature_item_jKKjdf":{"type":"feature_item","settings":{"title":"No-Drill Clamp","description":"Fits desk edges from 0.8\" to 2.7\" thick. Steel clamp holds up to 40 lbs with zero wall damage.","icon_type":"clamp"}},"feature_item_T6HjNR":{"type":"feature_item","settings":{"title":"90° Foldable","description":"Fold it flat under the desk when not in use. Takes up zero floor space. Back up in seconds.","icon_type":"fold"}},"feature_item_yDwFma":{"type":"feature_item","settings":{"title":"Machine Washable","description":"The plush cover pops off easily. Toss it in the wash and have it fresh again in no time.","icon_type":"wash"}},"feature_item_Q3Y8qb":{"type":"feature_item","settings":{"title":"Ultra-Plush Nest","description":"15.7\" diameter, deep-bowl design mimics your cat's natural urge to curl up and feel secure.","icon_type":"nest"}}},"block_order":["feature_item_jKKjdf","feature_item_T6HjNR","feature_item_yDwFma","feature_item_Q3Y8qb"],"name":"Feature Section","settings":{"section_padding_vertical":60,"section_padding_horizontal":40,"image":"shopify://shop_images/img1.png","heading":"Built for cats who","heading_highlight":"refuse to be ignored","highlight_color":"#c9a96e","card_bg_color":"#f8f6f2"}},"perrch_how_it_works_YbCjPc":{"type":"perrch-how-it-works","blocks":{"step_3WQRH9":{"type":"step","settings":{"image":"shopify://shop_images/img2.png","title":"Clamp to Your Desk Edge","description":"Slide the steel clamp onto any desk, windowsill, or bed frame. Tighten until secure."}},"step_TRcymf":{"type":"step","settings":{"image":"shopify://shop_images/img1.png","title":"Attach the Metal Frame","description":"Fit the cover onto the frame first, then snap the two pieces together — much easier that way."}},"step_t9JxAF":{"type":"step","settings":{"image":"shopify://shop_images/hero-img_1.jpg","title":"Introduce Your Cat","description":"Set your cat inside or let them find it. Most claim it within the hour."}}},"block_order":["step_3WQRH9","step_TRcymf","step_t9JxAF"],"name":"How It Works","settings":{"heading_black":"How","heading_gold":"It Works","subheading":"Learn its setup in three easy steps","bg_color":"#ffffff","padding_top":60,"padding_bottom":60}},"comparison_table_yid7Cr":{"type":"comparison-table","blocks":{"feature_row_gHj3gf":{"type":"feature_row","settings":{"feature_text":"Reinforced steel frame — rated to 40 lbs","our_has_feature":true,"others_has_feature":false}},"feature_row_krVKqR":{"type":"feature_row","settings":{"feature_text":"90° foldable — stores flat in seconds","our_has_feature":true,"others_has_feature":false}},"feature_row_w8pMWk":{"type":"feature_row","settings":{"feature_text":"Non-slip clamp — zero desk damage","our_has_feature":true,"others_has_feature":false}},"feature_row_fbjxD9":{"type":"feature_row","settings":{"feature_text":"Removable, machine washable cover","our_has_feature":true,"others_has_feature":false}},"feature_row_kVtef6":{"type":"feature_row","settings":{"feature_text":"Deep-bowl nest design for natural curling","our_has_feature":true,"others_has_feature":false}}},"block_order":["feature_row_gHj3gf","feature_row_krVKqR","feature_row_w8pMWk","feature_row_fbjxD9","feature_row_kVtef6"],"name":"Comparison Table","settings":{"section_title":"","our_product_title":"Our Product","our_column_color":"#c9a96e","show_badge":true,"badge_text":"Original","badge_icon_color":"#7a5c2e","others_title":"Others","others_subtitle":"Knock-off"}},"lesure_faq_rac9Ua":{"type":"lesure-faq","blocks":{"faq_WHzcVr":{"type":"faq","settings":{"question":"Are your jewellery pieces suitable for sensitive skin?","answer":"Yes, our jewellery is crafted using skin-friendly materials and finishes. However, if you have extremely sensitive skin, we recommend reviewing the product specifications before purchasing."}},"faq_eWQUxK":{"type":"faq","settings":{"question":"Will the colour fade over time?","answer":"Our jewellery is designed for long-lasting beauty. To maintain its shine and plating, avoid contact with water, perfumes, and harsh chemicals."}},"faq_M4wTec":{"type":"faq","settings":{"question":"Are the rings adjustable?","answer":"Many of our statement rings feature adjustable designs for a comfortable fit. Please refer to the product description for sizing details."}},"faq_r4FiYD":{"type":"faq","settings":{"question":"How should I care for my jewellery?","answer":"Store your jewellery in a dry place, preferably in a jewellery box or pouch. Clean gently with a soft cloth after use and avoid exposure to moisture."}},"faq_ehTzQA":{"type":"faq","settings":{"question":"Do you offer returns or exchanges?","answer":"Yes, we offer hassle-free returns and exchanges within 30 days of delivery. Please ensure the product is unused and in its original packaging."}}},"block_order":["faq_WHzcVr","faq_eWQUxK","faq_M4wTec","faq_r4FiYD","faq_ehTzQA"],"name":"Lesure FAQ","settings":{"label":"FAQ","title":"You asked.","subtitle":"We answered.","intro":"Everything you need to know before purchasing your favorite jewellery piece. From sizing and materials to shipping and care instructions, we're here to help.","contact_text":"support@cravetoshop.com"}},"u_phl":{"type":"upaasak-product-highlights","blocks":{"b1":{"type":"item","settings":{"icon":"certificate","title":"Lab Certified","text":"Authenticity guaranteed"}},"b2":{"type":"item","settings":{"icon":"om","title":"Energized","text":"Abhimantrit before dispatch"}},"b3":{"type":"item","settings":{"icon":"truck","title":"Free Shipping","text":"COD available pan-India"}},"b4":{"type":"item","settings":{"icon":"return","title":"Easy Returns","text":"7-day hassle-free returns"}}},"block_order":["b1","b2","b3","b4"]},"u_sig":{"type":"upaasak-product-significance","settings":{"eyebrow":"Spiritual Significance","heading":"The Sacred Meaning of This Bead","body":"<p>Each Mukhi (face) of a Rudraksha carries its own ruling deity, planet and blessing. Worn close to the skin, it is believed to balance the chakras, steady the mind and invite the grace it represents into your life.</p>","mantra_label":"Beej Mantra","mantra":"॥ ओं नमः शिवाय ॥"},"blocks":{"b1":{"type":"fact","settings":{"label":"Ruling Deity","value":"Lord Shiva"}},"b2":{"type":"fact","settings":{"label":"Ruling Planet","value":"Jupiter"}},"b3":{"type":"fact","settings":{"label":"Chakra","value":"Vishuddhi"}},"b4":{"type":"fact","settings":{"label":"Origin","value":"Nepal"}}},"block_order":["b1","b2","b3","b4"]},"u_care":{"type":"upaasak-product-care","settings":{"eyebrow":"Rituals","heading":"How to Wear & Care for Your Mala","subheading":"A few simple practices to keep your Rudraksha potent, beautiful and blessed for years."},"blocks":{"b1":{"type":"tip","settings":{"icon":"water","title":"Activate It","text":"On a Monday morning, rinse with clean water or Ganga jal and chant the beej mantra 9 times before first wear."}},"b2":{"type":"tip","settings":{"icon":"hand","title":"Wear It Right","text":"Wear against the skin or use for japa with your right hand, crossing the Sumeru (head) bead — never over it."}},"b3":{"type":"tip","settings":{"icon":"leaf","title":"Keep It Pure","text":"Avoid harsh chemicals, perfumes and excess moisture. Remove before bathing or sleeping."}},"b4":{"type":"tip","settings":{"icon":"sun","title":"Recharge It","text":"Oil the beads with sandalwood or mustard oil occasionally and let them rest in sunlight to retain lustre."}}},"block_order":["b1","b2","b3","b4"]},"u_promise":{"type":"upaasak-product-promise","settings":{"eyebrow":"The Upaasak Promise","heading":"Buy With Complete Confidence","subheading":"Every order is backed by our authenticity guarantee and arrives ready to bless."},"blocks":{"b1":{"type":"seal","settings":{"icon":"certificate","title":"Certificate of Authenticity","text":"A lab-verified certificate accompanies every bead."}},"b2":{"type":"seal","settings":{"icon":"om","title":"Energized & Blessed","text":"Abhimantrit with the appropriate Vedic mantras."}},"b3":{"type":"seal","settings":{"icon":"gift","title":"Gift-Ready Packaging","text":"Arrives in a premium pouch with a care guide."}},"b4":{"type":"seal","settings":{"icon":"shield","title":"Money-Back Guarantee","text":"Not satisfied? Return within 7 days, no questions."}}},"block_order":["b1","b2","b3","b4"]},"u_reviews":{"type":"upaasak-product-reviews","settings":{"eyebrow":"Verified Reviews","heading":"What Devotees Are Saying","avg_score":"4.9","review_count":"1,284","distribution":"92,6,1,1,0"},"blocks":{"b1":{"type":"review","settings":{"name":"Ravi K.","text":"Beautiful bead, clearly authentic. Came with a certificate and a lovely pouch. Wearing it daily now."}},"b2":{"type":"review","settings":{"name":"Sneha P.","text":"I was nervous buying online but the quality exceeded my expectations. Feels genuinely energized."}},"b3":{"type":"review","settings":{"name":"Arjun M.","text":"Fast delivery, premium packaging and great customer support. Will be ordering the 5 Mukhi next."}}},"block_order":["b1","b2","b3"]},"u_faq":{"type":"upaasak-faq","settings":{"eyebrow":"Good to Know","heading":"Questions About This Mala","open_first":true},"blocks":{"b1":{"type":"faq","settings":{"question":"Is this Rudraksha original and certified?","answer":"<p>Yes. This bead is 100% natural, lab-tested for authenticity and origin, and ships with a certificate.</p>"}},"b2":{"type":"faq","settings":{"question":"Is it already energized?","answer":"<p>Every Upaasak Rudraksha is abhimantrit (energized) with the appropriate Vedic mantra before dispatch, so it's ready to wear.</p>"}},"b3":{"type":"faq","settings":{"question":"How long will delivery take?","answer":"<p>Orders are dispatched within 24–48 hours and typically delivered in 3–7 days across India, with free shipping and COD available.</p>"}},"b4":{"type":"faq","settings":{"question":"What if it doesn't feel right for me?","answer":"<p>You're covered by our 7-day, no-questions return policy. Reach out and we'll make it right.</p>"}}},"block_order":["b1","b2","b3","b4"]}},"order":["main","u_phl","u_sig","u_care","u_promise","u_reviews","u_faq","product_recommendations_qggXJq"]}
+{
+  "sections": {
+    "main": {
+      "type": "product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "carousel",
+            "media_columns": "one",
+            "image_gap": 4,
+            "large_first_image": true,
+            "icons_style": "none",
+            "slideshow_controls_style": "counter",
+            "slideshow_mobile_controls_style": "dots",
+            "thumbnail_position": "right",
+            "thumbnail_width": 44,
+            "thumbnail_radius": 0,
+            "aspect_ratio": "1",
+            "constrain_to_viewport": true,
+            "media_fit": "contain",
+            "media_radius": 0,
+            "extend_media": false,
+            "zoom": true,
+            "video_loop": false,
+            "hide_variants": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 28,
+            "sticky_details_desktop": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "scheme-1",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_icgrde": {
+              "type": "group",
+              "name": "Header",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_xrnftG": {
+                  "type": "text",
+                  "name": "Product title",
+                  "settings": {
+                    "text": "<h1>{{ closest.product.title }}</h1>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h3",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "price_tVjtKg": {
+                  "type": "price",
+                  "settings": {
+                    "show_sale_price_first": true,
+                    "show_installments": false,
+                    "show_tax_info": false,
+                    "type_preset": "paragraph",
+                    "width": "100%",
+                    "alignment": "left",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "color": "var(--color-foreground)",
+                    "padding-block-start": 4,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xrnftG",
+                "price_tVjtKg"
+              ]
+            },
+            "divider_VJhene": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "variant_picker_R3rGDr": {
+              "type": "variant-picker",
+              "settings": {
+                "variant_style": "buttons",
+                "show_swatches": false,
+                "alignment": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "buy_buttons_eYQEYi": {
+              "type": "buy-buttons",
+              "settings": {
+                "stacking": true,
+                "show_pickup_availability": false,
+                "gift_card_form": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "text_aEtTtq": {
+              "type": "text",
+              "name": "Product description",
+              "settings": {
+                "text": "{{ closest.product.description }}",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-primary--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_icgrde",
+            "divider_VJhene",
+            "variant_picker_R3rGDr",
+            "buy_buttons_eYQEYi",
+            "text_aEtTtq"
+          ]
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": false,
+        "limit_details_width": false,
+        "gap": 48,
+        "enable_sticky_add_to_cart": true,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "u_phl": {
+      "type": "upaasak-product-highlights",
+      "blocks": {
+        "b1": {
+          "type": "item",
+          "settings": {
+            "icon": "certificate",
+            "title": "Lab Certified",
+            "text": "Authenticity guaranteed"
+          }
+        },
+        "b2": {
+          "type": "item",
+          "settings": {
+            "icon": "om",
+            "title": "Energized",
+            "text": "Abhimantrit before dispatch"
+          }
+        },
+        "b3": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Free Shipping",
+            "text": "COD available pan-India"
+          }
+        },
+        "b4": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "Easy Returns",
+            "text": "7-day hassle-free returns"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "u_sig": {
+      "type": "upaasak-product-significance",
+      "settings": {
+        "eyebrow": "Spiritual Significance",
+        "heading": "The Sacred Meaning of This Bead",
+        "body": "<p>Each Mukhi (face) of a Rudraksha carries its own ruling deity, planet and blessing. Worn close to the skin, it is believed to balance the chakras, steady the mind and invite the grace it represents into your life.</p>",
+        "mantra_label": "Beej Mantra",
+        "mantra": "॥ ओं नमः शिवाय ॥"
+      },
+      "blocks": {
+        "b1": {
+          "type": "fact",
+          "settings": {
+            "label": "Ruling Deity",
+            "value": "Lord Shiva"
+          }
+        },
+        "b2": {
+          "type": "fact",
+          "settings": {
+            "label": "Ruling Planet",
+            "value": "Jupiter"
+          }
+        },
+        "b3": {
+          "type": "fact",
+          "settings": {
+            "label": "Chakra",
+            "value": "Vishuddhi"
+          }
+        },
+        "b4": {
+          "type": "fact",
+          "settings": {
+            "label": "Origin",
+            "value": "Nepal"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "u_care": {
+      "type": "upaasak-product-care",
+      "settings": {
+        "eyebrow": "Rituals",
+        "heading": "How to Wear & Care for Your Mala",
+        "subheading": "A few simple practices to keep your Rudraksha potent, beautiful and blessed for years."
+      },
+      "blocks": {
+        "b1": {
+          "type": "tip",
+          "settings": {
+            "icon": "water",
+            "title": "Activate It",
+            "text": "On a Monday morning, rinse with clean water or Ganga jal and chant the beej mantra 9 times before first wear."
+          }
+        },
+        "b2": {
+          "type": "tip",
+          "settings": {
+            "icon": "hand",
+            "title": "Wear It Right",
+            "text": "Wear against the skin or use for japa with your right hand, crossing the Sumeru (head) bead — never over it."
+          }
+        },
+        "b3": {
+          "type": "tip",
+          "settings": {
+            "icon": "leaf",
+            "title": "Keep It Pure",
+            "text": "Avoid harsh chemicals, perfumes and excess moisture. Remove before bathing or sleeping."
+          }
+        },
+        "b4": {
+          "type": "tip",
+          "settings": {
+            "icon": "sun",
+            "title": "Recharge It",
+            "text": "Oil the beads with sandalwood or mustard oil occasionally and let them rest in sunlight to retain lustre."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "u_promise": {
+      "type": "upaasak-product-promise",
+      "settings": {
+        "eyebrow": "The Upaasak Promise",
+        "heading": "Buy With Complete Confidence",
+        "subheading": "Every order is backed by our authenticity guarantee and arrives ready to bless."
+      },
+      "blocks": {
+        "b1": {
+          "type": "seal",
+          "settings": {
+            "icon": "certificate",
+            "title": "Certificate of Authenticity",
+            "text": "A lab-verified certificate accompanies every bead."
+          }
+        },
+        "b2": {
+          "type": "seal",
+          "settings": {
+            "icon": "om",
+            "title": "Energized & Blessed",
+            "text": "Abhimantrit with the appropriate Vedic mantras."
+          }
+        },
+        "b3": {
+          "type": "seal",
+          "settings": {
+            "icon": "gift",
+            "title": "Gift-Ready Packaging",
+            "text": "Arrives in a premium pouch with a care guide."
+          }
+        },
+        "b4": {
+          "type": "seal",
+          "settings": {
+            "icon": "shield",
+            "title": "Money-Back Guarantee",
+            "text": "Not satisfied? Return within 7 days, no questions."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "u_reviews": {
+      "type": "upaasak-product-reviews",
+      "settings": {
+        "eyebrow": "Verified Reviews",
+        "heading": "What Devotees Are Saying",
+        "avg_score": "4.9",
+        "review_count": "1,284",
+        "distribution": "92,6,1,1,0"
+      },
+      "blocks": {
+        "b1": {
+          "type": "review",
+          "settings": {
+            "name": "Ravi K.",
+            "text": "Beautiful bead, clearly authentic. Came with a certificate and a lovely pouch. Wearing it daily now."
+          }
+        },
+        "b2": {
+          "type": "review",
+          "settings": {
+            "name": "Sneha P.",
+            "text": "I was nervous buying online but the quality exceeded my expectations. Feels genuinely energized."
+          }
+        },
+        "b3": {
+          "type": "review",
+          "settings": {
+            "name": "Arjun M.",
+            "text": "Fast delivery, premium packaging and great customer support. Will be ordering the 5 Mukhi next."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "u_faq": {
+      "type": "upaasak-faq",
+      "settings": {
+        "eyebrow": "Good to Know",
+        "heading": "Questions About This Mala",
+        "open_first": true
+      },
+      "blocks": {
+        "b1": {
+          "type": "faq",
+          "settings": {
+            "question": "Is this Rudraksha original and certified?",
+            "answer": "<p>Yes. This bead is 100% natural, lab-tested for authenticity and origin, and ships with a certificate.</p>"
+          }
+        },
+        "b2": {
+          "type": "faq",
+          "settings": {
+            "question": "Is it already energized?",
+            "answer": "<p>Every Upaasak Rudraksha is abhimantrit (energized) with the appropriate Vedic mantra before dispatch, so it's ready to wear.</p>"
+          }
+        },
+        "b3": {
+          "type": "faq",
+          "settings": {
+            "question": "How long will delivery take?",
+            "answer": "<p>Orders are dispatched within 24–48 hours and typically delivered in 3–7 days across India, with free shipping and COD available.</p>"
+          }
+        },
+        "b4": {
+          "type": "faq",
+          "settings": {
+            "question": "What if it doesn't feel right for me?",
+            "answer": "<p>You're covered by our 7-day, no-questions return policy. Reach out and we'll make it right.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "product_recommendations_qggXJq": {
+      "type": "product-recommendations",
+      "blocks": {
+        "text_cbcgyb": {
+          "type": "text",
+          "name": "t:names.header",
+          "settings": {
+            "text": "<h3>You may also like </h3>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h4",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 8,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_DNizbJ": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_M7MJkb": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_gLWgA6": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_DNizbJ",
+            "product_title_M7MJkb",
+            "price_gLWgA6"
+          ]
+        }
+      },
+      "block_order": [
+        "text_cbcgyb"
+      ],
+      "disabled": true,
+      "name": "t:names.product_recommendations",
+      "settings": {
+        "product": "{{ closest.product }}",
+        "recommendation_type": "related",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "columns_gap": 12,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 28,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    }
+  },
+  "order": [
+    "main",
+    "u_phl",
+    "u_sig",
+    "u_care",
+    "u_promise",
+    "u_reviews",
+    "u_faq",
+    "product_recommendations_qggXJq"
+  ]
+}
