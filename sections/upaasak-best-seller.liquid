@@ -16,6 +16,7 @@
     {% for block in section.blocks %}
       <div class="u-panel{% if forloop.first %} is-active{% endif %}" data-panel="{{ block.id }}">
         {% assign coll = block.settings.collection %}
+        {% if coll == blank %}{% assign coll = collections['all'] %}{% endif %}
         {% if coll != blank and coll.products.size > 0 %}
           <div class="u-grid4">
             {% for product in coll.products limit: 4 %}

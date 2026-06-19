@@ -10,7 +10,7 @@
           "type": "banner",
           "settings": {
             "tip": "Bestseller",
-            "heading": "Original 5 Mukhi <em>Rudraksha Mala</em>",
+            "heading": "Original 5 Mukhi Rudraksha Mala",
             "subheading": "The most revered bead for peace, focus and daily protection.",
             "cta_label": "Shop Now",
             "cta_link": ""
@@ -20,7 +20,7 @@
           "type": "banner",
           "settings": {
             "tip": "Rare & Powerful",
-            "heading": "Karungali <em>Sacred Wood</em>",
+            "heading": "Karungali Sacred Wood",
             "subheading": "Ancient ebony beads cherished for grounding and protection.",
             "cta_label": "Shop Now",
             "cta_link": ""
@@ -30,7 +30,7 @@
           "type": "banner",
           "settings": {
             "tip": "For Daily Devotion",
-            "heading": "Japa & <em>Meditation Malas</em>",
+            "heading": "Japa & Meditation Malas",
             "subheading": "108-bead malas crafted for your mantra practice.",
             "cta_label": "Shop Now",
             "cta_link": ""
@@ -40,7 +40,7 @@
           "type": "banner",
           "settings": {
             "tip": "Healing Energy",
-            "heading": "Gemstone <em>Bracelets</em>",
+            "heading": "Gemstone Bracelets",
             "subheading": "Certified natural stones aligned to your intention.",
             "cta_label": "Shop Now",
             "cta_link": ""
@@ -50,7 +50,7 @@
           "type": "banner",
           "settings": {
             "tip": "Thoughtful Gifts",
-            "heading": "Spiritual <em>Gifting</em>",
+            "heading": "Spiritual Gifting",
             "subheading": "Beautifully packaged blessings for your loved ones.",
             "cta_label": "Shop Now",
             "cta_link": ""
@@ -108,7 +108,7 @@
       "type": "upaasak-shop-by-purpose",
       "settings": {
         "eyebrow": "Find Your Path",
-        "heading": "Shop by <em>Purpose</em>",
+        "heading": "Shop by Purpose",
         "count": 8,
         "view_all_label": "View All"
       },
@@ -117,49 +117,49 @@
           "type": "purpose",
           "settings": {
             "label": "All",
-            "collection": "all"
+            "collection": ""
           }
         },
         "b2": {
           "type": "purpose",
           "settings": {
             "label": "Bhakti",
-            "collection": "all"
+            "collection": ""
           }
         },
         "b3": {
           "type": "purpose",
           "settings": {
             "label": "Protection",
-            "collection": "all"
+            "collection": ""
           }
         },
         "b4": {
           "type": "purpose",
           "settings": {
             "label": "Prosperity",
-            "collection": "all"
+            "collection": ""
           }
         },
         "b5": {
           "type": "purpose",
           "settings": {
             "label": "Healing",
-            "collection": "all"
+            "collection": ""
           }
         },
         "b6": {
           "type": "purpose",
           "settings": {
             "label": "Gifting",
-            "collection": "all"
+            "collection": ""
           }
         },
         "b7": {
           "type": "purpose",
           "settings": {
             "label": "New Arrivals",
-            "collection": "all"
+            "collection": ""
           }
         }
       },
@@ -225,7 +225,7 @@
       "type": "upaasak-best-seller",
       "settings": {
         "eyebrow": "Most Loved",
-        "heading": "Our <em>Best Sellers</em>",
+        "heading": "Our Best Sellers",
         "view_all_label": "View All"
       },
       "blocks": {
@@ -233,35 +233,35 @@
           "type": "category",
           "settings": {
             "label": "Rudraksha",
-            "collection": "all"
+            "collection": ""
           }
         },
         "b2": {
           "type": "category",
           "settings": {
             "label": "Bracelets",
-            "collection": "all"
+            "collection": ""
           }
         },
         "b3": {
           "type": "category",
           "settings": {
             "label": "Mala",
-            "collection": "all"
+            "collection": ""
           }
         },
         "b4": {
           "type": "category",
           "settings": {
             "label": "Stones",
-            "collection": "all"
+            "collection": ""
           }
         },
         "b5": {
           "type": "category",
           "settings": {
             "label": "Gifting",
-            "collection": "all"
+            "collection": ""
           }
         }
       },
@@ -348,7 +348,7 @@
         "about": "Authentic, lab-certified and energized Rudraksha, malas and spiritual essentials — sourced with devotion, delivered across India.",
         "whatsapp": "",
         "instagram": "",
-        "bottom_note": "Made with devotion · 🇮🇳 India"
+        "bottom_note": "Made with devotion · India"
       },
       "blocks": {
         "b1": {
