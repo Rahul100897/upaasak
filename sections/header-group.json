@@ -13,11 +13,6 @@
   "sections": {
     "u_announcement": {
       "type": "upaasak-announcement-bar",
-      "settings": {
-        "show_track": true,
-        "track_label": "Track your order",
-        "track_link": ""
-      },
       "blocks": {
         "b1": {
           "type": "message",
@@ -42,91 +37,96 @@
         "b1",
         "b2",
         "b3"
-      ]
+      ],
+      "settings": {
+        "show_track": true,
+        "track_label": "Track your order",
+        "track_link": ""
+      }
     },
     "u_brandbar": {
       "type": "upaasak-brand-bar",
       "settings": {
+        "logo": "shopify://shop_images/Logo-Upaasak.png",
         "logo_letter": "ॐ",
         "brand_name": "UPAASAK",
-        "slogan": "Authentic Spiritual Essentials",
+        "slogan": "",
         "search_placeholder": "Search for Rudraksha, Mala, Bracelets…"
       }
     },
     "u_catnav": {
       "type": "upaasak-category-nav",
-      "settings": {},
       "blocks": {
         "b1": {
           "type": "cat",
           "settings": {
             "label": "Shop All",
-            "icon": "sparkle",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/all",
+            "icon": "sparkle"
           }
         },
         "b2": {
           "type": "cat",
           "settings": {
             "label": "Karungali",
-            "icon": "bead",
-            "link": ""
+            "link": "",
+            "icon": "bead"
           }
         },
         "b3": {
           "type": "cat",
           "settings": {
             "label": "Rudraksha",
-            "icon": "leaf",
-            "link": ""
+            "link": "",
+            "icon": "leaf"
           }
         },
         "b4": {
           "type": "cat",
           "settings": {
             "label": "Spiritual Bracelets",
-            "icon": "gem",
-            "link": ""
+            "link": "",
+            "icon": "gem"
           }
         },
         "b5": {
           "type": "cat",
           "settings": {
             "label": "Mala",
-            "icon": "mantra",
-            "link": ""
+            "link": "",
+            "icon": "mantra"
           }
         },
         "b6": {
           "type": "cat",
           "settings": {
             "label": "Stones",
-            "icon": "gem",
-            "link": ""
+            "link": "",
+            "icon": "gem"
           }
         },
         "b7": {
           "type": "cat",
           "settings": {
             "label": "Idols",
-            "icon": "deity",
-            "link": ""
+            "link": "",
+            "icon": "deity"
           }
         },
         "b8": {
           "type": "cat",
           "settings": {
             "label": "Gifting",
-            "icon": "gift",
-            "link": ""
+            "link": "",
+            "icon": "gift"
           }
         },
         "b9": {
           "type": "cat",
           "settings": {
             "label": "Free PDFs",
-            "icon": "certificate",
-            "link": ""
+            "link": "",
+            "icon": "certificate"
           }
         }
       },
@@ -140,7 +140,8 @@
         "b7",
         "b8",
         "b9"
-      ]
+      ],
+      "settings": {}
     }
   },
   "order": [
