@@ -99,6 +99,7 @@
     },
     "footer_section_dhKBJ3": {
       "type": "footer-section",
+      "disabled": true,
       "name": "Footer Section",
       "settings": {
         "newsletter_heading": "Join Our Newsletter to Keep Up To Date With Us",
