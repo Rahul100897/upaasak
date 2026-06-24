@@ -24,17 +24,41 @@
 {% schema %}
 {
   "name": "Upaasak Announcement Bar",
+  "enabled_on": {
+    "groups": [
+      "header"
+    ]
+  },
   "settings": [
-    { "type": "checkbox", "id": "show_track", "label": "Show 'Track your order' CTA", "default": true },
-    { "type": "text", "id": "track_label", "label": "Track CTA label", "default": "Track your order" },
-    { "type": "url", "id": "track_link", "label": "Track CTA link" }
+    {
+      "type": "checkbox",
+      "id": "show_track",
+      "label": "Show 'Track your order' CTA",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "track_label",
+      "label": "Track CTA label",
+      "default": "Track your order"
+    },
+    {
+      "type": "url",
+      "id": "track_link",
+      "label": "Track CTA link"
+    }
   ],
   "blocks": [
     {
       "type": "message",
       "name": "Announcement",
       "settings": [
-        { "type": "text", "id": "text", "label": "Message", "default": "Free shipping on orders above ₹999" }
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Message",
+          "default": "Free shipping on orders above ₹999"
+        }
       ]
     }
   ],
@@ -42,9 +66,24 @@
     {
       "name": "Upaasak Announcement Bar",
       "blocks": [
-        { "type": "message", "settings": { "text": "Free shipping on orders above ₹999" } },
-        { "type": "message", "settings": { "text": "Extra 10% OFF on all prepaid orders" } },
-        { "type": "message", "settings": { "text": "100% Original · Lab-Certified · Energized Rudraksha" } }
+        {
+          "type": "message",
+          "settings": {
+            "text": "Free shipping on orders above ₹999"
+          }
+        },
+        {
+          "type": "message",
+          "settings": {
+            "text": "Extra 10% OFF on all prepaid orders"
+          }
+        },
+        {
+          "type": "message",
+          "settings": {
+            "text": "100% Original · Lab-Certified · Energized Rudraksha"
+          }
+        }
       ]
     }
   ]

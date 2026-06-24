@@ -34,13 +34,46 @@
 {% schema %}
 {
   "name": "Upaasak Brand Bar",
+  "enabled_on": {
+    "groups": [
+      "header"
+    ]
+  },
   "settings": [
-    { "type": "image_picker", "id": "logo", "label": "Logo (optional — overrides letter mark)" },
-    { "type": "text", "id": "logo_letter", "label": "Logo mark letter", "default": "ॐ" },
-    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "UPAASAK" },
-    { "type": "text", "id": "slogan", "label": "Slogan", "default": "Authentic Spiritual Essentials" },
-    { "type": "text", "id": "search_placeholder", "label": "Search placeholder", "default": "Search for Rudraksha, Mala, Bracelets…" }
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo (optional — overrides letter mark)"
+    },
+    {
+      "type": "text",
+      "id": "logo_letter",
+      "label": "Logo mark letter",
+      "default": "ॐ"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand name",
+      "default": "UPAASAK"
+    },
+    {
+      "type": "text",
+      "id": "slogan",
+      "label": "Slogan",
+      "default": "Authentic Spiritual Essentials"
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search placeholder",
+      "default": "Search for Rudraksha, Mala, Bracelets…"
+    }
   ],
-  "presets": [ { "name": "Upaasak Brand Bar" } ]
+  "presets": [
+    {
+      "name": "Upaasak Brand Bar"
+    }
+  ]
 }
 {% endschema %}

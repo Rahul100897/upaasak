@@ -18,24 +18,83 @@
 {% schema %}
 {
   "name": "Upaasak Category Nav",
+  "enabled_on": {
+    "groups": [
+      "header"
+    ]
+  },
   "settings": [],
   "blocks": [
     {
       "type": "cat",
       "name": "Category",
       "settings": [
-        { "type": "text", "id": "label", "label": "Label", "default": "Shop All" },
-        { "type": "url", "id": "link", "label": "Link" },
-        { "type": "image_picker", "id": "image", "label": "Custom icon image (optional)" },
         {
-          "type": "select", "id": "icon", "label": "Icon", "default": "bead",
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Shop All"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom icon image (optional)"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "bead",
           "options": [
-            { "value": "bead", "label": "Bead" }, { "value": "lotus", "label": "Lotus" },
-            { "value": "om", "label": "Om" }, { "value": "gem", "label": "Gem / Stones" },
-            { "value": "mantra", "label": "Mala" }, { "value": "leaf", "label": "Leaf" },
-            { "value": "deity", "label": "Idol / Deity" }, { "value": "gift", "label": "Gifting" },
-            { "value": "sparkle", "label": "Sparkle" }, { "value": "certificate", "label": "Certificate / PDF" },
-            { "value": "shield", "label": "Shield" }
+            {
+              "value": "bead",
+              "label": "Bead"
+            },
+            {
+              "value": "lotus",
+              "label": "Lotus"
+            },
+            {
+              "value": "om",
+              "label": "Om"
+            },
+            {
+              "value": "gem",
+              "label": "Gem / Stones"
+            },
+            {
+              "value": "mantra",
+              "label": "Mala"
+            },
+            {
+              "value": "leaf",
+              "label": "Leaf"
+            },
+            {
+              "value": "deity",
+              "label": "Idol / Deity"
+            },
+            {
+              "value": "gift",
+              "label": "Gifting"
+            },
+            {
+              "value": "sparkle",
+              "label": "Sparkle"
+            },
+            {
+              "value": "certificate",
+              "label": "Certificate / PDF"
+            },
+            {
+              "value": "shield",
+              "label": "Shield"
+            }
           ]
         }
       ]
@@ -45,15 +104,69 @@
     {
       "name": "Upaasak Category Nav",
       "blocks": [
-        { "type": "cat", "settings": { "label": "Shop All", "icon": "sparkle" } },
-        { "type": "cat", "settings": { "label": "Karungali", "icon": "bead" } },
-        { "type": "cat", "settings": { "label": "Rudraksha", "icon": "leaf" } },
-        { "type": "cat", "settings": { "label": "Spiritual Bracelets", "icon": "gem" } },
-        { "type": "cat", "settings": { "label": "Mala", "icon": "mantra" } },
-        { "type": "cat", "settings": { "label": "Stones", "icon": "gem" } },
-        { "type": "cat", "settings": { "label": "Idols", "icon": "deity" } },
-        { "type": "cat", "settings": { "label": "Gifting", "icon": "gift" } },
-        { "type": "cat", "settings": { "label": "Free PDFs", "icon": "certificate" } }
+        {
+          "type": "cat",
+          "settings": {
+            "label": "Shop All",
+            "icon": "sparkle"
+          }
+        },
+        {
+          "type": "cat",
+          "settings": {
+            "label": "Karungali",
+            "icon": "bead"
+          }
+        },
+        {
+          "type": "cat",
+          "settings": {
+            "label": "Rudraksha",
+            "icon": "leaf"
+          }
+        },
+        {
+          "type": "cat",
+          "settings": {
+            "label": "Spiritual Bracelets",
+            "icon": "gem"
+          }
+        },
+        {
+          "type": "cat",
+          "settings": {
+            "label": "Mala",
+            "icon": "mantra"
+          }
+        },
+        {
+          "type": "cat",
+          "settings": {
+            "label": "Stones",
+            "icon": "gem"
+          }
+        },
+        {
+          "type": "cat",
+          "settings": {
+            "label": "Idols",
+            "icon": "deity"
+          }
+        },
+        {
+          "type": "cat",
+          "settings": {
+            "label": "Gifting",
+            "icon": "gift"
+          }
+        },
+        {
+          "type": "cat",
+          "settings": {
+            "label": "Free PDFs",
+            "icon": "certificate"
+          }
+        }
       ]
     }
   ]
