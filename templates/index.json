@@ -1,14 +1,21 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "u_slides": {
       "type": "upaasak-banner-slideshow",
-      "settings": {
-        "interval": 6
-      },
       "blocks": {
         "b1": {
           "type": "banner",
           "settings": {
+            "image": "shopify://shop_images/Bracelet_2.jpg",
             "tip": "Bestseller",
             "heading": "Original 5 Mukhi Rudraksha Mala",
             "subheading": "The most revered bead for peace, focus and daily protection.",
@@ -63,7 +70,10 @@
         "b3",
         "b4",
         "b5"
-      ]
+      ],
+      "settings": {
+        "interval": 6
+      }
     },
     "u_trustbar": {
       "type": "upaasak-trust-bar",
@@ -102,16 +112,11 @@
         "b2",
         "b3",
         "b4"
-      ]
+      ],
+      "settings": {}
     },
     "u_shop_purpose": {
       "type": "upaasak-shop-by-purpose",
-      "settings": {
-        "eyebrow": "Find Your Path",
-        "heading": "Shop by Purpose",
-        "count": 8,
-        "view_all_label": "View All"
-      },
       "blocks": {
         "b1": {
           "type": "purpose",
@@ -171,15 +176,16 @@
         "b5",
         "b6",
         "b7"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Find Your Path",
+        "heading": "Shop by Purpose",
+        "count": 8,
+        "view_all_label": "View All"
+      }
     },
     "u_why": {
       "type": "upaasak-why-choose-us",
-      "settings": {
-        "eyebrow": "Why Choose Us",
-        "heading": "Tradition Behind Every Bead",
-        "banner_placeholder": "Sourced · Verified · Energized · Delivered"
-      },
       "blocks": {
         "b1": {
           "type": "usp",
@@ -219,15 +225,15 @@
         "b2",
         "b3",
         "b4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Why Choose Us",
+        "heading": "Tradition Behind Every Bead",
+        "banner_placeholder": "Sourced · Verified · Energized · Delivered"
+      }
     },
     "u_best": {
       "type": "upaasak-best-seller",
-      "settings": {
-        "eyebrow": "Most Loved",
-        "heading": "Our Best Sellers",
-        "view_all_label": "View All"
-      },
       "blocks": {
         "b1": {
           "type": "category",
@@ -271,15 +277,15 @@
         "b3",
         "b4",
         "b5"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Most Loved",
+        "heading": "Our Best Sellers",
+        "view_all_label": "View All"
+      }
     },
     "u_reviews_x": {
       "type": "upaasak-reviews-scroll",
-      "settings": {
-        "eyebrow": "Customer Reviews",
-        "heading": "Trusted by families, seekers & devotees",
-        "subheading": "Real people. Real experiences. Every word unedited."
-      },
       "blocks": {
         "b1": {
           "type": "review",
@@ -337,10 +343,87 @@
         "b4",
         "b5",
         "b6"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Customer Reviews",
+        "heading": "Trusted by families, seekers & devotees",
+        "subheading": "Real people. Real experiences. Every word unedited."
+      }
     },
     "u_sitemap": {
       "type": "upaasak-sitemap-footer",
+      "blocks": {
+        "b1": {
+          "type": "column",
+          "settings": {
+            "title": "Information",
+            "l1": "Contact us",
+            "u1": "",
+            "l2": "Blogs",
+            "u2": "",
+            "l3": "FAQs",
+            "u3": "",
+            "l4": "Free PDFs",
+            "u4": "",
+            "l5": "",
+            "u5": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "title": "Policies",
+            "l1": "Terms & Conditions",
+            "u1": "",
+            "l2": "Privacy Policy",
+            "u2": "",
+            "l3": "Shipping Policy",
+            "u3": "",
+            "l4": "Refunds & Cancellations",
+            "u4": "",
+            "l5": "",
+            "u5": ""
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "title": "Quick Links",
+            "l1": "Track your order",
+            "u1": "",
+            "l2": "Best Sellers",
+            "u2": "",
+            "l3": "Corporate Gifting",
+            "u3": "",
+            "l4": "",
+            "u4": "",
+            "l5": "",
+            "u5": ""
+          }
+        },
+        "b4": {
+          "type": "column",
+          "settings": {
+            "title": "All Products",
+            "l1": "Karungali",
+            "u1": "",
+            "l2": "Rudraksha",
+            "u2": "",
+            "l3": "Spiritual Bracelets",
+            "u3": "",
+            "l4": "Mala",
+            "u4": "",
+            "l5": "Stones",
+            "u5": ""
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
       "settings": {
         "logo_letter": "ॐ",
         "brand_name": "UPAASAK",
@@ -350,55 +433,7 @@
         "instagram": "",
         "copyright": "2026 UPAASAK. All rights reserved.",
         "bottom_note": "Made with devotion in India"
-      },
-      "blocks": {
-        "b1": {
-          "type": "column",
-          "settings": {
-            "title": "Information",
-            "l1": "Contact us",
-            "l2": "Blogs",
-            "l3": "FAQs",
-            "l4": "Free PDFs"
-          }
-        },
-        "b2": {
-          "type": "column",
-          "settings": {
-            "title": "Policies",
-            "l1": "Terms & Conditions",
-            "l2": "Privacy Policy",
-            "l3": "Shipping Policy",
-            "l4": "Refunds & Cancellations"
-          }
-        },
-        "b3": {
-          "type": "column",
-          "settings": {
-            "title": "Quick Links",
-            "l1": "Track your order",
-            "l2": "Best Sellers",
-            "l3": "Corporate Gifting"
-          }
-        },
-        "b4": {
-          "type": "column",
-          "settings": {
-            "title": "All Products",
-            "l1": "Karungali",
-            "l2": "Rudraksha",
-            "l3": "Spiritual Bracelets",
-            "l4": "Mala",
-            "l5": "Stones"
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3",
-        "b4"
-      ]
+      }
     }
   },
   "order": [
