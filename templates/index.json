@@ -245,6 +245,9 @@
         "b3",
         "b4"
       ],
+      "custom_css": [
+        ".u-why__banner {display: none;}"
+      ],
       "settings": {
         "eyebrow": "Why Choose Us",
         "heading": "Tradition Behind Every Bead",
