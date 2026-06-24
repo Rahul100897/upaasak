@@ -14,9 +14,9 @@
       "blocks": {
         "b1": {
           "type": "banner",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Bracelet_2.jpg",
+            "image_mobile": "shopify://shop_images/Bracelet_2_87faa35b-98d9-4446-8fde-cac320230f89.jpg",
             "link": "",
             "show_content": false,
             "tip": "Bestseller",
@@ -28,9 +28,9 @@
         },
         "b2": {
           "type": "banner",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Gemstones_5.jpg",
+            "image_mobile": "shopify://shop_images/Gemstone_5.jpg",
             "link": "",
             "show_content": false,
             "tip": "Rare & Powerful",
@@ -44,6 +44,7 @@
           "type": "banner",
           "settings": {
             "image": "shopify://shop_images/Karungali_3.jpg",
+            "image_mobile": "shopify://shop_images/Rudraksha_1_e5aa398c-84bc-4ffe-a6c4-f57d78ced85c.jpg",
             "link": "",
             "show_content": false,
             "tip": "For Daily Devotion",
@@ -57,6 +58,7 @@
           "type": "banner",
           "settings": {
             "image": "shopify://shop_images/Yatra_4.jpg",
+            "image_mobile": "shopify://shop_images/Yatra_4_b52f1609-5d87-49e8-ab5f-1c988a78060b.jpg",
             "link": "",
             "show_content": false,
             "tip": "Healing Energy",
