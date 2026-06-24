@@ -1,10 +1,10 @@
 /* ============================================================================
    UPAASAK — Luxury Spiritual Boutique Design System
-   Palette: Maroon + Antique Gold + Warm Ivory   |   Type: Cormorant Garamond / Marcellus / Jost
+   Palette: Maroon + Antique Gold + Warm Ivory
+   Fonts are inherited from the theme's Typography settings
+   (Body -> --font-body--family, Heading -> --font-heading--family, Accent -> --font-accent--family).
    Single source of truth for all upaasak-* sections (also used by /preview)
    ========================================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Marcellus&family=Jost:wght@300;400;500;600&display=swap');
 
 :root {
   /* Brand palette */
@@ -34,9 +34,9 @@
   --u-grad-ivory: linear-gradient(180deg, #fffdf8 0%, #fbf6ec 100%);
 
   /* Type */
-  --u-font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --u-font-label: 'Marcellus', Georgia, serif;
-  --u-font-body: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --u-font-display: var(--font-heading--family, Georgia, 'Times New Roman', serif);
+  --u-font-label: var(--font-accent--family, Georgia, serif);
+  --u-font-body: var(--font-body--family, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
 
   /* Shape & depth */
   --u-radius: 18px;
@@ -191,7 +191,7 @@
 
 /* ----- Decorative motifs ----- */
 .u-om {
-  font-family: 'Marcellus', serif;
+  font-family: var(--u-font-label);
   color: var(--u-gold);
 }
 .u-divider {
@@ -430,7 +430,7 @@
    BENEFITS
    ========================================================================== */
 .u-benefits { background: var(--u-grad-maroon); color: #f6e7d2; padding-block: clamp(60px, 9vw, 110px); position: relative; overflow: clip; }
-.u-benefits::before { content: 'ॐ'; position: absolute; font-family: 'Marcellus', serif; font-size: 46vw; color: rgba(255,255,255,0.03); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; line-height: 1; }
+.u-benefits::before { content: 'ॐ'; position: absolute; font-family: var(--u-font-display); font-size: 46vw; color: rgba(255,255,255,0.03); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; line-height: 1; }
 .u-benefits .u-eyebrow { color: var(--u-gold-light); }
 .u-benefits .u-title { color: #fff; }
 .u-benefits .u-lead { color: rgba(246,231,210,0.78); }
@@ -468,7 +468,7 @@
 .u-story__points { list-style: none; padding: 0; margin: 28px 0 34px; display: grid; gap: 16px; }
 .u-story__points li { display: flex; gap: 14px; align-items: flex-start; font-size: 0.98rem; line-height: 1.6; color: var(--u-ink); }
 .u-story__points svg { flex: none; width: 24px; height: 24px; color: var(--u-gold-deep); margin-top: 1px; }
-.u-story__sign { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.5rem; color: var(--u-maroon); margin-top: 26px; }
+.u-story__sign { font-family: var(--u-font-display); font-style: italic; font-size: 1.5rem; color: var(--u-maroon); margin-top: 26px; }
 
 /* ============================================================================
    PROCESS / TIMELINE
