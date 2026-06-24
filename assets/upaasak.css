@@ -821,7 +821,7 @@
 @media (max-width: 600px) {
   .u-brandbar__in {flex-wrap: wrap;gap: 12px;}
   .u-lockup__name {font-size: 24px;}
-  .u-search { order: 3; width: 100%; min-width: 100%; }
+  .u-search { order: 3; width: 100%; min-width: 100%; padding: 8px 16px; }
   .u-trustbar__in { grid-template-columns: 1fr; }
   .u-trustbar__item { justify-content: flex-start; }
   .u-trustbar__item + .u-trustbar__item { border-left: 0; border-top: 1px solid rgba(230,201,122,0.2); padding-top: 12px; }
