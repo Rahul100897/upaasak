@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -249,7 +258,6 @@
           ]
         }
       },
-      "disabled": true,
       "settings": {
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
@@ -303,17 +311,11 @@
         "b2",
         "b3",
         "b4"
-      ]
+      ],
+      "settings": {}
     },
     "u_sig": {
       "type": "upaasak-product-significance",
-      "settings": {
-        "eyebrow": "Spiritual Significance",
-        "heading": "The Sacred Meaning of This Bead",
-        "body": "<p>Each Mukhi (face) of a Rudraksha carries its own ruling deity, planet and blessing. Worn close to the skin, it is believed to balance the chakras, steady the mind and invite the grace it represents into your life.</p>",
-        "mantra_label": "Beej Mantra",
-        "mantra": "॥ ओं नमः शिवाय ॥"
-      },
       "blocks": {
         "b1": {
           "type": "fact",
@@ -349,15 +351,17 @@
         "b2",
         "b3",
         "b4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Spiritual Significance",
+        "heading": "The Sacred Meaning of This Bead",
+        "body": "<p>Each Mukhi (face) of a Rudraksha carries its own ruling deity, planet and blessing. Worn close to the skin, it is believed to balance the chakras, steady the mind and invite the grace it represents into your life.</p>",
+        "mantra_label": "Beej Mantra",
+        "mantra": "॥ ओं नमः शिवाय ॥"
+      }
     },
     "u_care": {
       "type": "upaasak-product-care",
-      "settings": {
-        "eyebrow": "Rituals",
-        "heading": "How to Wear & Care for Your Mala",
-        "subheading": "A few simple practices to keep your Rudraksha potent, beautiful and blessed for years."
-      },
       "blocks": {
         "b1": {
           "type": "tip",
@@ -397,15 +401,15 @@
         "b2",
         "b3",
         "b4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Rituals",
+        "heading": "How to Wear & Care for Your Mala",
+        "subheading": "A few simple practices to keep your Rudraksha potent, beautiful and blessed for years."
+      }
     },
     "u_promise": {
       "type": "upaasak-product-promise",
-      "settings": {
-        "eyebrow": "The Upaasak Promise",
-        "heading": "Buy With Complete Confidence",
-        "subheading": "Every order is backed by our authenticity guarantee and arrives ready to bless."
-      },
       "blocks": {
         "b1": {
           "type": "seal",
@@ -445,17 +449,15 @@
         "b2",
         "b3",
         "b4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "The Upaasak Promise",
+        "heading": "Buy With Complete Confidence",
+        "subheading": "Every order is backed by our authenticity guarantee and arrives ready to bless."
+      }
     },
     "u_reviews": {
       "type": "upaasak-product-reviews",
-      "settings": {
-        "eyebrow": "Verified Reviews",
-        "heading": "What Devotees Are Saying",
-        "avg_score": "4.9",
-        "review_count": "1,284",
-        "distribution": "92,6,1,1,0"
-      },
       "blocks": {
         "b1": {
           "type": "review",
@@ -483,15 +485,17 @@
         "b1",
         "b2",
         "b3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Verified Reviews",
+        "heading": "What Devotees Are Saying",
+        "avg_score": "4.9",
+        "review_count": "1,284",
+        "distribution": "92,6,1,1,0"
+      }
     },
     "u_faq": {
       "type": "upaasak-faq",
-      "settings": {
-        "eyebrow": "Good to Know",
-        "heading": "Questions About This Mala",
-        "open_first": true
-      },
       "blocks": {
         "b1": {
           "type": "faq",
@@ -527,7 +531,12 @@
         "b2",
         "b3",
         "b4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Good to Know",
+        "heading": "Questions About This Mala",
+        "open_first": true
+      }
     },
     "product_recommendations_qggXJq": {
       "type": "product-recommendations",
