@@ -1,1 +1,453 @@
-{"sections":{"u_slides":{"type":"upaasak-banner-slideshow","blocks":{"b1":{"type":"banner","settings":{"image":"shopify://shop_images/Bracelet_2.jpg","tip":"Bestseller","heading":"Original 5 Mukhi Rudraksha Mala","subheading":"The most revered bead for peace, focus and daily protection.","cta_label":"Shop Now","cta_link":"","show_content":false}},"b2":{"type":"banner","settings":{"image":"shopify://shop_images/Gemstones_5.jpg","tip":"Rare & Powerful","heading":"Karungali Sacred Wood","subheading":"Ancient ebony beads cherished for grounding and protection.","cta_label":"Shop Now","cta_link":"","show_content":false}},"b3":{"type":"banner","settings":{"image":"shopify://shop_images/Karungali_3.jpg","tip":"For Daily Devotion","heading":"Japa & Meditation Malas","subheading":"108-bead malas crafted for your mantra practice.","cta_label":"Shop Now","cta_link":"","show_content":false}},"b4":{"type":"banner","settings":{"image":"shopify://shop_images/Yatra_4.jpg","tip":"Healing Energy","heading":"Gemstone Bracelets","subheading":"Certified natural stones aligned to your intention.","cta_label":"Shop Now","cta_link":"","show_content":false}},"b5":{"type":"banner","settings":{"image":"shopify://shop_images/Gemstones_5.jpg","tip":"Thoughtful Gifts","heading":"Spiritual Gifting","subheading":"Beautifully packaged blessings for your loved ones.","cta_label":"Shop Now","cta_link":"","show_content":false}}},"block_order":["b1","b2","b3","b4","b5"],"settings":{"interval":6}},"u_trustbar":{"type":"upaasak-trust-bar","blocks":{"b1":{"type":"usp","settings":{"icon":"certificate","text":"100% Original & Lab-Certified"}},"b2":{"type":"usp","settings":{"icon":"om","text":"Energized with Vedic Mantras"}},"b3":{"type":"usp","settings":{"icon":"truck","text":"Free Shipping Above ₹999"}},"b4":{"type":"usp","settings":{"icon":"return","text":"Easy 7-Day Returns"}}},"block_order":["b1","b2","b3","b4"],"settings":{}},"u_shop_purpose":{"type":"upaasak-shop-by-purpose","blocks":{"b1":{"type":"purpose","settings":{"label":"All","collection":""}},"b2":{"type":"purpose","settings":{"label":"Bhakti","collection":""}},"b3":{"type":"purpose","settings":{"label":"Protection","collection":""}},"b4":{"type":"purpose","settings":{"label":"Prosperity","collection":""}},"b5":{"type":"purpose","settings":{"label":"Healing","collection":""}},"b6":{"type":"purpose","settings":{"label":"Gifting","collection":""}},"b7":{"type":"purpose","settings":{"label":"New Arrivals","collection":""}}},"block_order":["b1","b2","b3","b4","b5","b6","b7"],"settings":{"eyebrow":"Find Your Path","heading":"Shop by Purpose","count":8,"view_all_label":"View All"}},"u_why":{"type":"upaasak-why-choose-us","blocks":{"b1":{"type":"usp","settings":{"icon":"leaf","title":"Ethically Sourced","text":"Hand-gathered from trusted growers in Nepal & Indonesia."}},"b2":{"type":"usp","settings":{"icon":"certificate","title":"Lab Certified","text":"Independently tested for mukhi, origin and purity."}},"b3":{"type":"usp","settings":{"icon":"om","title":"Energized","text":"Abhimantrit with Vedic mantras before dispatch."}},"b4":{"type":"usp","settings":{"icon":"shield","title":"100% Trusted","text":"25,000+ devotees & a 7-day money-back promise."}}},"block_order":["b1","b2","b3","b4"],"settings":{"eyebrow":"Why Choose Us","heading":"Tradition Behind Every Bead","banner_placeholder":"Sourced · Verified · Energized · Delivered"}},"u_best":{"type":"upaasak-best-seller","blocks":{"b1":{"type":"category","settings":{"label":"Rudraksha","collection":""}},"b2":{"type":"category","settings":{"label":"Bracelets","collection":""}},"b3":{"type":"category","settings":{"label":"Mala","collection":""}},"b4":{"type":"category","settings":{"label":"Stones","collection":""}},"b5":{"type":"category","settings":{"label":"Gifting","collection":""}}},"block_order":["b1","b2","b3","b4","b5"],"settings":{"eyebrow":"Most Loved","heading":"Our Best Sellers","view_all_label":"View All"}},"u_reviews_x":{"type":"upaasak-reviews-scroll","blocks":{"b1":{"type":"review","settings":{"quote":"The energy of this mala is unreal. I feel calmer in my morning sadhana — and the certificate gave me total peace of mind.","name":"Ananya R.","meta":"Mumbai · Verified Buyer"}},"b2":{"type":"review","settings":{"quote":"Authentic, beautifully packed and delivered with a guide on how to wear it. This is how a spiritual brand should feel.","name":"Vikram S.","meta":"Pune · Verified Buyer"}},"b3":{"type":"review","settings":{"quote":"I gifted the 5 Mukhi mala to my father. He wears it daily and swears his sleep has improved. Highly recommend.","name":"Meera J.","meta":"Delhi · Verified Buyer"}},"b4":{"type":"review","settings":{"quote":"Premium quality at a fair price. The bead is smooth, the thread is strong, and it truly feels energized.","name":"Karthik N.","meta":"Bengaluru · Verified Buyer"}},"b5":{"type":"review","settings":{"quote":"Fast delivery and the Karungali bracelet is stunning. Customer support answered every question patiently.","name":"Divya P.","meta":"Chennai · Verified Buyer"}},"b6":{"type":"review","settings":{"quote":"Ordered for my whole family during Shravan. Each piece came certified. Will buy again for Diwali gifting.","name":"Rohit & Family","meta":"Jaipur · Verified Buyer"}}},"block_order":["b1","b2","b3","b4","b5","b6"],"settings":{"eyebrow":"Customer Reviews","heading":"Trusted by families, seekers & devotees","subheading":"Real people. Real experiences. Every word unedited."}},"u_sitemap":{"type":"upaasak-sitemap-footer","blocks":{"b1":{"type":"column","settings":{"title":"Information","l1":"Contact us","u1":"","l2":"Blogs","u2":"","l3":"FAQs","u3":"","l4":"Free PDFs","u4":"","l5":"","u5":""}},"b2":{"type":"column","settings":{"title":"Policies","l1":"Terms & Conditions","u1":"","l2":"Privacy Policy","u2":"","l3":"Shipping Policy","u3":"","l4":"Refunds & Cancellations","u4":"","l5":"","u5":""}},"b3":{"type":"column","settings":{"title":"Quick Links","l1":"Track your order","u1":"","l2":"Best Sellers","u2":"","l3":"Corporate Gifting","u3":"","l4":"","u4":"","l5":"","u5":""}},"b4":{"type":"column","settings":{"title":"All Products","l1":"Karungali","u1":"","l2":"Rudraksha","u2":"","l3":"Spiritual Bracelets","u3":"","l4":"Mala","u4":"","l5":"Stones","u5":""}}},"block_order":["b1","b2","b3","b4"],"disabled":true,"settings":{"logo_letter":"ॐ","brand_name":"UPAASAK","slogan":"Authentic Spiritual Essentials","about":"Authentic, lab-certified and energized Rudraksha, malas and spiritual essentials, sourced with devotion and delivered across India.","whatsapp":"","instagram":"","copyright":"2026 UPAASAK. All rights reserved.","bottom_note":"Made with devotion in India"}}},"order":["u_slides","u_trustbar","u_shop_purpose","u_why","u_best","u_reviews_x","u_sitemap"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "u_slides": {
+      "type": "upaasak-banner-slideshow",
+      "blocks": {
+        "b1": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Bracelet_2.jpg",
+            "tip": "Bestseller",
+            "heading": "Original 5 Mukhi Rudraksha Mala",
+            "subheading": "The most revered bead for peace, focus and daily protection.",
+            "cta_label": "Shop Now",
+            "cta_link": ""
+          }
+        },
+        "b2": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Gemstones_5.jpg",
+            "tip": "Rare & Powerful",
+            "heading": "Karungali Sacred Wood",
+            "subheading": "Ancient ebony beads cherished for grounding and protection.",
+            "cta_label": "Shop Now",
+            "cta_link": ""
+          }
+        },
+        "b3": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Karungali_3.jpg",
+            "tip": "For Daily Devotion",
+            "heading": "Japa & Meditation Malas",
+            "subheading": "108-bead malas crafted for your mantra practice.",
+            "cta_label": "Shop Now",
+            "cta_link": ""
+          }
+        },
+        "b4": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Yatra_4.jpg",
+            "tip": "Healing Energy",
+            "heading": "Gemstone Bracelets",
+            "subheading": "Certified natural stones aligned to your intention.",
+            "cta_label": "Shop Now",
+            "cta_link": ""
+          }
+        },
+        "b5": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Gemstones_5.jpg",
+            "tip": "Thoughtful Gifts",
+            "heading": "Spiritual Gifting",
+            "subheading": "Beautifully packaged blessings for your loved ones.",
+            "cta_label": "Shop Now",
+            "cta_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ],
+      "settings": {
+        "interval": 6
+      }
+    },
+    "u_trustbar": {
+      "type": "upaasak-trust-bar",
+      "blocks": {
+        "b1": {
+          "type": "usp",
+          "settings": {
+            "icon": "certificate",
+            "text": "100% Original & Lab-Certified"
+          }
+        },
+        "b2": {
+          "type": "usp",
+          "settings": {
+            "icon": "om",
+            "text": "Energized with Vedic Mantras"
+          }
+        },
+        "b3": {
+          "type": "usp",
+          "settings": {
+            "icon": "truck",
+            "text": "Free Shipping Above ₹999"
+          }
+        },
+        "b4": {
+          "type": "usp",
+          "settings": {
+            "icon": "return",
+            "text": "Easy 7-Day Returns"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "settings": {}
+    },
+    "u_shop_purpose": {
+      "type": "upaasak-shop-by-purpose",
+      "blocks": {
+        "b1": {
+          "type": "purpose",
+          "settings": {
+            "label": "All",
+            "collection": ""
+          }
+        },
+        "b2": {
+          "type": "purpose",
+          "settings": {
+            "label": "Bhakti",
+            "collection": ""
+          }
+        },
+        "b3": {
+          "type": "purpose",
+          "settings": {
+            "label": "Protection",
+            "collection": ""
+          }
+        },
+        "b4": {
+          "type": "purpose",
+          "settings": {
+            "label": "Prosperity",
+            "collection": ""
+          }
+        },
+        "b5": {
+          "type": "purpose",
+          "settings": {
+            "label": "Healing",
+            "collection": ""
+          }
+        },
+        "b6": {
+          "type": "purpose",
+          "settings": {
+            "label": "Gifting",
+            "collection": ""
+          }
+        },
+        "b7": {
+          "type": "purpose",
+          "settings": {
+            "label": "New Arrivals",
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7"
+      ],
+      "settings": {
+        "eyebrow": "Find Your Path",
+        "heading": "Shop by Purpose",
+        "count": 8,
+        "view_all_label": "View All"
+      }
+    },
+    "u_why": {
+      "type": "upaasak-why-choose-us",
+      "blocks": {
+        "b1": {
+          "type": "usp",
+          "settings": {
+            "icon": "leaf",
+            "title": "Ethically Sourced",
+            "text": "Hand-gathered from trusted growers in Nepal & Indonesia."
+          }
+        },
+        "b2": {
+          "type": "usp",
+          "settings": {
+            "icon": "certificate",
+            "title": "Lab Certified",
+            "text": "Independently tested for mukhi, origin and purity."
+          }
+        },
+        "b3": {
+          "type": "usp",
+          "settings": {
+            "icon": "om",
+            "title": "Energized",
+            "text": "Abhimantrit with Vedic mantras before dispatch."
+          }
+        },
+        "b4": {
+          "type": "usp",
+          "settings": {
+            "icon": "shield",
+            "title": "100% Trusted",
+            "text": "25,000+ devotees & a 7-day money-back promise."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "settings": {
+        "eyebrow": "Why Choose Us",
+        "heading": "Tradition Behind Every Bead",
+        "banner_placeholder": "Sourced · Verified · Energized · Delivered"
+      }
+    },
+    "u_best": {
+      "type": "upaasak-best-seller",
+      "blocks": {
+        "b1": {
+          "type": "category",
+          "settings": {
+            "label": "Rudraksha",
+            "collection": ""
+          }
+        },
+        "b2": {
+          "type": "category",
+          "settings": {
+            "label": "Bracelets",
+            "collection": ""
+          }
+        },
+        "b3": {
+          "type": "category",
+          "settings": {
+            "label": "Mala",
+            "collection": ""
+          }
+        },
+        "b4": {
+          "type": "category",
+          "settings": {
+            "label": "Stones",
+            "collection": ""
+          }
+        },
+        "b5": {
+          "type": "category",
+          "settings": {
+            "label": "Gifting",
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ],
+      "settings": {
+        "eyebrow": "Most Loved",
+        "heading": "Our Best Sellers",
+        "view_all_label": "View All"
+      }
+    },
+    "u_reviews_x": {
+      "type": "upaasak-reviews-scroll",
+      "blocks": {
+        "b1": {
+          "type": "review",
+          "settings": {
+            "quote": "The energy of this mala is unreal. I feel calmer in my morning sadhana — and the certificate gave me total peace of mind.",
+            "name": "Ananya R.",
+            "meta": "Mumbai · Verified Buyer"
+          }
+        },
+        "b2": {
+          "type": "review",
+          "settings": {
+            "quote": "Authentic, beautifully packed and delivered with a guide on how to wear it. This is how a spiritual brand should feel.",
+            "name": "Vikram S.",
+            "meta": "Pune · Verified Buyer"
+          }
+        },
+        "b3": {
+          "type": "review",
+          "settings": {
+            "quote": "I gifted the 5 Mukhi mala to my father. He wears it daily and swears his sleep has improved. Highly recommend.",
+            "name": "Meera J.",
+            "meta": "Delhi · Verified Buyer"
+          }
+        },
+        "b4": {
+          "type": "review",
+          "settings": {
+            "quote": "Premium quality at a fair price. The bead is smooth, the thread is strong, and it truly feels energized.",
+            "name": "Karthik N.",
+            "meta": "Bengaluru · Verified Buyer"
+          }
+        },
+        "b5": {
+          "type": "review",
+          "settings": {
+            "quote": "Fast delivery and the Karungali bracelet is stunning. Customer support answered every question patiently.",
+            "name": "Divya P.",
+            "meta": "Chennai · Verified Buyer"
+          }
+        },
+        "b6": {
+          "type": "review",
+          "settings": {
+            "quote": "Ordered for my whole family during Shravan. Each piece came certified. Will buy again for Diwali gifting.",
+            "name": "Rohit & Family",
+            "meta": "Jaipur · Verified Buyer"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6"
+      ],
+      "settings": {
+        "eyebrow": "Customer Reviews",
+        "heading": "Trusted by families, seekers & devotees",
+        "subheading": "Real people. Real experiences. Every word unedited."
+      }
+    },
+    "u_sitemap": {
+      "type": "upaasak-sitemap-footer",
+      "blocks": {
+        "b1": {
+          "type": "column",
+          "settings": {
+            "title": "Information",
+            "l1": "Contact us",
+            "u1": "",
+            "l2": "Blogs",
+            "u2": "",
+            "l3": "FAQs",
+            "u3": "",
+            "l4": "Free PDFs",
+            "u4": "",
+            "l5": "",
+            "u5": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "title": "Policies",
+            "l1": "Terms & Conditions",
+            "u1": "",
+            "l2": "Privacy Policy",
+            "u2": "",
+            "l3": "Shipping Policy",
+            "u3": "",
+            "l4": "Refunds & Cancellations",
+            "u4": "",
+            "l5": "",
+            "u5": ""
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "title": "Quick Links",
+            "l1": "Track your order",
+            "u1": "",
+            "l2": "Best Sellers",
+            "u2": "",
+            "l3": "Corporate Gifting",
+            "u3": "",
+            "l4": "",
+            "u4": "",
+            "l5": "",
+            "u5": ""
+          }
+        },
+        "b4": {
+          "type": "column",
+          "settings": {
+            "title": "All Products",
+            "l1": "Karungali",
+            "u1": "",
+            "l2": "Rudraksha",
+            "u2": "",
+            "l3": "Spiritual Bracelets",
+            "u3": "",
+            "l4": "Mala",
+            "u4": "",
+            "l5": "Stones",
+            "u5": ""
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "disabled": true,
+      "settings": {
+        "logo_letter": "ॐ",
+        "brand_name": "UPAASAK",
+        "slogan": "Authentic Spiritual Essentials",
+        "about": "Authentic, lab-certified and energized Rudraksha, malas and spiritual essentials, sourced with devotion and delivered across India.",
+        "whatsapp": "",
+        "instagram": "",
+        "copyright": "2026 UPAASAK. All rights reserved.",
+        "bottom_note": "Made with devotion in India"
+      }
+    }
+  },
+  "order": [
+    "u_slides",
+    "u_trustbar",
+    "u_shop_purpose",
+    "u_why",
+    "u_best",
+    "u_reviews_x",
+    "u_sitemap"
+  ]
+}
