@@ -1,1 +1,151 @@
-{"type":"header","name":"Header","sections":{"u_announcement":{"type":"upaasak-announcement-bar","settings":{"show_track":true,"track_label":"Track your order","track_link":""},"blocks":{"b1":{"type":"message","settings":{"text":"Free shipping on orders above ₹999"}},"b2":{"type":"message","settings":{"text":"Extra 10% OFF on all prepaid orders"}},"b3":{"type":"message","settings":{"text":"100% Original · Lab-Certified · Energized Rudraksha"}}},"block_order":["b1","b2","b3"]},"u_brandbar":{"type":"upaasak-brand-bar","settings":{"logo_letter":"ॐ","brand_name":"UPAASAK","slogan":"Authentic Spiritual Essentials","search_placeholder":"Search for Rudraksha, Mala, Bracelets…"}},"u_catnav":{"type":"upaasak-category-nav","settings":{},"blocks":{"b1":{"type":"cat","settings":{"label":"Shop All","icon":"sparkle","link":"shopify://collections/all"}},"b2":{"type":"cat","settings":{"label":"Karungali","icon":"bead","link":""}},"b3":{"type":"cat","settings":{"label":"Rudraksha","icon":"leaf","link":""}},"b4":{"type":"cat","settings":{"label":"Spiritual Bracelets","icon":"gem","link":""}},"b5":{"type":"cat","settings":{"label":"Mala","icon":"mantra","link":""}},"b6":{"type":"cat","settings":{"label":"Stones","icon":"gem","link":""}},"b7":{"type":"cat","settings":{"label":"Idols","icon":"deity","link":""}},"b8":{"type":"cat","settings":{"label":"Gifting","icon":"gift","link":""}},"b9":{"type":"cat","settings":{"label":"Free PDFs","icon":"certificate","link":""}}},"block_order":["b1","b2","b3","b4","b5","b6","b7","b8","b9"]}},"order":["u_announcement","u_brandbar","u_catnav"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "u_announcement": {
+      "type": "upaasak-announcement-bar",
+      "settings": {
+        "show_track": true,
+        "track_label": "Track your order",
+        "track_link": ""
+      },
+      "blocks": {
+        "b1": {
+          "type": "message",
+          "settings": {
+            "text": "Free shipping on orders above ₹999"
+          }
+        },
+        "b2": {
+          "type": "message",
+          "settings": {
+            "text": "Extra 10% OFF on all prepaid orders"
+          }
+        },
+        "b3": {
+          "type": "message",
+          "settings": {
+            "text": "100% Original · Lab-Certified · Energized Rudraksha"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "u_brandbar": {
+      "type": "upaasak-brand-bar",
+      "settings": {
+        "logo_letter": "ॐ",
+        "brand_name": "UPAASAK",
+        "slogan": "Authentic Spiritual Essentials",
+        "search_placeholder": "Search for Rudraksha, Mala, Bracelets…"
+      }
+    },
+    "u_catnav": {
+      "type": "upaasak-category-nav",
+      "settings": {},
+      "blocks": {
+        "b1": {
+          "type": "cat",
+          "settings": {
+            "label": "Shop All",
+            "icon": "sparkle",
+            "link": "shopify://collections/all"
+          }
+        },
+        "b2": {
+          "type": "cat",
+          "settings": {
+            "label": "Karungali",
+            "icon": "bead",
+            "link": ""
+          }
+        },
+        "b3": {
+          "type": "cat",
+          "settings": {
+            "label": "Rudraksha",
+            "icon": "leaf",
+            "link": ""
+          }
+        },
+        "b4": {
+          "type": "cat",
+          "settings": {
+            "label": "Spiritual Bracelets",
+            "icon": "gem",
+            "link": ""
+          }
+        },
+        "b5": {
+          "type": "cat",
+          "settings": {
+            "label": "Mala",
+            "icon": "mantra",
+            "link": ""
+          }
+        },
+        "b6": {
+          "type": "cat",
+          "settings": {
+            "label": "Stones",
+            "icon": "gem",
+            "link": ""
+          }
+        },
+        "b7": {
+          "type": "cat",
+          "settings": {
+            "label": "Idols",
+            "icon": "deity",
+            "link": ""
+          }
+        },
+        "b8": {
+          "type": "cat",
+          "settings": {
+            "label": "Gifting",
+            "icon": "gift",
+            "link": ""
+          }
+        },
+        "b9": {
+          "type": "cat",
+          "settings": {
+            "label": "Free PDFs",
+            "icon": "certificate",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8",
+        "b9"
+      ]
+    }
+  },
+  "order": [
+    "u_announcement",
+    "u_brandbar",
+    "u_catnav"
+  ]
+}
