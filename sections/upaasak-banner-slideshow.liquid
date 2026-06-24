@@ -9,18 +9,23 @@
         {% else %}
           <span class="u-slide__bg--ph"></span>
         {% endif %}
-        <div class="u-slide__inner">
-          <div class="u-slide__box">
-            {% if block.settings.tip != blank %}<span class="u-slide__tip">{{ block.settings.tip }}</span>{% endif %}
-            <h2 class="u-slide__h">{{ block.settings.heading }}</h2>
-            {% if block.settings.subheading != blank %}<p class="u-slide__sub">{{ block.settings.subheading }}</p>{% endif %}
-            {% if block.settings.cta_label != blank %}
-              <a href="{{ block.settings.cta_link | default: '#' }}" class="u-btn u-btn--gold">{{ block.settings.cta_label }}
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            {% endif %}
+        {% if block.settings.link != blank %}
+          <a class="u-slide__link" href="{{ block.settings.link }}" aria-label="{{ block.settings.heading | default: 'View banner' | escape }}"></a>
+        {% endif %}
+        {% if block.settings.show_content %}
+          <div class="u-slide__inner">
+            <div class="u-slide__box">
+              {% if block.settings.tip != blank %}<span class="u-slide__tip">{{ block.settings.tip }}</span>{% endif %}
+              {% if block.settings.heading != blank %}<h2 class="u-slide__h">{{ block.settings.heading }}</h2>{% endif %}
+              {% if block.settings.subheading != blank %}<p class="u-slide__sub">{{ block.settings.subheading }}</p>{% endif %}
+              {% if block.settings.cta_label != blank %}
+                <a href="{{ block.settings.cta_link | default: '#' }}" class="u-btn u-btn--gold">{{ block.settings.cta_label }}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              {% endif %}
+            </div>
           </div>
-        </div>
+        {% endif %}
       </div>
     {% endfor %}
   </div>
@@ -49,6 +54,9 @@
       "name": "Banner",
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Background image (full-width)" },
+        { "type": "url", "id": "link", "label": "Banner link (whole banner clickable)" },
+        { "type": "checkbox", "id": "show_content", "label": "Show text content over image", "default": false, "info": "Off = image only (use when the image already has its own text). On = overlay the eyebrow, heading, sub-heading and button below." },
+        { "type": "header", "content": "Overlay content (only shown when the toggle above is on)" },
         { "type": "text", "id": "tip", "label": "Tool tip / eyebrow", "default": "New Arrival" },
         { "type": "text", "id": "heading", "label": "Heading", "default": "Sacred Rudraksha, Energized for You" },
         { "type": "textarea", "id": "subheading", "label": "Sub-heading", "default": "Hand-picked, lab-certified beads to elevate your daily sadhana." },
