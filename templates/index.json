@@ -251,6 +251,59 @@
         "banner_placeholder": "Sourced · Verified · Energized · Delivered"
       }
     },
+    "upaasak_why_choose_us_grxyAX": {
+      "type": "upaasak-why-choose-us",
+      "blocks": {
+        "usp_FVXQJy": {
+          "type": "usp",
+          "disabled": true,
+          "settings": {
+            "icon": "leaf",
+            "title": "Ethically Sourced",
+            "text": "Hand-gathered from trusted growers in Nepal & Indonesia."
+          }
+        },
+        "usp_K8qbh9": {
+          "type": "usp",
+          "disabled": true,
+          "settings": {
+            "icon": "certificate",
+            "title": "Lab Certified",
+            "text": "Independently tested for mukhi, origin and purity."
+          }
+        },
+        "usp_6bHWew": {
+          "type": "usp",
+          "disabled": true,
+          "settings": {
+            "icon": "om",
+            "title": "Energized",
+            "text": "Abhimantrit with Vedic mantras before dispatch."
+          }
+        },
+        "usp_y9iV9e": {
+          "type": "usp",
+          "disabled": true,
+          "settings": {
+            "icon": "shield",
+            "title": "100% Trusted",
+            "text": "25,000+ devotees & a 7-day money-back promise."
+          }
+        }
+      },
+      "block_order": [
+        "usp_FVXQJy",
+        "usp_K8qbh9",
+        "usp_6bHWew",
+        "usp_y9iV9e"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "banner": "shopify://shop_images/Process.jpg",
+        "banner_placeholder": "Sourced · Verified · Energized · Delivered"
+      }
+    },
     "u_best": {
       "type": "upaasak-best-seller",
       "blocks": {
@@ -461,6 +514,7 @@
     "u_trustbar",
     "u_shop_purpose",
     "u_why",
+    "upaasak_why_choose_us_grxyAX",
     "u_best",
     "u_reviews_x",
     "u_sitemap"
