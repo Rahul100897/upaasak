@@ -720,7 +720,7 @@
 .u-trustbar__item svg { width: 26px; height: 26px; color: var(--u-gold-light); flex: none; }
 
 /* ---- Section header with optional "view all" ---- */
-.u-sec { padding-block: clamp(48px, 7vw, 92px); }
+.u-sec { padding-block: clamp(48px, 7vw, 52px); }
 .u-sec--ivory { background: var(--u-ivory); }
 .u-sec--paper { background: var(--u-paper); }
 .u-sec__top { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
@@ -765,7 +765,7 @@
 .u-viewall { display: flex; justify-content: center; margin-top: 30px; }
 
 /* ---- Why Choose Us (journey banner) ---- */
-.u-why { background: var(--u-grad-ivory); padding-block: clamp(48px, 7vw, 92px); }
+.u-why { background: var(--u-grad-ivory); padding-block: clamp(48px, 7vw, 52px); }
 .u-why__banner { position: relative; border-radius: var(--u-radius-lg); overflow: hidden; box-shadow: var(--u-shadow); border: 1px solid var(--u-gold-line); margin-bottom: 30px; }
 .u-why__banner img { width: 100%; display: block; }
 .u-why__banner-ph { aspect-ratio: 16/6; background: linear-gradient(120deg, #f3e3c8, #ead0a8); display: grid; place-items: center; color: var(--u-maroon); font-family: var(--u-font-display); font-size: clamp(1.4rem,3vw,2.4rem); text-align: center; padding: 20px; }
@@ -778,7 +778,7 @@
 .u-why__usp p { font-size: 0.82rem; line-height: 1.55; color: var(--u-muted); margin: 0; }
 
 /* ---- Reviews horizontal scroll ---- */
-.u-revx { background: var(--u-grad-ivory); padding-block: clamp(48px, 7vw, 92px); overflow: hidden; }
+.u-revx { background: var(--u-grad-ivory); padding-block: clamp(48px, 7vw, 52px); overflow: hidden; }
 .u-revx__scroll { display: flex; gap: 20px; overflow-x: auto; padding: 6px 2px 20px; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .u-revx__scroll::-webkit-scrollbar { display: none; }
 .u-revx__card { scroll-snap-align: start; flex: 0 0 clamp(280px, 30vw, 380px); background: #fff; border: 1px solid var(--u-line); border-radius: var(--u-radius); padding: 28px 26px; display: flex; flex-direction: column; }
