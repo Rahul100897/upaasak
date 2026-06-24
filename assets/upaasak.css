@@ -821,6 +821,8 @@
 @media (max-width: 600px) {
   .u-brandbar__in {flex-wrap: wrap;gap: 12px; padding: 12px clamp(14px, 4vw, 40px);}
   .u-lockup__name {font-size: 24px;}
+  .u-icon-btn { width: 35px; height: 35px; } 
+  .u-lockup img { height: 36px; }
   .u-search { order: 3; width: 100%; min-width: 100%; padding: 8px 16px; }
   .u-search input { font-size: 12px; }
   .u-trustbar__in { grid-template-columns: 1fr; }
