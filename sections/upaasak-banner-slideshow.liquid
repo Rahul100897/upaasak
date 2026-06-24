@@ -4,8 +4,13 @@
   <div class="u-slides__track">
     {% for block in section.blocks %}
       <div class="u-slide" {{ block.shopify_attributes }}>
-        {% if block.settings.image %}
-          <img class="u-slide__bg" src="{{ block.settings.image | image_url: width: 2400 }}" alt="{{ block.settings.heading | escape }}" width="2400" height="1100" {% if forloop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+        {% if block.settings.image != blank %}
+          <picture class="u-slide__pic">
+            {% if block.settings.image_mobile != blank %}
+              <source media="(max-width: 749px)" srcset="{{ block.settings.image_mobile | image_url: width: 1200 }}" width="{{ block.settings.image_mobile.width }}" height="{{ block.settings.image_mobile.height }}">
+            {% endif %}
+            <img class="u-slide__bg" src="{{ block.settings.image | image_url: width: 2400 }}" alt="{{ block.settings.heading | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" {% if forloop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+          </picture>
         {% else %}
           <span class="u-slide__bg--ph"></span>
         {% endif %}
@@ -53,7 +58,8 @@
       "type": "banner",
       "name": "Banner",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Background image (full-width)" },
+        { "type": "image_picker", "id": "image", "label": "Background image (desktop, full-width)" },
+        { "type": "image_picker", "id": "image_mobile", "label": "Mobile image (optional)", "info": "Use a taller / squarer crop for phones. Falls back to the desktop image if empty." },
         { "type": "url", "id": "link", "label": "Banner link (whole banner clickable)" },
         { "type": "checkbox", "id": "show_content", "label": "Show text content over image", "default": false, "info": "Off = image only (use when the image already has its own text). On = overlay the eyebrow, heading, sub-heading and button below." },
         { "type": "header", "content": "Overlay content (shown when toggle is on)" },

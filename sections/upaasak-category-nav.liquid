@@ -1,9 +1,16 @@
 {% render 'upaasak-design-system' %}
 
-<section class="u-section u-catnav" data-section-id="{{ section.id }}">
+<section class="u-section u-catnav" data-section-id="{{ section.id }}" data-catnav>
+  <span class="u-catnav__overlay" data-catnav-close></span>
   <nav class="u-catnav__in" aria-label="Categories">
+    <div class="u-catnav__head">
+      <span class="u-catnav__head-title">Menu</span>
+      <button type="button" class="u-catnav__close" data-catnav-close aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
     {% for block in section.blocks %}
-      <a class="u-catnav__item" href="{{ block.settings.link | default: '#' }}" {{ block.shopify_attributes }}>
+      <a class="u-catnav__item" href="{{ block.settings.link | default: '#' }}" data-catnav-close {{ block.shopify_attributes }}>
         {% if block.settings.image %}
           <img class="u-catnav__ico" src="{{ block.settings.image | image_url: width: 44 }}" alt="" width="22" height="22">
         {% else %}

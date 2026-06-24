@@ -135,10 +135,12 @@
       var next = show.querySelector('.u-slides__arrow--next');
       var i = 0, timer = null;
       var delay = parseInt(show.getAttribute('data-interval'), 10) || 5500;
+      function setHeight() { var a = slides[i]; if (a) show.style.height = a.offsetHeight + 'px'; }
       function go(n) {
         i = (n + slides.length) % slides.length;
         track.style.transform = 'translateX(' + (-i * 100) + '%)';
         dots.forEach(function (d, di) { d.classList.toggle('is-active', di === i); });
+        setHeight();
       }
       function play() { if (slides.length > 1) { stop(); timer = setInterval(function () { go(i + 1); }, delay); } }
       function stop() { if (timer) clearInterval(timer); }
@@ -147,7 +149,33 @@
       if (next) next.addEventListener('click', function () { go(i + 1); play(); });
       show.addEventListener('mouseenter', stop);
       show.addEventListener('mouseleave', play);
+      show.querySelectorAll('img').forEach(function (im) { if (!im.complete) im.addEventListener('load', setHeight); });
+      window.addEventListener('resize', setHeight);
+      window.addEventListener('load', setHeight);
       go(0); play();
+    });
+  }
+
+  function initBurger(root) {
+    (root || document).querySelectorAll('[data-burger]:not([data-burger-bound])').forEach(function (btn) {
+      btn.setAttribute('data-burger-bound', '1');
+      btn.addEventListener('click', function () {
+        var nav = document.querySelector('[data-catnav]');
+        if (!nav) return;
+        var open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        document.body.classList.toggle('u-noscroll', open);
+      });
+    });
+    (root || document).querySelectorAll('[data-catnav-close]:not([data-catnav-close-bound])').forEach(function (el) {
+      el.setAttribute('data-catnav-close-bound', '1');
+      el.addEventListener('click', function () {
+        var nav = document.querySelector('[data-catnav]');
+        if (nav) nav.classList.remove('is-open');
+        document.body.classList.remove('u-noscroll');
+        var b = document.querySelector('[data-burger]');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
     });
   }
 
@@ -178,6 +206,7 @@
     initAnnouncements(root);
     initSlideshows(root);
     initTabs(root);
+    initBurger(root);
   }
 
   if (window.__upaasakInit) { window.__upaasakRescan && window.__upaasakRescan(); return; }

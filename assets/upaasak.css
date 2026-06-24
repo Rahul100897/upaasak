@@ -830,3 +830,58 @@
   .u-ann__side { display: none; }
   .u-slide__box { max-width: 100%; }
 }
+
+/* ##########################################################################
+   v3 — banner blank-space fix, mobile header (hamburger drawer), mobile polish
+   ######################################################################## */
+/* Banner: top-align slides + smooth height; JS sets container height to active slide */
+.u-slides__track { align-items: flex-start; }
+.u-slides { transition: height 0.45s var(--u-ease); }
+.u-slide__pic { display: block; width: 100%; }
+
+/* Hamburger button: hidden on desktop, shown on mobile */
+.u-burger { display: none; }
+
+/* Category-nav drawer scaffolding: hidden on desktop (it's a horizontal bar there) */
+.u-catnav__overlay, .u-catnav__head, .u-catnav__close { display: none; }
+
+@media (max-width: 749px) {
+  /* --- Announcement bar --- */
+  .u-ann__in { padding: 8px 14px; gap: 8px; justify-content: center; }
+  .u-ann__side, .u-ann__track { display: none; }
+  .u-ann__rotator { text-align: center; }
+  .u-ann__msg { font-size: 0.74rem; letter-spacing: 0.02em; }
+
+  /* --- Header tools: show hamburger --- */
+  .u-burger { display: grid; }
+
+  /* --- Category nav becomes an off-canvas drawer (inline bar hidden) --- */
+  .u-catnav { border-bottom: 0; }
+  .u-catnav__in {
+    position: fixed; top: 0; left: 0; z-index: 1001;
+    height: 100%; width: min(84%, 330px);
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--u-paper); overflow-y: auto; padding: 0;
+    transform: translateX(-100%); transition: transform 0.35s var(--u-ease);
+    box-shadow: var(--u-shadow-lg);
+  }
+  .u-catnav.is-open .u-catnav__in { transform: translateX(0); }
+  .u-catnav__overlay {
+    display: block; position: fixed; inset: 0; z-index: 1000;
+    background: rgba(31,23,20,0.5); opacity: 0; visibility: hidden;
+    transition: opacity 0.3s var(--u-ease);
+  }
+  .u-catnav.is-open .u-catnav__overlay { opacity: 1; visibility: visible; }
+  .u-catnav__head { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--u-line); background: var(--u-grad-maroon); }
+  .u-catnav__head-title { font-family: var(--u-font-display); font-size: 1.25rem; font-weight: 700; color: #fff; }
+  .u-catnav__close { background: none; border: 0; color: var(--u-gold-light); cursor: pointer; display: grid; place-items: center; width: 36px; height: 36px; }
+  .u-catnav__close svg { width: 22px; height: 22px; }
+  .u-catnav__item { padding: 14px 20px; border-bottom: 1px solid var(--u-line); border-radius: 0; font-size: 1rem; gap: 14px; }
+  .u-catnav__item:hover, .u-catnav__item.is-active { color: var(--u-crimson); border-color: var(--u-line); background: var(--u-ivory); }
+  .u-catnav__item svg, .u-catnav__item .u-catnav__ico { width: 24px; height: 24px; }
+
+  /* --- Trust bar: 2 columns --- */
+  .u-trustbar__in { grid-template-columns: 1fr 1fr; gap: 16px 10px; }
+  .u-trustbar__item { justify-content: flex-start; font-size: 0.78rem; border-left: 0 !important; border-top: 0 !important; padding-top: 0 !important; }
+}
+body.u-noscroll { overflow: hidden; }
