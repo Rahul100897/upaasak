@@ -72,6 +72,7 @@
           "type": "banner",
           "settings": {
             "image": "shopify://shop_images/Gemstones_5.jpg",
+            "image_mobile": "shopify://shop_images/Gemstone_5.jpg",
             "link": "",
             "show_content": false,
             "tip": "Thoughtful Gifts",
