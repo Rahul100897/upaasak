@@ -3,12 +3,19 @@
 <section class="u-section u-site" data-section-id="{{ section.id }}">
   <div class="u-site__grid">
     <div class="u-site__brand">
-      <a class="u-lockup" href="{{ routes.root_url }}">
+      {% comment %} <a class="u-lockup" href="{{ routes.root_url }}">
         <span class="u-lockup__mark">{{ section.settings.logo_letter }}</span>
         <span>
           <span class="u-lockup__name">{{ section.settings.brand_name }}</span>
           <span class="u-lockup__slogan">{{ section.settings.slogan }}</span>
         </span>
+      </a> {% endcomment %}
+      <a class="u-lockup" href="/">
+        <img src="//upaasak.com/cdn/shop/files/Logo-Upaasak.png?v=1778097435&amp;width=120" alt="Upaasak" width="48" height="48" style="height:46px;width:auto;border-radius:10px">
+          <span>
+            <span class="u-lockup__name">UPAASAK</span>
+            <span class="u-lockup__slogan"></span>
+          </span>
       </a>
       <p>{{ section.settings.about }}</p>
       <div class="u-site__social">
