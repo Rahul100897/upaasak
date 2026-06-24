@@ -109,7 +109,7 @@
   margin: 18px 0 0;
   max-width: 56ch;
 }
-.u-section-head { margin-bottom: clamp(32px, 5vw, 56px); }
+.u-section-head { margin-bottom: clamp(32px, 5vw, 48px); }
 .u-section-head.is-centered { text-align: center; margin-inline: auto; max-width: 720px; }
 .u-section-head.is-centered .u-lead { margin-inline: auto; }
 
