@@ -345,42 +345,51 @@
         "logo_letter": "ॐ",
         "brand_name": "UPAASAK",
         "slogan": "Authentic Spiritual Essentials",
-        "about": "Authentic, lab-certified and energized Rudraksha, malas and spiritual essentials — sourced with devotion, delivered across India.",
+        "about": "Authentic, lab-certified and energized Rudraksha, malas and spiritual essentials, sourced with devotion and delivered across India.",
         "whatsapp": "",
         "instagram": "",
-        "bottom_note": "Made with devotion · India"
+        "copyright": "2026 UPAASAK. All rights reserved.",
+        "bottom_note": "Made with devotion in India"
       },
       "blocks": {
         "b1": {
           "type": "column",
           "settings": {
             "title": "Information",
-            "labels": "Contact us\nBlogs\nFAQ's\nFree PDF's",
-            "links": ""
+            "l1": "Contact us",
+            "l2": "Blogs",
+            "l3": "FAQs",
+            "l4": "Free PDFs"
           }
         },
         "b2": {
           "type": "column",
           "settings": {
             "title": "Policies",
-            "labels": "Terms & Conditions\nPrivacy Policy\nShipping Policy\nRefunds & Cancellations",
-            "links": ""
+            "l1": "Terms & Conditions",
+            "l2": "Privacy Policy",
+            "l3": "Shipping Policy",
+            "l4": "Refunds & Cancellations"
           }
         },
         "b3": {
           "type": "column",
           "settings": {
             "title": "Quick Links",
-            "labels": "Track your order\nBest Sellers\nCorporate Gifting",
-            "links": ""
+            "l1": "Track your order",
+            "l2": "Best Sellers",
+            "l3": "Corporate Gifting"
           }
         },
         "b4": {
           "type": "column",
           "settings": {
             "title": "All Products",
-            "labels": "Karungali\nRudraksha\nSpiritual Bracelets\nMala\nStones",
-            "links": ""
+            "l1": "Karungali",
+            "l2": "Rudraksha",
+            "l3": "Spiritual Bracelets",
+            "l4": "Mala",
+            "l5": "Stones"
           }
         }
       },

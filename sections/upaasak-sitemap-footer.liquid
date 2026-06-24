@@ -4,7 +4,7 @@
   <div class="u-site__grid">
     <div class="u-site__brand">
       <a class="u-lockup" href="{{ routes.root_url }}">
-        <span class="u-lockup__mark">{{ section.settings.logo_letter | default: 'ॐ' }}</span>
+        <span class="u-lockup__mark">{{ section.settings.logo_letter }}</span>
         <span>
           <span class="u-lockup__name">{{ section.settings.brand_name }}</span>
           <span class="u-lockup__slogan">{{ section.settings.slogan }}</span>
@@ -29,21 +29,17 @@
       <div class="u-site__col" {{ block.shopify_attributes }}>
         <h4>{{ block.settings.title }}</h4>
         <ul>
-          {%- assign labels = block.settings.labels | newline_to_br | split: '<br />' -%}
-          {%- assign links = block.settings.links | newline_to_br | split: '<br />' -%}
-          {% for label in labels %}
-            {%- assign lbl = label | strip -%}
-            {%- if lbl != blank -%}
-              {%- assign href = links[forloop.index0] | strip | default: '#' -%}
-              <li><a href="{{ href | default: '#' }}">{{ lbl }}</a></li>
-            {%- endif -%}
-          {% endfor %}
+          {% if block.settings.l1 != blank %}<li><a href="{{ block.settings.u1 | default: '#' }}">{{ block.settings.l1 }}</a></li>{% endif %}
+          {% if block.settings.l2 != blank %}<li><a href="{{ block.settings.u2 | default: '#' }}">{{ block.settings.l2 }}</a></li>{% endif %}
+          {% if block.settings.l3 != blank %}<li><a href="{{ block.settings.u3 | default: '#' }}">{{ block.settings.l3 }}</a></li>{% endif %}
+          {% if block.settings.l4 != blank %}<li><a href="{{ block.settings.u4 | default: '#' }}">{{ block.settings.l4 }}</a></li>{% endif %}
+          {% if block.settings.l5 != blank %}<li><a href="{{ block.settings.u5 | default: '#' }}">{{ block.settings.l5 }}</a></li>{% endif %}
         </ul>
       </div>
     {% endfor %}
   </div>
   <div class="u-site__bar">
-    <span>© {{ 'now' | date: '%Y' }} {{ section.settings.brand_name }}. All rights reserved.</span>
+    <span>{{ section.settings.copyright }}</span>
     <span>{{ section.settings.bottom_note }}</span>
   </div>
 </section>
@@ -53,13 +49,14 @@
   "name": "Upaasak Sitemap Footer",
   "tag": "section",
   "settings": [
-    { "type": "text", "id": "logo_letter", "label": "Logo mark", "default": "ॐ" },
+    { "type": "text", "id": "logo_letter", "label": "Logo mark", "default": "Om" },
     { "type": "text", "id": "brand_name", "label": "Brand name", "default": "UPAASAK" },
     { "type": "text", "id": "slogan", "label": "Slogan", "default": "Authentic Spiritual Essentials" },
-    { "type": "textarea", "id": "about", "label": "About text", "default": "Authentic, lab-certified and energized Rudraksha, malas and spiritual essentials — sourced with devotion, delivered across India." },
+    { "type": "textarea", "id": "about", "label": "About text", "default": "Authentic, lab-certified and energized Rudraksha, malas and spiritual essentials, sourced with devotion and delivered across India." },
     { "type": "url", "id": "whatsapp", "label": "WhatsApp link" },
     { "type": "url", "id": "instagram", "label": "Instagram link" },
-    { "type": "text", "id": "bottom_note", "label": "Bottom note", "default": "Made with devotion · India" }
+    { "type": "text", "id": "copyright", "label": "Copyright line", "default": "2026 UPAASAK. All rights reserved." },
+    { "type": "text", "id": "bottom_note", "label": "Bottom note", "default": "Made with devotion in India" }
   ],
   "blocks": [
     {
@@ -67,8 +64,16 @@
       "name": "Link column",
       "settings": [
         { "type": "text", "id": "title", "label": "Column title", "default": "Information" },
-        { "type": "textarea", "id": "labels", "label": "Link labels (one per line)", "default": "Contact us\nBlogs\nFAQ's\nFree PDF's" },
-        { "type": "textarea", "id": "links", "label": "Link URLs (one per line, match labels)", "default": "" }
+        { "type": "text", "id": "l1", "label": "Link 1 label" },
+        { "type": "url", "id": "u1", "label": "Link 1 URL" },
+        { "type": "text", "id": "l2", "label": "Link 2 label" },
+        { "type": "url", "id": "u2", "label": "Link 2 URL" },
+        { "type": "text", "id": "l3", "label": "Link 3 label" },
+        { "type": "url", "id": "u3", "label": "Link 3 URL" },
+        { "type": "text", "id": "l4", "label": "Link 4 label" },
+        { "type": "url", "id": "u4", "label": "Link 4 URL" },
+        { "type": "text", "id": "l5", "label": "Link 5 label" },
+        { "type": "url", "id": "u5", "label": "Link 5 URL" }
       ]
     }
   ],
@@ -76,10 +81,10 @@
     {
       "name": "Upaasak Sitemap Footer",
       "blocks": [
-        { "type": "column", "settings": { "title": "Information", "labels": "Contact us\nBlogs\nFAQ's\nFree PDF's" } },
-        { "type": "column", "settings": { "title": "Policies", "labels": "Terms & Conditions\nPrivacy Policy\nShipping Policy\nRefunds & Cancellations" } },
-        { "type": "column", "settings": { "title": "Quick Links", "labels": "Track your order\nBest Sellers\nCorporate Gifting" } },
-        { "type": "column", "settings": { "title": "All Products", "labels": "Karungali\nRudraksha\nSpiritual Bracelets\nMala\nStones" } }
+        { "type": "column", "settings": { "title": "Information", "l1": "Contact us", "l2": "Blogs", "l3": "FAQs", "l4": "Free PDFs" } },
+        { "type": "column", "settings": { "title": "Policies", "l1": "Terms & Conditions", "l2": "Privacy Policy", "l3": "Shipping Policy", "l4": "Refunds & Cancellations" } },
+        { "type": "column", "settings": { "title": "Quick Links", "l1": "Track your order", "l2": "Best Sellers", "l3": "Corporate Gifting" } },
+        { "type": "column", "settings": { "title": "All Products", "l1": "Karungali", "l2": "Rudraksha", "l3": "Spiritual Bracelets", "l4": "Mala", "l5": "Stones" } }
       ]
     }
   ]
