@@ -901,7 +901,7 @@ body.u-noscroll { overflow: hidden; }
    ######################################################################## */
 
 /* ---- PDP layout ---- */
-.u-pdp { background: var(--u-paper); padding-block: clamp(28px, 4vw, 56px); }
+.u-pdp { background: var(--u-paper); padding-block: clamp(28px, 4vw, 40px); }
 .u-pdp__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 60px); align-items: start; }
 
 /* ---- Gallery ---- */
