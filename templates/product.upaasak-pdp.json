@@ -1,13 +1,49 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "u_info": {
       "type": "upaasak-product-info",
       "blocks": {
-        "title": { "type": "title", "settings": { "eyebrow": "Sacred Rudraksha" } },
-        "rating": { "type": "rating", "settings": { "rating": "4.9", "count": "1,284" } },
-        "price": { "type": "price", "settings": { "show_discount": true, "tax_note": "Inclusive of all taxes" } },
-        "chips": { "type": "trust_chips", "settings": { "chip_1": "Certified", "chip_2": "Tested", "chip_3": "Original" } },
-        "hr1": { "type": "divider", "settings": {} },
+        "title": {
+          "type": "title",
+          "settings": {
+            "eyebrow": "Sacred Rudraksha"
+          }
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {
+            "rating": "4.9",
+            "count": "1,284"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_discount": true,
+            "tax_note": "Inclusive of all taxes"
+          }
+        },
+        "chips": {
+          "type": "trust_chips",
+          "settings": {
+            "chip_1": "Certified",
+            "chip_2": "Tested",
+            "chip_3": "Original"
+          }
+        },
+        "hr1": {
+          "type": "divider",
+          "settings": {}
+        },
         "benefits": {
           "type": "benefits",
           "settings": {
@@ -16,8 +52,22 @@
             "text": "<ul><li>Balances mind, body and energy</li><li>Lab-certified, 100% natural bead</li><li>Energized before dispatch</li></ul>"
           }
         },
-        "buybox": { "type": "buybox", "settings": { "atc_label": "Add to Cart", "show_quantity": true, "show_buy_now": true } },
-        "offer": { "type": "offer", "settings": { "icon": "sparkle", "title": "Use code BLESS10", "text": "Get 10% off your first order" } },
+        "buybox": {
+          "type": "buybox",
+          "settings": {
+            "atc_label": "Add to Cart",
+            "show_quantity": true,
+            "show_buy_now": true
+          }
+        },
+        "offer": {
+          "type": "offer",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Use code BLESS10",
+            "text": "Get 10% off your first order"
+          }
+        },
         "delivery": {
           "type": "delivery",
           "settings": {
@@ -27,50 +77,150 @@
             "row_3": "7-day easy returns"
           }
         },
-        "emi": { "type": "emi", "settings": { "text": "No-cost EMI available on orders above 3000 rupees." } },
-        "hr2": { "type": "divider", "settings": {} },
+        "emi": {
+          "type": "emi",
+          "settings": {
+            "text": "No-cost EMI available on orders above 3000 rupees."
+          }
+        },
+        "hr2": {
+          "type": "divider",
+          "settings": {}
+        },
         "specs": {
           "type": "specs",
           "settings": {
             "heading": "Quick Details",
-            "label_1": "Mukhi", "value_1": "1 Mukhi",
-            "label_2": "Ruling Deity", "value_2": "Lord Shiva",
-            "label_3": "Ruling Planet", "value_3": "Sun",
-            "label_4": "Origin", "value_4": "Nepal",
+            "label_1": "Mukhi",
+            "value_1": "1 Mukhi",
+            "label_2": "Ruling Deity",
+            "value_2": "Lord Shiva",
+            "label_3": "Ruling Planet",
+            "value_3": "Sun",
+            "label_4": "Origin",
+            "value_4": "Nepal",
+            "label_5": "",
+            "value_5": "",
+            "label_6": "",
+            "value_6": "",
             "mantra_label": "Beej Mantra",
             "mantra": "॥ ॐ ह्रीं नमः ॥"
           }
         },
-        "payment": { "type": "payment", "settings": { "text": "100% Secure Checkout", "methods": "UPI, VISA, Mastercard, RuPay, COD" } },
-        "share": { "type": "share", "settings": { "text": "Share this" } }
+        "payment": {
+          "type": "payment",
+          "settings": {
+            "text": "100% Secure Checkout",
+            "methods": "UPI, VISA, Mastercard, RuPay, COD"
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "text": "Share this"
+          }
+        }
       },
       "block_order": [
-        "title", "rating", "price", "chips", "hr1",
-        "benefits", "buybox", "offer", "delivery", "emi", "hr2",
-        "specs", "payment", "share"
+        "title",
+        "rating",
+        "price",
+        "chips",
+        "hr1",
+        "benefits",
+        "buybox",
+        "offer",
+        "delivery",
+        "emi",
+        "hr2",
+        "specs",
+        "payment",
+        "share"
       ],
       "settings": {}
     },
     "u_phl": {
       "type": "upaasak-product-highlights",
       "blocks": {
-        "b1": { "type": "item", "settings": { "icon": "certificate", "title": "Lab Certified", "text": "Authenticity guaranteed" } },
-        "b2": { "type": "item", "settings": { "icon": "om", "title": "Energized", "text": "Abhimantrit before dispatch" } },
-        "b3": { "type": "item", "settings": { "icon": "truck", "title": "Free Shipping", "text": "COD available pan-India" } },
-        "b4": { "type": "item", "settings": { "icon": "return", "title": "Easy Returns", "text": "7-day hassle-free returns" } }
+        "b1": {
+          "type": "item",
+          "settings": {
+            "icon": "certificate",
+            "title": "Lab Certified",
+            "text": "Authenticity guaranteed"
+          }
+        },
+        "b2": {
+          "type": "item",
+          "settings": {
+            "icon": "om",
+            "title": "Energized",
+            "text": "Abhimantrit before dispatch"
+          }
+        },
+        "b3": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Free Shipping",
+            "text": "COD available pan-India"
+          }
+        },
+        "b4": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "Easy Returns",
+            "text": "7-day hassle-free returns"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3", "b4"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
       "settings": {}
     },
     "u_sig": {
       "type": "upaasak-product-significance",
       "blocks": {
-        "b1": { "type": "fact", "settings": { "label": "Ruling Deity", "value": "Lord Shiva" } },
-        "b2": { "type": "fact", "settings": { "label": "Ruling Planet", "value": "Sun" } },
-        "b3": { "type": "fact", "settings": { "label": "Chakra", "value": "Sahasrara" } },
-        "b4": { "type": "fact", "settings": { "label": "Origin", "value": "Nepal" } }
+        "b1": {
+          "type": "fact",
+          "settings": {
+            "label": "Ruling Deity",
+            "value": "Lord Shiva"
+          }
+        },
+        "b2": {
+          "type": "fact",
+          "settings": {
+            "label": "Ruling Planet",
+            "value": "Sun"
+          }
+        },
+        "b3": {
+          "type": "fact",
+          "settings": {
+            "label": "Chakra",
+            "value": "Sahasrara"
+          }
+        },
+        "b4": {
+          "type": "fact",
+          "settings": {
+            "label": "Origin",
+            "value": "Nepal"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3", "b4"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
       "settings": {
         "eyebrow": "Spiritual Significance",
         "heading": "The Sacred Meaning of This Bead",
@@ -82,12 +232,46 @@
     "u_care": {
       "type": "upaasak-product-care",
       "blocks": {
-        "b1": { "type": "tip", "settings": { "icon": "water", "title": "Activate It", "text": "On a Monday morning, rinse with clean water or Ganga jal and chant the beej mantra 9 times before first wear." } },
-        "b2": { "type": "tip", "settings": { "icon": "hand", "title": "Wear It Right", "text": "Wear against the skin or use for japa with your right hand, crossing the Sumeru (head) bead — never over it." } },
-        "b3": { "type": "tip", "settings": { "icon": "leaf", "title": "Keep It Pure", "text": "Avoid harsh chemicals, perfumes and excess moisture. Remove before bathing or sleeping." } },
-        "b4": { "type": "tip", "settings": { "icon": "sun", "title": "Recharge It", "text": "Oil the beads with sandalwood or mustard oil occasionally and let them rest in sunlight to retain lustre." } }
+        "b1": {
+          "type": "tip",
+          "settings": {
+            "icon": "water",
+            "title": "Activate It",
+            "text": "On a Monday morning, rinse with clean water or Ganga jal and chant the beej mantra 9 times before first wear."
+          }
+        },
+        "b2": {
+          "type": "tip",
+          "settings": {
+            "icon": "hand",
+            "title": "Wear It Right",
+            "text": "Wear against the skin or use for japa with your right hand, crossing the Sumeru (head) bead — never over it."
+          }
+        },
+        "b3": {
+          "type": "tip",
+          "settings": {
+            "icon": "leaf",
+            "title": "Keep It Pure",
+            "text": "Avoid harsh chemicals, perfumes and excess moisture. Remove before bathing or sleeping."
+          }
+        },
+        "b4": {
+          "type": "tip",
+          "settings": {
+            "icon": "sun",
+            "title": "Recharge It",
+            "text": "Oil the beads with sandalwood or mustard oil occasionally and let them rest in sunlight to retain lustre."
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3", "b4"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "disabled": true,
       "settings": {
         "eyebrow": "Rituals",
         "heading": "How to Wear & Care for Your Mala",
@@ -97,27 +281,84 @@
     "u_grnt": {
       "type": "upaasak-product-guarantee",
       "blocks": {
-        "b1": { "type": "point", "settings": { "icon": "certificate", "title": "Lab-Certified Authenticity", "text": "Every bead ships with a verified certificate of origin." } },
-        "b2": { "type": "point", "settings": { "icon": "om", "title": "Energized & Blessed", "text": "Abhimantrit with the appropriate Vedic mantras before dispatch." } },
-        "b3": { "type": "point", "settings": { "icon": "return", "title": "7-Day Easy Returns", "text": "Not satisfied? Return within 7 days, no questions asked." } },
-        "b4": { "type": "point", "settings": { "icon": "gift", "title": "Gift-Ready Packaging", "text": "Arrives in a premium pouch with a printed care guide." } }
+        "b1": {
+          "type": "point",
+          "settings": {
+            "icon": "certificate",
+            "title": "Lab-Certified Authenticity",
+            "text": "Every bead ships with a verified certificate of origin."
+          }
+        },
+        "b2": {
+          "type": "point",
+          "settings": {
+            "icon": "om",
+            "title": "Energized & Blessed",
+            "text": "Abhimantrit with the appropriate Vedic mantras before dispatch."
+          }
+        },
+        "b3": {
+          "type": "point",
+          "settings": {
+            "icon": "return",
+            "title": "7-Day Easy Returns",
+            "text": "Not satisfied? Return within 7 days, no questions asked."
+          }
+        },
+        "b4": {
+          "type": "point",
+          "settings": {
+            "icon": "gift",
+            "title": "Gift-Ready Packaging",
+            "text": "Arrives in a premium pouch with a printed care guide."
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3", "b4"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
       "settings": {
         "seal_icon": "shield",
         "eyebrow": "Our Sacred Promise",
         "heading": "Blessed, Backed & Guaranteed",
-        "subheading": "Every Upaasak order is authenticated, energized and protected by our promise — so you can wear it with complete faith."
+        "subheading": "Every Upaasak order is authenticated, energized and protected by our promise — so you can wear it with complete faith.",
+        "cta_label": "Read our guarantee",
+        "cta_link": ""
       }
     },
     "u_reviews": {
       "type": "upaasak-product-reviews",
       "blocks": {
-        "b1": { "type": "review", "settings": { "name": "Ravi K.", "text": "Beautiful bead, clearly authentic. Came with a certificate and a lovely pouch. Wearing it daily now." } },
-        "b2": { "type": "review", "settings": { "name": "Sneha P.", "text": "I was nervous buying online but the quality exceeded my expectations. Feels genuinely energized." } },
-        "b3": { "type": "review", "settings": { "name": "Arjun M.", "text": "Fast delivery, premium packaging and great customer support. Will be ordering the 5 Mukhi next." } }
+        "b1": {
+          "type": "review",
+          "settings": {
+            "name": "Ravi K.",
+            "text": "Beautiful bead, clearly authentic. Came with a certificate and a lovely pouch. Wearing it daily now."
+          }
+        },
+        "b2": {
+          "type": "review",
+          "settings": {
+            "name": "Sneha P.",
+            "text": "I was nervous buying online but the quality exceeded my expectations. Feels genuinely energized."
+          }
+        },
+        "b3": {
+          "type": "review",
+          "settings": {
+            "name": "Arjun M.",
+            "text": "Fast delivery, premium packaging and great customer support. Will be ordering the 5 Mukhi next."
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
       "settings": {
         "eyebrow": "Verified Reviews",
         "heading": "What Devotees Are Saying",
@@ -129,12 +370,41 @@
     "u_faq": {
       "type": "upaasak-faq",
       "blocks": {
-        "b1": { "type": "faq", "settings": { "question": "Is this Rudraksha original and certified?", "answer": "<p>Yes. This bead is 100% natural, lab-tested for authenticity and origin, and ships with a certificate.</p>" } },
-        "b2": { "type": "faq", "settings": { "question": "Is it already energized?", "answer": "<p>Every Upaasak Rudraksha is abhimantrit (energized) with the appropriate Vedic mantra before dispatch, so it's ready to wear.</p>" } },
-        "b3": { "type": "faq", "settings": { "question": "How long will delivery take?", "answer": "<p>Orders are dispatched within 24-48 hours and typically delivered in 3-7 days across India, with free shipping and COD available.</p>" } },
-        "b4": { "type": "faq", "settings": { "question": "What if it doesn't feel right for me?", "answer": "<p>You're covered by our 7-day, no-questions return policy. Reach out and we'll make it right.</p>" } }
+        "b1": {
+          "type": "faq",
+          "settings": {
+            "question": "Is this Rudraksha original and certified?",
+            "answer": "<p>Yes. This bead is 100% natural, lab-tested for authenticity and origin, and ships with a certificate.</p>"
+          }
+        },
+        "b2": {
+          "type": "faq",
+          "settings": {
+            "question": "Is it already energized?",
+            "answer": "<p>Every Upaasak Rudraksha is abhimantrit (energized) with the appropriate Vedic mantra before dispatch, so it's ready to wear.</p>"
+          }
+        },
+        "b3": {
+          "type": "faq",
+          "settings": {
+            "question": "How long will delivery take?",
+            "answer": "<p>Orders are dispatched within 24-48 hours and typically delivered in 3-7 days across India, with free shipping and COD available.</p>"
+          }
+        },
+        "b4": {
+          "type": "faq",
+          "settings": {
+            "question": "What if it doesn't feel right for me?",
+            "answer": "<p>You're covered by our 7-day, no-questions return policy. Reach out and we'll make it right.</p>"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3", "b4"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
       "settings": {
         "eyebrow": "Good to Know",
         "heading": "Questions About This Mala",
@@ -154,10 +424,19 @@
             "alignment": "left",
             "type_preset": "h4",
             "font": "var(--font-primary--family)",
+            "font_size": "1rem",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
-            "wrap": "pretty"
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {}
         },
@@ -168,6 +447,7 @@
           "settings": {
             "product_card_gap": 8,
             "inherit_color_scheme": true,
+            "color_scheme": "",
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
@@ -181,25 +461,77 @@
             "rec_gallery": {
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
-              "settings": { "image_ratio": "adapt", "border": "none", "border_width": 1, "border_opacity": 100, "border_radius": 0 },
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
               "blocks": {}
             },
             "rec_title": {
               "type": "product-title",
               "name": "t:names.product_title",
-              "settings": { "width": "100%", "max_width": "normal", "alignment": "left", "type_preset": "rte", "font": "var(--font-body--family)", "font_size": "1rem", "line_height": "normal", "letter_spacing": "normal", "case": "none", "wrap": "pretty", "color": "var(--color-foreground)", "padding-block-start": 4 },
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
               "blocks": {}
             },
             "rec_price": {
               "type": "price",
-              "settings": { "show_sale_price_first": true, "show_installments": false, "show_tax_info": false, "type_preset": "h6", "width": "100%", "alignment": "left", "font": "var(--font-body--family)", "font_size": "1rem", "line_height": "normal", "letter_spacing": "normal", "case": "none", "color": "var(--color-foreground)" },
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
               "blocks": {}
             }
           },
-          "block_order": ["rec_gallery", "rec_title", "rec_price"]
+          "block_order": [
+            "rec_gallery",
+            "rec_title",
+            "rec_price"
+          ]
         }
       },
-      "block_order": ["text_recs"],
+      "block_order": [
+        "text_recs"
+      ],
       "name": "t:names.product_recommendations",
       "settings": {
         "product": "{{ closest.product }}",
