@@ -279,6 +279,23 @@
     });
   }
 
+  function initRecs(root) {
+    (root || document).querySelectorAll('[data-urecs]:not([data-urecs-bound])').forEach(function (el) {
+      el.setAttribute('data-urecs-bound', '1');
+      var url = el.getAttribute('data-url');
+      var inner = el.querySelector('[data-urecs-inner]');
+      if (!url || !inner || url.indexOf('product_id=&') !== -1) return;
+      fetch(url).then(function (r) { return r.text(); }).then(function (text) {
+        var doc = new DOMParser().parseFromString(text, 'text/html');
+        var fresh = doc.querySelector('[data-urecs-inner]');
+        if (fresh && fresh.querySelector('.u-pcard')) {
+          inner.innerHTML = fresh.innerHTML;
+          if (window.__upaasakRescan) window.__upaasakRescan();
+        }
+      }).catch(function () {});
+    });
+  }
+
   function initAll(root) {
     initReveal(root);
     initCountUp(root);
@@ -290,6 +307,7 @@
     initTabs(root);
     initBurger(root);
     initPdp(root);
+    initRecs(root);
   }
 
   if (window.__upaasakInit) { window.__upaasakRescan && window.__upaasakRescan(); return; }

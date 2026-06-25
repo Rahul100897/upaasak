@@ -1062,3 +1062,18 @@ body.u-noscroll { overflow: hidden; }
 
 .u-faq__list { background: #fff; border: 1px solid var(--u-line); border-radius: var(--u-radius-lg); padding: 4px clamp(16px, 3vw, 30px); box-shadow: var(--u-shadow-sm); }
 .u-faq__item:last-child { border-bottom: 0; }
+
+/* Consistent, smaller section headings across the whole product page (~2.5rem desktop) */
+.u-sig .u-title,
+.u-care .u-title,
+.u-grnt .u-title,
+.u-grnt__intro .u-title,
+.u-rev .u-title,
+.u-faq .u-title,
+.u-urecs .u-title,
+.u-promise .u-title { font-size: clamp(1.6rem, 3vw, 2.5rem); }
+
+/* Recommended products — homepage grid styling */
+.u-urecs__top { justify-content: center; text-align: center; margin-bottom: 34px; }
+.u-urecs .u-eyebrow { justify-content: center; }
+.u-urecs__inner .u-grid4 { margin-inline: auto; }

@@ -1,0 +1,61 @@
+{% render 'upaasak-design-system' %}
+
+{%- liquid
+  assign limit = section.settings.products_to_show | default: 4
+-%}
+
+<section class="u-section u-sec u-sec--ivory u-urecs" data-section-id="{{ section.id }}"
+  data-urecs
+  data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ limit }}&intent=related">
+  <div class="u-wrap">
+    <div class="u-sec__top u-urecs__top">
+      <div>
+        {% if section.settings.eyebrow != blank %}<span class="u-eyebrow is-centered" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
+        <h2 class="u-title" data-reveal style="--d:80ms">{{ section.settings.heading }}</h2>
+      </div>
+    </div>
+
+    <div class="u-urecs__inner" data-urecs-inner>
+      {%- if recommendations.performed -%}
+        {%- if recommendations.products_count > 0 -%}
+          <div class="u-grid4">
+            {% for p in recommendations.products limit: limit %}
+              {% render 'upaasak-product-card', product: p %}
+            {% endfor %}
+          </div>
+        {%- endif -%}
+      {%- else -%}
+        {%- comment -%} Server render before the recommendations API responds: show products from this product's collection so the row is never empty. {%- endcomment -%}
+        {%- assign coll = product.collections.first -%}
+        {%- if coll == blank or coll.products_count == 0 -%}{%- assign coll = collections['all'] -%}{%- endif -%}
+        {%- if coll.products_count > 0 -%}
+          <div class="u-grid4">
+            {%- assign shown = 0 -%}
+            {% for p in coll.products %}
+              {%- if p.id != product.id and shown < limit -%}
+                {% render 'upaasak-product-card', product: p %}
+                {%- assign shown = shown | plus: 1 -%}
+              {%- endif -%}
+            {% endfor %}
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Recommended Products",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Handpicked For You" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "You May Also Like" },
+    { "type": "range", "id": "products_to_show", "label": "Products to show", "min": 2, "max": 8, "step": 1, "default": 4 },
+    { "type": "paragraph", "content": "Shows Shopify's related products. If none are found, it falls back to other products from this product's collection. Cards match the homepage grid." }
+  ],
+  "presets": [
+    { "name": "Recommended Products" }
+  ]
+}
+{% endschema %}

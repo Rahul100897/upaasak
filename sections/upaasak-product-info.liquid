@@ -50,8 +50,10 @@
           {%- case block.type -%}
 
           {%- when 'title' -%}
+            {%- assign tag_line = product.metafields.custom.product_tag_line.value -%}
+            {%- if tag_line == blank -%}{%- assign tag_line = block.settings.eyebrow -%}{%- endif -%}
             <div class="u-pdp__b" {{ block.shopify_attributes }}>
-              {% if block.settings.eyebrow != blank %}<span class="u-eyebrow">{{ block.settings.eyebrow }}</span>{% endif %}
+              {% if tag_line != blank %}<span class="u-eyebrow">{{ tag_line }}</span>{% endif %}
               <h1 class="u-pdp__title">{{ product.title }}</h1>
             </div>
 
@@ -238,7 +240,7 @@
       "name": "Title",
       "limit": 1,
       "settings": [
-        { "type": "text", "id": "eyebrow", "label": "Eyebrow (small label above title)", "default": "Sacred Rudraksha" }
+        { "type": "text", "id": "eyebrow", "label": "Eyebrow (small label above title)", "info": "Uses the product's custom.product_tag_line metafield when set; otherwise this text.", "default": "Sacred Rudraksha" }
       ]
     },
     {
