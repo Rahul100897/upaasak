@@ -80,6 +80,7 @@
         },
         "emi": {
           "type": "emi",
+          "disabled": true,
           "settings": {
             "text": "No-cost EMI available on orders above 3000 rupees."
           }
@@ -90,6 +91,7 @@
         },
         "specs": {
           "type": "specs",
+          "disabled": true,
           "settings": {
             "heading": "Quick Details",
             "label_1": "Mukhi",
@@ -559,9 +561,9 @@
     "u_phl",
     "u_sig",
     "u_care",
+    "u_recs",
     "u_grnt",
     "u_reviews",
-    "u_faq",
-    "u_recs"
+    "u_faq"
   ]
 }
