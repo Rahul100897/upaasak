@@ -583,7 +583,7 @@
 .u-faq { background: var(--u-paper); padding-block: clamp(56px, 8vw, 96px); }
 .u-faq__list { max-width: 820px; margin-inline: auto; }
 .u-faq__item { border-bottom: 1px solid var(--u-line); }
-.u-faq__q { width: 100%; text-align: left; background: none; border: 0; cursor: pointer; padding: 24px 8px; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-family: var(--u-font-display); font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 600; color: var(--u-charcoal); }
+.u-faq__q { width: 100%; text-align: left; background: none; border: 0; cursor: pointer; padding: 24px 8px; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-family: var(--u-font-display); font-size: clamp(1.1rem, 2vw, 1.2rem); font-weight: 500; color: var(--u-charcoal); }
 .u-faq__q:hover { color: var(--u-maroon); }
 .u-faq__icon { flex: none; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--u-gold-line); display: grid; place-items: center; color: var(--u-maroon); transition: transform 0.4s var(--u-ease), background 0.4s var(--u-ease), color 0.4s var(--u-ease); position: relative; }
 .u-faq__icon::before, .u-faq__icon::after { content: ''; position: absolute; background: currentColor; border-radius: 2px; }
