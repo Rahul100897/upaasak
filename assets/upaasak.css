@@ -1052,7 +1052,7 @@ body.u-noscroll { overflow: hidden; }
 .u-phl__icon { box-shadow: var(--u-shadow-sm); transition: transform .4s var(--u-ease), color .4s var(--u-ease); }
 .u-phl__item:hover .u-phl__icon { transform: translateY(-3px); color: var(--u-crimson); }
 
-.u-fact { background: #fff; border: 1px solid var(--u-line); border-radius: 14px; padding: 13px 16px; display: flex; flex-direction: column; gap: 3px; transition: border-color .4s var(--u-ease), transform .4s var(--u-ease); }
+.u-fact { background: #fff; border: 1px solid var(--u-line); border-radius: 14px; padding: 10px 16px; display: flex; flex-direction: column; gap: 3px; transition: border-color .4s var(--u-ease), transform .4s var(--u-ease); }
 .u-fact:hover { border-color: var(--u-gold-line); transform: translateY(-2px); }
 .u-fact span { font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; color: var(--u-muted); }
 .u-fact strong { font-family: var(--u-font-display); font-size: 1.1rem; color: var(--u-maroon); font-weight: 600; }
