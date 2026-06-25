@@ -932,7 +932,7 @@ body.u-noscroll { overflow: hidden; }
 .u-pdp__rating-link { font-size: .85rem; color: var(--u-muted); border-bottom: 1px solid var(--u-gold-line); }
 
 .u-pdp__price { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-.u-pdp__price-now { font-family: var(--u-font-display); font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 700; color: var(--u-maroon); }
+.u-pdp__price-now { font-family: var(--u-font-display); font-size: clamp(1.6rem, 3vw, 1.5rem); font-weight: 700; color: var(--u-maroon); }
 .u-pdp__price-was { font-size: 1.05rem; color: var(--u-muted); text-decoration: line-through; }
 .u-pdp__price-off { background: var(--u-green-bg); color: var(--u-green); font-weight: 700; font-size: .8rem; padding: 4px 10px; border-radius: 999px; }
 .u-pdp__price-tax { flex-basis: 100%; font-size: .78rem; color: var(--u-muted); margin-top: 2px; }
