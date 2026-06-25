@@ -792,7 +792,13 @@
 
 /* ---- Sitemap footer ---- */
 .u-site { background: var(--u-charcoal); color: #e9dcc6; padding-block: clamp(48px, 6vw, 76px) 0; }
-.u-site__grid { max-width: var(--u-maxw); margin-inline: auto; padding: 0 clamp(18px,5vw,48px); display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 36px; }
+.u-site__grid { max-width: var(--u-maxw); margin-inline: auto; padding: 0 clamp(18px,5vw,48px); display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.3fr; gap: 36px; }
+.u-site__social .fb { background: #1877f2; }
+.u-site__social .yt { background: #ff0000; }
+.u-site__cinfo { list-style: none; padding: 0; margin: 0 0 18px; display: grid; gap: 12px; }
+.u-site__cinfo li, .u-site__cinfo a { display: flex; align-items: flex-start; gap: 10px; color: rgba(233,220,198,0.82); text-decoration: none; font-size: 0.88rem; line-height: 1.5; }
+.u-site__cinfo a:hover { color: var(--u-gold-light); }
+.u-site__cinfo svg { width: 17px; height: 17px; color: var(--u-gold-light); flex: none; margin-top: 1px; }
 .u-site__brand .u-lockup__name { color: #fff; }
 .u-site__brand .u-lockup__slogan { color: var(--u-gold-light); }
 .u-site__brand p { font-size: 0.88rem; line-height: 1.7; color: rgba(233,220,198,0.72); margin: 18px 0 22px; max-width: 36ch; }
