@@ -203,16 +203,6 @@
         "view_all_label": "View All"
       }
     },
-    "upaasak_fullwidth_image_Dwmc3G": {
-      "type": "upaasak-fullwidth-image",
-      "name": "Full-width Image",
-      "settings": {
-        "image": "shopify://shop_images/Process.jpg",
-        "image_mobile": "shopify://shop_images/Process_e72709ef-9e57-44d9-b821-bf8c93d44900.jpg",
-        "link": "",
-        "alt": "Upaasak"
-      }
-    },
     "u_why": {
       "type": "upaasak-why-choose-us",
       "blocks": {
@@ -262,6 +252,16 @@
         "eyebrow": "Why Choose Us",
         "heading": "Tradition Behind Every Bead",
         "banner_placeholder": "Sourced · Verified · Energized · Delivered"
+      }
+    },
+    "upaasak_fullwidth_image_Dwmc3G": {
+      "type": "upaasak-fullwidth-image",
+      "name": "Full-width Image",
+      "settings": {
+        "image": "shopify://shop_images/ChatGPT_Image_Jun_25_2026_03_08_33_AM.png",
+        "image_mobile": "shopify://shop_images/Process_e72709ef-9e57-44d9-b821-bf8c93d44900.jpg",
+        "link": "",
+        "alt": "Upaasak"
       }
     },
     "u_best": {
