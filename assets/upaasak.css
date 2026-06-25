@@ -917,7 +917,7 @@ body.u-noscroll { overflow: hidden; }
 .u-pdp__thumb.is-active { border-color: var(--u-maroon); box-shadow: 0 0 0 2px rgba(123,11,44,.18); }
 
 /* ---- Info column ---- */
-.u-pdp__info { display: flex; flex-direction: column; gap: clamp(14px, 1.8vw, 20px); }
+.u-pdp__info { display: flex; flex-direction: column; gap: clamp(14px, 1.8vw, 16px); }
 .u-pdp__b { margin: 0; }
 .u-pdp__b .u-eyebrow { margin-bottom: 6px; }
 .u-pdp__b-head { font-family: var(--u-font-label); text-transform: uppercase; letter-spacing: .14em; font-size: .74rem; color: var(--u-gold-deep); margin: 0 0 10px; }
