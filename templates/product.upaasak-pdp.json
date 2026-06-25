@@ -57,11 +57,12 @@
           "settings": {
             "atc_label": "Add to Cart",
             "show_quantity": true,
-            "show_buy_now": true
+            "show_buy_now": false
           }
         },
         "offer": {
           "type": "offer",
+          "disabled": true,
           "settings": {
             "icon": "sparkle",
             "title": "Use code BLESS10",
