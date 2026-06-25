@@ -527,7 +527,7 @@
 /* ============================================================================
    PRODUCT — HIGHLIGHTS BAR
    ========================================================================== */
-.u-phl { background: var(--u-ivory); padding-block: clamp(28px, 4vw, 44px); border-block: 1px solid var(--u-line); }
+.u-phl { background: var(--u-ivory); padding-block: clamp(15px, 4vw, 15px); border-block: 1px solid var(--u-line); }
 .u-phl__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 2vw, 26px); }
 .u-phl__item { display: flex; align-items: center; gap: 14px; }
 .u-phl__icon { width: 48px; height: 48px; flex: none; border-radius: 14px; display: grid; place-items: center; background: #fff; border: 1px solid var(--u-gold-line); color: var(--u-maroon); }
