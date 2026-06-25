@@ -103,7 +103,7 @@
 .u-title .u-gold { color: var(--u-gold-deep); }
 
 .u-lead {
-  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  font-size: clamp(1rem, 1.4vw, 1rem);
   line-height: 1.75;
   color: var(--u-muted);
   margin: 18px 0 0;
