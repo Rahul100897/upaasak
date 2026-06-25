@@ -48,7 +48,7 @@
           "type": "benefits",
           "settings": {
             "heading": "Key Benefits",
-            "source": "custom",
+            "source": "description",
             "text": "<ul><li>Balances mind, body and energy</li><li>Lab-certified, 100% natural bead</li><li>Energized before dispatch</li></ul>"
           }
         },
@@ -281,139 +281,6 @@
         "subheading": "A few simple practices to keep your Rudraksha potent, beautiful and blessed for years."
       }
     },
-    "u_grnt": {
-      "type": "upaasak-product-guarantee",
-      "blocks": {
-        "b1": {
-          "type": "point",
-          "settings": {
-            "icon": "certificate",
-            "title": "Lab-Certified Authenticity",
-            "text": "Every bead ships with a verified certificate of origin."
-          }
-        },
-        "b2": {
-          "type": "point",
-          "settings": {
-            "icon": "om",
-            "title": "Energized & Blessed",
-            "text": "Abhimantrit with the appropriate Vedic mantras before dispatch."
-          }
-        },
-        "b3": {
-          "type": "point",
-          "settings": {
-            "icon": "return",
-            "title": "7-Day Easy Returns",
-            "text": "Not satisfied? Return within 7 days, no questions asked."
-          }
-        },
-        "b4": {
-          "type": "point",
-          "settings": {
-            "icon": "gift",
-            "title": "Gift-Ready Packaging",
-            "text": "Arrives in a premium pouch with a printed care guide."
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3",
-        "b4"
-      ],
-      "settings": {
-        "seal_icon": "shield",
-        "eyebrow": "Our Sacred Promise",
-        "heading": "Blessed, Backed & Guaranteed",
-        "subheading": "Every Upaasak order is authenticated, energized and protected by our promise — so you can wear it with complete faith.",
-        "cta_label": "Read our guarantee",
-        "cta_link": ""
-      }
-    },
-    "u_reviews": {
-      "type": "upaasak-product-reviews",
-      "blocks": {
-        "b1": {
-          "type": "review",
-          "settings": {
-            "name": "Ravi K.",
-            "text": "Beautiful bead, clearly authentic. Came with a certificate and a lovely pouch. Wearing it daily now."
-          }
-        },
-        "b2": {
-          "type": "review",
-          "settings": {
-            "name": "Sneha P.",
-            "text": "I was nervous buying online but the quality exceeded my expectations. Feels genuinely energized."
-          }
-        },
-        "b3": {
-          "type": "review",
-          "settings": {
-            "name": "Arjun M.",
-            "text": "Fast delivery, premium packaging and great customer support. Will be ordering the 5 Mukhi next."
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3"
-      ],
-      "settings": {
-        "eyebrow": "Verified Reviews",
-        "heading": "What Devotees Are Saying",
-        "avg_score": "4.9",
-        "review_count": "1,284",
-        "distribution": "92,6,1,1,0"
-      }
-    },
-    "u_faq": {
-      "type": "upaasak-faq",
-      "blocks": {
-        "b1": {
-          "type": "faq",
-          "settings": {
-            "question": "Is this Rudraksha original and certified?",
-            "answer": "<p>Yes. This bead is 100% natural, lab-tested for authenticity and origin, and ships with a certificate.</p>"
-          }
-        },
-        "b2": {
-          "type": "faq",
-          "settings": {
-            "question": "Is it already energized?",
-            "answer": "<p>Every Upaasak Rudraksha is abhimantrit (energized) with the appropriate Vedic mantra before dispatch, so it's ready to wear.</p>"
-          }
-        },
-        "b3": {
-          "type": "faq",
-          "settings": {
-            "question": "How long will delivery take?",
-            "answer": "<p>Orders are dispatched within 24-48 hours and typically delivered in 3-7 days across India, with free shipping and COD available.</p>"
-          }
-        },
-        "b4": {
-          "type": "faq",
-          "settings": {
-            "question": "What if it doesn't feel right for me?",
-            "answer": "<p>You're covered by our 7-day, no-questions return policy. Reach out and we'll make it right.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3",
-        "b4"
-      ],
-      "settings": {
-        "eyebrow": "Good to Know",
-        "heading": "Questions About This Mala",
-        "open_first": true
-      }
-    },
     "u_recs": {
       "type": "product-recommendations",
       "blocks": {
@@ -553,6 +420,139 @@
         "color_scheme": "scheme-1",
         "padding-block-start": 48,
         "padding-block-end": 48
+      }
+    },
+    "u_grnt": {
+      "type": "upaasak-product-guarantee",
+      "blocks": {
+        "b1": {
+          "type": "point",
+          "settings": {
+            "icon": "certificate",
+            "title": "Lab-Certified Authenticity",
+            "text": "Every bead ships with a verified certificate of origin."
+          }
+        },
+        "b2": {
+          "type": "point",
+          "settings": {
+            "icon": "om",
+            "title": "Energized & Blessed",
+            "text": "Abhimantrit with the appropriate Vedic mantras before dispatch."
+          }
+        },
+        "b3": {
+          "type": "point",
+          "settings": {
+            "icon": "return",
+            "title": "7-Day Easy Returns",
+            "text": "Not satisfied? Return within 7 days, no questions asked."
+          }
+        },
+        "b4": {
+          "type": "point",
+          "settings": {
+            "icon": "gift",
+            "title": "Gift-Ready Packaging",
+            "text": "Arrives in a premium pouch with a printed care guide."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "settings": {
+        "seal_icon": "shield",
+        "eyebrow": "Our Sacred Promise",
+        "heading": "Blessed, Backed & Guaranteed",
+        "subheading": "Every Upaasak order is authenticated, energized and protected by our promise — so you can wear it with complete faith.",
+        "cta_label": "Read our guarantee",
+        "cta_link": ""
+      }
+    },
+    "u_reviews": {
+      "type": "upaasak-product-reviews",
+      "blocks": {
+        "b1": {
+          "type": "review",
+          "settings": {
+            "name": "Ravi K.",
+            "text": "Beautiful bead, clearly authentic. Came with a certificate and a lovely pouch. Wearing it daily now."
+          }
+        },
+        "b2": {
+          "type": "review",
+          "settings": {
+            "name": "Sneha P.",
+            "text": "I was nervous buying online but the quality exceeded my expectations. Feels genuinely energized."
+          }
+        },
+        "b3": {
+          "type": "review",
+          "settings": {
+            "name": "Arjun M.",
+            "text": "Fast delivery, premium packaging and great customer support. Will be ordering the 5 Mukhi next."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "eyebrow": "Verified Reviews",
+        "heading": "What Devotees Are Saying",
+        "avg_score": "4.9",
+        "review_count": "1,284",
+        "distribution": "92,6,1,1,0"
+      }
+    },
+    "u_faq": {
+      "type": "upaasak-faq",
+      "blocks": {
+        "b1": {
+          "type": "faq",
+          "settings": {
+            "question": "Is this Rudraksha original and certified?",
+            "answer": "<p>Yes. This bead is 100% natural, lab-tested for authenticity and origin, and ships with a certificate.</p>"
+          }
+        },
+        "b2": {
+          "type": "faq",
+          "settings": {
+            "question": "Is it already energized?",
+            "answer": "<p>Every Upaasak Rudraksha is abhimantrit (energized) with the appropriate Vedic mantra before dispatch, so it's ready to wear.</p>"
+          }
+        },
+        "b3": {
+          "type": "faq",
+          "settings": {
+            "question": "How long will delivery take?",
+            "answer": "<p>Orders are dispatched within 24-48 hours and typically delivered in 3-7 days across India, with free shipping and COD available.</p>"
+          }
+        },
+        "b4": {
+          "type": "faq",
+          "settings": {
+            "question": "What if it doesn't feel right for me?",
+            "answer": "<p>You're covered by our 7-day, no-questions return policy. Reach out and we'll make it right.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "settings": {
+        "eyebrow": "Good to Know",
+        "heading": "Questions About This Mala",
+        "open_first": true
       }
     }
   },
