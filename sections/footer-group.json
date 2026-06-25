@@ -46,8 +46,22 @@
             "u5": ""
           }
         },
+        "contact_gzpXxB": {
+          "type": "contact",
+          "settings": {
+            "title": "Get in Touch",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "whatsapp": "tel:919460940868",
+            "instagram": "https://www.instagram.com/upaasakofficial/",
+            "facebook": "https://www.facebook.com/upaasakofficial/",
+            "youtube": "https://www.youtube.com/@upaasakofficial"
+          }
+        },
         "column_UQ8KBc": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "title": "Quick Links",
             "l1": "Track your order",
@@ -64,6 +78,7 @@
         },
         "column_BnFH8k": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "title": "All Products",
             "l1": "Karungali",
@@ -82,6 +97,7 @@
       "block_order": [
         "column_eUAdE6",
         "column_ENDeyq",
+        "contact_gzpXxB",
         "column_UQ8KBc",
         "column_BnFH8k"
       ],
