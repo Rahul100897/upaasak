@@ -1,0 +1,416 @@
+{% render 'upaasak-design-system' %}
+
+{%- liquid
+  assign cv = product.selected_or_first_available_variant
+  assign on_sale = false
+  assign disc = 0
+  if cv.compare_at_price > cv.price
+    assign on_sale = true
+    assign disc = cv.compare_at_price | minus: cv.price | times: 100.0 | divided_by: cv.compare_at_price | round
+  endif
+-%}
+
+<section class="u-section u-pdp" data-section-id="{{ section.id }}" data-pdp>
+  <div class="u-wrap">
+    <div class="u-pdp__grid">
+
+      {%- comment -%} ---------- LEFT: media gallery ---------- {%- endcomment -%}
+      <div class="u-pdp__gallery" data-reveal="left">
+        <div class="u-pdp__stage">
+          {% if on_sale %}<span class="u-pdp__badge">{{ disc }}% OFF</span>{% endif %}
+          {% if cv.featured_image != blank %}
+            <img data-pdp-main src="{{ cv.featured_image | image_url: width: 1100 }}"
+                 alt="{{ product.title | escape }}" width="1100" height="1100">
+          {% elsif product.featured_media != blank and product.featured_media.media_type == 'image' %}
+            <img data-pdp-main src="{{ product.featured_media | image_url: width: 1100 }}"
+                 alt="{{ product.title | escape }}" width="1100" height="1100">
+          {% else %}
+            <span class="u-pdp__ph">ॐ</span>
+          {% endif %}
+        </div>
+
+        {%- assign image_media = product.media | where: 'media_type', 'image' -%}
+        {% if image_media.size > 1 %}
+          <div class="u-pdp__thumbs">
+            {% for media in image_media %}
+              <button type="button" class="u-pdp__thumb{% if forloop.first %} is-active{% endif %}"
+                      data-pdp-thumb data-full="{{ media | image_url: width: 1100 }}"
+                      aria-label="View image {{ forloop.index }}">
+                <img src="{{ media | image_url: width: 180 }}" loading="lazy"
+                     alt="{{ product.title | escape }} thumbnail {{ forloop.index }}" width="180" height="180">
+              </button>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      {%- comment -%} ---------- RIGHT: modular detail blocks ---------- {%- endcomment -%}
+      <div class="u-pdp__info" data-reveal="right">
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+
+          {%- when 'title' -%}
+            <div class="u-pdp__b" {{ block.shopify_attributes }}>
+              {% if block.settings.eyebrow != blank %}<span class="u-eyebrow">{{ block.settings.eyebrow }}</span>{% endif %}
+              <h1 class="u-pdp__title">{{ product.title }}</h1>
+            </div>
+
+          {%- when 'vendor' -%}
+            {% if product.vendor != blank %}
+              <div class="u-pdp__b u-pdp__vendor" {{ block.shopify_attributes }}>
+                {% if block.settings.prefix != blank %}<span>{{ block.settings.prefix }}</span>{% endif %}
+                <strong>{{ product.vendor }}</strong>
+              </div>
+            {% endif %}
+
+          {%- when 'rating' -%}
+            <div class="u-pdp__b u-pdp__rating" {{ block.shopify_attributes }}>
+              <span class="u-rating">
+                {% for i in (1..5) %}<svg viewBox="0 0 24 24"><path d="m12 2.5 2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6 21.3l1.2-6.6L2.4 9.5l6.6-.9L12 2.5Z"/></svg>{% endfor %}
+              </span>
+              <strong>{{ block.settings.rating }}</strong>
+              {% if block.settings.count != blank %}<span class="u-pdp__rating-link">{{ block.settings.count }} reviews</span>{% endif %}
+            </div>
+
+          {%- when 'price' -%}
+            <div class="u-pdp__b u-pdp__price" {{ block.shopify_attributes }}>
+              <span class="u-pdp__price-now" data-pdp-price-now>{{ cv.price | money }}</span>
+              <span class="u-pdp__price-was" data-pdp-price-was{% unless on_sale %} style="display:none"{% endunless %}>{{ cv.compare_at_price | money }}</span>
+              {% if on_sale and block.settings.show_discount %}<span class="u-pdp__price-off">{{ disc }}% OFF</span>{% endif %}
+              {% if block.settings.tax_note != blank %}<span class="u-pdp__price-tax">{{ block.settings.tax_note }}</span>{% endif %}
+            </div>
+
+          {%- when 'benefits' -%}
+            <div class="u-pdp__b u-pdp__benefits" {{ block.shopify_attributes }}>
+              {% if block.settings.heading != blank %}<h3 class="u-pdp__b-head">{{ block.settings.heading }}</h3>{% endif %}
+              {% if block.settings.source == 'description' %}
+                <div class="u-pdp__rte">{{ product.description }}</div>
+              {% elsif block.settings.text != blank %}
+                <div class="u-pdp__rte">{{ block.settings.text }}</div>
+              {% endif %}
+            </div>
+
+          {%- when 'trust_chips' -%}
+            <div class="u-pdp__b u-pdp__chips" {{ block.shopify_attributes }}>
+              {% for n in (1..3) %}
+                {%- assign key = 'chip_' | append: n -%}
+                {%- assign val = block.settings[key] -%}
+                {% if val != blank %}
+                  <span class="u-pdp__chip-trust">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.4 2.4 4.6-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    {{ val }}
+                  </span>
+                {% endif %}
+              {% endfor %}
+            </div>
+
+          {%- when 'buybox' -%}
+            <div class="u-pdp__b u-pdp__buybox" {{ block.shopify_attributes }}>
+              {% form 'product', product, class: 'u-pdp__form' %}
+                <input type="hidden" name="id" value="{{ cv.id }}" data-pdp-id>
+
+                {% unless product.has_only_default_variant %}
+                  {% for option in product.options_with_values %}
+                    <div class="u-pdp__opt" data-pdp-opt data-opt-pos="{{ forloop.index0 }}">
+                      <span class="u-pdp__opt-label">{{ option.name }}</span>
+                      <div class="u-pdp__opt-vals">
+                        {% for value in option.values %}
+                          <label class="u-pdp__chip-opt{% if option.selected_value == value %} is-active{% endif %}">
+                            <input type="radio" data-pdp-radio data-opt-pos="{{ forloop.parentloop.index0 }}" value="{{ value | escape }}"{% if option.selected_value == value %} checked{% endif %}>
+                            <span>{{ value }}</span>
+                          </label>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  {% endfor %}
+                {% endunless %}
+
+                <div class="u-pdp__cart-row">
+                  {% if block.settings.show_quantity %}
+                    <div class="u-pdp__qty">
+                      <button type="button" data-pdp-qminus aria-label="Decrease quantity">−</button>
+                      <input type="number" name="quantity" value="1" min="1" data-pdp-qty aria-label="Quantity">
+                      <button type="button" data-pdp-qplus aria-label="Increase quantity">+</button>
+                    </div>
+                  {% endif %}
+                  <button type="submit" name="add" class="u-btn u-btn--primary u-pdp__atc" data-pdp-atc data-label="{{ block.settings.atc_label | escape }}"{% unless product.available %} disabled{% endunless %}>
+                    {% if product.available %}{{ block.settings.atc_label }}{% else %}Sold Out{% endif %}
+                  </button>
+                </div>
+
+                {% if block.settings.show_buy_now %}
+                  <div class="u-pdp__dynamic">{{ form | payment_button }}</div>
+                {% endif %}
+              {% endform %}
+            </div>
+
+          {%- when 'offer' -%}
+            <div class="u-pdp__b u-pdp__offer" {{ block.shopify_attributes }}>
+              <span class="u-pdp__offer-ico">{% render 'upaasak-icon', icon: block.settings.icon %}</span>
+              <div>
+                <strong>{{ block.settings.title }}</strong>
+                {% if block.settings.text != blank %}<span>{{ block.settings.text }}</span>{% endif %}
+              </div>
+            </div>
+
+          {%- when 'delivery' -%}
+            <div class="u-pdp__b u-pdp__delivery" {{ block.shopify_attributes }}>
+              {% if block.settings.row_1 != blank %}<div class="u-pdp__drow">{% render 'upaasak-icon', icon: 'truck' %}<span>{{ block.settings.row_1 }}</span></div>{% endif %}
+              {% if block.settings.row_2 != blank %}<div class="u-pdp__drow">{% render 'upaasak-icon', icon: block.settings.icon_2 %}<span>{{ block.settings.row_2 }}</span></div>{% endif %}
+              {% if block.settings.row_3 != blank %}<div class="u-pdp__drow">{% render 'upaasak-icon', icon: 'return' %}<span>{{ block.settings.row_3 }}</span></div>{% endif %}
+            </div>
+
+          {%- when 'emi' -%}
+            <div class="u-pdp__b u-pdp__emi" {{ block.shopify_attributes }}>
+              <span class="u-pdp__emi-ico">{% render 'upaasak-icon', icon: 'gem' %}</span>
+              <p>{{ block.settings.text }}</p>
+            </div>
+
+          {%- when 'specs' -%}
+            <div class="u-pdp__b u-pdp__specs" {{ block.shopify_attributes }}>
+              {% if block.settings.heading != blank %}<h3 class="u-pdp__b-head">{{ block.settings.heading }}</h3>{% endif %}
+              <div class="u-pdp__spec-grid">
+                {% for n in (1..6) %}
+                  {%- assign lk = 'label_' | append: n -%}
+                  {%- assign vk = 'value_' | append: n -%}
+                  {% if block.settings[lk] != blank and block.settings[vk] != blank %}
+                    <div class="u-pdp__spec">
+                      <span>{{ block.settings[lk] }}</span>
+                      <strong>{{ block.settings[vk] }}</strong>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              {% if block.settings.mantra != blank %}
+                <div class="u-pdp__mantra">
+                  {% if block.settings.mantra_label != blank %}<small>{{ block.settings.mantra_label }}</small>{% endif %}
+                  <p>{{ block.settings.mantra }}</p>
+                </div>
+              {% endif %}
+            </div>
+
+          {%- when 'payment' -%}
+            <div class="u-pdp__b u-pdp__pay" {{ block.shopify_attributes }}>
+              <div class="u-pdp__pay-head">{% render 'upaasak-icon', icon: 'lock' %}<span>{{ block.settings.text }}</span></div>
+              <div class="u-pdp__pay-icons">
+                {% assign methods = block.settings.methods | split: ',' %}
+                {% for m in methods %}<span class="u-pdp__pay-badge">{{ m | strip }}</span>{% endfor %}
+              </div>
+            </div>
+
+          {%- when 'share' -%}
+            {%- assign share_url = shop.url | append: product.url -%}
+            <div class="u-pdp__b u-pdp__share" {{ block.shopify_attributes }}>
+              <span class="u-pdp__share-label">{{ block.settings.text }}</span>
+              <div class="u-pdp__share-links">
+                <a href="https://wa.me/?text={{ share_url | url_encode }}" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20Zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.7.7-.9 1.7-.6 2.7.5 1.5 1.5 2.8 2.9 3.7 1 .6 2.2 1 3.3 1 .9 0 1.7-.4 2.1-1 .2-.4.2-.8.1-.9 0-.1-.2-.2-.4-.3Z"/></svg></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url | url_encode }}" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.2H7.4V13h2.3v8h3.8Z"/></svg></a>
+                <button type="button" class="u-pdp__copy" data-pdp-copy data-url="{{ share_url }}" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8" stroke-linecap="round"/></svg></button>
+              </div>
+            </div>
+
+          {%- when 'divider' -%}
+            <div class="u-pdp__hr" {{ block.shopify_attributes }}></div>
+
+          {%- endcase -%}
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+
+  <script type="application/json" data-pdp-variants>
+    [{% for v in product.variants %}{"id":{{ v.id }},"options":{{ v.options | json }},"available":{{ v.available }},"price":{{ v.price | money | json }},"compare_at":{{ v.compare_at_price | money | json }},"compare_raw":{{ v.compare_at_price | default: 0 }},"price_raw":{{ v.price }}{% if v.featured_image %},"image":{{ v.featured_image | image_url: width: 1100 | json }}{% endif %}}{% unless forloop.last %},{% endunless %}{% endfor %}]
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Product Info",
+  "tag": "section",
+  "class": "u-pdp-section",
+  "settings": [
+    { "type": "paragraph", "content": "The PDP hero: media gallery (left) + modular detail blocks (right). Add, remove or reorder the blocks below to control what shows." }
+  ],
+  "blocks": [
+    {
+      "type": "title",
+      "name": "Title",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "eyebrow", "label": "Eyebrow (small label above title)", "default": "Sacred Rudraksha" }
+      ]
+    },
+    {
+      "type": "vendor",
+      "name": "Vendor / Brand",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "prefix", "label": "Prefix", "default": "By" }
+      ]
+    },
+    {
+      "type": "rating",
+      "name": "Star Rating",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "rating", "label": "Rating", "default": "4.9" },
+        { "type": "text", "id": "count", "label": "Review count", "default": "1,284" }
+      ]
+    },
+    {
+      "type": "price",
+      "name": "Price",
+      "limit": 1,
+      "settings": [
+        { "type": "checkbox", "id": "show_discount", "label": "Show discount %", "default": true },
+        { "type": "text", "id": "tax_note", "label": "Tax note", "default": "Inclusive of all taxes" }
+      ]
+    },
+    {
+      "type": "benefits",
+      "name": "Short Description",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Key Benefits" },
+        {
+          "type": "select", "id": "source", "label": "Content source", "default": "custom",
+          "options": [
+            { "value": "custom", "label": "Custom text below" },
+            { "value": "description", "label": "Product description" }
+          ]
+        },
+        { "type": "richtext", "id": "text", "label": "Custom text", "default": "<ul><li>Balances mind, body and energy</li><li>Lab-certified, 100% natural bead</li><li>Energized before dispatch</li></ul>" }
+      ]
+    },
+    {
+      "type": "trust_chips",
+      "name": "Trust Chips",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "chip_1", "label": "Chip 1", "default": "Certified" },
+        { "type": "text", "id": "chip_2", "label": "Chip 2", "default": "Tested" },
+        { "type": "text", "id": "chip_3", "label": "Chip 3", "default": "Original" }
+      ]
+    },
+    {
+      "type": "buybox",
+      "name": "Variants + Add to Cart",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "atc_label", "label": "Add-to-cart label", "default": "Add to Cart" },
+        { "type": "checkbox", "id": "show_quantity", "label": "Show quantity selector", "default": true },
+        { "type": "checkbox", "id": "show_buy_now", "label": "Show Buy-it-now button", "default": true }
+      ]
+    },
+    {
+      "type": "offer",
+      "name": "Offer Strip",
+      "settings": [
+        {
+          "type": "select", "id": "icon", "label": "Icon", "default": "sparkle",
+          "options": [
+            { "value": "sparkle", "label": "Sparkle" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "gem", "label": "Gem" },
+            { "value": "lotus", "label": "Lotus" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Use code BLESS10" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Get 10% off your first order" }
+      ]
+    },
+    {
+      "type": "delivery",
+      "name": "Delivery Info",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "row_1", "label": "Row 1 (truck icon)", "default": "Free shipping pan-India" },
+        {
+          "type": "select", "id": "icon_2", "label": "Row 2 icon", "default": "headset",
+          "options": [
+            { "value": "headset", "label": "Support" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "lock", "label": "Lock" },
+            { "value": "gift", "label": "Gift" }
+          ]
+        },
+        { "type": "text", "id": "row_2", "label": "Row 2", "default": "Cash on Delivery available" },
+        { "type": "text", "id": "row_3", "label": "Row 3 (returns icon)", "default": "7-day easy returns" }
+      ]
+    },
+    {
+      "type": "emi",
+      "name": "EMI Note",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "No-cost EMI available on orders above 3000 rupees." }
+      ]
+    },
+    {
+      "type": "specs",
+      "name": "Spec Rows",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Quick Details" },
+        { "type": "text", "id": "label_1", "label": "Label 1", "default": "Mukhi" },
+        { "type": "text", "id": "value_1", "label": "Value 1", "default": "1 Mukhi" },
+        { "type": "text", "id": "label_2", "label": "Label 2", "default": "Ruling Deity" },
+        { "type": "text", "id": "value_2", "label": "Value 2", "default": "Lord Shiva" },
+        { "type": "text", "id": "label_3", "label": "Label 3", "default": "Ruling Planet" },
+        { "type": "text", "id": "value_3", "label": "Value 3", "default": "Sun" },
+        { "type": "text", "id": "label_4", "label": "Label 4", "default": "Origin" },
+        { "type": "text", "id": "value_4", "label": "Value 4", "default": "Nepal" },
+        { "type": "text", "id": "label_5", "label": "Label 5" },
+        { "type": "text", "id": "value_5", "label": "Value 5" },
+        { "type": "text", "id": "label_6", "label": "Label 6" },
+        { "type": "text", "id": "value_6", "label": "Value 6" },
+        { "type": "header", "content": "Beej Mantra (optional)" },
+        { "type": "text", "id": "mantra_label", "label": "Mantra label", "default": "Beej Mantra" },
+        { "type": "text", "id": "mantra", "label": "Mantra", "default": "॥ ॐ ह्रीं नमः ॥" }
+      ]
+    },
+    {
+      "type": "payment",
+      "name": "Secure Payment",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "text", "label": "Heading", "default": "100% Secure Checkout" },
+        { "type": "text", "id": "methods", "label": "Methods (comma-separated)", "default": "UPI, VISA, Mastercard, RuPay, COD" }
+      ]
+    },
+    {
+      "type": "share",
+      "name": "Share",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "text", "label": "Label", "default": "Share this" }
+      ]
+    },
+    {
+      "type": "divider",
+      "name": "Divider"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Product Info",
+      "blocks": [
+        { "type": "title", "settings": { "eyebrow": "Sacred Rudraksha" } },
+        { "type": "rating" },
+        { "type": "price" },
+        { "type": "trust_chips" },
+        { "type": "divider" },
+        { "type": "benefits" },
+        { "type": "buybox" },
+        { "type": "offer" },
+        { "type": "delivery" },
+        { "type": "emi" },
+        { "type": "divider" },
+        { "type": "specs" },
+        { "type": "payment" },
+        { "type": "share" }
+      ]
+    }
+  ]
+}
+{% endschema %}

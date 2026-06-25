@@ -1,0 +1,86 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-grnt" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    <div class="u-grnt__card" data-reveal>
+      <div class="u-grnt__intro">
+        <span class="u-grnt__seal">{% render 'upaasak-icon', icon: section.settings.seal_icon %}</span>
+        {% if section.settings.eyebrow != blank %}<span class="u-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+        <h2 class="u-title">{{ section.settings.heading }}</h2>
+        {% if section.settings.subheading != blank %}<p class="u-lead">{{ section.settings.subheading }}</p>{% endif %}
+        {% if section.settings.cta_label != blank %}
+          <a href="{{ section.settings.cta_link | default: '#' }}" class="u-btn u-btn--gold u-grnt__cta">{{ section.settings.cta_label }}</a>
+        {% endif %}
+      </div>
+
+      <div class="u-grnt__list">
+        {% for block in section.blocks %}
+          <div class="u-grnt__item" data-reveal style="--d:{{ forloop.index0 | times: 90 }}ms" {{ block.shopify_attributes }}>
+            <span class="u-grnt__ico">{% render 'upaasak-icon', icon: block.settings.icon %}</span>
+            <div>
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.text }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Upaasak Guarantee",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select", "id": "seal_icon", "label": "Seal icon", "default": "shield",
+      "options": [
+        { "value": "shield", "label": "Shield" },
+        { "value": "certificate", "label": "Certificate" },
+        { "value": "lotus", "label": "Lotus" },
+        { "value": "om", "label": "Om" }
+      ]
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Sacred Promise" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Blessed, Backed & Guaranteed" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Every Upaasak order is authenticated, energized and protected by our promise — so you can wear it with complete faith." },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Read our guarantee" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Guarantee point",
+      "settings": [
+        {
+          "type": "select", "id": "icon", "label": "Icon", "default": "certificate",
+          "options": [
+            { "value": "certificate", "label": "Certificate" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "om", "label": "Om" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "return", "label": "Returns" },
+            { "value": "truck", "label": "Shipping" },
+            { "value": "sparkle", "label": "Sparkle" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Lab-Certified Authenticity" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Every bead ships with a verified certificate of origin." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upaasak Guarantee",
+      "blocks": [
+        { "type": "point", "settings": { "icon": "certificate", "title": "Lab-Certified Authenticity", "text": "Every bead ships with a verified certificate of origin." } },
+        { "type": "point", "settings": { "icon": "om", "title": "Energized & Blessed", "text": "Abhimantrit with the appropriate Vedic mantras before dispatch." } },
+        { "type": "point", "settings": { "icon": "return", "title": "7-Day Easy Returns", "text": "Not satisfied? Return within 7 days, no questions asked." } },
+        { "type": "point", "settings": { "icon": "gift", "title": "Gift-Ready Packaging", "text": "Arrives in a premium pouch with a printed care guide." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

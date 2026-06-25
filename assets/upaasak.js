@@ -197,6 +197,88 @@
     });
   }
 
+  function initPdp(root) {
+    (root || document).querySelectorAll('[data-pdp]:not([data-pdp-bound])').forEach(function (sec) {
+      sec.setAttribute('data-pdp-bound', '1');
+      var main = sec.querySelector('[data-pdp-main]');
+
+      /* Gallery thumbnails */
+      var thumbs = sec.querySelectorAll('[data-pdp-thumb]');
+      thumbs.forEach(function (t) {
+        t.addEventListener('click', function () {
+          var full = t.getAttribute('data-full');
+          if (main && full) main.src = full;
+          thumbs.forEach(function (x) { x.classList.remove('is-active'); });
+          t.classList.add('is-active');
+        });
+      });
+
+      /* Quantity stepper */
+      var qty = sec.querySelector('[data-pdp-qty]');
+      var qm = sec.querySelector('[data-pdp-qminus]');
+      var qp = sec.querySelector('[data-pdp-qplus]');
+      if (qm && qty) qm.addEventListener('click', function () { qty.value = Math.max(1, (parseInt(qty.value, 10) || 1) - 1); });
+      if (qp && qty) qp.addEventListener('click', function () { qty.value = (parseInt(qty.value, 10) || 1) + 1; });
+
+      /* Share — copy link */
+      var copy = sec.querySelector('[data-pdp-copy]');
+      if (copy) copy.addEventListener('click', function () {
+        var url = copy.getAttribute('data-url') || window.location.href;
+        if (navigator.clipboard) navigator.clipboard.writeText(url);
+        copy.classList.add('is-copied');
+        setTimeout(function () { copy.classList.remove('is-copied'); }, 1600);
+      });
+
+      /* Variant selection */
+      var dataEl = sec.querySelector('[data-pdp-variants]');
+      var radios = sec.querySelectorAll('[data-pdp-radio]');
+      if (!dataEl || !radios.length) return;
+      var variants = [];
+      try { variants = JSON.parse(dataEl.textContent); } catch (e) { return; }
+      if (!variants.length) return;
+      var idInput = sec.querySelector('[data-pdp-id]');
+      var priceNow = sec.querySelector('[data-pdp-price-now]');
+      var priceWas = sec.querySelector('[data-pdp-price-was]');
+      var atc = sec.querySelector('[data-pdp-atc]');
+
+      function selectedOptions() {
+        var opts = [];
+        sec.querySelectorAll('[data-pdp-opt]').forEach(function (grp) {
+          var pos = parseInt(grp.getAttribute('data-opt-pos'), 10);
+          var checked = grp.querySelector('[data-pdp-radio]:checked');
+          opts[pos] = checked ? checked.value : null;
+        });
+        return opts;
+      }
+      function update() {
+        radios.forEach(function (r) {
+          var chip = r.closest('.u-pdp__chip-opt');
+          if (chip) chip.classList.toggle('is-active', r.checked);
+        });
+        var sel = selectedOptions();
+        var match = null;
+        for (var i = 0; i < variants.length; i++) {
+          var v = variants[i], ok = true;
+          for (var j = 0; j < v.options.length; j++) { if (v.options[j] !== sel[j]) { ok = false; break; } }
+          if (ok) { match = v; break; }
+        }
+        if (!match) return;
+        if (idInput) idInput.value = match.id;
+        if (priceNow) priceNow.innerHTML = match.price;
+        if (priceWas) {
+          if (match.compare_raw && match.compare_raw > match.price_raw) { priceWas.innerHTML = match.compare_at; priceWas.style.display = ''; }
+          else { priceWas.style.display = 'none'; }
+        }
+        if (atc) {
+          if (match.available) { atc.disabled = false; atc.classList.remove('is-disabled'); atc.textContent = atc.getAttribute('data-label') || 'Add to Cart'; }
+          else { atc.disabled = true; atc.classList.add('is-disabled'); atc.textContent = 'Sold Out'; }
+        }
+        if (match.image && main) main.src = match.image;
+      }
+      radios.forEach(function (r) { r.addEventListener('change', update); });
+    });
+  }
+
   function initAll(root) {
     initReveal(root);
     initCountUp(root);
@@ -207,6 +289,7 @@
     initSlideshows(root);
     initTabs(root);
     initBurger(root);
+    initPdp(root);
   }
 
   if (window.__upaasakInit) { window.__upaasakRescan && window.__upaasakRescan(); return; }
