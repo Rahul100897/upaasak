@@ -547,9 +547,9 @@
 .u-fact:hover { border-color: var(--u-gold-line); transform: translateY(-3px); }
 .u-fact span { font-family: var(--u-font-label); letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.64rem; color: var(--u-gold-deep); display: block; margin-bottom: 5px; }
 .u-fact strong { font-family: var(--u-font-display); font-size: 1.3rem; font-weight: 600; color: var(--u-charcoal); }
-.u-sig__mantra { background: var(--u-maroon-wash); border-left: 3px solid var(--u-maroon); border-radius: 0 var(--u-radius) var(--u-radius) 0; padding: 18px 24px; margin-top: 8px; }
+.u-sig__mantra { background: var(--u-maroon-wash); border-left: 3px solid var(--u-maroon); border-radius: 0 var(--u-radius) var(--u-radius) 0; padding: 12px 24px; margin-top: 8px; }
 .u-sig__mantra small { font-family: var(--u-font-label); letter-spacing: 0.14em; text-transform: uppercase; color: var(--u-maroon); font-size: 0.66rem; }
-.u-sig__mantra p { font-family: var(--u-font-display); font-style: italic; font-size: 1.35rem; color: var(--u-maroon-deep); margin: 6px 0 0; }
+.u-sig__mantra p { font-family: var(--u-font-display); font-style: italic; font-size: 1rem; line-height: normal;color: var(--u-maroon-deep); margin: 6px 0 0; }
 
 /* ============================================================================
    PRODUCT — CARE STEPS
