@@ -12,18 +12,64 @@
     "main": {
       "type": "upaasak-404",
       "blocks": {
-        "l1": { "type": "link", "settings": { "icon": "bead", "label": "Rudraksha" } },
-        "l2": { "type": "link", "settings": { "icon": "gem", "label": "Bracelets" } },
-        "l3": { "type": "link", "settings": { "icon": "mantra", "label": "Mala" } },
-        "l4": { "type": "link", "settings": { "icon": "gift", "label": "Gifting" } }
+        "l1": {
+          "type": "link",
+          "disabled": true,
+          "settings": {
+            "icon": "bead",
+            "label": "Rudraksha",
+            "link": ""
+          }
+        },
+        "l2": {
+          "type": "link",
+          "disabled": true,
+          "settings": {
+            "icon": "gem",
+            "label": "Bracelets",
+            "link": ""
+          }
+        },
+        "l3": {
+          "type": "link",
+          "disabled": true,
+          "settings": {
+            "icon": "mantra",
+            "label": "Mala",
+            "link": ""
+          }
+        },
+        "l4": {
+          "type": "link",
+          "disabled": true,
+          "settings": {
+            "icon": "gift",
+            "label": "Gifting",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["l1", "l2", "l3", "l4"],
+      "block_order": [
+        "l1",
+        "l2",
+        "l3",
+        "l4"
+      ],
       "settings": {
-        "show_search": true,
-        "show_featured": true,
-        "featured_heading": "You May Like These"
+        "eyebrow": "Lost on your path?",
+        "heading": "This Page Could Not Be Found",
+        "subtext": "The link may be broken or the page may have moved. Let's guide you back to something sacred.",
+        "home_label": "Back to Home",
+        "shop_label": "Shop All",
+        "show_search": false,
+        "search_placeholder": "Search for Rudraksha, Mala, Bracelets…",
+        "show_featured": false,
+        "featured_heading": "You May Like These",
+        "featured_collection": ""
       }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
