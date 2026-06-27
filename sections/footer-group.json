@@ -19,12 +19,12 @@
           "settings": {
             "title": "Information",
             "l1": "Contact us",
-            "u1": "",
-            "l2": "Blogs",
+            "u1": "shopify://pages/contact",
+            "l2": "",
             "u2": "",
-            "l3": "FAQs",
+            "l3": "Free PDFs",
             "u3": "",
-            "l4": "Free PDFs",
+            "l4": "",
             "u4": "",
             "l5": "",
             "u5": ""
@@ -53,7 +53,7 @@
             "email": "",
             "phone": "",
             "address": "",
-            "whatsapp": "tel:919460940868",
+            "whatsapp": "",
             "instagram": "https://www.instagram.com/upaasakofficial/",
             "facebook": "https://www.facebook.com/upaasakofficial/",
             "youtube": "https://www.youtube.com/@upaasakofficial"
