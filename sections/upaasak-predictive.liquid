@@ -1,0 +1,42 @@
+{%- comment -%}
+  Predictive search results. Fetched via:
+  /search/suggest?q=...&section_id=upaasak-predictive&resources[type]=product
+    &resources[limit]=8&resources[options][fields]=title,product_type,vendor,variants.title,variants.sku
+  Searches product title + SKU. No add-to-cart — links straight to the product.
+{%- endcomment -%}
+<div data-psearch-content>
+  {%- if predictive_search.performed -%}
+    {%- assign products = predictive_search.resources.products -%}
+    {%- if products.size > 0 -%}
+      <div class="u-psearch__head">Products</div>
+      <ul class="u-psearch__list">
+        {%- for product in products -%}
+          <li class="u-psearch__item">
+            <a href="{{ product.url }}">
+              <span class="u-psearch__thumb">
+                {%- if product.featured_image != blank -%}
+                  <img src="{{ product.featured_image | image_url: width: 120 }}" alt="{{ product.title | escape }}" width="60" height="60" loading="lazy">
+                {%- else -%}
+                  <span class="u-psearch__thumb-ph">ॐ</span>
+                {%- endif -%}
+              </span>
+              <span class="u-psearch__info">
+                <span class="u-psearch__name">{{ product.title }}</span>
+                <span class="u-psearch__price">
+                  <span class="u-psearch__now">{{ product.price | money }}</span>
+                  {%- if product.compare_at_price > product.price -%}<span class="u-psearch__was">{{ product.compare_at_price | money }}</span>{%- endif -%}
+                </span>
+              </span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+      <a class="u-psearch__all" href="{{ routes.search_url }}?q={{ predictive_search.terms | escape }}&type=product">
+        View all results
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    {%- else -%}
+      <p class="u-psearch__empty">No products found for &ldquo;{{ predictive_search.terms }}&rdquo;</p>
+    {%- endif -%}
+  {%- endif -%}
+</div>

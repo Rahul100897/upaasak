@@ -14,12 +14,21 @@
       </span>
     </a>
 
-    <form action="{{ routes.search_url }}" method="get" class="u-search" role="search">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5" stroke-linecap="round"/></svg>
-      <input type="search" name="q" placeholder="{{ section.settings.search_placeholder }}" autocomplete="off">
-    </form>
+    <div class="u-search-wrap" data-psearch>
+      <form action="{{ routes.search_url }}" method="get" class="u-search" role="search" autocomplete="off">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5" stroke-linecap="round"/></svg>
+        <input type="search" name="q" placeholder="{{ section.settings.search_placeholder }}" autocomplete="off" data-psearch-input aria-label="Search">
+        <button type="button" class="u-search-clear" data-psearch-clear aria-label="Clear search" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </form>
+      <div class="u-psearch" data-psearch-results role="listbox" aria-label="Search suggestions"></div>
+    </div>
 
     <div class="u-brandbar__tools">
+      <button type="button" class="u-icon-btn u-search-toggle" data-search-toggle aria-label="Search" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5" stroke-linecap="round"/></svg>
+      </button>
       <a class="u-icon-btn" href="{{ routes.account_url | default: '/account' }}" aria-label="Account">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke-linecap="round"/></svg>
       </a>
