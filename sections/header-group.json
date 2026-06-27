@@ -69,7 +69,7 @@
           "type": "cat",
           "settings": {
             "label": "Karungali",
-            "link": "",
+            "link": "shopify://collections/karungali",
             "icon": "bead"
           }
         },
@@ -77,7 +77,7 @@
           "type": "cat",
           "settings": {
             "label": "Rudraksha",
-            "link": "",
+            "link": "shopify://collections/rudraksha",
             "icon": "leaf"
           }
         },
@@ -85,7 +85,7 @@
           "type": "cat",
           "settings": {
             "label": "Spiritual Bracelets",
-            "link": "",
+            "link": "shopify://collections/spiritual-bracelets",
             "icon": "gem"
           }
         },
@@ -93,7 +93,7 @@
           "type": "cat",
           "settings": {
             "label": "Mala",
-            "link": "",
+            "link": "shopify://collections/mala",
             "icon": "mantra"
           }
         },
@@ -101,7 +101,7 @@
           "type": "cat",
           "settings": {
             "label": "Stones",
-            "link": "",
+            "link": "shopify://collections/stones",
             "icon": "gem"
           }
         },
@@ -109,7 +109,7 @@
           "type": "cat",
           "settings": {
             "label": "Idols",
-            "link": "",
+            "link": "shopify://collections/idols",
             "icon": "deity"
           }
         },
@@ -117,7 +117,7 @@
           "type": "cat",
           "settings": {
             "label": "Gifting",
-            "link": "",
+            "link": "shopify://collections/gifting",
             "icon": "gift"
           }
         },
