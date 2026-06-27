@@ -1,0 +1,24 @@
+{%- comment -%}
+  Payment trust badges. Usage: {% render 'upaasak-payments', methods: 'visa,mastercard,upi,rupay,paypal' %}
+{%- endcomment -%}
+{%- assign list = methods | default: 'visa,mastercard,upi,rupay,paypal' | split: ',' -%}
+<div class="u-pays">
+  {%- for m in list -%}
+    {%- assign k = m | strip | downcase -%}
+    <span class="u-pay" aria-label="{{ k }}">
+      {%- case k -%}
+        {%- when 'mastercard' -%}
+          <svg viewBox="0 0 40 24" aria-hidden="true"><circle cx="16" cy="12" r="7" fill="#EB001B"/><circle cx="24" cy="12" r="7" fill="#F79E1B" fill-opacity="0.85"/></svg>
+        {%- when 'visa' -%}<b style="color:#1a1f71;font-style:italic;letter-spacing:.02em">VISA</b>
+        {%- when 'rupay' -%}<b><span style="color:#097dc6">Ru</span><span style="color:#e94e3c">Pay</span></b>
+        {%- when 'upi' -%}<b><span style="color:#0b7a3b">U</span><span style="color:#e94e3c">P</span><span style="color:#097dc6">I</span></b>
+        {%- when 'paypal' -%}<b style="font-style:italic"><span style="color:#003087">Pay</span><span style="color:#009cde">Pal</span></b>
+        {%- when 'gpay' -%}<b>G&nbsp;Pay</b>
+        {%- when 'amazon' -%}<b style="color:#232f3e">amazon</b>
+        {%- when 'applepay' -%}<b>&#63743;&nbsp;Pay</b>
+        {%- when 'cod' -%}<b style="color:var(--u-maroon)">COD</b>
+        {%- else -%}<b>{{ m | strip }}</b>
+      {%- endcase -%}
+    </span>
+  {%- endfor -%}
+</div>

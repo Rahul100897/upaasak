@@ -3,6 +3,39 @@
 {%- liquid
   assign threshold = section.settings.free_ship_threshold | times: 100
   assign remaining = threshold | minus: cart.total_price
+  assign free_ship = false
+  if threshold > 0 and cart.total_price >= threshold
+    assign free_ship = true
+  endif
+
+  comment
+    Total savings = per-line compare-at savings + any cart-level discounts
+  endcomment
+  assign savings = 0
+  for line in cart.items
+    if line.variant.compare_at_price > line.variant.price
+      assign diff = line.variant.compare_at_price | minus: line.variant.price | times: line.quantity
+      assign savings = savings | plus: diff
+    endif
+  endfor
+  assign savings = savings | plus: cart.total_discount
+
+  assign ship_est = section.settings.shipping_estimate | times: 100
+  if free_ship
+    assign ship_cost = 0
+    assign ship_known = true
+  elsif ship_est > 0
+    assign ship_cost = ship_est
+    assign ship_known = true
+  else
+    assign ship_cost = 0
+    assign ship_known = false
+  endif
+  assign grand_total = cart.total_price | plus: ship_cost
+
+  assign ddays = section.settings.delivery_days | default: 7
+  assign dsecs = ddays | times: 86400
+  assign eta = 'now' | date: '%s' | plus: dsecs | date: '%b %d'
 -%}
 
 <div class="u-cart" data-cart-drawer aria-hidden="true">
@@ -18,59 +51,118 @@
       </header>
 
       {% if cart.item_count > 0 %}
-        {% if section.settings.show_free_ship %}
-          <div class="u-cart__ship">
-            {% if remaining > 0 %}
-              <p>Add <strong>{{ remaining | money }}</strong> more for <strong>FREE shipping</strong></p>
-            {% else %}
-              <p class="is-unlocked">{% render 'upaasak-icon', icon: 'truck' %} You have unlocked <strong>FREE shipping!</strong></p>
-            {% endif %}
-            <div class="u-cart__ship-track">
-              <span class="u-cart__ship-fill" style="width:{% if cart.total_price >= threshold %}100{% else %}{{ cart.total_price | times: 100.0 | divided_by: threshold }}{% endif %}%"></span>
+        <div class="u-cart__scroll">
+          {% if section.settings.show_free_ship %}
+            <div class="u-cart__ship-bar">
+              {% if remaining > 0 %}
+                <p>Add <strong>{{ remaining | money }}</strong> more for <strong>FREE shipping</strong></p>
+              {% else %}
+                <p class="is-unlocked">{% render 'upaasak-icon', icon: 'truck' %} You have unlocked <strong>FREE shipping!</strong></p>
+              {% endif %}
+              <div class="u-cart__ship-track">
+                <span class="u-cart__ship-fill" style="width:{% if free_ship %}100{% else %}{{ cart.total_price | times: 100.0 | divided_by: threshold }}{% endif %}%"></span>
+              </div>
             </div>
-          </div>
-        {% endif %}
+          {% endif %}
 
-        <div class="u-cart__body">
-          {% for item in cart.items %}
-            <div class="u-cart__item" data-cart-item data-key="{{ item.key }}" data-qty="{{ item.quantity }}">
-              <a class="u-cart__thumb" href="{{ item.url }}">
-                {% if item.image %}
-                  {{ item.image | image_url: width: 180 | image_tag: loading: 'lazy', widths: '90,180', alt: item.title | escape }}
-                {% else %}
-                  <span class="u-cart__thumb-ph">ॐ</span>
-                {% endif %}
-              </a>
-              <div class="u-cart__meta">
-                <a class="u-cart__name" href="{{ item.url }}">{{ item.product.title }}</a>
-                {% unless item.variant_title == blank %}<span class="u-cart__variant">{{ item.variant_title }}</span>{% endunless %}
-                <div class="u-cart__price">
-                  <span class="u-cart__now">{{ item.final_line_price | money }}</span>
-                  {% if item.original_line_price > item.final_line_price %}<span class="u-cart__was">{{ item.original_line_price | money }}</span>{% endif %}
+          <div class="u-cart__body">
+            {% for item in cart.items %}
+              {%- liquid
+                assign is_free = false
+                if item.final_price == 0
+                  assign is_free = true
+                endif
+                assign on_sale = false
+                if item.variant.compare_at_price > item.variant.price
+                  assign on_sale = true
+                  assign ldisc = item.variant.compare_at_price | minus: item.variant.price | times: 100.0 | divided_by: item.variant.compare_at_price | round
+                endif
+              -%}
+              <div class="u-cart__item" data-cart-item data-key="{{ item.key }}" data-qty="{{ item.quantity }}">
+                <a class="u-cart__thumb" href="{{ item.url }}">
+                  {% if item.image %}
+                    {{ item.image | image_url: width: 180 | image_tag: loading: 'lazy', widths: '90,180', alt: item.title | escape }}
+                  {% else %}
+                    <span class="u-cart__thumb-ph">ॐ</span>
+                  {% endif %}
+                </a>
+                <div class="u-cart__meta">
+                  <a class="u-cart__name" href="{{ item.url }}">{{ item.product.title }}</a>
+                  {% unless item.variant_title == blank %}<span class="u-cart__variant">{{ item.variant_title }}</span>{% endunless %}
+                  {% if is_free %}
+                    <span class="u-cart__free">FREE!{% if item.variant.compare_at_price > 0 %} <em>({{ item.variant.compare_at_price | money }} Value)</em>{% endif %}</span>
+                  {% else %}
+                    <div class="u-cart__price">
+                      <span class="u-cart__now">{{ item.final_price | money }}</span>
+                      {% if on_sale %}<span class="u-cart__was">{{ item.variant.compare_at_price | money }}</span><span class="u-cart__disc">-{{ ldisc }}%</span>{% endif %}
+                    </div>
+                  {% endif %}
                 </div>
-                <div class="u-cart__controls">
-                  <div class="u-cart__qty">
-                    <button type="button" data-cart-minus aria-label="Decrease quantity">−</button>
-                    <span data-cart-qty>{{ item.quantity }}</span>
-                    <button type="button" data-cart-plus aria-label="Increase quantity">+</button>
-                  </div>
+                <div class="u-cart__side">
                   <button type="button" class="u-cart__remove" data-cart-remove aria-label="Remove">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M6 7l1 13a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-13"/></svg>
                   </button>
+                  {% unless is_free %}
+                    <div class="u-cart__qty">
+                      <button type="button" data-cart-minus aria-label="Decrease quantity">−</button>
+                      <span data-cart-qty>{{ item.quantity }}</span>
+                      <button type="button" data-cart-plus aria-label="Increase quantity">+</button>
+                    </div>
+                  {% endunless %}
                 </div>
               </div>
+            {% endfor %}
+          </div>
+
+          {% if section.settings.show_delivery %}
+            <div class="u-cart__delivery">
+              {% render 'upaasak-icon', icon: 'truck' %}
+              <span>Estimated delivery by <strong>{{ eta }}</strong></span>
             </div>
-          {% endfor %}
+          {% endif %}
+
+          {% if section.settings.show_summary %}
+            <div class="u-cart__summary">
+              <h3>Order summary</h3>
+              <div class="u-cart__sumrow">
+                <span>Subtotal</span><span>{{ cart.total_price | money }}</span>
+              </div>
+              <div class="u-cart__sumrow">
+                <span>Shipping</span>
+                <span>
+                  {%- if free_ship -%}<em class="is-free">FREE</em>
+                  {%- elsif ship_known -%}{{ ship_cost | money }}
+                  {%- else -%}<em class="is-muted">At checkout</em>{%- endif -%}
+                </span>
+              </div>
+              <div class="u-cart__sumrow u-cart__sumrow--total">
+                <span>Total</span><strong>{{ grand_total | money }}</strong>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if section.settings.show_savings and savings > 0 %}
+            <div class="u-cart__savings">
+              {% render 'upaasak-icon', icon: 'sparkle' %}
+              <span>You saved <strong>{{ savings | money }}</strong> on this order</span>
+            </div>
+          {% endif %}
         </div>
 
         <footer class="u-cart__foot">
-          <div class="u-cart__sub">
-            <span>Subtotal</span>
-            <strong>{{ cart.total_price | money }}</strong>
-          </div>
-          <p class="u-cart__note">{{ section.settings.foot_note }}</p>
           <a href="{{ routes.cart_url }}/checkout" class="u-btn u-btn--primary u-cart__checkout">{{ section.settings.checkout_label }}</a>
-          <a href="{{ routes.cart_url }}" class="u-cart__viewcart">View full cart</a>
+          <button type="button" class="u-btn u-btn--ghost u-cart__continue" data-cart-close>{{ section.settings.continue_label }}</button>
+
+          {% if section.settings.returns_text != blank %}
+            <p class="u-cart__returns">
+              {% render 'upaasak-icon', icon: 'shield' %}
+              <span>{{ section.settings.returns_text }}{% if section.settings.returns_link != blank and section.settings.returns_link_text != blank %} <a href="{{ section.settings.returns_link }}">{{ section.settings.returns_link_text }}</a>{% endif %}</span>
+            </p>
+          {% endif %}
+
+          {% if section.settings.show_payments %}
+            {% render 'upaasak-payments', methods: section.settings.payment_methods %}
+          {% endif %}
         </footer>
       {% else %}
         <div class="u-cart__empty">
@@ -89,11 +181,26 @@
 {
   "name": "Cart Drawer",
   "settings": [
-    { "type": "text", "id": "title", "label": "Title", "default": "Your Cart" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Your cart" },
+    { "type": "text", "id": "checkout_label", "label": "Checkout button label", "default": "Checkout" },
+    { "type": "text", "id": "continue_label", "label": "Continue button label", "default": "Continue Shopping" },
+    { "type": "header", "content": "Free shipping bar" },
     { "type": "checkbox", "id": "show_free_ship", "label": "Show free-shipping progress bar", "default": true },
-    { "type": "number", "id": "free_ship_threshold", "label": "Free shipping threshold (in rupees)", "default": 999 },
-    { "type": "text", "id": "checkout_label", "label": "Checkout button label", "default": "Proceed to Checkout" },
-    { "type": "text", "id": "foot_note", "label": "Footer note", "default": "Taxes and shipping calculated at checkout" },
+    { "type": "number", "id": "free_ship_threshold", "label": "Free shipping threshold (rupees)", "default": 999 },
+    { "type": "header", "content": "Estimated delivery" },
+    { "type": "checkbox", "id": "show_delivery", "label": "Show estimated delivery", "default": true },
+    { "type": "number", "id": "delivery_days", "label": "Delivery days from today", "default": 7 },
+    { "type": "header", "content": "Order summary" },
+    { "type": "checkbox", "id": "show_summary", "label": "Show order summary", "default": true },
+    { "type": "number", "id": "shipping_estimate", "label": "Flat shipping estimate (rupees)", "info": "0 = show 'At checkout'. Ignored when free shipping is unlocked.", "default": 0 },
+    { "type": "checkbox", "id": "show_savings", "label": "Show savings banner", "default": true },
+    { "type": "header", "content": "Trust" },
+    { "type": "text", "id": "returns_text", "label": "Returns text", "default": "30-Day Returns Guarantee." },
+    { "type": "text", "id": "returns_link_text", "label": "Returns link text", "default": "See Return Info" },
+    { "type": "url", "id": "returns_link", "label": "Returns link" },
+    { "type": "checkbox", "id": "show_payments", "label": "Show payment icons", "default": true },
+    { "type": "text", "id": "payment_methods", "label": "Payment methods (comma-separated)", "info": "visa, mastercard, upi, rupay, paypal, gpay, amazon, applepay, cod", "default": "visa,mastercard,upi,rupay,paypal" },
+    { "type": "header", "content": "Empty state" },
     { "type": "text", "id": "empty_title", "label": "Empty title", "default": "Your cart is empty" },
     { "type": "textarea", "id": "empty_text", "label": "Empty text", "default": "Discover our sacred Rudraksha, malas and bracelets — energized and ready to bless." },
     { "type": "text", "id": "empty_cta", "label": "Empty button label", "default": "Continue Shopping" }
