@@ -1085,11 +1085,11 @@ body.u-noscroll { overflow: hidden; }
 .u-cart.is-open { visibility: visible; pointer-events: auto; }
 .u-cart__overlay { position: absolute; inset: 0; background: rgba(31,23,20,.5); opacity: 0; transition: opacity .35s var(--u-ease); }
 .u-cart.is-open .u-cart__overlay { opacity: 1; }
-.u-cart__panel { position: absolute; top: 0; right: 0; height: 100%; width: min(420px, 92vw); background: var(--u-paper); box-shadow: var(--u-shadow-lg); display: flex; flex-direction: column; transform: translateX(100%); transition: transform .4s var(--u-ease); }
+.u-cart__panel { position: absolute; top: 0; right: 0; height: 100%; width: min(460px, 94vw); background: var(--u-paper); box-shadow: var(--u-shadow-lg); display: flex; flex-direction: column; transform: translateX(100%); transition: transform .4s var(--u-ease); }
 .u-cart.is-open .u-cart__panel { transform: translateX(0); }
 #u-cart-contents { display: flex; flex-direction: column; height: 100%; min-height: 0; }
 
-.u-cart__head { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px; background: var(--u-grad-maroon); color: #fff; flex: none; }
+.u-cart__head { display: flex; align-items: center; justify-content: space-between; padding: 13px 22px; background: var(--u-grad-maroon); color: #fff; flex: none; }
 .u-cart__title { font-family: var(--u-font-display); font-size: 1.3rem; font-weight: 600; margin: 0; display: flex; align-items: center; gap: 8px; }
 .u-cart__num { font-family: var(--u-font-body); font-size: .78rem; background: var(--u-gold); color: #41310f; min-width: 22px; height: 22px; border-radius: 999px; display: inline-grid; place-items: center; padding: 0 6px; }
 .u-cart__x { background: rgba(255,255,255,.12); border: 0; color: #fff; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; transition: background .3s var(--u-ease); }
@@ -1137,26 +1137,18 @@ body.u-noscroll { overflow: hidden; }
 .u-cart__delivery svg { width: 18px; height: 18px; color: var(--u-maroon); flex: none; }
 .u-cart__delivery strong { color: var(--u-maroon); font-weight: 600; }
 
-/* Order summary */
-.u-cart__summary { margin: 16px 22px 0; padding: 16px 18px; border: 1px solid var(--u-line); border-radius: var(--u-radius); background: #fff; }
-.u-cart__summary h3 { font-family: var(--u-font-display); font-size: 1.1rem; color: var(--u-charcoal); margin: 0 0 10px; }
-.u-cart__sumrow { display: flex; align-items: baseline; justify-content: space-between; font-size: .9rem; color: var(--u-ink); padding: 5px 0; }
-.u-cart__sumrow span:first-child { color: var(--u-muted); }
-.u-cart__sumrow em { font-style: normal; }
-.u-cart__sumrow em.is-free { color: var(--u-green); font-weight: 700; }
-.u-cart__sumrow em.is-muted { color: var(--u-muted); font-size: .82rem; }
-.u-cart__sumrow--total { border-top: 1px solid var(--u-line); margin-top: 6px; padding-top: 11px; }
-.u-cart__sumrow--total span { color: var(--u-charcoal); font-weight: 600; }
-.u-cart__sumrow--total strong { font-family: var(--u-font-display); font-size: 1.25rem; color: var(--u-maroon); }
-
 /* Savings banner */
-.u-cart__savings { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 14px 22px 18px; padding: 11px 16px; background: var(--u-maroon-wash); border-radius: var(--u-radius); font-size: .88rem; color: var(--u-maroon-deep); }
-.u-cart__savings svg { width: 18px; height: 18px; color: var(--u-maroon); flex: none; }
+.u-cart__savings { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 14px 22px 16px; padding: 10px 16px; background: var(--u-maroon-wash); border-radius: var(--u-radius); font-size: .86rem; color: var(--u-maroon-deep); }
+.u-cart__savings svg { width: 17px; height: 17px; color: var(--u-maroon); flex: none; }
 .u-cart__savings strong { font-weight: 700; }
 
-.u-cart__foot { flex: none; padding: 16px 22px calc(16px + env(safe-area-inset-bottom)); border-top: 1px solid var(--u-line); background: var(--u-paper); }
-.u-cart__checkout { width: 100%; --pad-y: 15px; font-size: 1rem; }
-.u-cart__continue { width: 100%; margin-top: 10px; --pad-y: 13px; }
+.u-cart__foot { flex: none; padding: 14px 22px calc(14px + env(safe-area-inset-bottom)); border-top: 1px solid var(--u-line); background: var(--u-paper); }
+.u-cart__total { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
+.u-cart__total span { font-size: .92rem; font-weight: 600; color: var(--u-charcoal); }
+.u-cart__total em { font-style: normal; font-weight: 400; font-size: .76rem; color: var(--u-muted); }
+.u-cart__total strong { font-family: var(--u-font-display); font-size: 1.4rem; color: var(--u-maroon); font-weight: 700; }
+.u-cart__checkout { width: 100%; --pad-y: 13px; font-size: 1rem; }
+.u-cart__continue { width: 100%; margin-top: 9px; --pad-y: 11px; }
 .u-cart__returns { display: flex; align-items: center; justify-content: center; gap: 7px; margin: 14px 0 0; font-size: .78rem; color: var(--u-muted); text-align: center; }
 .u-cart__returns svg { width: 15px; height: 15px; color: var(--u-gold-deep); flex: none; }
 .u-cart__returns a { color: var(--u-maroon); text-decoration: underline; }
@@ -1173,8 +1165,15 @@ body.u-noscroll { overflow: hidden; }
 .u-cart__empty h3 { font-family: var(--u-font-display); font-size: 1.4rem; color: var(--u-charcoal); margin: 0; }
 .u-cart__empty p { font-size: .9rem; color: var(--u-muted); line-height: 1.6; margin: 0 0 16px; max-width: 30ch; }
 
-/* Add-to-cart loading/error states */
-.u-pcard__cta.is-loading, .u-pdp__atc.is-loading { opacity: .7; pointer-events: none; }
+/* Add-to-cart loading + error states (cards + PDP) */
+.u-pcard__cta.is-loading, .u-pdp__atc.is-loading { color: transparent !important; pointer-events: none; position: relative; }
+.u-pcard__cta.is-loading > *, .u-pdp__atc.is-loading > * { visibility: hidden; }
+.u-pcard__cta.is-loading::after, .u-pdp__atc.is-loading::after {
+  content: ''; position: absolute; top: 50%; left: 50%; width: 18px; height: 18px; margin: -9px 0 0 -9px;
+  border: 2px solid rgba(255,255,255,.45); border-top-color: #fff; border-radius: 50%;
+  animation: u-spin .6s linear infinite;
+}
+@keyframes u-spin { to { transform: rotate(360deg); } }
 .u-pcard__cta.is-error, .u-pdp__atc.is-error { background: var(--u-crimson); }
 
 /* ============================================================================

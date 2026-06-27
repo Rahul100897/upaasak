@@ -20,19 +20,6 @@
   endfor
   assign savings = savings | plus: cart.total_discount
 
-  assign ship_est = section.settings.shipping_estimate | times: 100
-  if free_ship
-    assign ship_cost = 0
-    assign ship_known = true
-  elsif ship_est > 0
-    assign ship_cost = ship_est
-    assign ship_known = true
-  else
-    assign ship_cost = 0
-    assign ship_known = false
-  endif
-  assign grand_total = cart.total_price | plus: ship_cost
-
   assign ddays = section.settings.delivery_days | default: 7
   assign dsecs = ddays | times: 86400
   assign eta = 'now' | date: '%s' | plus: dsecs | date: '%b %d'
@@ -121,26 +108,6 @@
             </div>
           {% endif %}
 
-          {% if section.settings.show_summary %}
-            <div class="u-cart__summary">
-              <h3>Order summary</h3>
-              <div class="u-cart__sumrow">
-                <span>Subtotal</span><span>{{ cart.total_price | money }}</span>
-              </div>
-              <div class="u-cart__sumrow">
-                <span>Shipping</span>
-                <span>
-                  {%- if free_ship -%}<em class="is-free">FREE</em>
-                  {%- elsif ship_known -%}{{ ship_cost | money }}
-                  {%- else -%}<em class="is-muted">At checkout</em>{%- endif -%}
-                </span>
-              </div>
-              <div class="u-cart__sumrow u-cart__sumrow--total">
-                <span>Total</span><strong>{{ grand_total | money }}</strong>
-              </div>
-            </div>
-          {% endif %}
-
           {% if section.settings.show_savings and savings > 0 %}
             <div class="u-cart__savings">
               {% render 'upaasak-icon', icon: 'sparkle' %}
@@ -150,6 +117,10 @@
         </div>
 
         <footer class="u-cart__foot">
+          <div class="u-cart__total">
+            <span>Total <em>(excl. shipping)</em></span>
+            <strong>{{ cart.total_price | money }}</strong>
+          </div>
           <a href="{{ routes.cart_url }}/checkout" class="u-btn u-btn--primary u-cart__checkout">{{ section.settings.checkout_label }}</a>
           <button type="button" class="u-btn u-btn--ghost u-cart__continue" data-cart-close>{{ section.settings.continue_label }}</button>
 
@@ -190,9 +161,7 @@
     { "type": "header", "content": "Estimated delivery" },
     { "type": "checkbox", "id": "show_delivery", "label": "Show estimated delivery", "default": true },
     { "type": "number", "id": "delivery_days", "label": "Delivery days from today", "default": 7 },
-    { "type": "header", "content": "Order summary" },
-    { "type": "checkbox", "id": "show_summary", "label": "Show order summary", "default": true },
-    { "type": "number", "id": "shipping_estimate", "label": "Flat shipping estimate (rupees)", "info": "0 = show 'At checkout'. Ignored when free shipping is unlocked.", "default": 0 },
+    { "type": "header", "content": "Totals" },
     { "type": "checkbox", "id": "show_savings", "label": "Show savings banner", "default": true },
     { "type": "header", "content": "Trust" },
     { "type": "text", "id": "returns_text", "label": "Returns text", "default": "30-Day Returns Guarantee." },
