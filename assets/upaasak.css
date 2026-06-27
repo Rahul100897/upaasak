@@ -1260,3 +1260,23 @@ a.u-contact__value:hover { color: var(--u-maroon); }
   .u-search-wrap.is-open { display: block; position: absolute; left: 0; right: 0; top: 100%; max-width: none; z-index: 1200; padding: 12px clamp(14px, 4vw, 40px); background: var(--u-paper); border-bottom: 1px solid var(--u-line); box-shadow: var(--u-shadow-sm); }
   .u-search-wrap.is-open .u-psearch { position: static; margin-top: 10px; max-height: 62vh; }
 }
+
+/* ============================================================================
+   v6 — SEARCH RESULTS PAGE
+   ========================================================================== */
+.u-srch { background: var(--u-paper); padding-block: clamp(32px, 5vw, 64px); }
+.u-srch .u-title { font-size: clamp(1.9rem, 3.6vw, 2.8rem); }
+.u-srch__bar { position: relative; max-width: 680px; margin: 0 auto; }
+.u-srch__bar .u-search { width: 100%; min-width: 0; padding: 13px 22px; }
+.u-srch__count { text-align: center; color: var(--u-muted); font-size: .92rem; margin: 18px 0 30px; }
+.u-srch__grid { margin-bottom: 40px; }
+.u-srch__pager { display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: wrap; }
+.u-srch__page { min-width: 40px; height: 40px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--u-line); background: #fff; display: inline-flex; align-items: center; justify-content: center; color: var(--u-ink); text-decoration: none; font-size: .9rem; transition: border-color .3s var(--u-ease), color .3s var(--u-ease), background .3s var(--u-ease); }
+.u-srch__page:hover { border-color: var(--u-gold); color: var(--u-maroon); }
+.u-srch__page.is-current { background: var(--u-grad-maroon); color: #fff; border-color: transparent; }
+.u-srch__page--nav svg { width: 18px; height: 18px; }
+.u-srch__empty { text-align: center; max-width: 480px; margin: 30px auto; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.u-srch__empty-ico { width: 76px; height: 76px; border-radius: 50%; display: grid; place-items: center; background: var(--u-maroon-wash); color: var(--u-maroon); margin-bottom: 12px; }
+.u-srch__empty-ico svg { width: 36px; height: 36px; }
+.u-srch__empty h3 { font-family: var(--u-font-display); font-size: 1.6rem; color: var(--u-charcoal); margin: 0; }
+.u-srch__empty p { color: var(--u-muted); line-height: 1.65; margin: 0 0 16px; }

@@ -455,19 +455,19 @@
         if (open) { var i = w.querySelector('[data-psearch-input]'); if (i) setTimeout(function () { i.focus(); }, 60); }
         return;
       }
-      var wrap = document.querySelector('[data-psearch]');
-      if (wrap && !wrap.contains(e.target)) {
+      document.querySelectorAll('[data-psearch]').forEach(function (wrap) {
+        if (wrap.contains(e.target)) return;
         var p = wrap.querySelector('[data-psearch-results]');
         if (p) p.classList.remove('is-open');
-      }
+      });
     });
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') return;
-      var wrap = document.querySelector('[data-psearch]');
-      if (!wrap) return;
-      var p = wrap.querySelector('[data-psearch-results]');
-      if (p) p.classList.remove('is-open');
-      wrap.classList.remove('is-open');
+      document.querySelectorAll('[data-psearch]').forEach(function (wrap) {
+        var p = wrap.querySelector('[data-psearch-results]');
+        if (p) p.classList.remove('is-open');
+        wrap.classList.remove('is-open');
+      });
       var tg = document.querySelector('[data-search-toggle]');
       if (tg) tg.setAttribute('aria-expanded', 'false');
     });

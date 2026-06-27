@@ -1,0 +1,98 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-srch" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    <div class="u-section-head is-centered">
+      {% if section.settings.eyebrow != blank %}<span class="u-eyebrow is-centered" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2 class="u-title" data-reveal style="--d:80ms">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="u-srch__bar" data-psearch data-reveal style="--d:140ms">
+      <form action="{{ routes.search_url }}" method="get" class="u-search" role="search" autocomplete="off">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5" stroke-linecap="round"/></svg>
+        <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ section.settings.placeholder }}" autocomplete="off" data-psearch-input aria-label="Search">
+        <input type="hidden" name="type" value="product">
+        <input type="hidden" name="options[prefix]" value="last">
+        <button type="button" class="u-search-clear" data-psearch-clear aria-label="Clear search"{% if search.terms == blank %} hidden{% endif %}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </form>
+      <div class="u-psearch" data-psearch-results role="listbox" aria-label="Search suggestions"></div>
+    </div>
+
+    {% if search.performed %}
+      {% if search.results_count > 0 %}
+        <p class="u-srch__count" data-reveal>{{ search.results_count }} result{% if search.results_count != 1 %}s{% endif %} for &ldquo;{{ search.terms }}&rdquo;</p>
+
+        {% paginate search.results by section.settings.per_page %}
+          <div class="u-grid4 u-srch__grid">
+            {% for item in search.results %}
+              {% if item.object_type == 'product' %}
+                {% render 'upaasak-product-card', product: item %}
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          {% if paginate.pages > 1 %}
+            <nav class="u-srch__pager" role="navigation" aria-label="Pagination">
+              {% if paginate.previous %}
+                <a href="{{ paginate.previous.url }}" class="u-srch__page u-srch__page--nav" aria-label="Previous">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+                </a>
+              {% endif %}
+              {% for part in paginate.parts %}
+                {% if part.is_link %}
+                  <a href="{{ part.url }}" class="u-srch__page">{{ part.title }}</a>
+                {% else %}
+                  <span class="u-srch__page{% if part.title == paginate.current_page %} is-current{% endif %}">{{ part.title }}</span>
+                {% endif %}
+              {% endfor %}
+              {% if paginate.next %}
+                <a href="{{ paginate.next.url }}" class="u-srch__page u-srch__page--nav" aria-label="Next">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+                </a>
+              {% endif %}
+            </nav>
+          {% endif %}
+        {% endpaginate %}
+
+      {% else %}
+        <div class="u-srch__empty" data-reveal>
+          <span class="u-srch__empty-ico">{% render 'upaasak-icon', icon: 'bead' %}</span>
+          <h3>{{ section.settings.empty_title }}</h3>
+          <p>{{ section.settings.empty_text }}</p>
+          <a href="{{ routes.all_products_collection_url }}" class="u-btn u-btn--primary">{{ section.settings.empty_cta }}</a>
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="u-srch__empty" data-reveal>
+        <span class="u-srch__empty-ico">{% render 'upaasak-icon', icon: 'lotus' %}</span>
+        <h3>{{ section.settings.prompt_title }}</h3>
+        <p>{{ section.settings.prompt_text }}</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Search Results",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Find Your Sacred Piece" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Search Results" },
+    { "type": "text", "id": "placeholder", "label": "Search placeholder", "default": "Search for Rudraksha, Mala, Bracelets…" },
+    { "type": "range", "id": "per_page", "label": "Products per page", "min": 8, "max": 48, "step": 4, "default": 24 },
+    { "type": "header", "content": "No results" },
+    { "type": "text", "id": "empty_title", "label": "Title", "default": "No matches found" },
+    { "type": "textarea", "id": "empty_text", "label": "Text", "default": "We couldn't find anything for that search. Try a different term, or browse our full collection." },
+    { "type": "text", "id": "empty_cta", "label": "Button label", "default": "Browse All Products" },
+    { "type": "header", "content": "Before searching" },
+    { "type": "text", "id": "prompt_title", "label": "Title", "default": "What are you looking for?" },
+    { "type": "textarea", "id": "prompt_text", "label": "Text", "default": "Search by product name or SKU to find your perfect Rudraksha, mala or bracelet." }
+  ],
+  "presets": [
+    { "name": "Search Results" }
+  ]
+}
+{% endschema %}
