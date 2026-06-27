@@ -1385,3 +1385,12 @@ a.u-contact__value:hover { color: var(--u-maroon); }
   .u-404__cta { flex-direction: column; }
   .u-404__cta .u-btn { width: 100%; }
 }
+
+/* ============================================================================
+   v8 — HEADER ICON BUTTON RESET + tighter mobile icon spacing
+   ========================================================================== */
+.u-icon-btn { background: none; border: 0; -webkit-appearance: none; appearance: none; }
+.u-icon-btn:hover { background: var(--u-maroon-wash); }
+@media (max-width: 749px) {
+  .u-brandbar__tools { gap: 2px; }
+}
