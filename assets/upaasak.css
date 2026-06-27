@@ -1362,3 +1362,25 @@ a.u-contact__value:hover { color: var(--u-maroon); }
   .u-col__sort { margin-left: 0; width: 100%; }
   .u-col__select { flex: 1; }
 }
+
+/* ============================================================================
+   v7 — 404 PAGE
+   ========================================================================== */
+.u-404 { background: var(--u-grad-ivory); padding-block: clamp(44px, 7vw, 92px); text-align: center; }
+.u-404__inner { max-width: 660px; }
+.u-404__big { font-family: var(--u-font-display); font-weight: 600; font-size: clamp(5rem, 17vw, 10.5rem); line-height: 1; color: var(--u-maroon); display: flex; align-items: center; justify-content: center; gap: .04em; margin-bottom: 8px; letter-spacing: -.02em; }
+.u-404__om { font-size: .92em; }
+.u-404 .u-eyebrow { justify-content: center; }
+.u-404 .u-title { font-size: clamp(1.7rem, 3.2vw, 2.5rem); }
+.u-404 .u-lead { margin-inline: auto; }
+.u-404__search { position: relative; max-width: 520px; margin: 26px auto 0; }
+.u-404__cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
+.u-404__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 30px; }
+.u-404__link { display: inline-flex; align-items: center; gap: 7px; padding: 9px 18px; border: 1px solid var(--u-gold-line); border-radius: var(--u-radius-pill); background: #fff; color: var(--u-maroon); text-decoration: none; font-size: .88rem; transition: background .3s var(--u-ease), color .3s var(--u-ease), transform .3s var(--u-ease), border-color .3s var(--u-ease); }
+.u-404__link:hover { background: var(--u-maroon); color: #fff; border-color: transparent; transform: translateY(-2px); }
+.u-404__link svg { width: 16px; height: 16px; }
+.u-404__featured { margin-top: clamp(40px, 6vw, 72px); }
+@media (max-width: 600px) {
+  .u-404__cta { flex-direction: column; }
+  .u-404__cta .u-btn { width: 100%; }
+}
