@@ -23,9 +23,9 @@
       <a class="u-icon-btn" href="{{ routes.account_url | default: '/account' }}" aria-label="Account">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke-linecap="round"/></svg>
       </a>
-      <a class="u-icon-btn" href="{{ routes.cart_url }}" aria-label="Cart">
+      <a class="u-icon-btn" href="{{ routes.cart_url }}" aria-label="Cart" data-cart-toggle>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/><path d="M3 4h2l2.2 11.2a1.5 1.5 0 0 0 1.5 1.2h8.3a1.5 1.5 0 0 0 1.5-1.2L21 8H6"/></svg>
-        <span class="u-badge">{{ cart.item_count | default: 0 }}</span>
+        <span class="u-badge" data-cart-badge>{{ cart.item_count | default: 0 }}</span>
       </a>
       <button type="button" class="u-icon-btn u-burger" data-burger aria-label="Open menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>

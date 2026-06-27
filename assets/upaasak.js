@@ -296,6 +296,107 @@
     });
   }
 
+  /* ---------------- Cart drawer ---------------- */
+  var CART_SECTION = 'upaasak-cart-drawer';
+
+  function openCart() {
+    var d = document.querySelector('[data-cart-drawer]');
+    if (!d) return;
+    d.classList.add('is-open');
+    d.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('u-noscroll');
+  }
+  function closeCart() {
+    var d = document.querySelector('[data-cart-drawer]');
+    if (!d) return;
+    d.classList.remove('is-open');
+    d.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('u-noscroll');
+  }
+
+  function applyCartSections(sections) {
+    if (!sections) return;
+    var html = sections[CART_SECTION];
+    if (!html) return;
+    var doc = new DOMParser().parseFromString(html, 'text/html');
+    var fresh = doc.querySelector('#u-cart-contents');
+    var cur = document.querySelector('#u-cart-contents');
+    if (fresh && cur) cur.innerHTML = fresh.innerHTML;
+    var count = cur ? (cur.getAttribute('data-cart-count') || '0') : '0';
+    var badge = fresh ? fresh.getAttribute('data-cart-count') : null;
+    if (badge != null) count = badge;
+    document.querySelectorAll('[data-cart-badge]').forEach(function (b) {
+      b.textContent = count;
+      b.style.display = (parseInt(count, 10) > 0) ? '' : 'none';
+    });
+  }
+
+  function ajaxAdd(form) {
+    var btn = form.querySelector('[type="submit"]');
+    var fd = new FormData(form);
+    fd.append('sections', CART_SECTION);
+    fd.append('sections_url', window.location.pathname);
+    if (btn) { btn.classList.add('is-loading'); btn.setAttribute('aria-busy', 'true'); }
+    fetch('/cart/add.js', { method: 'POST', headers: { 'Accept': 'application/json' }, body: fd })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (!res.ok) { if (btn) { btn.classList.add('is-error'); setTimeout(function () { btn.classList.remove('is-error'); }, 1200); } return; }
+        if (res.j.sections) applyCartSections(res.j.sections); else refreshCart();
+        openCart();
+      })
+      .catch(function () {})
+      .finally(function () { if (btn) { btn.classList.remove('is-loading'); btn.removeAttribute('aria-busy'); } });
+  }
+
+  function changeLine(key, qty) {
+    fetch('/cart/change.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ id: key, quantity: qty, sections: CART_SECTION, sections_url: window.location.pathname })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (cart) { applyCartSections(cart.sections); })
+      .catch(function () {});
+  }
+
+  function refreshCart() {
+    fetch('/?sections=' + CART_SECTION)
+      .then(function (r) { return r.json(); })
+      .then(function (data) { applyCartSections(data); })
+      .catch(function () {});
+  }
+
+  function initCart() {
+    if (window.__upaasakCartBound) return;
+    window.__upaasakCartBound = true;
+
+    document.addEventListener('submit', function (e) {
+      var form = e.target;
+      if (!form || !form.getAttribute) return;
+      var action = form.getAttribute('action') || '';
+      if (action.indexOf('/cart/add') === -1) return;
+      if (form.closest('product-form-component')) return; /* let the native theme handle its own forms */
+      e.preventDefault();
+      ajaxAdd(form);
+    });
+
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('[data-cart-toggle]')) { e.preventDefault(); openCart(); return; }
+      if (e.target.closest('[data-cart-close]')) { closeCart(); return; }
+      var item = e.target.closest('[data-cart-item]');
+      if (!item) return;
+      var key = item.getAttribute('data-key');
+      var qty = parseInt(item.getAttribute('data-qty'), 10) || 1;
+      if (e.target.closest('[data-cart-plus]')) { changeLine(key, qty + 1); }
+      else if (e.target.closest('[data-cart-minus]')) { changeLine(key, Math.max(0, qty - 1)); }
+      else if (e.target.closest('[data-cart-remove]')) { changeLine(key, 0); }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeCart();
+    });
+  }
+
   function initAll(root) {
     initReveal(root);
     initCountUp(root);
@@ -308,6 +409,7 @@
     initBurger(root);
     initPdp(root);
     initRecs(root);
+    initCart();
   }
 
   if (window.__upaasakInit) { window.__upaasakRescan && window.__upaasakRescan(); return; }

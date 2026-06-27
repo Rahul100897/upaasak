@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "u_contact": {
+      "type": "upaasak-contact",
+      "blocks": {
+        "m1": { "type": "method", "settings": { "icon": "mail", "label": "Email us", "value": "support@upaasak.com", "note": "We reply within 24 hours", "link": "mailto:support@upaasak.com" } },
+        "m2": { "type": "method", "settings": { "icon": "phone", "label": "Call us", "value": "+91 90000 00000", "note": "Mon-Sat, 10am-7pm IST", "link": "tel:+919000000000" } },
+        "m3": { "type": "method", "settings": { "icon": "whatsapp", "label": "WhatsApp", "value": "Chat with us", "note": "Fastest response", "link": "https://wa.me/919000000000" } },
+        "m4": { "type": "method", "settings": { "icon": "pin", "label": "Visit us", "value": "Upaasak, India", "note": "By appointment", "link": "" } }
+      },
+      "block_order": ["m1", "m2", "m3", "m4"],
+      "settings": {
+        "eyebrow": "We're Here to Help",
+        "heading": "Get in Touch",
+        "subheading": "Questions about a bead, your order, or your sadhana? Our team is glad to guide you — reach out any way you like.",
+        "form_title": "Send us a message",
+        "form_note": "We usually reply within 24 hours on working days.",
+        "button_label": "Send Message",
+        "success_title": "Message received",
+        "success_text": "Thank you for reaching out. A member of our team will reply to your email shortly.",
+        "show_social": true
+      }
+    }
+  },
+  "order": ["u_contact"]
+}
