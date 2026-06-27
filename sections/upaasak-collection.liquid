@@ -17,6 +17,15 @@
       {% endif %}
     </div>
 
+    {% if collection.all_products_count == 0 %}
+      {%- comment -%} ---------- Truly empty collection (no products at all) ---------- {%- endcomment -%}
+      <div class="u-srch__empty u-col__blank" data-reveal>
+        <span class="u-srch__empty-ico">{% render 'upaasak-icon', icon: 'lotus' %}</span>
+        <h3>{{ section.settings.empty_title }}</h3>
+        <p>{{ section.settings.blank_text }}</p>
+        <a href="{{ routes.all_products_collection_url }}" class="u-btn u-btn--primary">{{ section.settings.blank_cta }}</a>
+      </div>
+    {% else %}
     <form method="get" data-col-form>
       {%- comment -%} ---------- Toolbar ---------- {%- endcomment -%}
       <div class="u-col__toolbar">
@@ -145,8 +154,8 @@
             {% else %}
               <div class="u-srch__empty">
                 <span class="u-srch__empty-ico">{% render 'upaasak-icon', icon: 'bead' %}</span>
-                <h3>{{ section.settings.empty_title }}</h3>
-                <p>{{ section.settings.empty_text }}</p>
+                <h3>No matches found</h3>
+                <p>No products match your filters. Try adjusting or clearing them.</p>
                 <a href="{{ collection.url }}" class="u-btn u-btn--primary">Clear filters</a>
               </div>
             {% endif %}
@@ -154,6 +163,7 @@
         </div>
       </div>
     </form>
+    {% endif %}
   </div>
 </section>
 
@@ -165,9 +175,10 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Sacred Collection" },
     { "type": "checkbox", "id": "show_description", "label": "Show collection description", "default": true },
     { "type": "range", "id": "per_page", "label": "Products per page", "min": 8, "max": 48, "step": 4, "default": 12 },
-    { "type": "header", "content": "No products" },
+    { "type": "header", "content": "Empty collection" },
     { "type": "text", "id": "empty_title", "label": "Title", "default": "Nothing here yet" },
-    { "type": "textarea", "id": "empty_text", "label": "Text", "default": "No products match your filters. Try adjusting or clearing them." }
+    { "type": "textarea", "id": "blank_text", "label": "Text", "default": "This collection doesn't have any products yet. Explore our full range of sacred pieces." },
+    { "type": "text", "id": "blank_cta", "label": "Button label", "default": "Browse All Products" }
   ],
   "presets": [
     { "name": "Collection Page" }
