@@ -1,0 +1,176 @@
+{% render 'upaasak-design-system' %}
+
+{%- liquid
+  assign per_page = section.settings.per_page | default: 12
+  assign sort_by = collection.sort_by | default: collection.default_sort_by
+-%}
+
+<section class="u-section u-col" data-section-id="{{ section.id }}" data-collection>
+  <div class="u-wrap">
+
+    {%- comment -%} ---------- Header ---------- {%- endcomment -%}
+    <div class="u-col__head">
+      {% if section.settings.eyebrow != blank %}<span class="u-eyebrow" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
+      <h1 class="u-title" data-reveal style="--d:80ms">{{ collection.title }}</h1>
+      {% if section.settings.show_description and collection.description != blank %}
+        <div class="u-col__desc u-lead" data-reveal style="--d:140ms">{{ collection.description }}</div>
+      {% endif %}
+    </div>
+
+    <form method="get" data-col-form>
+      {%- comment -%} ---------- Toolbar ---------- {%- endcomment -%}
+      <div class="u-col__toolbar">
+        <button type="button" class="u-col__filter-btn" data-col-filters-toggle aria-label="Toggle filters">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+          Filters
+        </button>
+        <span class="u-col__count">{{ collection.products_count }} product{% if collection.products_count != 1 %}s{% endif %}</span>
+        {% if collection.sort_options.size > 0 %}
+          <label class="u-col__sort">
+            <span>Sort</span>
+            <select name="sort_by" class="u-col__select">
+              {% for option in collection.sort_options %}
+                <option value="{{ option.value }}"{% if option.value == sort_by %} selected{% endif %}>{{ option.name }}</option>
+              {% endfor %}
+            </select>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </label>
+        {% endif %}
+      </div>
+
+      {%- comment -%} ---------- Active filter chips ---------- {%- endcomment -%}
+      {%- assign active_count = 0 -%}
+      {% for filter in collection.filters %}{% for v in filter.active_values %}{% assign active_count = active_count | plus: 1 %}{% endfor %}{% if filter.type == 'price_range' %}{% if filter.min_value.value != nil or filter.max_value.value != nil %}{% assign active_count = active_count | plus: 1 %}{% endif %}{% endif %}{% endfor %}
+      {% if active_count > 0 %}
+        <div class="u-col__active">
+          {% for filter in collection.filters %}
+            {% for v in filter.active_values %}
+              <a href="{{ v.url_to_remove }}" class="u-col__chip">{{ v.label }}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></a>
+            {% endfor %}
+            {% if filter.type == 'price_range' %}
+              {% if filter.min_value.value != blank or filter.max_value.value != blank %}
+                <a href="{{ filter.url_to_remove }}" class="u-col__chip">{{ filter.label }}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></a>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          <a href="{{ collection.url }}" class="u-col__clear">Clear all</a>
+        </div>
+      {% endif %}
+
+      <div class="u-col__layout">
+        {%- comment -%} ---------- Sidebar filters ---------- {%- endcomment -%}
+        <aside class="u-col__sidebar" data-col-sidebar>
+          <div class="u-col__sidebar-head">
+            <span>Filters</span>
+            <button type="button" class="u-col__sidebar-close" data-col-filters-close aria-label="Close filters">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+            </button>
+          </div>
+
+          {% if collection.filters.size > 0 %}
+            {% for filter in collection.filters %}
+              <details class="u-col__group" open>
+                <summary>
+                  {{ filter.label }}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </summary>
+                <div class="u-col__group-body">
+                  {% case filter.type %}
+                    {% when 'list', 'boolean' %}
+                      <ul class="u-col__opts">
+                        {% for value in filter.values %}
+                          <li>
+                            <label class="u-col__opt{% if value.count == 0 and value.active == false %} is-disabled{% endif %}">
+                              <input type="checkbox" name="{{ value.param_name }}" value="{{ value.value }}"{% if value.active %} checked{% endif %}{% if value.count == 0 and value.active == false %} disabled{% endif %}>
+                              <span class="u-col__check"></span>
+                              <span class="u-col__opt-label">{{ value.label }}</span>
+                              <span class="u-col__opt-count">{{ value.count }}</span>
+                            </label>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% when 'price_range' %}
+                      <div class="u-col__price">
+                        <label>
+                          <span>Min</span>
+                          <input type="number" name="{{ filter.min_value.param_name }}" value="{{ filter.min_value.value }}" placeholder="0" min="0" inputmode="decimal">
+                        </label>
+                        <span class="u-col__price-sep">—</span>
+                        <label>
+                          <span>Max</span>
+                          <input type="number" name="{{ filter.max_value.param_name }}" value="{{ filter.max_value.value }}" placeholder="{{ filter.range_max | money_without_currency | remove: ',' | times: 1 }}" min="0" inputmode="decimal">
+                        </label>
+                      </div>
+                  {% endcase %}
+                </div>
+              </details>
+            {% endfor %}
+          {% else %}
+            <p class="u-col__nofilters">No filters available for this collection.</p>
+          {% endif %}
+        </aside>
+        <div class="u-col__overlay" data-col-filters-close></div>
+
+        {%- comment -%} ---------- Product grid ---------- {%- endcomment -%}
+        <div class="u-col__main">
+          {% paginate collection.products by per_page %}
+            {% if collection.products.size > 0 %}
+              <div class="u-col__grid">
+                {% for product in collection.products %}
+                  {% render 'upaasak-product-card', product: product %}
+                {% endfor %}
+              </div>
+
+              {% if paginate.pages > 1 %}
+                <nav class="u-srch__pager" role="navigation" aria-label="Pagination">
+                  {% if paginate.previous %}
+                    <a href="{{ paginate.previous.url }}" class="u-srch__page u-srch__page--nav" aria-label="Previous">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+                    </a>
+                  {% endif %}
+                  {% for part in paginate.parts %}
+                    {% if part.is_link %}
+                      <a href="{{ part.url }}" class="u-srch__page">{{ part.title }}</a>
+                    {% else %}
+                      <span class="u-srch__page{% if part.title == paginate.current_page %} is-current{% endif %}">{{ part.title }}</span>
+                    {% endif %}
+                  {% endfor %}
+                  {% if paginate.next %}
+                    <a href="{{ paginate.next.url }}" class="u-srch__page u-srch__page--nav" aria-label="Next">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+                    </a>
+                  {% endif %}
+                </nav>
+              {% endif %}
+            {% else %}
+              <div class="u-srch__empty">
+                <span class="u-srch__empty-ico">{% render 'upaasak-icon', icon: 'bead' %}</span>
+                <h3>{{ section.settings.empty_title }}</h3>
+                <p>{{ section.settings.empty_text }}</p>
+                <a href="{{ collection.url }}" class="u-btn u-btn--primary">Clear filters</a>
+              </div>
+            {% endif %}
+          {% endpaginate %}
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Page",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Sacred Collection" },
+    { "type": "checkbox", "id": "show_description", "label": "Show collection description", "default": true },
+    { "type": "range", "id": "per_page", "label": "Products per page", "min": 8, "max": 48, "step": 4, "default": 12 },
+    { "type": "header", "content": "No products" },
+    { "type": "text", "id": "empty_title", "label": "Title", "default": "Nothing here yet" },
+    { "type": "textarea", "id": "empty_text", "label": "Text", "default": "No products match your filters. Try adjusting or clearing them." }
+  ],
+  "presets": [
+    { "name": "Collection Page" }
+  ]
+}
+{% endschema %}

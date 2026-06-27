@@ -473,6 +473,27 @@
     });
   }
 
+  /* ---------------- Collection filters ---------------- */
+  function initCollection(root) {
+    (root || document).querySelectorAll('[data-collection]:not([data-collection-bound])').forEach(function (sec) {
+      sec.setAttribute('data-collection-bound', '1');
+      var form = sec.querySelector('[data-col-form]');
+      var sidebar = sec.querySelector('[data-col-sidebar]');
+
+      /* Auto-submit when a filter or sort changes */
+      if (form) {
+        form.addEventListener('change', function () { form.submit(); });
+      }
+
+      /* Mobile filter drawer */
+      function openF() { if (sidebar) { sidebar.classList.add('is-open'); document.body.classList.add('u-noscroll'); } }
+      function closeF() { if (sidebar) { sidebar.classList.remove('is-open'); document.body.classList.remove('u-noscroll'); } }
+      sec.querySelectorAll('[data-col-filters-toggle]').forEach(function (b) { b.addEventListener('click', openF); });
+      sec.querySelectorAll('[data-col-filters-close]').forEach(function (b) { b.addEventListener('click', closeF); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeF(); });
+    });
+  }
+
   function initAll(root) {
     initReveal(root);
     initCountUp(root);
@@ -487,6 +508,7 @@
     initRecs(root);
     initCart();
     initSearch(root);
+    initCollection(root);
   }
 
   if (window.__upaasakInit) { window.__upaasakRescan && window.__upaasakRescan(); return; }
