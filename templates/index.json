@@ -141,6 +141,7 @@
           "type": "purpose",
           "settings": {
             "label": "All",
+            "tag": "Filter by tag",
             "collection": ""
           }
         },
@@ -148,6 +149,7 @@
           "type": "purpose",
           "settings": {
             "label": "Protection",
+            "tag": "Protection",
             "collection": ""
           }
         },
@@ -155,6 +157,7 @@
           "type": "purpose",
           "settings": {
             "label": "Protection",
+            "tag": "",
             "collection": ""
           }
         },
@@ -162,6 +165,7 @@
           "type": "purpose",
           "settings": {
             "label": "Prosperity",
+            "tag": "",
             "collection": ""
           }
         },
@@ -169,6 +173,7 @@
           "type": "purpose",
           "settings": {
             "label": "Healing",
+            "tag": "",
             "collection": ""
           }
         },
@@ -176,6 +181,7 @@
           "type": "purpose",
           "settings": {
             "label": "Gifting",
+            "tag": "",
             "collection": ""
           }
         },
@@ -183,6 +189,7 @@
           "type": "purpose",
           "settings": {
             "label": "New Arrivals",
+            "tag": "",
             "collection": ""
           }
         }
@@ -200,6 +207,7 @@
         "eyebrow": "Find Your Path",
         "heading": "Shop by Purpose",
         "count": 8,
+        "show_view_all": true,
         "view_all_label": "View All"
       }
     },
