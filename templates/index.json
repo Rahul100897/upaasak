@@ -141,7 +141,7 @@
           "type": "purpose",
           "settings": {
             "label": "All",
-            "tag": "Filter by tag",
+            "tag": "all",
             "collection": ""
           }
         },
