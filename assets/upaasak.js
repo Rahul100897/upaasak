@@ -494,7 +494,20 @@
     });
   }
 
+  function initContact(root) {
+    var body = (root || document).querySelector('textarea[name="contact[body]"]:not([data-contact-bound])');
+    if (!body) return;
+    body.setAttribute('data-contact-bound', '1');
+    try {
+      var q = new URLSearchParams(window.location.search).get('enquiry');
+      if (q && !body.value.trim()) {
+        body.value = 'I would like to enquire about: ' + q + '.\nPlease share the price and availability.';
+      }
+    } catch (e) {}
+  }
+
   function initAll(root) {
+    initContact(root);
     initReveal(root);
     initCountUp(root);
     initBars(root);

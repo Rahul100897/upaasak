@@ -5,12 +5,17 @@
 {%- endcomment -%}
 {%- liquid
   assign p = product
+  assign is_enquiry = false
+  if p.tags contains 'Enquiry'
+    assign is_enquiry = true
+  endif
   assign on_sale = false
-  if p.compare_at_price > p.price
+  if p.compare_at_price > p.price and is_enquiry == false
     assign on_sale = true
     assign disc = p.compare_at_price | minus: p.price | times: 100.0 | divided_by: p.compare_at_price | round
   endif
   assign variant_id = p.selected_or_first_available_variant.id
+  assign enquiry_url = p.title | url_encode | prepend: '/pages/contact?enquiry='
 -%}
 <div class="u-pcard">
   <a class="u-pcard__media" href="{{ p.url }}">
@@ -30,10 +35,19 @@
       <span class="u-pcard__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.4 2.4 4.6-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Original</span>
     </div>
     <div class="u-pcard__price">
-      <span class="u-pcard__now">{{ p.price | money }}</span>
-      {% if on_sale %}<span class="u-pcard__was">{{ p.compare_at_price | money }}</span>{% endif %}
+      {% if is_enquiry %}
+        <span class="u-pcard__enq">Price on Enquiry</span>
+      {% else %}
+        <span class="u-pcard__now">{{ p.price | money }}</span>
+        {% if on_sale %}<span class="u-pcard__was">{{ p.compare_at_price | money }}</span>{% endif %}
+      {% endif %}
     </div>
-    {% if p.available %}
+    {% if is_enquiry %}
+      <a href="{{ enquiry_url }}" class="u-pcard__cta u-pcard__cta--enq">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16a1.5 1.5 0 0 1 1.5 1.5v8a1.5 1.5 0 0 1-1.5 1.5H9l-4 3.5V17H4a1.5 1.5 0 0 1-1.5-1.5V7A1.5 1.5 0 0 1 4 5.5Z"/></svg>
+        Contact to Order
+      </a>
+    {% elsif p.available %}
       <product-form>
         <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data">
           <input type="hidden" name="id" value="{{ variant_id }}">

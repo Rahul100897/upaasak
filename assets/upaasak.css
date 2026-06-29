@@ -1394,3 +1394,13 @@ a.u-contact__value:hover { color: var(--u-maroon); }
 @media (max-width: 749px) {
   .u-brandbar__tools { gap: 2px; }
 }
+
+/* ============================================================================
+   v9 — ENQUIRY (price-on-enquiry + Contact to Order) for tagged products
+   ========================================================================== */
+.u-pcard__enq { font-family: var(--u-font-display); font-size: 1.05rem; font-weight: 700; color: var(--u-gold-deep); }
+.u-pcard__cta--enq { background: var(--u-grad-gold); color: #41310f; }
+.u-pcard__cta--enq:hover { box-shadow: 0 10px 22px rgba(164,126,47,.32); }
+.u-pdp__price-enq { font-family: var(--u-font-display); font-size: clamp(1.4rem, 2.6vw, 1.9rem); font-weight: 700; color: var(--u-gold-deep); }
+.u-pdp__enquire { width: 100%; --pad-y: 16px; font-size: 1rem; }
+.u-pdp__enquire-note { font-size: .82rem; color: var(--u-muted); margin: 10px 0 0; line-height: 1.5; }

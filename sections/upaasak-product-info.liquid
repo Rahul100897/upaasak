@@ -2,12 +2,17 @@
 
 {%- liquid
   assign cv = product.selected_or_first_available_variant
+  assign is_enquiry = false
+  if product.tags contains 'Enquiry'
+    assign is_enquiry = true
+  endif
   assign on_sale = false
   assign disc = 0
-  if cv.compare_at_price > cv.price
+  if cv.compare_at_price > cv.price and is_enquiry == false
     assign on_sale = true
     assign disc = cv.compare_at_price | minus: cv.price | times: 100.0 | divided_by: cv.compare_at_price | round
   endif
+  assign enquiry_url = product.title | url_encode | prepend: '/pages/contact?enquiry='
 -%}
 
 <section class="u-section u-pdp" data-section-id="{{ section.id }}" data-pdp>
@@ -76,10 +81,14 @@
 
           {%- when 'price' -%}
             <div class="u-pdp__b u-pdp__price" {{ block.shopify_attributes }}>
-              <span class="u-pdp__price-now" data-pdp-price-now>{{ cv.price | money }}</span>
-              <span class="u-pdp__price-was" data-pdp-price-was{% unless on_sale %} style="display:none"{% endunless %}>{{ cv.compare_at_price | money }}</span>
-              {% if on_sale and block.settings.show_discount %}<span class="u-pdp__price-off">{{ disc }}% OFF</span>{% endif %}
-              {% if block.settings.tax_note != blank %}<span class="u-pdp__price-tax">{{ block.settings.tax_note }}</span>{% endif %}
+              {% if is_enquiry %}
+                <span class="u-pdp__price-enq">Price on Enquiry</span>
+              {% else %}
+                <span class="u-pdp__price-now" data-pdp-price-now>{{ cv.price | money }}</span>
+                <span class="u-pdp__price-was" data-pdp-price-was{% unless on_sale %} style="display:none"{% endunless %}>{{ cv.compare_at_price | money }}</span>
+                {% if on_sale and block.settings.show_discount %}<span class="u-pdp__price-off">{{ disc }}% OFF</span>{% endif %}
+                {% if block.settings.tax_note != blank %}<span class="u-pdp__price-tax">{{ block.settings.tax_note }}</span>{% endif %}
+              {% endif %}
             </div>
 
           {%- when 'benefits' -%}
@@ -108,6 +117,13 @@
 
           {%- when 'buybox' -%}
             <div class="u-pdp__b u-pdp__buybox" {{ block.shopify_attributes }}>
+              {% if is_enquiry %}
+                <a href="{{ enquiry_url }}" class="u-btn u-btn--primary u-pdp__enquire">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16a1.5 1.5 0 0 1 1.5 1.5v8a1.5 1.5 0 0 1-1.5 1.5H9l-4 3.5V17H4a1.5 1.5 0 0 1-1.5-1.5V7A1.5 1.5 0 0 1 4 5.5Z"/></svg>
+                  Contact to Order
+                </a>
+                <p class="u-pdp__enquire-note">This piece is available on enquiry. Reach out and our team will help you order it.</p>
+              {% else %}
               {% form 'product', product, class: 'u-pdp__form' %}
                 <input type="hidden" name="id" value="{{ cv.id }}" data-pdp-id>
 
@@ -144,6 +160,7 @@
                   <div class="u-pdp__dynamic">{{ form | payment_button }}</div>
                 {% endif %}
               {% endform %}
+              {% endif %}
             </div>
 
           {%- when 'offer' -%}
