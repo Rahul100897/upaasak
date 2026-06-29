@@ -73,20 +73,20 @@
             "icon": "bead"
           }
         },
-        "b3": {
-          "type": "cat",
-          "settings": {
-            "label": "Rudraksha",
-            "link": "shopify://collections/rudraksha",
-            "icon": "leaf"
-          }
-        },
         "b4": {
           "type": "cat",
           "settings": {
             "label": "Spiritual Bracelets",
             "link": "shopify://collections/spiritual-bracelets",
             "icon": "gem"
+          }
+        },
+        "b3": {
+          "type": "cat",
+          "settings": {
+            "label": "Rudraksha",
+            "link": "shopify://collections/rudraksha",
+            "icon": "leaf"
           }
         },
         "b5": {
@@ -101,7 +101,7 @@
           "type": "cat",
           "settings": {
             "label": "Gemstones",
-            "link": "shopify://collections/mala",
+            "link": "shopify://collections/gemstones",
             "icon": "gem"
           }
         },
@@ -128,27 +128,18 @@
             "link": "shopify://collections/pooja-kits",
             "icon": "pooja"
           }
-        },
-        "b8": {
-          "type": "cat",
-          "settings": {
-            "label": "Gifting",
-            "link": "shopify://collections/gifting",
-            "icon": "gift"
-          }
         }
       },
       "block_order": [
         "b1",
         "b2",
-        "b3",
         "b4",
+        "b3",
         "b5",
         "cat_fDaGFf",
         "cat_HngTQa",
         "cat_czwUaa",
-        "cat_a8pVdQ",
-        "b8"
+        "cat_a8pVdQ"
       ],
       "settings": {}
     }
