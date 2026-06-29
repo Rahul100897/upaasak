@@ -534,7 +534,21 @@
     });
   }
 
+  function initShuffle(root) {
+    (root || document).querySelectorAll('[data-shuffle]:not([data-shuffle-done])').forEach(function (el) {
+      el.setAttribute('data-shuffle-done', '1');
+      var keep = parseInt(el.getAttribute('data-shuffle'), 10) || el.children.length;
+      var kids = Array.prototype.slice.call(el.children);
+      for (var i = kids.length - 1; i > 0; i--) {
+        var j = (Math.random() * (i + 1)) | 0;
+        var t = kids[i]; kids[i] = kids[j]; kids[j] = t;
+      }
+      kids.forEach(function (k, idx) { if (idx < keep) { el.appendChild(k); } else { k.parentNode && k.parentNode.removeChild(k); } });
+    });
+  }
+
   function initAll(root) {
+    initShuffle(root);
     initScrollers(root);
     initContact(root);
     initReveal(root);

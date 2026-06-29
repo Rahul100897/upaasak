@@ -1434,3 +1434,22 @@ a.u-contact__value:hover { color: var(--u-maroon); }
 @media (max-width: 680px) {
   .u-scroller__arrow { display: none; }
 }
+
+/* ============================================================================
+   v10 — SHOP BY COLLECTION slider (homepage)
+   ========================================================================== */
+.u-cslide .u-section-head.is-centered { margin-bottom: clamp(26px, 4vw, 38px); }
+.u-cslide__row { padding-block: 6px 14px; }
+.u-cslide__card { scroll-snap-align: start; flex: 0 0 clamp(220px, 26vw, 300px); position: relative; display: block; border-radius: var(--u-radius-lg); overflow: hidden; aspect-ratio: 3 / 4; border: 1px solid var(--u-gold-line); box-shadow: var(--u-shadow-sm); text-decoration: none; background: linear-gradient(160deg, var(--u-sand), var(--u-cream)); transition: transform .5s var(--u-ease), box-shadow .5s var(--u-ease); }
+.u-cslide__card:hover { transform: translateY(-6px); box-shadow: var(--u-shadow); }
+.u-cslide__media { position: absolute; inset: 0; }
+.u-cslide__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--u-ease); }
+.u-cslide__card:hover .u-cslide__media img { transform: scale(1.07); }
+.u-cslide__ph { position: absolute; inset: 0; display: grid; place-items: center; color: var(--u-maroon); font-family: var(--u-font-display); font-size: 3.4rem; opacity: .45; }
+.u-cslide__card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(31,18,14,.8) 0%, rgba(31,18,14,.3) 45%, transparent 72%); }
+.u-cslide__body { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: 20px; color: #fff; }
+.u-cslide__body h3 { font-family: var(--u-font-display); font-size: clamp(1.15rem, 1.8vw, 1.45rem); font-weight: 600; margin: 0; line-height: 1.15; }
+.u-cslide__count { font-family: var(--u-font-label); letter-spacing: .08em; font-size: .72rem; color: var(--u-gold-light); }
+.u-cslide__go { position: absolute; top: 14px; right: 14px; z-index: 1; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.9); color: var(--u-maroon); opacity: 0; transform: translateY(-6px); transition: opacity .4s var(--u-ease), transform .4s var(--u-ease); }
+.u-cslide__card:hover .u-cslide__go { opacity: 1; transform: translateY(0); }
+.u-cslide__go svg { width: 17px; height: 17px; }
