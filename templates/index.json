@@ -207,7 +207,7 @@
         "eyebrow": "Find Your Path",
         "heading": "Shop by Purpose",
         "count": 8,
-        "randomize": false,
+        "randomize": true,
         "show_view_all": true,
         "view_all_label": "View All"
       }
