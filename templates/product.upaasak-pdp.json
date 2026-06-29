@@ -44,14 +44,6 @@
           "type": "divider",
           "settings": {}
         },
-        "benefits": {
-          "type": "benefits",
-          "settings": {
-            "heading": "Key Benefits",
-            "source": "description",
-            "text": "<ul><li>Balances mind, body and energy</li><li>Lab-certified, 100% natural bead</li><li>Energized before dispatch</li></ul>"
-          }
-        },
         "buybox": {
           "type": "buybox",
           "settings": {
@@ -83,6 +75,8 @@
           "settings": {
             "heading": "Product Details",
             "open_first": false,
+            "show_description": true,
+            "label_description": "Description",
             "show_highlights": true,
             "label_highlights": "Key Highlights",
             "show_specs": true,
@@ -92,9 +86,7 @@
             "show_benefits": true,
             "label_benefits": "Key Benefits",
             "show_disclaimer": true,
-            "label_disclaimer": "Disclaimer",
-            "show_description": true,
-            "label_description": "Description"
+            "label_disclaimer": "Disclaimer"
           }
         },
         "emi": {
@@ -438,7 +430,8 @@
       "settings": {
         "eyebrow": "Good to Know",
         "heading": "Questions About Upaasak",
-        "open_first": true
+        "open_first": false,
+        "show_collection_faq": true
       }
     }
   },
