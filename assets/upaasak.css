@@ -973,9 +973,9 @@ body.u-noscroll { overflow: hidden; }
 .u-pdp__offer-ico svg { width: 22px; height: 22px; }
 .u-pdp__offer strong { display: block; font-weight: 600; color: var(--u-charcoal); font-size: .95rem; }
 .u-pdp__offer span { display: block; font-size: .82rem; color: var(--u-muted); }
-.u-pdp__delivery { display: grid; gap: 11px; }
-.u-pdp__drow { display: flex; align-items: center; gap: 12px; font-size: .9rem; color: var(--u-ink); }
-.u-pdp__drow svg { width: 20px; height: 20px; color: var(--u-maroon); flex: none; }
+.u-pdp__delivery { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; }
+.u-pdp__drow { display: inline-flex; align-items: center; gap: 8px; font-size: .88rem; color: var(--u-ink); }
+.u-pdp__drow svg { width: 19px; height: 19px; color: var(--u-maroon); flex: none; }
 .u-pdp__emi { display: flex; gap: 12px; align-items: center; background: var(--u-ivory); border: 1px solid var(--u-line); border-radius: var(--u-radius); padding: 12px 16px; }
 .u-pdp__emi-ico { color: var(--u-gold-deep); flex: none; }
 .u-pdp__emi-ico svg { width: 22px; height: 22px; }
@@ -1415,3 +1415,7 @@ a.u-contact__value:hover { color: var(--u-maroon); }
 .u-pdp__acc .u-faq__a-inner p { margin: 0 0 8px; line-height: 1.6; color: var(--u-ink); }
 .u-pdp__acc .u-faq__a-inner p:last-child { margin-bottom: 0; }
 .u-acc__disc .u-faq__a-inner { color: var(--u-muted); font-size: .82rem; }
+.u-pdp__acc .u-acc__rte p { margin: 0 0 8px; line-height: 1.65; color: var(--u-ink); }
+.u-pdp__acc .u-acc__rte p:last-child { margin-bottom: 0; }
+.u-pdp__acc .u-acc__rte ul, .u-pdp__acc .u-acc__rte ol { margin: 0 0 8px; padding-left: 18px; }
+.u-pdp__acc .u-acc__rte li { line-height: 1.55; margin-bottom: 4px; }

@@ -136,9 +136,10 @@
             "label_box": "What's in the Box",
             "show_benefits": true,
             "label_benefits": "Key Benefits",
-            "show_faqs": true,
             "show_disclaimer": true,
-            "label_disclaimer": "Disclaimer"
+            "label_disclaimer": "Disclaimer",
+            "show_description": true,
+            "label_description": "Description"
           }
         }
       },
@@ -148,7 +149,6 @@
         "price",
         "chips",
         "hr1",
-        "benefits",
         "buybox",
         "offer",
         "delivery",

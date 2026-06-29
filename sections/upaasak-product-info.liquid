@@ -182,21 +182,19 @@
           {%- when 'accordion' -%}
             {%- liquid
               assign mf = product.metafields.custom
-              assign faqc = blank
-              for c in product.collections
-                if c.title == product.type
-                  assign faqc = c
-                  break
-                endif
-              endfor
-              if faqc == blank
-                assign faqc = product.collections.first
-              endif
               assign acc_i = 0
             -%}
             <div class="u-pdp__b u-pdp__acc" {{ block.shopify_attributes }}>
               {% if block.settings.heading != blank %}<h3 class="u-pdp__b-head">{{ block.settings.heading }}</h3>{% endif %}
               <div class="u-faq__list u-acc__list">
+
+                {% if block.settings.show_description and product.description != blank %}
+                  <div class="u-faq__item{% if block.settings.open_first and acc_i == 0 %} is-open{% endif %}">
+                    <button type="button" class="u-faq__q"><span>{{ block.settings.label_description }}</span><span class="u-faq__icon" aria-hidden="true"></span></button>
+                    <div class="u-faq__a"{% if block.settings.open_first and acc_i == 0 %} style="max-height:2000px"{% endif %}><div class="u-faq__a-inner u-acc__rte">{{ product.description }}</div></div>
+                  </div>
+                  {%- assign acc_i = acc_i | plus: 1 -%}
+                {% endif %}
 
                 {% if block.settings.show_highlights and mf.key_highlights != blank %}
                   <div class="u-faq__item{% if block.settings.open_first and acc_i == 0 %} is-open{% endif %}">
@@ -228,18 +226,6 @@
                     <div class="u-faq__a"{% if block.settings.open_first and acc_i == 0 %} style="max-height:1500px"{% endif %}><div class="u-faq__a-inner">{% render 'upaasak-mlt', text: mf.key_benefits.value %}</div></div>
                   </div>
                   {%- assign acc_i = acc_i | plus: 1 -%}
-                {% endif %}
-
-                {% if block.settings.show_faqs and faqc.metafields.custom.product_faqs_title != blank %}
-                  {%- assign faq_q = faqc.metafields.custom.product_faqs_title.value -%}
-                  {%- assign faq_a = faqc.metafields.custom.product_faqs_description.value -%}
-                  {% for q in faq_q %}
-                    <div class="u-faq__item{% if block.settings.open_first and acc_i == 0 %} is-open{% endif %}">
-                      <button type="button" class="u-faq__q"><span>{{ q }}</span><span class="u-faq__icon" aria-hidden="true"></span></button>
-                      <div class="u-faq__a"{% if block.settings.open_first and acc_i == 0 %} style="max-height:1000px"{% endif %}><div class="u-faq__a-inner"><p>{{ faq_a[forloop.index0] }}</p></div></div>
-                    </div>
-                    {%- assign acc_i = acc_i | plus: 1 -%}
-                  {% endfor %}
                 {% endif %}
 
                 {% if block.settings.show_disclaimer and mf.product_disclaimer != blank %}
@@ -447,6 +433,8 @@
         { "type": "text", "id": "heading", "label": "Heading", "default": "Product Details" },
         { "type": "checkbox", "id": "open_first", "label": "Open first item by default", "default": false },
         { "type": "header", "content": "Sections (from metafields)" },
+        { "type": "checkbox", "id": "show_description", "label": "Show Description", "default": true },
+        { "type": "text", "id": "label_description", "label": "Description label", "default": "Description" },
         { "type": "checkbox", "id": "show_highlights", "label": "Show Key Highlights", "default": true },
         { "type": "text", "id": "label_highlights", "label": "Highlights label", "default": "Key Highlights" },
         { "type": "checkbox", "id": "show_specs", "label": "Show Specifications", "default": true },
@@ -455,10 +443,9 @@
         { "type": "text", "id": "label_box", "label": "Box Contents label", "default": "What's in the Box" },
         { "type": "checkbox", "id": "show_benefits", "label": "Show Key Benefits", "default": true },
         { "type": "text", "id": "label_benefits", "label": "Benefits label", "default": "Key Benefits" },
-        { "type": "checkbox", "id": "show_faqs", "label": "Show FAQs (collection)", "default": true },
         { "type": "checkbox", "id": "show_disclaimer", "label": "Show Disclaimer", "default": true },
         { "type": "text", "id": "label_disclaimer", "label": "Disclaimer label", "default": "Disclaimer" },
-        { "type": "paragraph", "content": "Pulls from product metafields (custom.key_highlights, specifications, box_contents, key_benefits, product_disclaimer) and the collection's FAQ metafields (custom.product_faqs_title / product_faqs_description)." }
+        { "type": "paragraph", "content": "Description uses the product description. Other rows pull from product metafields (custom.key_highlights, specifications, box_contents, key_benefits, product_disclaimer). FAQs now live in the FAQ section." }
       ]
     },
     {
