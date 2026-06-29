@@ -99,6 +99,7 @@
         },
         "b6": {
           "type": "cat",
+          "disabled": true,
           "settings": {
             "label": "Stones",
             "link": "shopify://collections/stones",
@@ -107,6 +108,7 @@
         },
         "b7": {
           "type": "cat",
+          "disabled": true,
           "settings": {
             "label": "Idols",
             "link": "shopify://collections/idols",
@@ -123,10 +125,27 @@
         },
         "b9": {
           "type": "cat",
+          "disabled": true,
           "settings": {
             "label": "Free PDFs",
             "link": "",
             "icon": "certificate"
+          }
+        },
+        "cat_czwUaa": {
+          "type": "cat",
+          "settings": {
+            "label": "Yatra",
+            "link": "",
+            "icon": "yatra"
+          }
+        },
+        "cat_a8pVdQ": {
+          "type": "cat",
+          "settings": {
+            "label": "Pooja Kits",
+            "link": "",
+            "icon": "pooja"
           }
         }
       },
@@ -139,7 +158,9 @@
         "b6",
         "b7",
         "b8",
-        "b9"
+        "b9",
+        "cat_czwUaa",
+        "cat_a8pVdQ"
       ],
       "settings": {}
     }
