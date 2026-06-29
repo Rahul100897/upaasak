@@ -105,6 +105,14 @@
             "icon": "gem"
           }
         },
+        "cat_HngTQa": {
+          "type": "cat",
+          "settings": {
+            "label": "Shop All",
+            "link": "shopify://collections/gemstones",
+            "icon": "bead"
+          }
+        },
         "cat_czwUaa": {
           "type": "cat",
           "settings": {
@@ -137,6 +145,7 @@
         "b4",
         "b5",
         "cat_fDaGFf",
+        "cat_HngTQa",
         "cat_czwUaa",
         "cat_a8pVdQ",
         "b8"
