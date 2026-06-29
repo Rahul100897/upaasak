@@ -351,7 +351,7 @@
         "purpose_YxkwLg",
         "purpose_bNQyWh"
       ],
-      "name": "Upaasak Shop by Deity",
+      "name": "Shop by Deity",
       "settings": {
         "eyebrow": "Find Your Path",
         "heading": "Shop by Deity",
@@ -362,70 +362,9 @@
         "view_all_label": "View All"
       }
     },
-    "u_why": {
-      "type": "upaasak-why-choose-us",
-      "blocks": {
-        "b1": {
-          "type": "usp",
-          "settings": {
-            "icon": "leaf",
-            "title": "Ethically Sourced",
-            "text": "Hand-gathered from trusted growers in Nepal & Indonesia."
-          }
-        },
-        "b2": {
-          "type": "usp",
-          "settings": {
-            "icon": "certificate",
-            "title": "Lab Certified",
-            "text": "Independently tested for mukhi, origin and purity."
-          }
-        },
-        "b3": {
-          "type": "usp",
-          "settings": {
-            "icon": "om",
-            "title": "Energized",
-            "text": "Abhimantrit with Vedic mantras before dispatch."
-          }
-        },
-        "b4": {
-          "type": "usp",
-          "settings": {
-            "icon": "shield",
-            "title": "100% Trusted",
-            "text": "25,000+ devotees & a 7-day money-back promise."
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3",
-        "b4"
-      ],
-      "disabled": true,
-      "custom_css": [
-        ".u-why__banner {display: none;}"
-      ],
-      "settings": {
-        "eyebrow": "Why Choose Us",
-        "heading": "Tradition Behind Every Bead",
-        "banner_placeholder": "Sourced · Verified · Energized · Delivered"
-      }
-    },
-    "upaasak_fullwidth_image_Dwmc3G": {
-      "type": "upaasak-fullwidth-image",
-      "name": "Full-width Image",
-      "settings": {
-        "image": "shopify://shop_images/trust-image.jpg",
-        "image_mobile": "shopify://shop_images/Process_e72709ef-9e57-44d9-b821-bf8c93d44900.jpg",
-        "link": "",
-        "alt": "Upaasak"
-      }
-    },
     "u_best": {
       "type": "upaasak-best-seller",
+      "name": "Best Seller",
       "settings": {
         "eyebrow": "Most Loved",
         "heading": "Our Best Sellers",
@@ -433,6 +372,16 @@
         "count": 4,
         "show_view_all": true,
         "view_all_label": "View All"
+      }
+    },
+    "upaasak_fullwidth_image_Dwmc3G": {
+      "type": "upaasak-fullwidth-image",
+      "name": "Why Choose us",
+      "settings": {
+        "image": "shopify://shop_images/trust-image.jpg",
+        "image_mobile": "shopify://shop_images/Process_e72709ef-9e57-44d9-b821-bf8c93d44900.jpg",
+        "link": "",
+        "alt": "Upaasak"
       }
     },
     "upaasak_best_seller_aVta9j": {
@@ -606,9 +555,8 @@
     "upaasak_collection_slider_FLwqJJ",
     "u_shop_purpose",
     "upaasak_shop_by_purpose_qViYEi",
-    "u_why",
-    "upaasak_fullwidth_image_Dwmc3G",
     "u_best",
+    "upaasak_fullwidth_image_Dwmc3G",
     "upaasak_best_seller_aVta9j",
     "u_reviews_x",
     "u_sitemap"
