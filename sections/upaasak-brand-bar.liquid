@@ -4,14 +4,14 @@
   <div class="u-brandbar__in">
     <a class="u-lockup" href="{{ routes.root_url }}">
       {% if section.settings.logo %}
-        <img src="{{ section.settings.logo | image_url: width: 120 }}" alt="{{ shop.name | escape }}" width="48" height="48" style="height:46px;width:auto;border-radius:10px">
+        <img src="{{ section.settings.logo | image_url }}" alt="{{ shop.name | escape }}" style="height:46px;width:auto;border-radius:10px">
       {% else %}
         <span class="u-lockup__mark">{{ section.settings.logo_letter | default: 'ॐ' }}</span>
       {% endif %}
-      <span>
+      {% comment %} <span>
         <span class="u-lockup__name">{{ section.settings.brand_name }}</span>
         <span class="u-lockup__slogan">{{ section.settings.slogan }}</span>
-      </span>
+      </span> {% endcomment %}
     </a>
 
     <div class="u-search-wrap" data-psearch>
