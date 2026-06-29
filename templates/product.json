@@ -9,266 +9,157 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "product-information",
+    "u_info": {
+      "type": "upaasak-product-info",
       "blocks": {
-        "media-gallery": {
-          "type": "_product-media-gallery",
-          "static": true,
+        "title": {
+          "type": "title",
           "settings": {
-            "media_presentation": "carousel",
-            "media_columns": "one",
-            "image_gap": 4,
-            "large_first_image": true,
-            "icons_style": "none",
-            "slideshow_controls_style": "counter",
-            "slideshow_mobile_controls_style": "dots",
-            "thumbnail_position": "right",
-            "thumbnail_width": 44,
-            "thumbnail_radius": 0,
-            "aspect_ratio": "1",
-            "constrain_to_viewport": true,
-            "media_fit": "contain",
-            "media_radius": 0,
-            "extend_media": false,
-            "zoom": true,
-            "video_loop": false,
-            "hide_variants": true,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "eyebrow": "Sacred Rudraksha"
+          }
         },
-        "product-details": {
-          "type": "_product-details",
-          "static": true,
+        "rating": {
+          "type": "rating",
           "settings": {
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "details_position": "flex-start",
-            "gap": 28,
-            "sticky_details_desktop": true,
-            "inherit_color_scheme": true,
-            "color_scheme": "scheme-1",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 24,
-            "padding-block-end": 24,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "group_icgrde": {
-              "type": "group",
-              "name": "Header",
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
-                "width": "fill",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "custom_height": 100,
-                "inherit_color_scheme": true,
-                "color_scheme": "",
-                "background_media": "none",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "link": "",
-                "open_in_new_tab": false,
-                "placeholder": "",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "text_xrnftG": {
-                  "type": "text",
-                  "name": "Product title",
-                  "settings": {
-                    "text": "<h1>{{ closest.product.title }}</h1>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h3",
-                    "font": "var(--font-primary--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "price_tVjtKg": {
-                  "type": "price",
-                  "settings": {
-                    "show_sale_price_first": true,
-                    "show_installments": false,
-                    "show_tax_info": false,
-                    "type_preset": "paragraph",
-                    "width": "100%",
-                    "alignment": "left",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "color": "var(--color-foreground)",
-                    "padding-block-start": 4,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "text_xrnftG",
-                "price_tVjtKg"
-              ]
-            },
-            "divider_VJhene": {
-              "type": "_divider",
-              "name": "t:names.divider",
-              "settings": {
-                "thickness": 1,
-                "corner_radius": "square",
-                "width_percent": 100,
-                "padding-block-start": 0,
-                "padding-block-end": 0
-              },
-              "blocks": {}
-            },
-            "variant_picker_R3rGDr": {
-              "type": "variant-picker",
-              "settings": {
-                "variant_style": "buttons",
-                "show_swatches": false,
-                "alignment": "left",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "buy_buttons_eYQEYi": {
-              "type": "buy-buttons",
-              "settings": {
-                "stacking": true,
-                "show_pickup_availability": false,
-                "gift_card_form": true,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "quantity": {
-                  "type": "quantity",
-                  "static": true,
-                  "settings": {},
-                  "blocks": {}
-                },
-                "add-to-cart": {
-                  "type": "add-to-cart",
-                  "static": true,
-                  "settings": {
-                    "style_class": "button"
-                  },
-                  "blocks": {}
-                },
-                "accelerated-checkout": {
-                  "type": "accelerated-checkout",
-                  "static": true,
-                  "settings": {},
-                  "blocks": {}
-                }
-              },
-              "block_order": []
-            },
-            "text_aEtTtq": {
-              "type": "text",
-              "name": "Product description",
-              "settings": {
-                "text": "{{ closest.product.description }}",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-primary--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "group_icgrde",
-            "divider_VJhene",
-            "variant_picker_R3rGDr",
-            "buy_buttons_eYQEYi",
-            "text_aEtTtq"
-          ]
+            "rating": "4.9",
+            "count": "1,284"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_discount": true,
+            "tax_note": "Inclusive of all taxes"
+          }
+        },
+        "chips": {
+          "type": "trust_chips",
+          "settings": {
+            "chip_1": "Certified",
+            "chip_2": "Tested",
+            "chip_3": "Original"
+          }
+        },
+        "hr1": {
+          "type": "divider",
+          "settings": {}
+        },
+        "benefits": {
+          "type": "benefits",
+          "settings": {
+            "heading": "Key Benefits",
+            "source": "description",
+            "text": "<ul><li>Balances mind, body and energy</li><li>Lab-certified, 100% natural bead</li><li>Energized before dispatch</li></ul>"
+          }
+        },
+        "buybox": {
+          "type": "buybox",
+          "settings": {
+            "atc_label": "Add to Cart",
+            "show_quantity": true,
+            "show_buy_now": false
+          }
+        },
+        "offer": {
+          "type": "offer",
+          "disabled": true,
+          "settings": {
+            "icon": "sparkle",
+            "title": "Use code BLESS10",
+            "text": "Get 10% off your first order"
+          }
+        },
+        "delivery": {
+          "type": "delivery",
+          "settings": {
+            "row_1": "Free shipping pan-India",
+            "icon_2": "headset",
+            "row_2": "",
+            "row_3": "7-day easy returns"
+          }
+        },
+        "emi": {
+          "type": "emi",
+          "disabled": true,
+          "settings": {
+            "text": "No-cost EMI available on orders above 3000 rupees."
+          }
+        },
+        "hr2": {
+          "type": "divider",
+          "settings": {}
+        },
+        "specs": {
+          "type": "specs",
+          "disabled": true,
+          "settings": {
+            "heading": "Quick Details",
+            "label_1": "Mukhi",
+            "value_1": "1 Mukhi",
+            "label_2": "Ruling Deity",
+            "value_2": "Lord Shiva",
+            "label_3": "Ruling Planet",
+            "value_3": "Sun",
+            "label_4": "Origin",
+            "value_4": "Nepal",
+            "label_5": "",
+            "value_5": "",
+            "label_6": "",
+            "value_6": "",
+            "mantra_label": "Beej Mantra",
+            "mantra": "॥ ॐ ह्रीं नमः ॥"
+          }
+        },
+        "payment": {
+          "type": "payment",
+          "settings": {
+            "text": "100% Secure Checkout",
+            "methods": "UPI, VISA, Mastercard, RuPay, COD"
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "text": "Share this"
+          }
+        },
+        "accordion": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Product Details",
+            "open_first": false,
+            "show_highlights": true,
+            "label_highlights": "Key Highlights",
+            "show_specs": true,
+            "label_specs": "Specifications",
+            "show_box": true,
+            "label_box": "What's in the Box",
+            "show_benefits": true,
+            "label_benefits": "Key Benefits",
+            "show_faqs": true,
+            "show_disclaimer": true,
+            "label_disclaimer": "Disclaimer"
+          }
         }
       },
-      "settings": {
-        "content_width": "content-center-aligned",
-        "desktop_media_position": "left",
-        "equal_columns": false,
-        "limit_details_width": false,
-        "gap": 48,
-        "enable_sticky_add_to_cart": true,
-        "color_scheme": "",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
+      "block_order": [
+        "title",
+        "rating",
+        "price",
+        "chips",
+        "hr1",
+        "benefits",
+        "buybox",
+        "offer",
+        "delivery",
+        "accordion",
+        "emi",
+        "hr2",
+        "specs",
+        "payment",
+        "share"
+      ],
+      "settings": {}
     },
     "u_phl": {
       "type": "upaasak-product-highlights",
@@ -328,14 +219,14 @@
           "type": "fact",
           "settings": {
             "label": "Ruling Planet",
-            "value": "Jupiter"
+            "value": "Sun"
           }
         },
         "b3": {
           "type": "fact",
           "settings": {
             "label": "Chakra",
-            "value": "Vishuddhi"
+            "value": "Sahasrara"
           }
         },
         "b4": {
@@ -357,7 +248,7 @@
         "heading": "The Sacred Meaning of This Bead",
         "body": "<p>Each Mukhi (face) of a Rudraksha carries its own ruling deity, planet and blessing. Worn close to the skin, it is believed to balance the chakras, steady the mind and invite the grace it represents into your life.</p>",
         "mantra_label": "Beej Mantra",
-        "mantra": "॥ ओं नमः शिवाय ॥"
+        "mantra": "॥ ॐ ह्रीं नमः ॥"
       }
     },
     "u_care": {
@@ -402,45 +293,54 @@
         "b3",
         "b4"
       ],
+      "disabled": true,
       "settings": {
         "eyebrow": "Rituals",
         "heading": "How to Wear & Care for Your Mala",
         "subheading": "A few simple practices to keep your Rudraksha potent, beautiful and blessed for years."
       }
     },
-    "u_promise": {
-      "type": "upaasak-product-promise",
+    "u_recs": {
+      "type": "upaasak-product-recommendations",
+      "settings": {
+        "eyebrow": "Handpicked For You",
+        "heading": "You May Also Like",
+        "products_to_show": 4
+      }
+    },
+    "u_grnt": {
+      "type": "upaasak-product-guarantee",
       "blocks": {
         "b1": {
-          "type": "seal",
+          "type": "point",
           "settings": {
             "icon": "certificate",
-            "title": "Certificate of Authenticity",
-            "text": "A lab-verified certificate accompanies every bead."
+            "title": "Lab-Certified Authenticity",
+            "text": "Every bead ships with a verified certificate of origin."
           }
         },
         "b2": {
-          "type": "seal",
+          "type": "point",
           "settings": {
             "icon": "om",
             "title": "Energized & Blessed",
-            "text": "Abhimantrit with the appropriate Vedic mantras."
+            "text": "Abhimantrit with the appropriate Vedic mantras before dispatch."
           }
         },
         "b3": {
-          "type": "seal",
+          "type": "point",
           "settings": {
-            "icon": "gift",
-            "title": "Gift-Ready Packaging",
-            "text": "Arrives in a premium pouch with a care guide."
+            "icon": "return",
+            "title": "7-Day Easy Returns",
+            "text": "Not satisfied? Return within 7 days, no questions asked."
           }
         },
         "b4": {
-          "type": "seal",
+          "type": "point",
           "settings": {
-            "icon": "shield",
-            "title": "Money-Back Guarantee",
-            "text": "Not satisfied? Return within 7 days, no questions."
+            "icon": "gift",
+            "title": "Gift-Ready Packaging",
+            "text": "Arrives in a premium pouch with a printed care guide."
           }
         }
       },
@@ -451,9 +351,12 @@
         "b4"
       ],
       "settings": {
-        "eyebrow": "The Upaasak Promise",
-        "heading": "Buy With Complete Confidence",
-        "subheading": "Every order is backed by our authenticity guarantee and arrives ready to bless."
+        "seal_icon": "shield",
+        "eyebrow": "Our Sacred Promise",
+        "heading": "Blessed, Backed & Guaranteed",
+        "subheading": "Every Upaasak order is authenticated, energized and protected by our promise — so you can wear it with complete faith.",
+        "cta_label": "",
+        "cta_link": ""
       }
     },
     "u_reviews": {
@@ -515,7 +418,7 @@
           "type": "faq",
           "settings": {
             "question": "How long will delivery take?",
-            "answer": "<p>Orders are dispatched within 24–48 hours and typically delivered in 3–7 days across India, with free shipping and COD available.</p>"
+            "answer": "<p>Orders are dispatched within 24-48 hours and typically delivered in 3-7 days across India, with free shipping and COD available.</p>"
           }
         },
         "b4": {
@@ -534,161 +437,19 @@
       ],
       "settings": {
         "eyebrow": "Good to Know",
-        "heading": "Questions About This Mala",
+        "heading": "Questions About Upaasak",
         "open_first": true
-      }
-    },
-    "product_recommendations_qggXJq": {
-      "type": "product-recommendations",
-      "blocks": {
-        "text_cbcgyb": {
-          "type": "text",
-          "name": "t:names.header",
-          "settings": {
-            "text": "<h3>You may also like </h3>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h4",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
-          "settings": {
-            "product_card_gap": 8,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 8,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_DNizbJ": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_M7MJkb": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_gLWgA6": {
-              "type": "price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_DNizbJ",
-            "product_title_M7MJkb",
-            "price_gLWgA6"
-          ]
-        }
-      },
-      "block_order": [
-        "text_cbcgyb"
-      ],
-      "disabled": true,
-      "name": "t:names.product_recommendations",
-      "settings": {
-        "product": "{{ closest.product }}",
-        "recommendation_type": "related",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 4,
-        "columns": 4,
-        "mobile_columns": "2",
-        "columns_gap": 12,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "gap": 28,
-        "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
       }
     }
   },
   "order": [
-    "main",
+    "u_info",
     "u_phl",
     "u_sig",
     "u_care",
-    "u_promise",
+    "u_recs",
+    "u_grnt",
     "u_reviews",
-    "u_faq",
-    "product_recommendations_qggXJq"
+    "u_faq"
   ]
 }

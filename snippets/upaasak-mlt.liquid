@@ -1,0 +1,34 @@
+{%- comment -%}
+  Render a multi-line-text metafield value as clean HTML (bullet/numbered lines -> <ul>,
+  plain lines -> <p>). Usage: {% render 'upaasak-mlt', text: product.metafields.custom.specifications.value %}
+{%- endcomment -%}
+{%- assign nl = '
+' -%}
+{%- assign lines = text | strip | split: nl -%}
+{%- assign html = '' -%}
+{%- assign open = false -%}
+{%- for raw in lines -%}
+  {%- assign l = raw | strip -%}
+  {%- if l == blank -%}{%- continue -%}{%- endif -%}
+  {%- assign c0 = l | slice: 0 -%}
+  {%- assign is_bullet = false -%}
+  {%- assign li = l -%}
+  {%- if c0 == '•' or c0 == '-' or c0 == '*' -%}
+    {%- assign is_bullet = true -%}
+    {%- assign li = l | remove_first: c0 | strip -%}
+  {%- elsif '0123456789' contains c0 -%}
+    {%- assign is_bullet = true -%}
+    {%- assign li = l | remove_first: c0 | remove_first: '.' | remove_first: ')' | strip -%}
+  {%- endif -%}
+  {%- if is_bullet -%}
+    {%- assign li_e = li | escape -%}
+    {%- unless open -%}{%- assign html = html | append: '<ul>' -%}{%- assign open = true -%}{%- endunless -%}
+    {%- assign html = html | append: '<li>' | append: li_e | append: '</li>' -%}
+  {%- else -%}
+    {%- assign l_e = l | escape -%}
+    {%- if open -%}{%- assign html = html | append: '</ul>' -%}{%- assign open = false -%}{%- endif -%}
+    {%- assign html = html | append: '<p>' | append: l_e | append: '</p>' -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if open -%}{%- assign html = html | append: '</ul>' -%}{%- endif -%}
+{{ html }}

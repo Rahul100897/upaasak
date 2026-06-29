@@ -1404,3 +1404,14 @@ a.u-contact__value:hover { color: var(--u-maroon); }
 .u-pdp__price-enq { font-family: var(--u-font-display); font-size: clamp(1.4rem, 2.6vw, 1.9rem); font-weight: 700; color: var(--u-gold-deep); }
 .u-pdp__enquire { width: 100%; --pad-y: 16px; font-size: 1rem; }
 .u-pdp__enquire-note { font-size: .82rem; color: var(--u-muted); margin: 10px 0 0; line-height: 1.5; }
+
+/* ---- PDP details accordion (metafields) ---- */
+.u-pdp__acc .u-acc__list { background: #fff; border: 1px solid var(--u-line); border-radius: var(--u-radius); box-shadow: none; padding: 2px 16px; }
+.u-pdp__acc .u-faq__q { font-family: var(--u-font-display); font-size: 1.02rem; padding: 15px 4px; gap: 14px; }
+.u-pdp__acc .u-faq__a-inner { padding: 0 4px 16px; font-size: .9rem; }
+.u-pdp__acc .u-faq__a-inner ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 7px; }
+.u-pdp__acc .u-faq__a-inner li { position: relative; padding-left: 20px; line-height: 1.55; color: var(--u-ink); }
+.u-pdp__acc .u-faq__a-inner li::before { content: '•'; position: absolute; left: 4px; color: var(--u-gold-deep); }
+.u-pdp__acc .u-faq__a-inner p { margin: 0 0 8px; line-height: 1.6; color: var(--u-ink); }
+.u-pdp__acc .u-faq__a-inner p:last-child { margin-bottom: 0; }
+.u-acc__disc .u-faq__a-inner { color: var(--u-muted); font-size: .82rem; }

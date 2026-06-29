@@ -122,6 +122,24 @@
           "settings": {
             "text": "Share this"
           }
+        },
+        "accordion": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Product Details",
+            "open_first": false,
+            "show_highlights": true,
+            "label_highlights": "Key Highlights",
+            "show_specs": true,
+            "label_specs": "Specifications",
+            "show_box": true,
+            "label_box": "What's in the Box",
+            "show_benefits": true,
+            "label_benefits": "Key Benefits",
+            "show_faqs": true,
+            "show_disclaimer": true,
+            "label_disclaimer": "Disclaimer"
+          }
         }
       },
       "block_order": [
@@ -134,6 +152,7 @@
         "buybox",
         "offer",
         "delivery",
+        "accordion",
         "emi",
         "hr2",
         "specs",
