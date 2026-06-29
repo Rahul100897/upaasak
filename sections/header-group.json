@@ -125,7 +125,7 @@
           "type": "cat",
           "settings": {
             "label": "Pooja Kits",
-            "link": "",
+            "link": "shopify://collections/pooja-kits",
             "icon": "pooja"
           }
         },
