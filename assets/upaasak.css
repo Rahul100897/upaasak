@@ -1463,3 +1463,9 @@ a.u-contact__value:hover { color: var(--u-maroon); }
 .u-whyx__list li { display: flex; align-items: flex-start; gap: 12px; font-size: 1rem; line-height: 1.45; color: var(--u-ink); }
 .u-whyx__list svg { width: 24px; height: 24px; flex: none; color: var(--u-maroon); margin-top: 1px; }
 @media (max-width: 980px) { .u-whyx--rev { direction: ltr; } }
+
+/* ============================================================================
+   v11 — Hide scrollbars on product/collection scroll rows (arrows handle nav)
+   ========================================================================== */
+.u-prow { scrollbar-width: none; -ms-overflow-style: none; }
+.u-prow::-webkit-scrollbar { display: none; height: 0; width: 0; }
