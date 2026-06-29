@@ -172,24 +172,24 @@
         "b5": {
           "type": "purpose",
           "settings": {
-            "label": "Healing",
-            "tag": "",
+            "label": "Confidence",
+            "tag": "Confidence",
             "collection": ""
           }
         },
         "b6": {
           "type": "purpose",
           "settings": {
-            "label": "Gifting",
-            "tag": "",
+            "label": "Luck",
+            "tag": "Luck",
             "collection": ""
           }
         },
         "b7": {
           "type": "purpose",
           "settings": {
-            "label": "New Arrivals",
-            "tag": "",
+            "label": "Peace",
+            "tag": "Peace",
             "collection": ""
           }
         }
