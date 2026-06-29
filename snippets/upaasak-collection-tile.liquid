@@ -1,0 +1,22 @@
+{%- comment -%}
+  Collection tile for the collections-list page.
+  Usage: {% render 'upaasak-collection-tile', coll: collection, index: i, attrs: block.shopify_attributes %}
+{%- endcomment -%}
+<a class="u-clist__card" href="{{ coll.url }}" data-reveal style="--d:{{ index | times: 60 }}ms" {{ attrs }}>
+  <div class="u-clist__media">
+    {% if coll.image != blank %}
+      {{ coll.image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '360,540,720', alt: coll.title | escape }}
+    {% elsif coll.products.first.featured_image != blank %}
+      {{ coll.products.first.featured_image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '360,540,720', alt: coll.title | escape }}
+    {% else %}
+      <span class="u-clist__ph">ॐ</span>
+    {% endif %}
+  </div>
+  <div class="u-clist__body">
+    <h3>{{ coll.title }}</h3>
+    <span class="u-clist__count">{{ coll.all_products_count }} product{% if coll.all_products_count != 1 %}s{% endif %}</span>
+  </div>
+  <span class="u-clist__go" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </span>
+</a>

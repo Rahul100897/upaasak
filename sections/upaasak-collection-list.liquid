@@ -1,0 +1,57 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-clist" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    <div class="u-section-head is-centered">
+      {% if section.settings.eyebrow != blank %}<span class="u-eyebrow is-centered" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2 class="u-title" data-reveal style="--d:80ms">{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}<p class="u-lead" data-reveal style="--d:160ms">{{ section.settings.subheading }}</p>{% endif %}
+    </div>
+
+    <div class="u-clist__grid">
+      {%- if section.blocks.size > 0 -%}
+        {%- comment -%} Curated: merchant-picked collections {%- endcomment -%}
+        {% for block in section.blocks %}
+          {%- assign coll = block.settings.collection -%}
+          {% if coll != blank %}
+            {% render 'upaasak-collection-tile', coll: coll, index: forloop.index0, attrs: block.shopify_attributes %}
+          {% endif %}
+        {% endfor %}
+      {%- else -%}
+        {%- comment -%} Auto: all store collections except the system home page {%- endcomment -%}
+        {%- assign i = 0 -%}
+        {% for coll in collections %}
+          {% unless coll.handle == 'frontpage' %}
+            {% render 'upaasak-collection-tile', coll: coll, index: i %}
+            {%- assign i = i | plus: 1 -%}
+          {% endunless %}
+        {% endfor %}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collections List",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Explore Upaasak" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Our Collections" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Browse our sacred range — from Rudraksha and malas to gemstones, bracelets and gifting." },
+    { "type": "paragraph", "content": "Leave blocks empty to auto-show every store collection (except the home page), or add Collection blocks to curate the order." }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Collection" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Collections List" }
+  ]
+}
+{% endschema %}
