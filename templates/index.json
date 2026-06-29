@@ -209,7 +209,7 @@
         "source_collection": "",
         "count": 8,
         "randomize": true,
-        "show_view_all": true,
+        "show_view_all": false,
         "view_all_label": "View All"
       }
     },
