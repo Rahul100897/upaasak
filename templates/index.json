@@ -141,7 +141,7 @@
           "type": "purpose",
           "settings": {
             "label": "All",
-            "tag": "Filter by tag",
+            "tag": "Protection",
             "collection": ""
           }
         },
@@ -206,6 +206,7 @@
       "settings": {
         "eyebrow": "Find Your Path",
         "heading": "Shop by Purpose",
+        "source_collection": "",
         "count": 8,
         "randomize": true,
         "show_view_all": true,
