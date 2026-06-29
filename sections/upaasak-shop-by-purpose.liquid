@@ -22,47 +22,46 @@
         if coll == blank or coll.products.size == 0
           assign coll = collections.all
         endif
-        assign tag = block.settings.tag | strip
+        assign tag_raw = block.settings.tag | strip
+        assign tag_list = block.settings.tag | split: ','
         assign limit = section.settings.count
-
-        comment
-          Iterate coll.products directly (no array filters) so collections.all works
-          on the storefront. Ordering follows the source collection's sort order;
-          'randomize' shuffles client-side.
-        endcomment
         assign pool = limit
         if section.settings.randomize
           assign pool = 40
         endif
 
-        assign matches = 0
-        for product in coll.products
-          if tag == blank or product.tags contains tag
-            assign matches = matches | plus: 1
-          endif
-        endfor
-
         assign va_url = coll.url | default: routes.all_products_collection_url
-        if tag != blank
-          assign va_url = tag | handleize | prepend: '/' | prepend: routes.all_products_collection_url
+        if tag_list.size == 1
+          assign one_tag = tag_list[0] | strip | handleize
+          assign va_url = one_tag | prepend: '/' | prepend: routes.all_products_collection_url
         endif
       -%}
+      {%- capture cards -%}
+        {%- assign shown = 0 -%}
+        {% for product in coll.products %}
+          {%- assign ok = false -%}
+          {%- if tag_raw == blank -%}
+            {%- assign ok = true -%}
+          {%- else -%}
+            {%- for t in tag_list -%}
+              {%- assign tt = t | strip -%}
+              {%- if tt != blank and product.tags contains tt -%}{%- assign ok = true -%}{%- break -%}{%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+          {%- if ok and shown < pool -%}
+            {% render 'upaasak-product-card', product: product %}
+            {%- assign shown = shown | plus: 1 -%}
+          {%- endif -%}
+        {% endfor %}
+      {%- endcapture -%}
       <div class="u-panel{% if forloop.first %} is-active{% endif %}" data-panel="{{ block.id }}">
-        {% if matches > 0 %}
+        {% if cards != blank %}
           <div class="u-scroller" data-scroller>
             <button type="button" class="u-scroller__arrow u-scroller__arrow--prev" data-scroll-prev aria-label="Previous">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
             </button>
             <div class="u-prow" data-scroll{% if section.settings.randomize %} data-shuffle="{{ limit }}"{% endif %}>
-              {%- assign shown = 0 -%}
-              {% for product in coll.products %}
-                {% if tag == blank or product.tags contains tag %}
-                  {% if shown < pool %}
-                    {% render 'upaasak-product-card', product: product %}
-                    {%- assign shown = shown | plus: 1 -%}
-                  {% endif %}
-                {% endif %}
-              {% endfor %}
+              {{ cards }}
             </div>
             <button type="button" class="u-scroller__arrow u-scroller__arrow--next" data-scroll-next aria-label="Next">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
@@ -74,7 +73,7 @@
             </div>
           {% endif %}
         {% else %}
-          <p style="text-align:center;color:var(--u-muted);padding:30px 0">No products found for “{{ block.settings.label }}”. Set a matching tag (or leave empty for All) in the theme editor.</p>
+          <p style="text-align:center;color:var(--u-muted);padding:30px 0">No products found for “{{ block.settings.label }}”. Add tag(s) (comma-separated) or set the Default products collection in the theme editor.</p>
         {% endif %}
       </div>
     {% endfor %}
@@ -100,7 +99,7 @@
       "name": "Purpose filter",
       "settings": [
         { "type": "text", "id": "label", "label": "Filter label", "default": "All" },
-        { "type": "text", "id": "tag", "label": "Filter by tag", "info": "Shows products with this tag (e.g. Protection, Lord Murugan). Leave empty to show ALL products." },
+        { "type": "text", "id": "tag", "label": "Filter by tag(s)", "info": "Comma-separate to match ANY (e.g. Protection, Confidence, Wealth). Leave empty to show all products from the source collection." },
         { "type": "collection", "id": "collection", "label": "Product source collection", "info": "Optional. Defaults to all products. Tag filter is applied within this." }
       ]
     }
