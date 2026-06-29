@@ -156,8 +156,8 @@
         "b3": {
           "type": "purpose",
           "settings": {
-            "label": "Protection",
-            "tag": "",
+            "label": "Confidence",
+            "tag": "Confidence",
             "collection": ""
           }
         },
