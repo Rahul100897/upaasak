@@ -97,39 +97,12 @@
             "icon": "mantra"
           }
         },
-        "b6": {
+        "cat_fDaGFf": {
           "type": "cat",
-          "disabled": true,
           "settings": {
-            "label": "Stones",
-            "link": "shopify://collections/stones",
+            "label": "Gemstones",
+            "link": "shopify://collections/mala",
             "icon": "gem"
-          }
-        },
-        "b7": {
-          "type": "cat",
-          "disabled": true,
-          "settings": {
-            "label": "Idols",
-            "link": "shopify://collections/idols",
-            "icon": "deity"
-          }
-        },
-        "b8": {
-          "type": "cat",
-          "settings": {
-            "label": "Gifting",
-            "link": "shopify://collections/gifting",
-            "icon": "gift"
-          }
-        },
-        "b9": {
-          "type": "cat",
-          "disabled": true,
-          "settings": {
-            "label": "Free PDFs",
-            "link": "",
-            "icon": "certificate"
           }
         },
         "cat_czwUaa": {
@@ -147,6 +120,14 @@
             "link": "",
             "icon": "pooja"
           }
+        },
+        "b8": {
+          "type": "cat",
+          "settings": {
+            "label": "Gifting",
+            "link": "shopify://collections/gifting",
+            "icon": "gift"
+          }
         }
       },
       "block_order": [
@@ -155,12 +136,10 @@
         "b3",
         "b4",
         "b5",
-        "b6",
-        "b7",
-        "b8",
-        "b9",
+        "cat_fDaGFf",
         "cat_czwUaa",
-        "cat_a8pVdQ"
+        "cat_a8pVdQ",
+        "b8"
       ],
       "settings": {}
     }
