@@ -94,6 +94,51 @@
         "interval": 6
       }
     },
+    "upaasak_collection_slider_FLwqJJ": {
+      "type": "upaasak-collection-slider",
+      "blocks": {
+        "collection_7iMVyg": {
+          "type": "collection",
+          "settings": {
+            "collection": "best-seller",
+            "title": ""
+          }
+        },
+        "collection_exd6kc": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        },
+        "collection_hTrmQV": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        },
+        "collection_BmqM7d": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_7iMVyg",
+        "collection_exd6kc",
+        "collection_hTrmQV",
+        "collection_BmqM7d"
+      ],
+      "name": "Shop by Collection",
+      "settings": {
+        "eyebrow": "Explore",
+        "heading": "Shop by Collection",
+        "subheading": "Curated categories for every intention and ritual."
+      }
+    },
     "u_trustbar": {
       "type": "upaasak-trust-bar",
       "blocks": {
@@ -277,53 +322,12 @@
     },
     "u_best": {
       "type": "upaasak-best-seller",
-      "blocks": {
-        "b1": {
-          "type": "category",
-          "settings": {
-            "label": "Rudraksha",
-            "collection": ""
-          }
-        },
-        "b2": {
-          "type": "category",
-          "settings": {
-            "label": "Bracelets",
-            "collection": ""
-          }
-        },
-        "b3": {
-          "type": "category",
-          "settings": {
-            "label": "Mala",
-            "collection": ""
-          }
-        },
-        "b4": {
-          "type": "category",
-          "settings": {
-            "label": "Stones",
-            "collection": ""
-          }
-        },
-        "b5": {
-          "type": "category",
-          "settings": {
-            "label": "Gifting",
-            "collection": ""
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3",
-        "b4",
-        "b5"
-      ],
       "settings": {
         "eyebrow": "Most Loved",
         "heading": "Our Best Sellers",
+        "collection": "",
+        "count": 4,
+        "show_view_all": true,
         "view_all_label": "View All"
       }
     },
@@ -391,51 +395,6 @@
         "eyebrow": "Customer Reviews",
         "heading": "Trusted by families, seekers & devotees",
         "subheading": "Real people. Real experiences. Every word unedited."
-      }
-    },
-    "upaasak_collection_slider_FLwqJJ": {
-      "type": "upaasak-collection-slider",
-      "blocks": {
-        "collection_7iMVyg": {
-          "type": "collection",
-          "settings": {
-            "collection": "best-seller",
-            "title": ""
-          }
-        },
-        "collection_exd6kc": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": ""
-          }
-        },
-        "collection_hTrmQV": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": ""
-          }
-        },
-        "collection_BmqM7d": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_7iMVyg",
-        "collection_exd6kc",
-        "collection_hTrmQV",
-        "collection_BmqM7d"
-      ],
-      "name": "Shop by Collection",
-      "settings": {
-        "eyebrow": "Explore",
-        "heading": "Shop by Collection",
-        "subheading": "Curated categories for every intention and ritual."
       }
     },
     "u_sitemap": {
@@ -528,12 +487,12 @@
   "order": [
     "u_slides",
     "u_trustbar",
+    "upaasak_collection_slider_FLwqJJ",
     "u_shop_purpose",
     "u_why",
     "upaasak_fullwidth_image_Dwmc3G",
     "u_best",
     "u_reviews_x",
-    "upaasak_collection_slider_FLwqJJ",
     "u_sitemap"
   ]
 }
