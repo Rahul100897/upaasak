@@ -141,7 +141,7 @@
           "type": "purpose",
           "settings": {
             "label": "All",
-            "tag": "all",
+            "tag": "Filter by tag",
             "collection": ""
           }
         },
@@ -207,6 +207,7 @@
         "eyebrow": "Find Your Path",
         "heading": "Shop by Purpose",
         "count": 8,
+        "randomize": false,
         "show_view_all": true,
         "view_all_label": "View All"
       }
