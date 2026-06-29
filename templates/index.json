@@ -245,6 +245,7 @@
         "b3",
         "b4"
       ],
+      "disabled": true,
       "custom_css": [
         ".u-why__banner {display: none;}"
       ],
