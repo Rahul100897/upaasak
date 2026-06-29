@@ -235,12 +235,61 @@
         "b3",
         "b4"
       ],
+      "disabled": true,
       "settings": {
         "eyebrow": "Spiritual Significance",
         "heading": "The Sacred Meaning of This Bead",
         "body": "<p>Each Mukhi (face) of a Rudraksha carries its own ruling deity, planet and blessing. Worn close to the skin, it is believed to balance the chakras, steady the mind and invite the grace it represents into your life.</p>",
         "mantra_label": "Beej Mantra",
         "mantra": "॥ ॐ ह्रीं नमः ॥"
+      }
+    },
+    "u_why": {
+      "type": "upaasak-product-why",
+      "blocks": {
+        "p1": {
+          "type": "point",
+          "settings": {
+            "text": "Verified sourcing"
+          }
+        },
+        "p2": {
+          "type": "point",
+          "settings": {
+            "text": "Lab Tested"
+          }
+        },
+        "p3": {
+          "type": "point",
+          "settings": {
+            "text": "Authenticity QR"
+          }
+        },
+        "p4": {
+          "type": "point",
+          "settings": {
+            "text": "Premium Gift-Ready Packaging"
+          }
+        },
+        "p5": {
+          "type": "point",
+          "settings": {
+            "text": "Quality Checked Before Dispatch"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ],
+      "settings": {
+        "media_position": "right",
+        "eyebrow": "Why Choose UPAASAK?",
+        "heading": "The Upaasak Difference",
+        "body": ""
       }
     },
     "u_care": {
@@ -477,53 +526,6 @@
         "heading": "Questions About Upaasak",
         "open_first": true,
         "show_collection_faq": true
-      }
-    },
-    "u_why": {
-      "type": "upaasak-product-why",
-      "blocks": {
-        "p1": {
-          "type": "point",
-          "settings": {
-            "text": "Verified sourcing"
-          }
-        },
-        "p2": {
-          "type": "point",
-          "settings": {
-            "text": "Lab Tested"
-          }
-        },
-        "p3": {
-          "type": "point",
-          "settings": {
-            "text": "Authenticity QR"
-          }
-        },
-        "p4": {
-          "type": "point",
-          "settings": {
-            "text": "Premium Gift-Ready Packaging"
-          }
-        },
-        "p5": {
-          "type": "point",
-          "settings": {
-            "text": "Quality Checked Before Dispatch"
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p4",
-        "p5"
-      ],
-      "settings": {
-        "media_position": "right",
-        "eyebrow": "Why Choose UPAASAK?",
-        "heading": "The Upaasak Difference"
       }
     }
   },
