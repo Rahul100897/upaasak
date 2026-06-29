@@ -94,51 +94,6 @@
         "interval": 6
       }
     },
-    "upaasak_collection_slider_FLwqJJ": {
-      "type": "upaasak-collection-slider",
-      "blocks": {
-        "collection_7iMVyg": {
-          "type": "collection",
-          "settings": {
-            "collection": "best-seller",
-            "title": ""
-          }
-        },
-        "collection_exd6kc": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": ""
-          }
-        },
-        "collection_hTrmQV": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": ""
-          }
-        },
-        "collection_BmqM7d": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_7iMVyg",
-        "collection_exd6kc",
-        "collection_hTrmQV",
-        "collection_BmqM7d"
-      ],
-      "name": "Shop by Collection",
-      "settings": {
-        "eyebrow": "Explore",
-        "heading": "Shop by Collection",
-        "subheading": "Curated categories for every intention and ritual."
-      }
-    },
     "u_trustbar": {
       "type": "upaasak-trust-bar",
       "blocks": {
@@ -178,6 +133,75 @@
         "b4"
       ],
       "settings": {}
+    },
+    "upaasak_collection_slider_FLwqJJ": {
+      "type": "upaasak-collection-slider",
+      "blocks": {
+        "collection_7iMVyg": {
+          "type": "collection",
+          "settings": {
+            "collection": "karungali",
+            "title": ""
+          }
+        },
+        "collection_exd6kc": {
+          "type": "collection",
+          "settings": {
+            "collection": "spiritual-bracelets",
+            "title": ""
+          }
+        },
+        "collection_hTrmQV": {
+          "type": "collection",
+          "settings": {
+            "collection": "rudraksha",
+            "title": ""
+          }
+        },
+        "collection_BmqM7d": {
+          "type": "collection",
+          "settings": {
+            "collection": "mala",
+            "title": ""
+          }
+        },
+        "collection_QaPgfC": {
+          "type": "collection",
+          "settings": {
+            "collection": "gemstones",
+            "title": ""
+          }
+        },
+        "collection_UAnnWg": {
+          "type": "collection",
+          "settings": {
+            "collection": "gifting",
+            "title": ""
+          }
+        },
+        "collection_YDnJVA": {
+          "type": "collection",
+          "settings": {
+            "collection": "pooja-kits",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_7iMVyg",
+        "collection_exd6kc",
+        "collection_hTrmQV",
+        "collection_BmqM7d",
+        "collection_QaPgfC",
+        "collection_UAnnWg",
+        "collection_YDnJVA"
+      ],
+      "name": "Shop by Collection",
+      "settings": {
+        "eyebrow": "Explore",
+        "heading": "Shop by Collection",
+        "subheading": "Curated categories for every intention and ritual."
+      }
     },
     "u_shop_purpose": {
       "type": "upaasak-shop-by-purpose",
