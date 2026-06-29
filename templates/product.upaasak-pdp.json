@@ -29,7 +29,7 @@
           "type": "price",
           "settings": {
             "show_discount": true,
-            "tax_note": "Inclusive of all taxes"
+            "tax_note": ""
           }
         },
         "chips": {
