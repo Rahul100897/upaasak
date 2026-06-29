@@ -108,8 +108,8 @@
         "cat_HngTQa": {
           "type": "cat",
           "settings": {
-            "label": "Shop All",
-            "link": "shopify://collections/gemstones",
+            "label": "Gifting",
+            "link": "shopify://collections/gifting",
             "icon": "bead"
           }
         },
