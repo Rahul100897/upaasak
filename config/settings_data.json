@@ -79,7 +79,44 @@
     "variant_button_border_width": 1,
     "variant_button_radius": 14,
     "variant_button_width": "equal-width-buttons",
+    "sections": {
+      "upaasak-cart-drawer": {
+        "type": "upaasak-cart-drawer",
+        "settings": {
+          "title": "Your cart",
+          "checkout_label": "Checkout",
+          "continue_label": "Continue Shopping",
+          "show_free_ship": true,
+          "free_ship_threshold": 999,
+          "show_delivery": true,
+          "delivery_days": 7,
+          "show_savings": true,
+          "returns_text": "30-Day Returns Guarantee.",
+          "returns_link_text": "See Return Info",
+          "returns_link": "",
+          "show_payments": true,
+          "payment_methods": "visa,mastercard,upi,rupay,paypal",
+          "empty_title": "Your cart is empty",
+          "empty_text": "Discover our sacred Rudraksha, malas and bracelets — energized and ready to bless.",
+          "empty_cta": "Continue Shopping"
+        }
+      }
+    },
     "content_for_index": [],
+    "blocks": {
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      },
+      "13047258039897440615": {
+        "type": "shopify://apps/judge-me-reviews/blocks/cart_drawer_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {
+          "widget_type": "review-widget"
+        }
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
