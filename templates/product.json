@@ -475,7 +475,7 @@
       "settings": {
         "eyebrow": "Good to Know",
         "heading": "Questions About Upaasak",
-        "open_first": false,
+        "open_first": true,
         "show_collection_faq": true
       }
     }
