@@ -164,8 +164,8 @@
         "b4": {
           "type": "purpose",
           "settings": {
-            "label": "Prosperity",
-            "tag": "",
+            "label": "Wealth",
+            "tag": "Wealth",
             "collection": ""
           }
         },
