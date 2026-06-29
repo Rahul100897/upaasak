@@ -1419,3 +1419,18 @@ a.u-contact__value:hover { color: var(--u-maroon); }
 .u-pdp__acc .u-acc__rte p:last-child { margin-bottom: 0; }
 .u-pdp__acc .u-acc__rte ul, .u-pdp__acc .u-acc__rte ol { margin: 0 0 8px; padding-left: 18px; }
 .u-pdp__acc .u-acc__rte li { line-height: 1.55; margin-bottom: 4px; }
+
+/* ============================================================================
+   v10 — SCROLLER ARROWS (Shop by Purpose rows + Reviews scroll)
+   ========================================================================== */
+.u-scroller { position: relative; }
+.u-scroller [data-scroll] { scroll-behavior: smooth; }
+.u-scroller__arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 4; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--u-gold-line); background: #fff; color: var(--u-maroon); display: grid; place-items: center; cursor: pointer; box-shadow: var(--u-shadow); transition: background .3s var(--u-ease), color .3s var(--u-ease), opacity .3s var(--u-ease); }
+.u-scroller__arrow:hover { background: var(--u-maroon); color: #fff; }
+.u-scroller__arrow svg { width: 20px; height: 20px; }
+.u-scroller__arrow--prev { left: -10px; }
+.u-scroller__arrow--next { right: -10px; }
+.u-scroller__arrow.is-disabled { opacity: 0; pointer-events: none; }
+@media (max-width: 680px) {
+  .u-scroller__arrow { display: none; }
+}

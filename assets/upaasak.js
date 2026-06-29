@@ -506,7 +506,36 @@
     } catch (e) {}
   }
 
+  function initScrollers(root) {
+    (root || document).querySelectorAll('[data-scroller]:not([data-scroller-bound])').forEach(function (s) {
+      s.setAttribute('data-scroller-bound', '1');
+      var track = s.querySelector('[data-scroll]');
+      var prev = s.querySelector('[data-scroll-prev]');
+      var next = s.querySelector('[data-scroll-next]');
+      if (!track) return;
+      function page() {
+        var card = track.firstElementChild;
+        var cw = card ? card.getBoundingClientRect().width + 20 : 300;
+        var per = Math.max(1, Math.floor(track.clientWidth / cw));
+        return cw * per;
+      }
+      function upd() {
+        if (!prev && !next) return;
+        var max = track.scrollWidth - track.clientWidth - 2;
+        var noScroll = track.scrollWidth <= track.clientWidth + 4;
+        if (prev) prev.classList.toggle('is-disabled', noScroll || track.scrollLeft <= 2);
+        if (next) next.classList.toggle('is-disabled', noScroll || track.scrollLeft >= max);
+      }
+      if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -page(), behavior: 'smooth' }); });
+      if (next) next.addEventListener('click', function () { track.scrollBy({ left: page(), behavior: 'smooth' }); });
+      track.addEventListener('scroll', upd, { passive: true });
+      window.addEventListener('resize', upd);
+      upd();
+    });
+  }
+
   function initAll(root) {
+    initScrollers(root);
     initContact(root);
     initReveal(root);
     initCountUp(root);

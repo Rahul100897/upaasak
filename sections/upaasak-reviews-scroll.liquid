@@ -9,23 +9,31 @@
     </div>
   </div>
   <div class="u-wrap">
-    <div class="u-revx__scroll" data-reveal>
-      {% for block in section.blocks %}
-        <article class="u-revx__card" {{ block.shopify_attributes }}>
-          <div class="u-rating" aria-label="5 star">{% for i in (1..5) %}<svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg>{% endfor %}</div>
-          <p class="u-revx__quote">{{ block.settings.quote }}</p>
-          <div class="u-revx__who">
-            <span class="u-revx__av">{{ block.settings.name | slice: 0 }}</span>
-            <div>
-              <div class="u-revx__name">{{ block.settings.name }}</div>
-              <div class="u-revx__meta">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.2-7-10.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 7 4.5C19 15.8 12 21 12 21Z"/></svg>
-                {{ block.settings.meta }}
+    <div class="u-scroller" data-scroller data-reveal>
+      <button type="button" class="u-scroller__arrow u-scroller__arrow--prev" data-scroll-prev aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <div class="u-revx__scroll" data-scroll>
+        {% for block in section.blocks %}
+          <article class="u-revx__card" {{ block.shopify_attributes }}>
+            <div class="u-rating" aria-label="5 star">{% for i in (1..5) %}<svg viewBox="0 0 24 24"><path d="M12 2.5 14.8 9 22 9.6l-5.5 4.7L18.2 22 12 18l-6.2 4 1.7-7.7L2 9.6 9.2 9 12 2.5Z"/></svg>{% endfor %}</div>
+            <p class="u-revx__quote">{{ block.settings.quote }}</p>
+            <div class="u-revx__who">
+              <span class="u-revx__av">{{ block.settings.name | slice: 0 }}</span>
+              <div>
+                <div class="u-revx__name">{{ block.settings.name }}</div>
+                <div class="u-revx__meta">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.2-7-10.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 7 4.5C19 15.8 12 21 12 21Z"/></svg>
+                  {{ block.settings.meta }}
+                </div>
               </div>
             </div>
-          </div>
-        </article>
-      {% endfor %}
+          </article>
+        {% endfor %}
+      </div>
+      <button type="button" class="u-scroller__arrow u-scroller__arrow--next" data-scroll-next aria-label="Next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
     </div>
   </div>
 </section>
