@@ -393,6 +393,51 @@
         "subheading": "Real people. Real experiences. Every word unedited."
       }
     },
+    "upaasak_collection_slider_FLwqJJ": {
+      "type": "upaasak-collection-slider",
+      "blocks": {
+        "collection_7iMVyg": {
+          "type": "collection",
+          "settings": {
+            "collection": "best-seller",
+            "title": ""
+          }
+        },
+        "collection_exd6kc": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        },
+        "collection_hTrmQV": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        },
+        "collection_BmqM7d": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_7iMVyg",
+        "collection_exd6kc",
+        "collection_hTrmQV",
+        "collection_BmqM7d"
+      ],
+      "name": "Shop by Collection",
+      "settings": {
+        "eyebrow": "Explore",
+        "heading": "Shop by Collection",
+        "subheading": "Curated categories for every intention and ritual."
+      }
+    },
     "u_sitemap": {
       "type": "upaasak-sitemap-footer",
       "blocks": {
@@ -488,6 +533,7 @@
     "upaasak_fullwidth_image_Dwmc3G",
     "u_best",
     "u_reviews_x",
+    "upaasak_collection_slider_FLwqJJ",
     "u_sitemap"
   ]
 }
