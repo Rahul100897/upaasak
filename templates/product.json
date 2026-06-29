@@ -478,12 +478,60 @@
         "open_first": true,
         "show_collection_faq": true
       }
+    },
+    "u_why": {
+      "type": "upaasak-product-why",
+      "blocks": {
+        "p1": {
+          "type": "point",
+          "settings": {
+            "text": "Verified sourcing"
+          }
+        },
+        "p2": {
+          "type": "point",
+          "settings": {
+            "text": "Lab Tested"
+          }
+        },
+        "p3": {
+          "type": "point",
+          "settings": {
+            "text": "Authenticity QR"
+          }
+        },
+        "p4": {
+          "type": "point",
+          "settings": {
+            "text": "Premium Gift-Ready Packaging"
+          }
+        },
+        "p5": {
+          "type": "point",
+          "settings": {
+            "text": "Quality Checked Before Dispatch"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ],
+      "settings": {
+        "media_position": "right",
+        "eyebrow": "Why Choose UPAASAK?",
+        "heading": "The Upaasak Difference"
+      }
     }
   },
   "order": [
     "u_info",
     "u_phl",
     "u_sig",
+    "u_why",
     "u_care",
     "u_recs",
     "u_grnt",

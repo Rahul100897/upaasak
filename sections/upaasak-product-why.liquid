@@ -1,0 +1,72 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-sig u-whyx" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    <div class="u-sig__grid{% if section.settings.media_position == 'right' %} u-whyx--rev{% endif %}">
+      <div class="u-sig__media" data-reveal="left">
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.heading | escape }}" loading="lazy" width="800" height="800">
+        {% elsif product != blank and product.featured_image != blank %}
+          <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}" loading="lazy" width="800" height="800">
+        {% else %}
+          <div style="position:absolute;inset:0;display:grid;place-items:center;color:var(--u-maroon);font-family:var(--u-font-display);font-size:7rem;opacity:.5;">ॐ</div>
+        {% endif %}
+      </div>
+
+      <div class="u-sig__content" data-reveal="right">
+        {% if section.settings.eyebrow != blank %}<span class="u-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+        <h2 class="u-title">{{ section.settings.heading }}</h2>
+        {% if section.settings.body != blank %}<div class="u-lead">{{ section.settings.body }}</div>{% endif %}
+
+        {% if section.blocks.size > 0 %}
+          <ul class="u-whyx__list">
+            {% for block in section.blocks %}
+              <li {{ block.shopify_attributes }}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="m8.3 12 2.5 2.5 4.9-5.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>{{ block.settings.text }}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Why Choose UPAASAK",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image (defaults to product image)" },
+    {
+      "type": "select", "id": "media_position", "label": "Image position", "default": "left",
+      "options": [ { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ]
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why Choose UPAASAK?" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The Upaasak Difference" },
+    { "type": "richtext", "id": "body", "label": "Body" }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Point",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Verified sourcing" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Choose UPAASAK",
+      "blocks": [
+        { "type": "point", "settings": { "text": "Verified sourcing" } },
+        { "type": "point", "settings": { "text": "Lab Tested" } },
+        { "type": "point", "settings": { "text": "Authenticity QR" } },
+        { "type": "point", "settings": { "text": "Premium Gift-Ready Packaging" } },
+        { "type": "point", "settings": { "text": "Quality Checked Before Dispatch" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
