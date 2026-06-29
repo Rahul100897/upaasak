@@ -282,6 +282,86 @@
         "view_all_label": "View All"
       }
     },
+    "upaasak_shop_by_purpose_qViYEi": {
+      "type": "upaasak-shop-by-purpose",
+      "blocks": {
+        "purpose_aEGTGk": {
+          "type": "purpose",
+          "settings": {
+            "label": "All",
+            "tag": "Protection, Confidence, Wealth, Luck, Peace",
+            "collection": ""
+          }
+        },
+        "purpose_bV4Abz": {
+          "type": "purpose",
+          "settings": {
+            "label": "Protection",
+            "tag": "Protection",
+            "collection": ""
+          }
+        },
+        "purpose_RGtfyQ": {
+          "type": "purpose",
+          "settings": {
+            "label": "Confidence",
+            "tag": "Confidence",
+            "collection": ""
+          }
+        },
+        "purpose_cwfmLk": {
+          "type": "purpose",
+          "settings": {
+            "label": "Wealth",
+            "tag": "Wealth",
+            "collection": ""
+          }
+        },
+        "purpose_RJqLCK": {
+          "type": "purpose",
+          "settings": {
+            "label": "Confidence",
+            "tag": "Confidence",
+            "collection": ""
+          }
+        },
+        "purpose_YxkwLg": {
+          "type": "purpose",
+          "settings": {
+            "label": "Luck",
+            "tag": "Luck",
+            "collection": ""
+          }
+        },
+        "purpose_bNQyWh": {
+          "type": "purpose",
+          "settings": {
+            "label": "Peace",
+            "tag": "Peace",
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "purpose_aEGTGk",
+        "purpose_bV4Abz",
+        "purpose_RGtfyQ",
+        "purpose_cwfmLk",
+        "purpose_RJqLCK",
+        "purpose_YxkwLg",
+        "purpose_bNQyWh"
+      ],
+      "name": "Upaasak Shop by Deity",
+      "settings": {
+        "eyebrow": "Find Your Path",
+        "heading": "Shop by Deity",
+        "source_collection": "",
+        "count": 8,
+        "randomize": true,
+        "show_view_all": false,
+        "view_all_label": "View All"
+      }
+    },
     "u_why": {
       "type": "upaasak-why-choose-us",
       "blocks": {
@@ -513,6 +593,7 @@
     "u_trustbar",
     "upaasak_collection_slider_FLwqJJ",
     "u_shop_purpose",
+    "upaasak_shop_by_purpose_qViYEi",
     "u_why",
     "upaasak_fullwidth_image_Dwmc3G",
     "u_best",
