@@ -124,6 +124,8 @@
 }
 @keyframes u-shimmer { to { background-position: 220% center; } }
 
+.shopify-policy__container { max-width: 800px;margin-top: 40px; margin-bottom: 40px; }
+
 /* ----- Buttons ----- */
 .u-btn {
   --pad-y: 15px; --pad-x: 34px;
