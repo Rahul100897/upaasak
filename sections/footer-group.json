@@ -35,7 +35,7 @@
           "settings": {
             "title": "Policies",
             "l1": "Terms & Conditions",
-            "u1": "",
+            "u1": "shopify://policies/terms-of-service",
             "l2": "Privacy Policy",
             "u2": "shopify://policies/privacy-policy",
             "l3": "Shipping Policy",
