@@ -1473,5 +1473,6 @@ a.u-contact__value:hover { color: var(--u-maroon); }
 /* ============================================================================
    v12 — FAQ PAGE (categories + accordion)
    ========================================================================== */
-.u-faqpage__cat { font-family: var(--u-font-display); font-size: clamp(1.15rem, 2.2vw, 1.45rem); font-weight: 600; color: var(--u-maroon); margin: 24px 8px 2px; padding-top: 20px; border-top: 1px solid var(--u-line); }
-.u-faqpage .u-faq__list > .u-faqpage__cat:first-child { margin-top: 0; padding-top: 6px; border-top: 0; }
+.u-faqpage .u-faq__list { padding-top: 12px; }
+.u-faqpage__cat { font-family: var(--u-font-display); font-size: clamp(1.15rem, 2.2vw, 1.45rem); font-weight: 600; color: var(--u-maroon); margin: 24px 8px 2px; padding-top: 22px; border-top: 1px solid var(--u-line); }
+.u-faqpage .u-faq__list > .u-faqpage__cat:first-child { margin-top: 0; padding-top: 18px; border-top: 0; }
