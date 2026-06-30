@@ -1,0 +1,253 @@
+{
+  "sections": {
+    "main": {
+      "type": "upaasak-faq-page",
+      "blocks": {
+        "b1": {
+          "type": "category",
+          "settings": {
+            "title": "General Questions"
+          }
+        },
+        "b2": {
+          "type": "faq",
+          "settings": {
+            "question": "What is UPAASAK?",
+            "answer": "<p>UPAASAK is a Sanatan Dharma rooted spiritual brand offering authentic, energised, and blessed spiritual products including Karungali, Rudraksha, Spiritual Bracelets, Mala, Healing Stones, and Gifting collections. All products are sourced from verified manufacturers and tested for authenticity.</p>"
+          }
+        },
+        "b3": {
+          "type": "faq",
+          "settings": {
+            "question": "Are your products authentic?",
+            "answer": "<p>Yes. All UPAASAK products are sourced from verified manufacturers and are lab certified for authenticity. For most products we use the OSOC (One Sample One Certificate) method, and Batch Certification for select products. We do not sell imitation or synthetic products.</p>"
+          }
+        },
+        "b4": {
+          "type": "faq",
+          "settings": {
+            "question": "Are your products energised and blessed?",
+            "answer": "<p>Yes. All products dispatched by UPAASAK are energised and blessed before shipping, ensuring that you receive a spiritually charged product ready to wear.</p>"
+          }
+        },
+        "b5": {
+          "type": "faq",
+          "settings": {
+            "question": "Where are your products sourced from?",
+            "answer": "<p>Our products are sourced directly from verified manufacturers and trusted artisans. Each product undergoes quality checks and authenticity testing before being made available for sale.</p>"
+          }
+        },
+        "b6": {
+          "type": "category",
+          "settings": {
+            "title": "Karungali Related FAQs"
+          }
+        },
+        "b7": {
+          "type": "faq",
+          "settings": {
+            "question": "What is Karungali wood and why is it considered sacred?",
+            "answer": "<p>Karungali, also known as Ebony wood (Diospyros melanoxylon), is considered one of the most sacred woods in Sanatan Dharma. It is believed to have powerful protective and spiritual properties, and is used in malas, bracelets, and spiritual accessories for centuries.</p>"
+          }
+        },
+        "b8": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I know the Karungali product I receive is genuine?",
+            "answer": "<p>All UPAASAK Karungali products are lab-certified using OSOC method. Each product comes with a batch certificate card and QR code linking to the lab report.</p>"
+          }
+        },
+        "b9": {
+          "type": "faq",
+          "settings": {
+            "question": "Can both men and women wear Karungali products?",
+            "answer": "<p>Yes. Karungali products are suitable for both men and women. There are no gender-based restrictions in wearing Karungali malas or bracelets.</p>"
+          }
+        },
+        "b10": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I care for my Karungali bracelet or mala?",
+            "answer": "<p>Keep Karungali products away from water and moisture. Do not use chemical cleaners. Wipe gently with a dry soft cloth. Store in a clean, dry place when not in use.</p>"
+          }
+        },
+        "b11": {
+          "type": "category",
+          "settings": {
+            "title": "Rudraksha Related FAQs"
+          }
+        },
+        "b12": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the significance of Rudraksha beads in Hinduism?",
+            "answer": "<p>Rudraksha beads are sacred seeds associated with Lord Shiva. They are believed to carry divine energy and are worn for spiritual protection, mental peace, and overall well-being. The number of faces (mukhis) on a Rudraksha determines its specific benefit.</p>"
+          }
+        },
+        "b13": {
+          "type": "faq",
+          "settings": {
+            "question": "How can I be sure the Rudraksha I purchase is genuine?",
+            "answer": "<p>All UPAASAK Rudraksha products are lab-certified using OSOC method. Each product comes with a batch certificate card and QR code linking to the lab report.</p>"
+          }
+        },
+        "b14": {
+          "type": "faq",
+          "settings": {
+            "question": "How should I care for my Rudraksha beads?",
+            "answer": "<p>Apply a small amount of sesame oil or coconut oil periodically to keep the bead moisturised. Avoid soap and chemical contact. Remove before swimming or bathing. Store in a clean cloth pouch when not worn.</p>"
+          }
+        },
+        "b15": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I energize my Rudraksha before first wear?",
+            "answer": "<p>Your UPAASAK Rudraksha is pre-energized before dispatch. To deepen personal connection, additionally chant Gayatri Mantra 11 times on the recommended auspicious day before wearing.</p>"
+          }
+        },
+        "b16": {
+          "type": "category",
+          "settings": {
+            "title": "Spiritual Bracelets Related FAQs"
+          }
+        },
+        "b17": {
+          "type": "faq",
+          "settings": {
+            "question": "What stones are used in UPAASAK spiritual bracelets?",
+            "answer": "<p>Our spiritual bracelets are made using authentic natural stones including Amethyst, Tiger Eye, Rose Quartz, Pyrite, Citrine, and 7 Chakra crystals among others. All stones are OSOC lab certified for authenticity.</p>"
+          }
+        },
+        "b18": {
+          "type": "faq",
+          "settings": {
+            "question": "What are the benefits of wearing crystal bracelets?",
+            "answer": "<p>Crystal bracelets are associated with various energetic and spiritual benefits based on traditional belief systems. For example, Amethyst is associated with peace and clarity, Rose Quartz with love and healing, and Pyrite with prosperity and confidence. These are belief-based associations and not medical claims.</p>"
+          }
+        },
+        "b19": {
+          "type": "faq",
+          "settings": {
+            "question": "Which wrist should I wear my bracelet on?",
+            "answer": "<p>Generally, the left hand is considered the receiving hand and is recommended for wearing crystal bracelets meant for absorbing energy. The right hand is considered the giving hand. However, you may wear it on whichever wrist feels comfortable.</p>"
+          }
+        },
+        "b20": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I cleanse and charge my crystal bracelet?",
+            "answer": "<p>You can cleanse your crystal bracelet by placing it in moonlight overnight or by smudging with incense smoke for 2-3 minutes. Avoid soaking in water as it may damage the elastic cord or certain stones.</p>"
+          }
+        },
+        "b21": {
+          "type": "category",
+          "settings": {
+            "title": "Mala Related FAQs"
+          }
+        },
+        "b22": {
+          "type": "faq",
+          "settings": {
+            "question": "How many beads does a standard mala have and why?",
+            "answer": "<p>A standard japa mala has 108 beads plus one Sumeru bead (also called the Guru bead). The number 108 holds deep significance in Sanatan Dharma and is connected to astronomical, mathematical, and spiritual principles. The Sumeru bead marks the beginning and end of a japa cycle.</p>"
+          }
+        },
+        "b23": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I use a mala for japa?",
+            "answer": "<p>Hold the mala in your right hand, with the beads resting on your middle finger. Use your thumb to pull each bead towards you as you chant your mantra. Do not cross the Sumeru bead; instead, reverse direction to begin another round.</p>"
+          }
+        },
+        "b24": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I wear a mala as jewellery?",
+            "answer": "<p>Yes, malas can be worn as jewellery. However, malas used for japa are ideally kept separate and treated with reverence. If you wish to wear a mala as an accessory, consider keeping a separate one for japa practice.</p>"
+          }
+        },
+        "b25": {
+          "type": "category",
+          "settings": {
+            "title": "Shipping & Orders FAQs"
+          }
+        },
+        "b26": {
+          "type": "faq",
+          "settings": {
+            "question": "How long will my order take to deliver?",
+            "answer": "<p>Order processing takes 2-3 working days. Shipping takes 3-4 days depending on your delivery pincode. We ship 90% of orders within 24 hours and all verified orders within 48 hours. We do not ship on Sundays.</p>"
+          }
+        },
+        "b27": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you offer Cash on Delivery (COD)?",
+            "answer": "<p>Yes. We offer COD across India. COD orders are verified for authenticity — if we have any doubts about the address or phone number, we will call to confirm. Only verified phone and verified address orders will be shipped.</p>"
+          }
+        },
+        "b28": {
+          "type": "faq",
+          "settings": {
+            "question": "Is there a minimum order value for free shipping?",
+            "answer": "<p>No minimum order value required. We offer FREE shipping on all orders across India — prepaid and COD both.</p>"
+          }
+        },
+        "b29": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you ship internationally?",
+            "answer": "<p>Yes, we do ship internationally. For international shipping queries, please contact us at support@upaasak.com or call +91-94609-40868.</p>"
+          }
+        },
+        "b30": {
+          "type": "faq",
+          "settings": {
+            "question": "How can I track my order?",
+            "answer": "<p>Once your order is dispatched, you will receive a tracking link via Email. You can also track your order through the Track Your Order section on our website at www.upaasak.com.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8",
+        "b9",
+        "b10",
+        "b11",
+        "b12",
+        "b13",
+        "b14",
+        "b15",
+        "b16",
+        "b17",
+        "b18",
+        "b19",
+        "b20",
+        "b21",
+        "b22",
+        "b23",
+        "b24",
+        "b25",
+        "b26",
+        "b27",
+        "b28",
+        "b29",
+        "b30"
+      ],
+      "settings": {
+        "eyebrow": "Help Centre",
+        "heading": "Frequently Asked Questions",
+        "subheading": "Everything you need to know about our sacred products, orders and care."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
