@@ -2755,14 +2755,7 @@ form.payment-terms {
 .shopify-policy__container {
   padding-block: var(--padding-xl);
 }
-.shopify-policy__container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
+
 .checkbox {
   --checkbox-top: 50%;
   --checkbox-left: 1.5px;
