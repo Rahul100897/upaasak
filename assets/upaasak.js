@@ -331,8 +331,9 @@
     });
   }
 
-  function ajaxAdd(form) {
-    var btn = form.querySelector('[type="submit"]');
+  function ajaxAdd(form, submitter) {
+    var btn = submitter || form.querySelector('[type="submit"]');
+    var buyNow = !!(submitter && submitter.hasAttribute('data-pdp-buynow'));
     var fd = new FormData(form);
     fd.append('sections', CART_SECTION);
     fd.append('sections_url', window.location.pathname);
@@ -341,6 +342,7 @@
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (res) {
         if (!res.ok) { if (btn) { btn.classList.add('is-error'); setTimeout(function () { btn.classList.remove('is-error'); }, 1200); } return; }
+        if (buyNow) { window.location.href = '/checkout'; return; }
         if (res.j.sections) applyCartSections(res.j.sections); else refreshCart();
         openCart();
       })
@@ -377,7 +379,7 @@
       if (action.indexOf('/cart/add') === -1) return;
       if (form.closest('product-form-component')) return; /* let the native theme handle its own forms */
       e.preventDefault();
-      ajaxAdd(form);
+      ajaxAdd(form, e.submitter);
     });
 
     document.addEventListener('click', function (e) {
@@ -544,17 +546,21 @@
       track.addEventListener('pointermove', function (e) {
         if (!dragging) return;
         var dx = e.clientX - startX;
-        if (Math.abs(dx) > 4) moved = true;
+        if (Math.abs(dx) > 6) moved = true;
         track.scrollLeft = startScroll - dx;
       });
-      function stopDrag() {
+      function stopDrag(abandoned) {
         if (!dragging) return;
         dragging = false;
         track.classList.remove('is-dragging');
+        // If the gesture ended without releasing back over the track (pointer left
+        // it, or got cancelled), no click will follow to consume `moved` - clear it
+        // now so it can't leak into the next, unrelated click on this carousel.
+        if (abandoned) moved = false;
       }
-      track.addEventListener('pointerup', stopDrag);
-      track.addEventListener('pointerleave', stopDrag);
-      track.addEventListener('pointercancel', stopDrag);
+      track.addEventListener('pointerup', function () { stopDrag(false); });
+      track.addEventListener('pointerleave', function () { stopDrag(true); });
+      track.addEventListener('pointercancel', function () { stopDrag(true); });
       track.addEventListener('click', function (e) {
         if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
       }, true);

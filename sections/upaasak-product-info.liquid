@@ -151,14 +151,15 @@
                       <button type="button" data-pdp-qplus aria-label="Increase quantity">+</button>
                     </div>
                   {% endif %}
+                  {% if block.settings.show_buy_now and product.available %}
+                    <button type="submit" name="add" class="u-btn u-btn--gold u-pdp__buynow" data-pdp-buynow data-pdp-buynow-btn>
+                      {{ block.settings.buy_now_label }}
+                    </button>
+                  {% endif %}
                   <button type="submit" name="add" class="u-btn u-btn--primary u-pdp__atc" data-pdp-atc data-label="{{ block.settings.atc_label | escape }}"{% unless product.available %} disabled{% endunless %}>
                     {% if product.available %}{{ block.settings.atc_label }}{% else %}Sold Out{% endif %}
                   </button>
                 </div>
-
-                {% if block.settings.show_buy_now %}
-                  <div class="u-pdp__dynamic">{{ form | payment_button }}</div>
-                {% endif %}
               {% endform %}
               {% endif %}
             </div>
@@ -378,7 +379,8 @@
       "settings": [
         { "type": "text", "id": "atc_label", "label": "Add-to-cart label", "default": "Add to Cart" },
         { "type": "checkbox", "id": "show_quantity", "label": "Show quantity selector", "default": true },
-        { "type": "checkbox", "id": "show_buy_now", "label": "Show Buy-it-now button", "default": true }
+        { "type": "checkbox", "id": "show_buy_now", "label": "Show Buy Now button (left of Add to Cart)", "default": true },
+        { "type": "text", "id": "buy_now_label", "label": "Buy Now label", "default": "Buy Now" }
       ]
     },
     {

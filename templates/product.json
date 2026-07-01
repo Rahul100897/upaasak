@@ -49,7 +49,8 @@
           "settings": {
             "atc_label": "Add to Cart",
             "show_quantity": true,
-            "show_buy_now": false
+            "show_buy_now": true,
+            "buy_now_label": "Buy Now"
           }
         },
         "offer": {
