@@ -755,7 +755,8 @@
 .u-pcard__media { position: relative; aspect-ratio: 1; overflow: hidden; background: linear-gradient(160deg, var(--u-sand), var(--u-cream)); display: block; }
 .u-pcard__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--u-ease); }
 .u-pcard:hover .u-pcard__media img { transform: scale(1.06); }
-.u-pcard__disc { align-self: flex-start; background: var(--u-crimson); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 5px 10px; border-radius: 7px; margin-bottom: 12px; }
+.u-pcard__disc { position: absolute; z-index: 2; top: 12px; left: 12px; background: var(--u-green); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 4px 9px; border-radius: 7px; box-shadow: 0 4px 10px rgba(31,157,85,0.3); }
+.u-pcard__disc-m { display: none; }
 .u-pcard__wish { display:none !important; position: absolute; z-index: 2; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.92); display: grid; place-items: center; color: var(--u-maroon); box-shadow: var(--u-shadow-sm); }
 .u-pcard__wish svg { width: 16px; height: 16px; }
 .u-pcard__body { padding: 16px 16px 18px; display: flex; flex-direction: column; flex: 1; }
@@ -764,12 +765,12 @@
 .u-pcard__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
 .u-pcard__tag { font-size: 0.64rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--u-gold-deep); display: inline-flex; align-items: center; gap: 4px; }
 .u-pcard__tag svg { width: 12px; height: 12px; }
-.u-pcard__save { align-self: flex-start; display: inline-flex; align-items: center; gap: 5px; background: #E7F5EC; color: #157a42; font-size: 0.72rem; font-weight: 600; padding: 4px 9px; border-radius: 7px; margin-bottom: 10px; }
+.u-pcard__save { display: none; align-items: center; gap: 5px; background: #E7F5EC; color: #157a42; font-size: 0.72rem; font-weight: 600; padding: 4px 9px; border-radius: 7px; margin-bottom: 10px; }
 .u-pcard__save svg { width: 13px; height: 13px; }
-.u-pcard__price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 9px; margin-top: auto; margin-bottom: 8px; }
+.u-pcard__price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 9px; margin-top: auto; margin-bottom: 14px; }
 .u-pcard__now { font-family: var(--u-font-display); font-size: 1.3rem; font-weight: 700; color: var(--u-maroon); }
 .u-pcard__was { font-size: 0.85rem; color: var(--u-muted); text-decoration: line-through; }
-.u-pcard__cta { width: 100%; border: 0; cursor: pointer; background: var(--u-grad-maroon); color: #fff; font-family: var(--u-font-body); font-weight: 600; font-size: 0.9rem; padding: 12px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; transition: transform 0.3s var(--u-ease), box-shadow 0.3s var(--u-ease); }
+.u-pcard__cta { width: 100%; border: 0; cursor: pointer; background: var(--u-grad-maroon); color: #fff; font-family: var(--u-font-body); font-weight: 500; font-size: 0.9rem; padding: 11px; border-radius: var(--u-radius-pill); display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; transition: transform 0.3s var(--u-ease), box-shadow 0.3s var(--u-ease); }
 .u-pcard__cta:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(123,11,44,0.3); }
 .u-pcard__cta svg { width: 16px; height: 16px; }
 .u-viewall { display: flex; justify-content: center; margin-top: 30px; }
@@ -874,7 +875,10 @@
   .u-pcard__now { font-size: 1.08rem; }
   .u-pcard__was { font-size: 0.76rem; }
   .u-pcard__tags { display: none; }
-  .u-pcard__cta { padding: 9px; font-size: 0.8rem; gap: 5px; }
+  .u-pcard__disc { display: none; }
+  .u-pcard__disc-m { display: inline-block; align-self: flex-start; background: var(--u-crimson); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 5px 10px; border-radius: 7px; margin-bottom: 12px; }
+  .u-pcard__save { display: inline-flex; align-self: flex-start; }
+  .u-pcard__cta { padding: 9px; font-size: 0.8rem; gap: 5px; border-radius: 10px; }
   .u-pcard__cta svg { width: 13px; height: 13px; }
 
   /* --- Category nav becomes an off-canvas drawer (inline bar hidden) --- */
