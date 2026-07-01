@@ -63,6 +63,9 @@
             {% if block.settings.l3 != blank %}<li><a href="{{ block.settings.u3 | default: '#' }}">{{ block.settings.l3 }}</a></li>{% endif %}
             {% if block.settings.l4 != blank %}<li><a href="{{ block.settings.u4 | default: '#' }}">{{ block.settings.l4 }}</a></li>{% endif %}
             {% if block.settings.l5 != blank %}<li><a href="{{ block.settings.u5 | default: '#' }}">{{ block.settings.l5 }}</a></li>{% endif %}
+            {% if block.settings.l6 != blank %}<li><a href="{{ block.settings.u6 | default: '#' }}">{{ block.settings.l6 }}</a></li>{% endif %}
+            {% if block.settings.l7 != blank %}<li><a href="{{ block.settings.u7 | default: '#' }}">{{ block.settings.l7 }}</a></li>{% endif %}
+            {% if block.settings.l8 != blank %}<li><a href="{{ block.settings.u8 | default: '#' }}">{{ block.settings.l8 }}</a></li>{% endif %}
           </ul>
         </div>
       {% endif %}
@@ -103,7 +106,13 @@
         { "type": "text", "id": "l4", "label": "Link 4 label" },
         { "type": "url", "id": "u4", "label": "Link 4 URL" },
         { "type": "text", "id": "l5", "label": "Link 5 label" },
-        { "type": "url", "id": "u5", "label": "Link 5 URL" }
+        { "type": "url", "id": "u5", "label": "Link 5 URL" },
+        { "type": "text", "id": "l6", "label": "Link 6 label" },
+        { "type": "url", "id": "u6", "label": "Link 6 URL" },
+        { "type": "text", "id": "l7", "label": "Link 7 label" },
+        { "type": "url", "id": "u7", "label": "Link 7 URL" },
+        { "type": "text", "id": "l8", "label": "Link 8 label" },
+        { "type": "url", "id": "u8", "label": "Link 8 URL" }
       ]
     },
     {

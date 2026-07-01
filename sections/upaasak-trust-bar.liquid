@@ -4,8 +4,9 @@
   <div class="u-trustbar__in">
     {% for block in section.blocks %}
       <div class="u-trustbar__item" {{ block.shopify_attributes }}>
-        {% render 'upaasak-icon', icon: block.settings.icon %}
-        <span>{{ block.settings.text }}</span>
+        <span class="u-trustbar__icon">{% render 'upaasak-icon', icon: block.settings.icon %}</span>
+        <span class="u-trustbar__head">{{ block.settings.text }}</span>
+        {% if block.settings.subtext != blank %}<span class="u-trustbar__sub">{{ block.settings.subtext }}</span>{% endif %}
       </div>
     {% endfor %}
   </div>
@@ -29,7 +30,8 @@
             { "value": "lock", "label": "Secure" }, { "value": "headset", "label": "Support" }
           ]
         },
-        { "type": "text", "id": "text", "label": "Text", "default": "100% Original & Certified" }
+        { "type": "text", "id": "text", "label": "Heading", "default": "100% Original & Certified" },
+        { "type": "text", "id": "subtext", "label": "Subtext" }
       ]
     }
   ],
@@ -37,10 +39,10 @@
     {
       "name": "Upaasak Trust Bar",
       "blocks": [
-        { "type": "usp", "settings": { "icon": "certificate", "text": "100% Original & Lab-Certified" } },
-        { "type": "usp", "settings": { "icon": "om", "text": "Energized with Vedic Mantras" } },
-        { "type": "usp", "settings": { "icon": "truck", "text": "Free Shipping Above ₹999" } },
-        { "type": "usp", "settings": { "icon": "return", "text": "Easy 7-Day Returns" } }
+        { "type": "usp", "settings": { "icon": "truck", "text": "Free Shipping", "subtext": "No minimum order value. Delivered Pan India." } },
+        { "type": "usp", "settings": { "icon": "headset", "text": "Devotee Support", "subtext": "Reach us anytime via WhatsApp or Email." } },
+        { "type": "usp", "settings": { "icon": "certificate", "text": "OSOC Certified", "subtext": "QR code on every product links to original lab report." } },
+        { "type": "usp", "settings": { "icon": "om", "text": "Energized", "subtext": "Ready to wear. No activation needed." } }
       ]
     }
   ]

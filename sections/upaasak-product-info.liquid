@@ -199,7 +199,7 @@
                 {% if block.settings.show_highlights and mf.key_highlights != blank %}
                   <div class="u-faq__item{% if block.settings.open_first and acc_i == 0 %} is-open{% endif %}">
                     <button type="button" class="u-faq__q"><span>{{ block.settings.label_highlights }}</span><span class="u-faq__icon" aria-hidden="true"></span></button>
-                    <div class="u-faq__a"{% if block.settings.open_first and acc_i == 0 %} style="max-height:1500px"{% endif %}><div class="u-faq__a-inner">{% render 'upaasak-mlt', text: mf.key_highlights.value %}</div></div>
+                    <div class="u-faq__a"{% if block.settings.open_first and acc_i == 0 %} style="max-height:1500px"{% endif %}><div class="u-faq__a-inner u-acc__mlt">{% render 'upaasak-mlt', text: mf.key_highlights.value %}</div></div>
                   </div>
                   {%- assign acc_i = acc_i | plus: 1 -%}
                 {% endif %}
@@ -207,7 +207,7 @@
                 {% if block.settings.show_specs and mf.specifications != blank %}
                   <div class="u-faq__item{% if block.settings.open_first and acc_i == 0 %} is-open{% endif %}">
                     <button type="button" class="u-faq__q"><span>{{ block.settings.label_specs }}</span><span class="u-faq__icon" aria-hidden="true"></span></button>
-                    <div class="u-faq__a"{% if block.settings.open_first and acc_i == 0 %} style="max-height:1500px"{% endif %}><div class="u-faq__a-inner">{% render 'upaasak-mlt', text: mf.specifications.value %}</div></div>
+                    <div class="u-faq__a"{% if block.settings.open_first and acc_i == 0 %} style="max-height:1500px"{% endif %}><div class="u-faq__a-inner u-acc__mlt">{% render 'upaasak-mlt', text: mf.specifications.value %}</div></div>
                   </div>
                   {%- assign acc_i = acc_i | plus: 1 -%}
                 {% endif %}

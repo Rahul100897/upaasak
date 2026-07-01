@@ -18,14 +18,14 @@
           "type": "column",
           "settings": {
             "title": "Information",
-            "l1": "Contact us",
+            "l1": "Contact Us",
             "u1": "shopify://pages/contact",
-            "l2": "Faqs",
-            "u2": "shopify://pages/faqs",
-            "l3": "",
-            "u3": "",
-            "l4": "",
-            "u4": "",
+            "l2": "About Us",
+            "u2": "shopify://pages/about",
+            "l3": "Blogs",
+            "u3": "shopify://blogs/news",
+            "l4": "FAQ's",
+            "u4": "shopify://pages/faqs",
             "l5": "",
             "u5": ""
           }
@@ -78,35 +78,40 @@
         },
         "column_BnFH8k": {
           "type": "column",
-          "disabled": true,
           "settings": {
-            "title": "All Products",
-            "l1": "Karungali",
-            "u1": "",
-            "l2": "Rudraksha",
-            "u2": "",
+            "title": "Shop by Collection",
+            "l1": "Rudraksha",
+            "u1": "shopify://collections/rudraksha",
+            "l2": "Karungali",
+            "u2": "shopify://collections/karungali",
             "l3": "Spiritual Bracelets",
-            "u3": "",
+            "u3": "shopify://collections/spiritual-bracelets",
             "l4": "Mala",
-            "u4": "",
-            "l5": "Stones",
-            "u5": ""
+            "u4": "shopify://collections/mala",
+            "l5": "Gemstones",
+            "u5": "shopify://collections/gemstones",
+            "l6": "Gifting",
+            "u6": "shopify://collections/gifting",
+            "l7": "Pooja Kits",
+            "u7": "shopify://collections/pooja-kits",
+            "l8": "Yatra",
+            "u8": ""
           }
         }
       },
       "block_order": [
         "column_eUAdE6",
+        "column_BnFH8k",
         "column_ENDeyq",
         "contact_gzpXxB",
-        "column_UQ8KBc",
-        "column_BnFH8k"
+        "column_UQ8KBc"
       ],
       "name": "Upaasak Sitemap Footer",
       "settings": {
         "logo_letter": "Om",
         "brand_name": "UPAASAK",
         "slogan": "Authentic Spiritual Essentials",
-        "about": "Authentic, lab-certified and energized Rudraksha, malas and spiritual essentials, sourced with devotion and delivered across India.",
+        "about": "Authentic Rudraksha, Karungali & Spiritual essentials. Lab-certified, energized, delivered across India.",
         "whatsapp": "",
         "instagram": "",
         "copyright": "2026 UPAASAK. All rights reserved.",

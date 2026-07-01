@@ -1,0 +1,21 @@
+{%- comment -%}
+  Two-tone section heading: leading words regular charcoal, trailing word(s) bold italic maroon.
+  Usage: {% render 'upaasak-split-heading', heading: section.settings.heading %}
+  Usage (multi-word accent): {% render 'upaasak-split-heading', heading: section.settings.heading, accent_count: 2 %}
+{%- endcomment -%}
+{%- liquid
+  assign accent_count = accent_count | default: 1
+  assign words = heading | split: ' '
+  assign total = words.size
+  if total > accent_count
+    assign lead_count = total | minus: accent_count
+    assign lead_words = words | slice: 0, lead_count
+    assign lead = lead_words | join: ' '
+    assign accent_words = words | slice: lead_count, accent_count
+    assign accent = accent_words | join: ' '
+  else
+    assign lead = ''
+    assign accent = heading
+  endif
+-%}
+{%- if lead != blank -%}{{ lead }} <em>{{ accent }}</em>{%- else -%}<em>{{ accent }}</em>{%- endif -%}

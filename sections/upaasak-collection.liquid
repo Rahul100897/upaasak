@@ -8,10 +8,9 @@
 <section class="u-section u-col" data-section-id="{{ section.id }}" data-collection>
   <div class="u-wrap">
 
-    {%- comment -%} ---------- Header ---------- {%- endcomment -%}
-    <div class="u-col__head">
-      {% if section.settings.eyebrow != blank %}<span class="u-eyebrow" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
-      <h1 class="u-title" data-reveal style="--d:80ms">{{ collection.title }}</h1>
+    {%- comment -%} ---------- Header (heading hidden per brief; kept for SEO/a11y) ---------- {%- endcomment -%}
+    <div class="u-col__head u-col__head--compact">
+      <h1 class="u-sr-only">{{ collection.title }}</h1>
       {% if section.settings.show_description and collection.description != blank %}
         <div class="u-col__desc u-lead" data-reveal style="--d:140ms">{{ collection.description }}</div>
       {% endif %}

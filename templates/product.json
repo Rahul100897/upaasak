@@ -25,19 +25,19 @@
             "count": "1,284"
           }
         },
-        "price": {
-          "type": "price",
-          "settings": {
-            "show_discount": true,
-            "tax_note": ""
-          }
-        },
         "chips": {
           "type": "trust_chips",
           "settings": {
             "chip_1": "Certified",
             "chip_2": "Tested",
             "chip_3": "Original"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_discount": true,
+            "tax_note": "Incl. of all taxes"
           }
         },
         "hr1": {
@@ -67,7 +67,7 @@
             "row_1": "Free shipping pan-India",
             "icon_2": "headset",
             "row_2": "",
-            "row_3": "7-day easy returns"
+            "row_3": "ORIGINAL"
           }
         },
         "accordion_CRMx4f": {
@@ -138,8 +138,8 @@
       "block_order": [
         "title",
         "rating",
-        "price",
         "chips",
+        "price",
         "hr1",
         "buybox",
         "offer",
@@ -183,9 +183,9 @@
         "b4": {
           "type": "item",
           "settings": {
-            "icon": "return",
-            "title": "Easy Returns",
-            "text": "7-day hassle-free returns"
+            "icon": "headset",
+            "title": "Devotee Support",
+            "text": "WhatsApp / Email"
           }
         }
       },
@@ -256,25 +256,25 @@
         "p2": {
           "type": "point",
           "settings": {
-            "text": "Lab Tested"
+            "text": "Authenticity QR"
           }
         },
         "p3": {
           "type": "point",
           "settings": {
-            "text": "Authenticity QR"
+            "text": "Premium Gift-Ready Packaging"
           }
         },
         "p4": {
           "type": "point",
           "settings": {
-            "text": "Premium Gift-Ready Packaging"
+            "text": "Quality Checked Before Dispatch"
           }
         },
         "p5": {
           "type": "point",
           "settings": {
-            "text": "Quality Checked Before Dispatch"
+            "text": "Trusted by Thousands of Devotees"
           }
         }
       },
@@ -344,7 +344,7 @@
     "u_recs": {
       "type": "upaasak-product-recommendations",
       "settings": {
-        "eyebrow": "Handpicked For You",
+        "eyebrow": "",
         "heading": "You May Also Like",
         "products_to_show": 4
       }
@@ -522,7 +522,7 @@
         "b4"
       ],
       "settings": {
-        "eyebrow": "Good to Know",
+        "eyebrow": "",
         "heading": "Frequently Asked Questions",
         "open_first": true,
         "show_collection_faq": true

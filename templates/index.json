@@ -100,29 +100,33 @@
         "b1": {
           "type": "usp",
           "settings": {
-            "icon": "certificate",
-            "text": "100% Original & Lab-Certified"
+            "icon": "truck",
+            "text": "Free Shipping",
+            "subtext": "No minimum order value. Delivered Pan India."
           }
         },
         "b2": {
           "type": "usp",
           "settings": {
-            "icon": "om",
-            "text": "Energized with Vedic Mantras"
+            "icon": "headset",
+            "text": "Devotee Support",
+            "subtext": "Reach us anytime via WhatsApp or Email."
           }
         },
         "b3": {
           "type": "usp",
           "settings": {
-            "icon": "truck",
-            "text": "Free Shipping Above ₹999"
+            "icon": "certificate",
+            "text": "OSOC Certified",
+            "subtext": "QR code on every product links to original lab report."
           }
         },
         "b4": {
           "type": "usp",
           "settings": {
-            "icon": "return",
-            "text": "Easy 7-Day Returns"
+            "icon": "om",
+            "text": "Energized",
+            "subtext": "Ready to wear. No activation needed."
           }
         }
       },
@@ -198,23 +202,23 @@
       ],
       "name": "Shop by Collection",
       "settings": {
-        "eyebrow": "Explore",
+        "eyebrow": "",
         "heading": "Shop by Collection",
-        "subheading": "Curated categories for every intention and ritual."
+        "subheading": ""
       }
     },
     "u_shop_purpose": {
       "type": "upaasak-shop-by-purpose",
       "blocks": {
-        "b1": {
+        "filt_all": {
           "type": "purpose",
           "settings": {
             "label": "All",
-            "tag": "Protection, Confidence, Wealth, Luck, Peace",
+            "tag": "Protection, Wealth, Peace, Confidence, Courage, Love, Luck, Health",
             "collection": ""
           }
         },
-        "b2": {
+        "filt_protection": {
           "type": "purpose",
           "settings": {
             "label": "Protection",
@@ -222,15 +226,7 @@
             "collection": ""
           }
         },
-        "b3": {
-          "type": "purpose",
-          "settings": {
-            "label": "Confidence",
-            "tag": "Confidence",
-            "collection": ""
-          }
-        },
-        "b4": {
+        "filt_wealth": {
           "type": "purpose",
           "settings": {
             "label": "Wealth",
@@ -238,7 +234,15 @@
             "collection": ""
           }
         },
-        "b5": {
+        "filt_peace": {
+          "type": "purpose",
+          "settings": {
+            "label": "Peace",
+            "tag": "Peace",
+            "collection": ""
+          }
+        },
+        "filt_confidence": {
           "type": "purpose",
           "settings": {
             "label": "Confidence",
@@ -246,7 +250,23 @@
             "collection": ""
           }
         },
-        "b6": {
+        "filt_courage": {
+          "type": "purpose",
+          "settings": {
+            "label": "Courage",
+            "tag": "Courage",
+            "collection": ""
+          }
+        },
+        "filt_love": {
+          "type": "purpose",
+          "settings": {
+            "label": "Love",
+            "tag": "Love",
+            "collection": ""
+          }
+        },
+        "filt_luck": {
           "type": "purpose",
           "settings": {
             "label": "Luck",
@@ -254,26 +274,28 @@
             "collection": ""
           }
         },
-        "b7": {
+        "filt_health": {
           "type": "purpose",
           "settings": {
-            "label": "Peace",
-            "tag": "Peace",
+            "label": "Health",
+            "tag": "Health",
             "collection": ""
           }
         }
       },
       "block_order": [
-        "b1",
-        "b2",
-        "b3",
-        "b4",
-        "b5",
-        "b6",
-        "b7"
+        "filt_all",
+        "filt_protection",
+        "filt_wealth",
+        "filt_peace",
+        "filt_confidence",
+        "filt_courage",
+        "filt_love",
+        "filt_luck",
+        "filt_health"
       ],
       "settings": {
-        "eyebrow": "Find Your Path",
+        "eyebrow": "",
         "heading": "Shop by Purpose",
         "source_collection": "",
         "count": 8,
@@ -286,8 +308,8 @@
       "type": "upaasak-best-seller",
       "name": "Best Seller",
       "settings": {
-        "eyebrow": "Most Loved",
-        "heading": "Our Best Sellers",
+        "eyebrow": "",
+        "heading": "Best Sellers",
         "collection": "",
         "count": 4,
         "show_view_all": true,
@@ -365,7 +387,7 @@
       ],
       "name": "Shop by Deity",
       "settings": {
-        "eyebrow": "Find Your Path",
+        "eyebrow": "",
         "heading": "Shop by Deity",
         "source_collection": "",
         "count": 8,
@@ -388,7 +410,7 @@
       "type": "upaasak-best-seller",
       "name": "Upaasak New Arrivals",
       "settings": {
-        "eyebrow": "Most Loved",
+        "eyebrow": "",
         "heading": "New Arrivals",
         "collection": "",
         "count": 4,

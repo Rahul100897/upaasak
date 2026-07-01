@@ -12,7 +12,7 @@
     "main": {
       "type": "upaasak-collection",
       "settings": {
-        "eyebrow": "Sacred Collection",
+        "eyebrow": "",
         "show_description": true,
         "per_page": 12
       }

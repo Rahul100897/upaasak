@@ -4,7 +4,7 @@
   <div class="u-wrap" data-tabs>
     <div class="u-section-head is-centered">
       {% if section.settings.eyebrow != blank %}<span class="u-eyebrow is-centered" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
-      <h2 class="u-title" data-reveal style="--d:60ms">{{ section.settings.heading }}</h2>
+      <h2 class="u-title" data-reveal style="--d:60ms">{% render 'upaasak-split-heading', heading: section.settings.heading %}</h2>
     </div>
 
     <div class="u-pills u-pills--center" role="tablist">
@@ -85,7 +85,7 @@
   "name": "Upaasak Shop by Purpose",
   "tag": "section",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Find Your Path" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Shop by Purpose" },
     { "type": "collection", "id": "source_collection", "label": "Default products collection", "info": "Base source for the All tab and all tag filters. Pick a collection that contains all products (e.g. Shop All). Falls back to all products." },
     { "type": "range", "id": "count", "min": 2, "max": 10, "step": 1, "label": "Max products per filter", "default": 10 },
