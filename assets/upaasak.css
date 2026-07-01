@@ -722,7 +722,7 @@
 .u-trustbar__icon { width: 48px; height: 48px; flex: none; border-radius: 14px; display: grid; place-items: center; background: #fff; border: 1px solid var(--u-gold-line); color: var(--u-maroon); box-shadow: var(--u-shadow-sm); transition: transform .4s var(--u-ease), color .4s var(--u-ease); }
 .u-trustbar__icon svg { width: 24px; height: 24px; }
 .u-trustbar__item:hover .u-trustbar__icon { transform: translateY(-3px); color: var(--u-crimson); }
-.u-trustbar__head { font-family: var(--u-font-body); font-weight: 600; font-size: 0.92rem; color: var(--u-charcoal); margin: 0 0 2px; }
+.u-trustbar__head { font-family: var(--u-font-body); font-weight: 600; font-size: 0.92rem; color: var(--u-charcoal); margin: 0 0 2px; line-height: normal; }
 .u-trustbar__sub { font-family: var(--u-font-body); font-weight: 400; font-size: 0.78rem; color: var(--u-muted); margin: 0; line-height: 1.4; }
 
 /* ---- Section header with optional "view all" ---- */
@@ -871,8 +871,9 @@
   /* --- Product carousels become a static 2-column grid on mobile --- */
   .u-prow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; overflow: visible; padding: 6px 2px 4px; scroll-snap-type: none; cursor: auto; }
   .u-pcard { flex: auto; width: auto; }
-  .u-pcard__body { padding: 12px 12px 14px; }
-  .u-pcard__now { font-size: 1.08rem; }
+  .u-pcard__body { padding: 12px 10px 14px; }
+  .u-pcard__price { margin-bottom: 10px; }
+  .u-pcard__now { font-size: 14px; }
   .u-pcard__was { font-size: 0.76rem; }
   .u-pcard__tags { display: none; }
   .u-pcard__disc { display: none; }
