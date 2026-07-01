@@ -836,7 +836,7 @@
   .u-icon-btn { width: 35px; height: 35px; } 
   .u-search { order: 3; width: 100%; min-width: 100%; padding: 8px 16px; }
   .u-search input { font-size: 12px; }
-  .u-trustbar__in { grid-template-columns: 1fr; gap: 14px; }
+  .u-trustbar__in { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .u-grid4 { grid-template-columns: 1fr 1fr; gap: 12px; }
   .u-why__usps { grid-template-columns: 1fr 1fr; }
   .u-site__grid { grid-template-columns: 1fr 1fr; gap: 24px; }
