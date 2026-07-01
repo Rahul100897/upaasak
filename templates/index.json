@@ -12,30 +12,16 @@
     "u_slides": {
       "type": "upaasak-banner-slideshow",
       "blocks": {
-        "b1": {
+        "b5": {
           "type": "banner",
           "settings": {
-            "image": "shopify://shop_images/Bracelet_2.jpg",
-            "image_mobile": "shopify://shop_images/Bracelet_2_87faa35b-98d9-4446-8fde-cac320230f89.jpg",
-            "link": "shopify://collections/spiritual-bracelets",
+            "image": "shopify://shop_images/Rudraksha_1.jpg",
+            "image_mobile": "shopify://shop_images/Rudraksha_1_e5aa398c-84bc-4ffe-a6c4-f57d78ced85c.jpg",
+            "link": "shopify://collections/gifting",
             "show_content": false,
-            "tip": "Bestseller",
-            "heading": "Original 5 Mukhi Rudraksha Mala",
-            "subheading": "The most revered bead for peace, focus and daily protection.",
-            "cta_label": "Shop Now",
-            "cta_link": ""
-          }
-        },
-        "b2": {
-          "type": "banner",
-          "settings": {
-            "image": "shopify://shop_images/Gemstones_5.jpg",
-            "image_mobile": "shopify://shop_images/Gemstone_5.jpg",
-            "link": "shopify://collections/gemstones",
-            "show_content": false,
-            "tip": "Rare & Powerful",
-            "heading": "Karungali Sacred Wood",
-            "subheading": "Ancient ebony beads cherished for grounding and protection.",
+            "tip": "Thoughtful Gifts",
+            "heading": "Spiritual Gifting",
+            "subheading": "Beautifully packaged blessings for your loved ones.",
             "cta_label": "Shop Now",
             "cta_link": ""
           }
@@ -68,27 +54,41 @@
             "cta_link": ""
           }
         },
-        "b5": {
+        "b2": {
           "type": "banner",
           "settings": {
-            "image": "shopify://shop_images/Rudraksha_1.jpg",
-            "image_mobile": "shopify://shop_images/Rudraksha_1_e5aa398c-84bc-4ffe-a6c4-f57d78ced85c.jpg",
-            "link": "shopify://collections/gifting",
+            "image": "shopify://shop_images/Gemstones_5.jpg",
+            "image_mobile": "shopify://shop_images/Gemstone_5.jpg",
+            "link": "shopify://collections/gemstones",
             "show_content": false,
-            "tip": "Thoughtful Gifts",
-            "heading": "Spiritual Gifting",
-            "subheading": "Beautifully packaged blessings for your loved ones.",
+            "tip": "Rare & Powerful",
+            "heading": "Karungali Sacred Wood",
+            "subheading": "Ancient ebony beads cherished for grounding and protection.",
+            "cta_label": "Shop Now",
+            "cta_link": ""
+          }
+        },
+        "b1": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Bracelet_2.jpg",
+            "image_mobile": "shopify://shop_images/Bracelet_2_87faa35b-98d9-4446-8fde-cac320230f89.jpg",
+            "link": "shopify://collections/spiritual-bracelets",
+            "show_content": false,
+            "tip": "Bestseller",
+            "heading": "Original 5 Mukhi Rudraksha Mala",
+            "subheading": "The most revered bead for peace, focus and daily protection.",
             "cta_label": "Shop Now",
             "cta_link": ""
           }
         }
       },
       "block_order": [
-        "b1",
-        "b2",
+        "b5",
         "b3",
         "b4",
-        "b5"
+        "b2",
+        "b1"
       ],
       "settings": {
         "interval": 6
@@ -102,7 +102,7 @@
           "settings": {
             "icon": "truck",
             "text": "Free Shipping",
-            "subtext": "No minimum order value. Delivered Pan India."
+            "subtext": ""
           }
         },
         "b2": {
@@ -110,7 +110,7 @@
           "settings": {
             "icon": "headset",
             "text": "Devotee Support",
-            "subtext": "Reach us anytime via WhatsApp or Email."
+            "subtext": ""
           }
         },
         "b3": {
@@ -118,7 +118,7 @@
           "settings": {
             "icon": "certificate",
             "text": "OSOC Certified",
-            "subtext": "QR code on every product links to original lab report."
+            "subtext": ""
           }
         },
         "b4": {
@@ -126,7 +126,7 @@
           "settings": {
             "icon": "om",
             "text": "Energized",
-            "subtext": "Ready to wear. No activation needed."
+            "subtext": ""
           }
         }
       },
@@ -500,7 +500,13 @@
             "l4": "Free PDFs",
             "u4": "",
             "l5": "",
-            "u5": ""
+            "u5": "",
+            "l6": "",
+            "u6": "",
+            "l7": "",
+            "u7": "",
+            "l8": "",
+            "u8": ""
           }
         },
         "b2": {
@@ -516,7 +522,13 @@
             "l4": "Refunds & Cancellations",
             "u4": "",
             "l5": "",
-            "u5": ""
+            "u5": "",
+            "l6": "",
+            "u6": "",
+            "l7": "",
+            "u7": "",
+            "l8": "",
+            "u8": ""
           }
         },
         "b3": {
@@ -532,7 +544,13 @@
             "l4": "",
             "u4": "",
             "l5": "",
-            "u5": ""
+            "u5": "",
+            "l6": "",
+            "u6": "",
+            "l7": "",
+            "u7": "",
+            "l8": "",
+            "u8": ""
           }
         },
         "b4": {
@@ -548,7 +566,13 @@
             "l4": "Mala",
             "u4": "",
             "l5": "Stones",
-            "u5": ""
+            "u5": "",
+            "l6": "",
+            "u6": "",
+            "l7": "",
+            "u7": "",
+            "l8": "",
+            "u8": ""
           }
         }
       },
