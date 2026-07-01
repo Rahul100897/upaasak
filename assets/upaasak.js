@@ -531,6 +531,33 @@
       track.addEventListener('scroll', upd, { passive: true });
       window.addEventListener('resize', upd);
       upd();
+
+      // Mouse/pointer drag-to-scroll (touch already scrolls natively via overflow-x).
+      var dragging = false, moved = false, startX = 0, startScroll = 0;
+      track.addEventListener('pointerdown', function (e) {
+        if (e.pointerType === 'touch') return;
+        dragging = true; moved = false;
+        startX = e.clientX;
+        startScroll = track.scrollLeft;
+        track.classList.add('is-dragging');
+      });
+      track.addEventListener('pointermove', function (e) {
+        if (!dragging) return;
+        var dx = e.clientX - startX;
+        if (Math.abs(dx) > 4) moved = true;
+        track.scrollLeft = startScroll - dx;
+      });
+      function stopDrag() {
+        if (!dragging) return;
+        dragging = false;
+        track.classList.remove('is-dragging');
+      }
+      track.addEventListener('pointerup', stopDrag);
+      track.addEventListener('pointerleave', stopDrag);
+      track.addEventListener('pointercancel', stopDrag);
+      track.addEventListener('click', function (e) {
+        if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+      }, true);
     });
   }
 
