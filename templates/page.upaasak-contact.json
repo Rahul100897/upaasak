@@ -68,8 +68,8 @@
         "button_label": "Send Message",
         "success_title": "Message received",
         "success_text": "Thank you for reaching out. A member of our team will reply to your email shortly.",
-        "show_social": true,
-        "whatsapp": "",
+        "show_social": false,
+        "whatsapp": "#",
         "instagram": "",
         "facebook": ""
       }
