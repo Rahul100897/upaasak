@@ -12,12 +12,53 @@
     "u_contact": {
       "type": "upaasak-contact",
       "blocks": {
-        "m1": { "type": "method", "settings": { "icon": "mail", "label": "Email us", "value": "support@upaasak.com", "note": "We reply within 24 hours", "link": "mailto:support@upaasak.com" } },
-        "m2": { "type": "method", "settings": { "icon": "phone", "label": "Call us", "value": "+91 90000 00000", "note": "Mon-Sat, 10am-7pm IST", "link": "tel:+919000000000" } },
-        "m3": { "type": "method", "settings": { "icon": "whatsapp", "label": "WhatsApp", "value": "Chat with us", "note": "Fastest response", "link": "https://wa.me/919000000000" } },
-        "m4": { "type": "method", "settings": { "icon": "pin", "label": "Visit us", "value": "Upaasak, India", "note": "By appointment", "link": "" } }
+        "m1": {
+          "type": "method",
+          "settings": {
+            "icon": "mail",
+            "label": "Email us",
+            "value": "support@upaasak.com",
+            "note": "We reply within 24 hours",
+            "link": "mailto:support@upaasak.com"
+          }
+        },
+        "m2": {
+          "type": "method",
+          "settings": {
+            "icon": "phone",
+            "label": "Call us",
+            "value": "+91-94609-40868",
+            "note": "Mon-Sat, 10am-7pm IST",
+            "link": "tel:+919460940868"
+          }
+        },
+        "m3": {
+          "type": "method",
+          "settings": {
+            "icon": "whatsapp",
+            "label": "WhatsApp",
+            "value": "Chat with us",
+            "note": "Fastest response",
+            "link": "https://wa.me/919000000000"
+          }
+        },
+        "m4": {
+          "type": "method",
+          "settings": {
+            "icon": "pin",
+            "label": "Visit us",
+            "value": "1 S 11, Old Housing Board, Pali, Rajasthan - 306401, India",
+            "note": "By appointment",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["m1", "m2", "m3", "m4"],
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ],
       "settings": {
         "eyebrow": "We're Here to Help",
         "heading": "Get in Touch",
@@ -27,9 +68,14 @@
         "button_label": "Send Message",
         "success_title": "Message received",
         "success_text": "Thank you for reaching out. A member of our team will reply to your email shortly.",
-        "show_social": true
+        "show_social": true,
+        "whatsapp": "",
+        "instagram": "",
+        "facebook": ""
       }
     }
   },
-  "order": ["u_contact"]
+  "order": [
+    "u_contact"
+  ]
 }
