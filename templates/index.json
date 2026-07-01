@@ -141,6 +141,13 @@
     "upaasak_collection_slider_FLwqJJ": {
       "type": "upaasak-collection-slider",
       "blocks": {
+        "collection_hTrmQV": {
+          "type": "collection",
+          "settings": {
+            "collection": "rudraksha",
+            "title": ""
+          }
+        },
         "collection_7iMVyg": {
           "type": "collection",
           "settings": {
@@ -152,13 +159,6 @@
           "type": "collection",
           "settings": {
             "collection": "spiritual-bracelets",
-            "title": ""
-          }
-        },
-        "collection_hTrmQV": {
-          "type": "collection",
-          "settings": {
-            "collection": "rudraksha",
             "title": ""
           }
         },
@@ -192,9 +192,9 @@
         }
       },
       "block_order": [
+        "collection_hTrmQV",
         "collection_7iMVyg",
         "collection_exd6kc",
-        "collection_hTrmQV",
         "collection_BmqM7d",
         "collection_QaPgfC",
         "collection_UAnnWg",
@@ -391,8 +391,8 @@
       "name": "Shop by Deity",
       "settings": {
         "eyebrow": "",
-        "heading_lead": "Shop By",
-        "heading_accent": "Deity",
+        "heading_lead": "Shop by",
+        "heading_accent": "Purpose",
         "source_collection": "",
         "count": 8,
         "randomize": true,
@@ -415,8 +415,8 @@
       "name": "Upaasak New Arrivals",
       "settings": {
         "eyebrow": "",
-        "heading_lead": "New",
-        "heading_accent": "Arrivals",
+        "heading_lead": "Best",
+        "heading_accent": "Seller",
         "collection": "",
         "count": 4,
         "show_view_all": true,
