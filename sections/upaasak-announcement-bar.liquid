@@ -7,7 +7,7 @@
       {% for block in section.blocks %}
         {%- if block.type == 'message' -%}
           <span class="u-ann__msg{% if forloop.first %} is-active{% endif %}" {{ block.shopify_attributes }}>
-            <span class="u-om">ॐ</span>{{ block.settings.text }}
+            {{ block.settings.text }}
           </span>
         {%- endif -%}
       {% endfor %}
