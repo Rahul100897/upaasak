@@ -873,6 +873,9 @@
   .u-pcard__body { padding: 12px 12px 14px; }
   .u-pcard__now { font-size: 1.08rem; }
   .u-pcard__was { font-size: 0.76rem; }
+  .u-pcard__tags { display: none; }
+  .u-pcard__cta { padding: 9px; font-size: 0.8rem; gap: 5px; }
+  .u-pcard__cta svg { width: 13px; height: 13px; }
 
   /* --- Category nav becomes an off-canvas drawer (inline bar hidden) --- */
   .u-catnav { border-bottom: 0; }
