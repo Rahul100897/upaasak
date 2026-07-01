@@ -485,7 +485,8 @@
       ],
       "settings": {
         "eyebrow": "",
-        "heading": "Trusted by families, seekers & devotees",
+        "heading_lead": "Trusted by families, seekers &",
+        "heading_accent": "devotees",
         "subheading": "Real people. Real experiences. Every word unedited."
       }
     },
