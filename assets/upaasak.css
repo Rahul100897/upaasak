@@ -1036,7 +1036,7 @@ body.u-noscroll { overflow: hidden; }
 }
 @media (max-width: 600px) {
   .u-pdp__thumb { width: 60px; height: 60px; }
-  .u-pdp__qty { width: 100%; justify-content: center; }
+  .u-pdp__qty { justify-content: center; }
   .u-pdp__atc, .u-pdp__buynow { min-width: 0; flex-basis: 40%; }
 }
 
