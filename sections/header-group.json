@@ -17,13 +17,13 @@
         "b1": {
           "type": "message",
           "settings": {
-            "text": "Order 5 Mukhi Rudraksha (Nepali) for FREE — Pay Only Delivery Charges"
+            "text": "🎁 Order 5 Mukhi Rudraksha (Nepali) for FREE — Pay Only Delivery Charges"
           }
         },
         "b2": {
           "type": "message",
           "settings": {
-            "text": "FREE Shipping on All Orders — No Minimum Value"
+            "text": "🚚 FREE Shipping on All Orders — No Minimum Value"
           }
         },
         "b3": {
@@ -65,6 +65,22 @@
             "icon": "sparkle"
           }
         },
+        "b3": {
+          "type": "cat",
+          "settings": {
+            "label": "Rudraksha",
+            "link": "shopify://collections/rudraksha",
+            "icon": "leaf"
+          }
+        },
+        "cat_czwUaa": {
+          "type": "cat",
+          "settings": {
+            "label": "Yatra",
+            "link": "",
+            "icon": "yatra"
+          }
+        },
         "b2": {
           "type": "cat",
           "settings": {
@@ -79,14 +95,6 @@
             "label": "Spiritual Bracelets",
             "link": "shopify://collections/spiritual-bracelets",
             "icon": "gem"
-          }
-        },
-        "b3": {
-          "type": "cat",
-          "settings": {
-            "label": "Rudraksha",
-            "link": "shopify://collections/rudraksha",
-            "icon": "leaf"
           }
         },
         "b5": {
@@ -111,14 +119,6 @@
             "label": "Gifting",
             "link": "shopify://collections/gifting",
             "icon": "bead"
-          }
-        },
-        "cat_czwUaa": {
-          "type": "cat",
-          "settings": {
-            "label": "Yatra",
-            "link": "",
-            "icon": "yatra"
           }
         },
         "cat_a8pVdQ": {
