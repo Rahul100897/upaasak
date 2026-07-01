@@ -133,30 +133,20 @@
             </div>
           {% endif %}
 
-          {% if section.settings.show_bill_summary %}
-            <details class="u-cart__bill">
-              <summary>
-                <span class="u-cart__bill-head-closed">View Bill Details
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                </span>
-                <span class="u-cart__bill-head-open">Payment Summary
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
-                </span>
-              </summary>
-              <div class="u-cart__bill-body">
-                <div class="u-cart__bill-row"><span>MRP</span><span>{{ mrp_total | money }}</span></div>
-                {% if item_discount > 0 %}
-                  <div class="u-cart__bill-row u-cart__bill-row--disc"><span>Item Discount</span><span>-{{ item_discount | money }}</span></div>
-                {% endif %}
-                <div class="u-cart__bill-row"><span>Sub Total</span><span>{{ sub_total | money }}</span></div>
-                <div class="u-cart__bill-divider"></div>
-                <div class="u-cart__bill-row"><span>Shipping Charges</span><span{% if free_ship %} class="is-free"{% endif %}>{% if free_ship %}FREE{% else %}{{ flat_shipping | money }}{% endif %}</span></div>
-              </div>
-            </details>
-          {% endif %}
         </div>
 
         <footer class="u-cart__foot">
+          {% if section.settings.show_bill_summary %}
+            <div class="u-cart__bill">
+              <div class="u-cart__bill-row"><span>MRP</span><span>{{ mrp_total | money }}</span></div>
+              {% if item_discount > 0 %}
+                <div class="u-cart__bill-row u-cart__bill-row--disc"><span>Item Discount</span><span>-{{ item_discount | money }}</span></div>
+              {% endif %}
+              <div class="u-cart__bill-row"><span>Sub Total</span><span>{{ sub_total | money }}</span></div>
+              <div class="u-cart__bill-row"><span>Shipping Charges</span><span{% if free_ship %} class="is-free"{% endif %}>{% if free_ship %}FREE{% else %}{{ flat_shipping | money }}{% endif %}</span></div>
+            </div>
+            <div class="u-cart__bill-divider"></div>
+          {% endif %}
           <div class="u-cart__total">
             <span>Total</span>
             <strong>{{ cart.total_price | money }}</strong>
