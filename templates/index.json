@@ -599,6 +599,50 @@
         "copyright": "2026 UPAASAK. All rights reserved.",
         "bottom_note": "Made with devotion in India"
       }
+    },
+    "u_trustbanner": {
+      "type": "upaasak-trust-banner",
+      "blocks": {
+        "t1": {
+          "type": "tile",
+          "settings": {
+            "icon": "truck",
+            "heading": "Free Shipping",
+            "subtext": "No minimum order value. Delivered Pan India."
+          }
+        },
+        "t2": {
+          "type": "tile",
+          "settings": {
+            "icon": "headset",
+            "heading": "Devotee Support",
+            "subtext": "Reach us anytime via WhatsApp or Email."
+          }
+        },
+        "t3": {
+          "type": "tile",
+          "settings": {
+            "icon": "certificate",
+            "heading": "OSOC Certified",
+            "subtext": "QR code on every product links to original lab report."
+          }
+        },
+        "t4": {
+          "type": "tile",
+          "settings": {
+            "icon": "om",
+            "heading": "Energized",
+            "subtext": "Ready to wear. No activation needed."
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -611,6 +655,7 @@
     "upaasak_fullwidth_image_Dwmc3G",
     "upaasak_best_seller_aVta9j",
     "u_reviews_x",
+    "u_trustbanner",
     "u_sitemap"
   ]
 }
