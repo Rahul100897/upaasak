@@ -333,48 +333,48 @@
         "purpose_bV4Abz": {
           "type": "purpose",
           "settings": {
-            "label": "Protection",
-            "tag": "Protection",
+            "label": "Lord Ganesh",
+            "tag": "Lord Ganesh",
             "collection": ""
           }
         },
         "purpose_RGtfyQ": {
           "type": "purpose",
           "settings": {
-            "label": "Confidence",
-            "tag": "Confidence",
+            "label": "Lord Shiv",
+            "tag": "Lord Shiv",
             "collection": ""
           }
         },
         "purpose_cwfmLk": {
           "type": "purpose",
           "settings": {
-            "label": "Wealth",
-            "tag": "Wealth",
+            "label": "Lord Hanuman",
+            "tag": "Lord Hanuman",
+            "collection": ""
+          }
+        },
+        "purpose_6JbNDe": {
+          "type": "purpose",
+          "settings": {
+            "label": "Lord Krishna",
+            "tag": "Lord Krishna",
             "collection": ""
           }
         },
         "purpose_RJqLCK": {
           "type": "purpose",
           "settings": {
-            "label": "Confidence",
-            "tag": "Confidence",
+            "label": "Lord Vishnu",
+            "tag": "Lord Vishnu",
             "collection": ""
           }
         },
         "purpose_YxkwLg": {
           "type": "purpose",
           "settings": {
-            "label": "Luck",
-            "tag": "Luck",
-            "collection": ""
-          }
-        },
-        "purpose_bNQyWh": {
-          "type": "purpose",
-          "settings": {
-            "label": "Peace",
-            "tag": "Peace",
+            "label": "Lord Murugan",
+            "tag": "Lord Murugan",
             "collection": ""
           }
         }
@@ -384,9 +384,9 @@
         "purpose_bV4Abz",
         "purpose_RGtfyQ",
         "purpose_cwfmLk",
+        "purpose_6JbNDe",
         "purpose_RJqLCK",
-        "purpose_YxkwLg",
-        "purpose_bNQyWh"
+        "purpose_YxkwLg"
       ],
       "name": "Shop by Deity",
       "settings": {
