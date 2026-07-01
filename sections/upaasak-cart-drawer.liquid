@@ -2,11 +2,11 @@
 
 {%- liquid
   assign threshold = section.settings.free_ship_threshold | times: 100
-  assign remaining = threshold | minus: cart.total_price
   assign free_ship = false
   if threshold > 0 and cart.total_price >= threshold
     assign free_ship = true
   endif
+  assign flat_shipping = section.settings.flat_shipping_rate | default: 0 | times: 100
 
   comment
     Total savings = per-line compare-at savings + any cart-level discounts
@@ -19,6 +19,27 @@
     endif
   endfor
   assign savings = savings | plus: cart.total_discount
+
+  comment
+    Payment Summary breakdown: MRP total, item-level discount, sub total
+  endcomment
+  assign mrp_total = 0
+  assign item_discount = 0
+  for line in cart.items
+    assign lc = line.variant.compare_at_price
+    assign lp = line.variant.price
+    assign lq = line.quantity
+    if lc > lp
+      assign line_mrp = lc | times: lq
+      assign line_disc = lc | minus: lp | times: lq
+    else
+      assign line_mrp = lp | times: lq
+      assign line_disc = 0
+    endif
+    assign mrp_total = mrp_total | plus: line_mrp
+    assign item_discount = item_discount | plus: line_disc
+  endfor
+  assign sub_total = mrp_total | minus: item_discount
 
   assign ddays = section.settings.delivery_days | default: 7
   assign dsecs = ddays | times: 86400
@@ -39,16 +60,13 @@
 
       {% if cart.item_count > 0 %}
         <div class="u-cart__scroll">
-          {% if section.settings.show_free_ship %}
-            <div class="u-cart__ship-bar">
-              {% if remaining > 0 %}
-                <p>Add <strong>{{ remaining | money }}</strong> more for <strong>FREE shipping</strong></p>
-              {% else %}
-                <p class="is-unlocked">{% render 'upaasak-icon', icon: 'truck' %} You have unlocked <strong>FREE shipping!</strong></p>
-              {% endif %}
-              <div class="u-cart__ship-track">
-                <span class="u-cart__ship-fill" style="width:{% if free_ship %}100{% else %}{{ cart.total_price | times: 100.0 | divided_by: threshold }}{% endif %}%"></span>
-              </div>
+          {% if section.settings.show_badges and section.blocks.size > 0 %}
+            <div class="u-cart__badges" data-announce>
+              {% for block in section.blocks %}
+                {%- if block.type == 'badge' -%}
+                  <span class="u-ann__msg{% if forloop.first %} is-active{% endif %}" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+                {%- endif -%}
+              {% endfor %}
             </div>
           {% endif %}
 
@@ -114,11 +132,33 @@
               <span>You saved <strong>{{ savings | money }}</strong> on this order</span>
             </div>
           {% endif %}
+
+          {% if section.settings.show_bill_summary %}
+            <details class="u-cart__bill">
+              <summary>
+                <span class="u-cart__bill-head-closed">View Bill Details
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </span>
+                <span class="u-cart__bill-head-open">Payment Summary
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+                </span>
+              </summary>
+              <div class="u-cart__bill-body">
+                <div class="u-cart__bill-row"><span>MRP</span><span>{{ mrp_total | money }}</span></div>
+                {% if item_discount > 0 %}
+                  <div class="u-cart__bill-row u-cart__bill-row--disc"><span>Item Discount</span><span>-{{ item_discount | money }}</span></div>
+                {% endif %}
+                <div class="u-cart__bill-row"><span>Sub Total</span><span>{{ sub_total | money }}</span></div>
+                <div class="u-cart__bill-divider"></div>
+                <div class="u-cart__bill-row"><span>Shipping Charges</span><span{% if free_ship %} class="is-free"{% endif %}>{% if free_ship %}FREE{% else %}{{ flat_shipping | money }}{% endif %}</span></div>
+              </div>
+            </details>
+          {% endif %}
         </div>
 
         <footer class="u-cart__foot">
           <div class="u-cart__total">
-            <span>Total <em>(excl. shipping)</em></span>
+            <span>Total</span>
             <strong>{{ cart.total_price | money }}</strong>
           </div>
           <a href="{{ routes.cart_url }}/checkout" class="u-btn u-btn--primary u-cart__checkout">{{ section.settings.checkout_label }}</a>
@@ -126,8 +166,8 @@
 
           {% if section.settings.returns_text != blank %}
             <p class="u-cart__returns">
-              {% render 'upaasak-icon', icon: 'shield' %}
-              <span>{{ section.settings.returns_text }}{% if section.settings.returns_link != blank and section.settings.returns_link_text != blank %} <a href="{{ section.settings.returns_link }}">{{ section.settings.returns_link_text }}</a>{% endif %}</span>
+              {% render 'upaasak-icon', icon: 'whatsapp' %}
+              <span>{{ section.settings.returns_text }}{% if section.settings.returns_link != blank and section.settings.returns_link_text != blank %} <a href="{{ section.settings.returns_link }}" target="_blank" rel="noopener">{{ section.settings.returns_link_text }}</a>{% endif %}</span>
             </p>
           {% endif %}
 
@@ -153,26 +193,38 @@
   "name": "Cart Drawer",
   "settings": [
     { "type": "text", "id": "title", "label": "Title", "default": "Your cart" },
-    { "type": "text", "id": "checkout_label", "label": "Checkout button label", "default": "Checkout" },
+    { "type": "text", "id": "checkout_label", "label": "Checkout button label", "default": "Buy Now" },
     { "type": "text", "id": "continue_label", "label": "Continue button label", "default": "Continue Shopping" },
-    { "type": "header", "content": "Free shipping bar" },
-    { "type": "checkbox", "id": "show_free_ship", "label": "Show free-shipping progress bar", "default": true },
-    { "type": "number", "id": "free_ship_threshold", "label": "Free shipping threshold (rupees)", "default": 999 },
+    { "type": "header", "content": "Moving badges" },
+    { "type": "checkbox", "id": "show_badges", "label": "Show rotating badge strip", "default": true },
     { "type": "header", "content": "Estimated delivery" },
     { "type": "checkbox", "id": "show_delivery", "label": "Show estimated delivery", "default": true },
     { "type": "number", "id": "delivery_days", "label": "Delivery days from today", "default": 7 },
     { "type": "header", "content": "Totals" },
     { "type": "checkbox", "id": "show_savings", "label": "Show savings banner", "default": true },
+    { "type": "header", "content": "Payment Summary" },
+    { "type": "checkbox", "id": "show_bill_summary", "label": "Show Payment Summary breakdown", "default": true },
+    { "type": "number", "id": "free_ship_threshold", "label": "Free shipping threshold (rupees)", "default": 999 },
+    { "type": "number", "id": "flat_shipping_rate", "label": "Shipping charge below threshold (rupees)", "default": 99 },
     { "type": "header", "content": "Trust" },
-    { "type": "text", "id": "returns_text", "label": "Returns text", "default": "30-Day Returns Guarantee." },
-    { "type": "text", "id": "returns_link_text", "label": "Returns link text", "default": "See Return Info" },
-    { "type": "url", "id": "returns_link", "label": "Returns link" },
+    { "type": "text", "id": "returns_text", "label": "Trust line text", "default": "Need Help?" },
+    { "type": "text", "id": "returns_link_text", "label": "Trust line link text", "default": "WhatsApp us" },
+    { "type": "url", "id": "returns_link", "label": "Trust line link (e.g. wa.me URL)" },
     { "type": "checkbox", "id": "show_payments", "label": "Show payment icons", "default": true },
     { "type": "text", "id": "payment_methods", "label": "Payment methods (comma-separated)", "info": "visa, mastercard, upi, rupay, paypal, gpay, amazon, applepay, cod", "default": "visa,mastercard,upi,rupay,paypal" },
     { "type": "header", "content": "Empty state" },
     { "type": "text", "id": "empty_title", "label": "Empty title", "default": "Your cart is empty" },
     { "type": "textarea", "id": "empty_text", "label": "Empty text", "default": "Discover our sacred Rudraksha, malas and bracelets — energized and ready to bless." },
     { "type": "text", "id": "empty_cta", "label": "Empty button label", "default": "Continue Shopping" }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "You have got FREE Shipping" }
+      ]
+    }
   ]
 }
 {% endschema %}

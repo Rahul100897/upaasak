@@ -82,18 +82,27 @@
     "sections": {
       "upaasak-cart-drawer": {
         "type": "upaasak-cart-drawer",
+        "blocks": {
+          "b1": { "type": "badge", "settings": { "text": "You have got FREE Shipping" } },
+          "b2": { "type": "badge", "settings": { "text": "OSOC Certified" } },
+          "b3": { "type": "badge", "settings": { "text": "100% Original" } },
+          "b4": { "type": "badge", "settings": { "text": "Secure Payments" } }
+        },
+        "block_order": ["b1", "b2", "b3", "b4"],
         "settings": {
           "title": "Your cart",
-          "checkout_label": "Checkout",
+          "checkout_label": "Buy Now",
           "continue_label": "Continue Shopping",
-          "show_free_ship": true,
-          "free_ship_threshold": 999,
+          "show_badges": true,
           "show_delivery": true,
           "delivery_days": 7,
           "show_savings": true,
-          "returns_text": "30-Day Returns Guarantee.",
-          "returns_link_text": "See Return Info",
-          "returns_link": "",
+          "show_bill_summary": true,
+          "free_ship_threshold": 999,
+          "flat_shipping_rate": 99,
+          "returns_text": "Need Help?",
+          "returns_link_text": "WhatsApp us",
+          "returns_link": "https://wa.me/919460940868",
           "show_payments": true,
           "payment_methods": "visa,mastercard,upi,rupay,paypal",
           "empty_title": "Your cart is empty",
