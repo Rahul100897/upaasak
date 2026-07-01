@@ -11,7 +11,7 @@
   <div class="u-wrap">
     <div class="u-section-head is-centered">
       {% if section.settings.eyebrow != blank %}<span class="u-eyebrow is-centered" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
-      <h2 class="u-title" data-reveal style="--d:60ms">{% render 'upaasak-split-heading', heading: section.settings.heading %}</h2>
+      <h2 class="u-title" data-reveal style="--d:60ms">{% if section.settings.heading_lead != blank %}<span class="u-title__lead">{{ section.settings.heading_lead }}</span> {% endif %}<em>{{ section.settings.heading_accent }}</em></h2>
     </div>
 
     {% if coll != blank and coll.products.size > 0 %}
@@ -45,7 +45,8 @@
   "tag": "section",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Best Sellers" },
+    { "type": "text", "id": "heading_lead", "label": "Heading (regular)", "info": "e.g. Best", "default": "Best" },
+    { "type": "text", "id": "heading_accent", "label": "Heading (bold/maroon)", "info": "e.g. Seller", "default": "Seller" },
     { "type": "collection", "id": "collection", "label": "Collection" },
     { "type": "range", "id": "count", "min": 2, "max": 12, "step": 1, "label": "Products to show", "default": 4 },
     { "type": "checkbox", "id": "show_view_all", "label": "Show View All button", "default": true },

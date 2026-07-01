@@ -203,7 +203,8 @@
       "name": "Shop by Collection",
       "settings": {
         "eyebrow": "",
-        "heading": "Shop by Collection",
+        "heading_lead": "Shop by",
+        "heading_accent": "Collection",
         "subheading": ""
       }
     },
@@ -296,7 +297,8 @@
       ],
       "settings": {
         "eyebrow": "",
-        "heading": "Shop by Purpose",
+        "heading_lead": "Shop by",
+        "heading_accent": "Purpose",
         "source_collection": "",
         "count": 8,
         "randomize": true,
@@ -309,7 +311,8 @@
       "name": "Best Seller",
       "settings": {
         "eyebrow": "",
-        "heading": "Best Sellers",
+        "heading_lead": "Best",
+        "heading_accent": "Seller",
         "collection": "",
         "count": 4,
         "show_view_all": true,
@@ -388,7 +391,8 @@
       "name": "Shop by Deity",
       "settings": {
         "eyebrow": "",
-        "heading": "Shop by Deity",
+        "heading_lead": "Shop By",
+        "heading_accent": "Deity",
         "source_collection": "",
         "count": 8,
         "randomize": true,
@@ -411,7 +415,8 @@
       "name": "Upaasak New Arrivals",
       "settings": {
         "eyebrow": "",
-        "heading": "New Arrivals",
+        "heading_lead": "New",
+        "heading_accent": "Arrivals",
         "collection": "",
         "count": 4,
         "show_view_all": true,

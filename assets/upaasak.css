@@ -101,6 +101,7 @@
 }
 .u-title em { font-style: italic; font-weight: 700; color: var(--u-maroon); }
 .u-title .u-gold { color: var(--u-gold-deep); }
+.u-title__lead { font-family: var(--u-font-body); font-weight: 500; color: var(--u-charcoal); }
 
 .u-lead {
   font-size: clamp(1rem, 1.4vw, 1rem);
