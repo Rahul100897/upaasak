@@ -1,0 +1,25 @@
+{% render 'upaasak-design-system' %}
+
+{% if section.settings.enable and section.settings.phone != blank %}
+  {%- liquid
+    assign wa_phone = section.settings.phone | remove: ' ' | remove: '+' | remove: '-'
+    assign wa_url = 'https://wa.me/' | append: wa_phone
+    if section.settings.message != blank
+      assign wa_url = wa_url | append: '?text=' | append: section.settings.message | url_encode
+    endif
+  -%}
+  <a class="u-wa-float" href="{{ wa_url }}" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    {% render 'upaasak-icon', icon: 'whatsapp' %}
+  </a>
+{% endif %}
+
+{% schema %}
+{
+  "name": "WhatsApp Button",
+  "settings": [
+    { "type": "checkbox", "id": "enable", "label": "Show floating WhatsApp button", "default": true },
+    { "type": "text", "id": "phone", "label": "WhatsApp number", "info": "Include country code, e.g. 919460940868", "default": "919460940868" },
+    { "type": "text", "id": "message", "label": "Pre-filled message", "default": "Hi Upaasak, I have a question about" }
+  ]
+}
+{% endschema %}

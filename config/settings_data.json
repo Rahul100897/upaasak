@@ -109,6 +109,14 @@
           "empty_text": "Discover our sacred Rudraksha, malas and bracelets — energized and ready to bless.",
           "empty_cta": "Continue Shopping"
         }
+      },
+      "upaasak-whatsapp-float": {
+        "type": "upaasak-whatsapp-float",
+        "settings": {
+          "enable": true,
+          "phone": "919460940868",
+          "message": "Hi Upaasak, I have a question about"
+        }
       }
     },
     "content_for_index": [],

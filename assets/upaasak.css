@@ -1192,6 +1192,15 @@ body.u-noscroll { overflow: hidden; }
 .u-cart__empty h3 { font-family: var(--u-font-display); font-size: 1.4rem; color: var(--u-charcoal); margin: 0; }
 .u-cart__empty p { font-size: .9rem; color: var(--u-muted); line-height: 1.6; margin: 0 0 16px; max-width: 30ch; }
 
+/* ---- Floating WhatsApp button (global, bottom-right) ---- */
+.u-wa-float { position: fixed; z-index: 900; bottom: 22px; right: 22px; width: 56px; height: 56px; border-radius: 50%; background: #25d366; color: #fff; display: grid; place-items: center; box-shadow: 0 6px 18px rgba(0,0,0,.28); transition: transform .3s var(--u-ease), box-shadow .3s var(--u-ease); text-decoration: none; }
+.u-wa-float:hover { transform: scale(1.08); box-shadow: 0 8px 22px rgba(0,0,0,.34); }
+.u-wa-float svg { width: 30px; height: 30px; }
+@media (max-width: 749px) {
+  .u-wa-float { width: 50px; height: 50px; bottom: calc(16px + env(safe-area-inset-bottom)); right: 16px; }
+  .u-wa-float svg { width: 26px; height: 26px; }
+}
+
 /* Add-to-cart loading + error states (cards + PDP) */
 .u-pcard__cta.is-loading, .u-pdp__atc.is-loading { color: transparent !important; pointer-events: none; position: relative; }
 .u-pcard__cta.is-loading > *, .u-pdp__atc.is-loading > * { visibility: hidden; }
