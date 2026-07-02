@@ -1,0 +1,108 @@
+{%- comment -%}
+  Upaasak breadcrumbs — renders on every inner page (not home/password/gift card).
+  Self-contained: loads the design system itself so it also works on native
+  Shopify pages (policies, etc.) that don't render any other upaasak-* section.
+  Usage: {% render 'upaasak-breadcrumbs' %} — called once from layout/theme.liquid.
+{%- endcomment -%}
+{%- render 'upaasak-design-system' -%}
+{%- liquid
+  assign show = true
+  assign crumb2_title = ''
+  assign crumb2_url = ''
+  assign crumb3_title = ''
+
+  case template.name
+    when 'index' or 'password' or 'gift_card'
+      assign show = false
+    when 'product'
+      if collection.title != blank
+        assign crumb2_title = collection.title
+        assign crumb2_url = collection.url
+      else
+        assign crumb2_title = 'Shop All'
+        assign crumb2_url = routes.all_products_collection_url
+      endif
+      assign crumb3_title = product.title
+    when 'collection'
+      assign crumb2_title = 'Collections'
+      assign crumb2_url = routes.collections_url
+      assign crumb3_title = collection.title
+    when 'list-collections'
+      assign crumb2_title = 'Collections'
+    when 'page'
+      assign crumb2_title = page.title
+    when 'blog'
+      assign crumb2_title = blog.title
+    when 'article'
+      assign crumb2_title = blog.title
+      assign crumb2_url = blog.url
+      assign crumb3_title = article.title
+    when 'search'
+      if search.performed and search.terms != blank
+        assign crumb2_title = 'Search results for "' | append: search.terms | append: '"'
+      else
+        assign crumb2_title = 'Search'
+      endif
+    when 'cart'
+      assign crumb2_title = 'Cart'
+    when '404'
+      assign crumb2_title = 'Page Not Found'
+    when 'customers/account'
+      assign crumb2_title = 'My Account'
+    when 'customers/order'
+      assign crumb2_title = 'My Account'
+      assign crumb2_url = routes.account_url
+      assign crumb3_title = order.name
+    when 'customers/addresses'
+      assign crumb2_title = 'My Account'
+      assign crumb2_url = routes.account_url
+      assign crumb3_title = 'Addresses'
+    when 'customers/login'
+      assign crumb2_title = 'Login'
+    when 'customers/register'
+      assign crumb2_title = 'Create Account'
+    when 'customers/reset_password'
+      assign crumb2_title = 'Reset Password'
+    when 'customers/activate_account'
+      assign crumb2_title = 'Activate Account'
+    else
+      assign show = false
+  endcase
+-%}
+{%- if show and crumb2_title != blank -%}
+  <nav class="u-section u-crumbs" aria-label="Breadcrumb">
+    <div class="u-wrap">
+      <ol class="u-crumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li class="u-crumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="{{ routes.root_url }}" class="u-crumbs__link" itemprop="item">
+            <span itemprop="name">Home</span>
+          </a>
+          <meta itemprop="position" content="1">
+          <span class="u-crumbs__sep" aria-hidden="true">/</span>
+        </li>
+        {%- if crumb3_title != blank -%}
+          <li class="u-crumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            {%- if crumb2_url != blank -%}
+              <a href="{{ crumb2_url }}" class="u-crumbs__link" itemprop="item">
+                <span itemprop="name">{{ crumb2_title }}</span>
+              </a>
+            {%- else -%}
+              <span itemprop="name">{{ crumb2_title }}</span>
+            {%- endif -%}
+            <meta itemprop="position" content="2">
+            <span class="u-crumbs__sep" aria-hidden="true">/</span>
+          </li>
+          <li class="u-crumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span class="u-crumbs__current" itemprop="name" aria-current="page">{{ crumb3_title }}</span>
+            <meta itemprop="position" content="3">
+          </li>
+        {%- else -%}
+          <li class="u-crumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span class="u-crumbs__current" itemprop="name" aria-current="page">{{ crumb2_title }}</span>
+            <meta itemprop="position" content="2">
+          </li>
+        {%- endif -%}
+      </ol>
+    </div>
+  </nav>
+{%- endif -%}

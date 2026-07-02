@@ -127,6 +127,7 @@
       data-product-transition="{{ settings.transition_to_main_product }}"
       data-template="{{ template }}"
     >
+      {% render 'upaasak-breadcrumbs' %}
       {{ content_for_layout }}
     </main>
 

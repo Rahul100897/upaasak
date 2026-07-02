@@ -233,6 +233,49 @@
   .u-shimmer { animation: none; }
 }
 
+/* ----- Breadcrumbs ----- */
+.u-crumbs {
+  border-bottom: 1px solid var(--u-line);
+  background: var(--u-ivory);
+}
+.u-crumbs__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  list-style: none;
+  margin: 0;
+  padding: 13px 0;
+  gap: 8px;
+  font-family: var(--u-font-body);
+  font-size: clamp(0.72rem, 1vw, 0.82rem);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.u-crumbs__list::-webkit-scrollbar { display: none; }
+.u-crumbs__item { display: flex; align-items: center; gap: 8px; }
+.u-crumbs__link {
+  color: var(--u-muted);
+  text-decoration: none;
+  transition: color 0.2s var(--u-ease);
+}
+.u-crumbs__link:hover,
+.u-crumbs__link:focus-visible { color: var(--u-maroon); text-decoration: underline; }
+.u-crumbs__sep { color: var(--u-gold-line); }
+.u-crumbs__current {
+  color: var(--u-ink);
+  font-weight: 600;
+  max-width: 46vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 749px) {
+  .u-crumbs__list { padding: 11px 0; gap: 6px; }
+  .u-crumbs__current { max-width: 60vw; }
+}
+
 /* ============================================================================
    HERO
    ========================================================================== */
