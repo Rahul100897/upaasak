@@ -14,6 +14,7 @@
       "blocks": {
         "b5": {
           "type": "banner",
+          "name": "Rudraksha",
           "settings": {
             "image": "shopify://shop_images/Rudraksha_1.jpg",
             "image_mobile": "shopify://shop_images/Rudraksha_1_e5aa398c-84bc-4ffe-a6c4-f57d78ced85c.jpg",
@@ -23,25 +24,39 @@
             "heading": "Spiritual Gifting",
             "subheading": "Beautifully packaged blessings for your loved ones.",
             "cta_label": "Shop Now",
+            "cta_link": "shopify://products/natural-5-mukhi-rudraksha-free-nepali"
+          }
+        },
+        "banner_MgWhED": {
+          "type": "banner",
+          "settings": {
+            "link": "",
+            "show_content": false,
+            "tip": "New Arrival",
+            "heading": "Sacred Rudraksha, Energized for You",
+            "subheading": "Hand-picked, lab-certified beads to elevate your daily sadhana.",
+            "cta_label": "Shop Now",
             "cta_link": ""
           }
         },
-        "b3": {
+        "b1": {
           "type": "banner",
+          "name": "Bracelet",
           "settings": {
-            "image": "shopify://shop_images/Karungali_3.jpg",
-            "image_mobile": "shopify://shop_images/Karungali_3_6d7acb75-b512-4c0e-9441-9866dec35316.jpg",
-            "link": "shopify://collections/karungali",
+            "image": "shopify://shop_images/Bracelet_2.jpg",
+            "image_mobile": "shopify://shop_images/Bracelet_2_87faa35b-98d9-4446-8fde-cac320230f89.jpg",
+            "link": "shopify://collections/spiritual-bracelets",
             "show_content": false,
-            "tip": "For Daily Devotion",
-            "heading": "Japa & Meditation Malas",
-            "subheading": "108-bead malas crafted for your mantra practice.",
+            "tip": "Bestseller",
+            "heading": "Original 5 Mukhi Rudraksha Mala",
+            "subheading": "The most revered bead for peace, focus and daily protection.",
             "cta_label": "Shop Now",
             "cta_link": ""
           }
         },
         "b4": {
           "type": "banner",
+          "name": "Yatra",
           "settings": {
             "image": "shopify://shop_images/Yatra_4.jpg",
             "image_mobile": "shopify://shop_images/Yatra_4_b52f1609-5d87-49e8-ab5f-1c988a78060b.jpg",
@@ -56,6 +71,7 @@
         },
         "b2": {
           "type": "banner",
+          "name": "Gemstones",
           "settings": {
             "image": "shopify://shop_images/Gemstones_5.jpg",
             "image_mobile": "shopify://shop_images/Gemstone_5.jpg",
@@ -68,16 +84,17 @@
             "cta_link": ""
           }
         },
-        "b1": {
+        "b3": {
           "type": "banner",
+          "name": "Karungali",
           "settings": {
-            "image": "shopify://shop_images/Bracelet_2.jpg",
-            "image_mobile": "shopify://shop_images/Bracelet_2_87faa35b-98d9-4446-8fde-cac320230f89.jpg",
-            "link": "shopify://collections/spiritual-bracelets",
+            "image": "shopify://shop_images/Karungali_3.jpg",
+            "image_mobile": "shopify://shop_images/Karungali_3_6d7acb75-b512-4c0e-9441-9866dec35316.jpg",
+            "link": "shopify://collections/karungali",
             "show_content": false,
-            "tip": "Bestseller",
-            "heading": "Original 5 Mukhi Rudraksha Mala",
-            "subheading": "The most revered bead for peace, focus and daily protection.",
+            "tip": "For Daily Devotion",
+            "heading": "Japa & Meditation Malas",
+            "subheading": "108-bead malas crafted for your mantra practice.",
             "cta_label": "Shop Now",
             "cta_link": ""
           }
@@ -85,10 +102,11 @@
       },
       "block_order": [
         "b5",
-        "b3",
+        "banner_MgWhED",
+        "b1",
         "b4",
         "b2",
-        "b1"
+        "b3"
       ],
       "settings": {
         "interval": 3
