@@ -48,7 +48,7 @@
       "type": "upaasak-brand-bar",
       "custom_css": [
         "h2 {font-size: 32px;}",
-        "& {position: sticky; top: 0; z-index: 40;}"
+        "& {position: sticky !important; top: 0 !important; z-index: 40 !important;}"
       ],
       "settings": {
         "logo": "shopify://shop_images/UPAASAK_Logo.png",
