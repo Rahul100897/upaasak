@@ -671,7 +671,9 @@
         "reel_nJmnPH": {
           "type": "reel",
           "settings": {
-            "reel_url": ""
+            "reel_video": "shopify://files/videos/Video-638.mp4",
+            "poster": "shopify://shop_images/Image-547.jpg",
+            "reel_url": "https://www.instagram.com/reels/DWTszo5jGxb/"
           }
         }
       },
