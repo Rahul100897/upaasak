@@ -46,6 +46,10 @@
     },
     "u_brandbar": {
       "type": "upaasak-brand-bar",
+      "custom_css": [
+        "h2 {font-size: 32px;}",
+        "& {position: sticky; top: 0; z-index: 40;}"
+      ],
       "settings": {
         "logo": "shopify://shop_images/UPAASAK_Logo.png",
         "logo_letter": "ॐ",
