@@ -1,230 +1,477 @@
 # Upaasak — Project Handover
 
-> Hand this file to a new chat to continue the work. It captures the full state,
-> the architecture, the hard‑won Shopify gotchas, the exact workflow, and the
-> remaining TODOs. **Read this top to bottom before touching anything.**
+> Hand this file to a new chat to continue the work. It captures the full current
+> state, the design system, every hard‑won Shopify gotcha (including two that
+> silently broke sync for multiple sessions), the exact workflow, and what's left.
+> **Read this top to bottom before touching anything.**
 
-Last updated at commit **`ff705cd`** on `main`.
+Last updated after commit **`6a86dbb`** on `main`. This file supersedes
+`HANDOVER_UPAASAK.md` (now stale/deprecated — its palette, font, and section-list
+info is outdated; don't trust it).
+
+---
+
+## 0. How to resume (paste this into a new chat)
+
+> You are continuing a Shopify (Horizon / OS 2.0) theme redesign for **Upaasak**, an
+> Indian Rudraksha/spiritual-products store. Read `HANDOVER.md` in the repo root
+> FIRST, top to bottom — it has the design system, the git workflow, and a list of
+> Shopify schema gotchas that have silently broken sync multiple times before. Then
+> wait for the task. Do not publish the theme. Match the existing `upaasak-*` file /
+> `u-*` CSS class conventions exactly. Always `git pull --no-rebase origin main`
+> before editing anything, and run the validation script in §4 before every push.
 
 ---
 
 ## 1. What this project is
 
-A premium, animated, mobile‑responsive redesign of the **Upaasak** store — an Indian
-**Rudraksha / spiritual products** brand (Rudraksha, Karungali, malas, gemstone
-bracelets, stones, idols, gifting; prices in ₹). Inspiration/reference:
-`https://www.ukmasala.in/` (layout) and `https://upaasak.vercel.app/en` (brand identity).
+A premium, mobile‑responsive redesign of the Upaasak store (Rudraksha, Karungali,
+malas, gemstone bracelets, gifting; prices in ₹).
 
 - **Repo:** `https://github.com/Rahul100897/upaasak` (branch `main`).
-- **Shopify theme:** **Horizon** (Online Store 2.0 / "blocks" architecture), Spring '26.
-- **Live theme link:** the redesign lives on a **GitHub‑connected DRAFT theme** named
-  **`upaasak/main`** in the merchant's Shopify admin (store handle `upaasak`,
-  `0w3hw6-im.myshopify.com`). It is **not published** — do not publish without asking.
-- All custom work is namespaced `upaasak-*` (files) / `u-*` (CSS classes) so it never
-  collides with the stock theme. Original theme sections are preserved (left defined,
-  removed from render order).
+- **Shopify theme:** Horizon (Online Store 2.0), GitHub‑connected.
+- **Draft theme:** `upaasak/main` in the merchant's Shopify admin. **Not published** —
+  never publish without explicit permission.
+- **Live storefront (`upaasak.com`)** runs the currently *published* theme, which is
+  a **completely different, older theme** — none of this work is visible there. If
+  the client ever shares an `upaasak.com` screenshot as "proof a change isn't
+  working," that's almost certainly why. Always point them at a fresh draft-theme
+  preview link instead.
+- All custom work is namespaced `upaasak-*` (files) / `u-*` (CSS classes). Original
+  stock theme sections/files are left in place, untouched, just not rendered.
 
----
+### Brand tokens (the CORRECT current values — do not use older docs' numbers)
+- **Maroon:** `#73252D` (this is `--u-maroon` in `assets/upaasak.css`). It was
+  originally `#7b0b2c` in the codebase and got silently corrected mid-project — if
+  you see `#7b0b2c` anywhere or in an old doc, it's wrong.
+- **Charcoal (near-black):** `#1A1A1A`. **Medium gray (subtext):** `#6B6B6B`.
+- **Cream/ivory backgrounds:** `--u-cream`, `--u-ivory`, `#FAF5EC`.
+- **Gold (icons/accents):** `#D4AF37` and `--u-gold*` tokens.
+- **Font: Poppins, everywhere.** Set via the theme's Typography settings
+  (`config/settings_data.json` → `type_body_font`/`type_subheading_font`/
+  `type_heading_font`/`type_accent_font`, all `poppins_n*`), which cascade through
+  the existing `--u-font-display` / `--u-font-label` / `--u-font-body` CSS variables.
+  **Never hardcode a font-family** — use those three variables. The one deliberate
+  exception is the PDP "Why Choose Upaasak" section (`.u-whyx .u-title`), which
+  keeps an ornate serif (Georgia stack) for a "storytelling" contrast against the
+  rest of the Poppins site — this was an explicit client request, don't "fix" it.
 
-## 2. How delivery works (CRITICAL — read first)
-
-The draft theme is **connected to GitHub**, and the integration is **bidirectional**:
-
-- **You push to `main` → Shopify auto‑syncs it into the draft theme** (seconds–1 min).
-- **The merchant edits in the Shopify editor/code‑editor → Shopify commits those changes
-  back to `main`** as `"Update from Shopify for theme upaasak/main"` commits.
-
-Therefore the golden rule:
-
-```bash
-git pull --no-rebase origin main   # ALWAYS pull first — or your push is rejected
-# ...make changes...
-git add -A && git commit && git push origin main
-```
-
-- Commits are authored as: `git -c user.name="Rahul100897" -c user.email="thakorrahul285@gmail.com" commit ...`
-- After pushing, tell the merchant to **reload the editor** (⌘⇧R). If a
-  **"Restore last session?"** prompt appears, they must click **✕ (dismiss)** — NOT
-  "Restore" (Restore reloads their stale pre‑sync draft).
-- **Never clobber the merchant's edits.** They have hand‑edited things in the code
-  editor (e.g. the footer **logo image**, several mobile CSS tweaks in `assets/upaasak.css`).
-  Make **additive / surgical** edits. After `git pull`, run `git log --oneline` and
-  `git diff <last-known-hash> -- <file>` to see what they changed, and preserve it.
-
----
-
-## 3. Architecture / file map
-
+### Shared design system (read these first)
 | File | Purpose |
-|------|---------|
-| `assets/upaasak.css` | **Single source of truth** for all styling — design tokens, every section's styles, animations, responsive rules. Edit surgically; the merchant also edits this file. |
-| `assets/upaasak.js` | Idempotent interactions: scroll‑reveal, count‑up, testimonial carousel, FAQ accordion, **banner slideshow (+ height‑sync)**, filter tabs, announcement rotator, **mobile hamburger drawer**. Safe to load/run multiple times; re‑scans on Shopify editor events. |
-| `snippets/upaasak-design-system.liquid` | Loads `upaasak.css` + `upaasak.js`. Rendered at the top of **every** `upaasak-*` section. |
-| `snippets/upaasak-icon.liquid` | Inline line‑icon library (`{% render 'upaasak-icon', icon: 'lotus' %}`). |
-| `snippets/upaasak-product-card.liquid` | Product card (name, Certified·Tested·Original, green discount %, MRP strikethrough, Add‑to‑cart). Used by Shop‑by‑Purpose & Best‑Seller. |
-| `sections/upaasak-*.liquid` | 25 custom sections (list below). |
-| `templates/index.json` | Homepage. **JSONC** (has a `/*…*/` header comment — strip it before `json.loads`). |
-| `sections/header-group.json` | Global header group. Also JSONC now. |
-| `templates/product.json` | Product page. |
-| `preview/index.html`, `preview/product.html` | Static preview mirroring the design (uses the same `upaasak.css`/`js`). For local visual checks only. |
-| `README.md` | Higher‑level overview of the redesign. |
-
-### Fonts
-Fonts are **not** hardcoded. The design tokens map to the theme's Typography settings:
-`--u-font-display → var(--font-heading--family)`, `--u-font-label → var(--font-accent--family)`,
-`--u-font-body → var(--font-body--family)`. Change fonts in **Settings → Typography**
-(currently Inter). No Google Fonts `@import`.
-
-### Section inventory (`sections/upaasak-*.liquid`)
-Header group: `announcement-bar`, `brand-bar`, `category-nav`.
-Homepage body: `banner-slideshow`, `trust-bar`, `shop-by-purpose`, `why-choose-us`,
-`best-seller`, `reviews-scroll`, `sitemap-footer`, `fullwidth-image`.
-Product page: `product-highlights`, `product-significance`, `product-care`,
-`product-promise`, `product-reviews`, `faq`.
-Earlier "luxury boutique" set (defined, reusable, addable via "Add section"):
-`hero`, `marquee`, `collections`, `benefits`, `story`, `process`, `testimonials`,
-`cta-banner`, `trust-strip`.
-
-### Current render order
-- **Header group** (`header-group.json`): `u_announcement → u_brandbar → u_catnav`.
-  (Original `header-announcements` + `header` kept defined but not rendered.)
-- **Homepage** (`index.json`): `banner-slideshow → trust-bar → shop-by-purpose →
-  why-choose-us → (a 2nd why-choose-us the merchant added) → best-seller →
-  reviews-scroll → sitemap-footer`. *(Full‑width Image is available to add anywhere.)*
-- **Product** (`product.json`): `main → product-highlights → significance → care →
-  promise → reviews → faq → product-recommendations`.
+|---|---|
+| `assets/upaasak.css` | **Single source of truth** for styling — tokens (`:root { --u-* }`), every `upaasak-*` section's CSS, responsive rules. Very large; search by class name rather than reading linearly. |
+| `assets/upaasak.js` | One IIFE, idempotent `initX(root)` functions collected in `initAll`, re-scanned on Shopify design-mode events and AJAX cart updates. Handles: scroll-reveal, count-up, FAQ accordion, tabs, mobile hamburger drawer, announcement/banner rotators, **carousel drag-to-scroll**, PDP gallery/variants/Buy Now, **cart drawer AJAX**, predictive search, contact prefill. |
+| `snippets/upaasak-design-system.liquid` | Loads the CSS + JS once. Render at the top of **every** `upaasak-*` section: `{% render 'upaasak-design-system' %}`. |
+| `snippets/upaasak-icon.liquid` | Inline line-icon library (`currentColor`). Add new icons here, then expose them in the consuming section's `icon` select options. |
+| `snippets/upaasak-product-card.liquid` | The product card used in every grid (home, collection, search, recommendations). Handles sale badge, trust tags, "You Save" badge (mobile only), Enquiry vs Add-to-cart, AJAX add. |
+| `snippets/upaasak-split-heading.liquid` | Legacy auto-split heading helper (splits a string on its last word). **Mostly superseded** — see §5. Still used by `upaasak-product-recommendations.liquid` ("You May Also Like"). |
+| `snippets/upaasak-payments.liquid` | Payment trust badges row. |
+| `snippets/upaasak-mlt.liquid` | Renders a multi-line-text metafield value into `<ul>`/`<p>` HTML; a non-bulleted line renders bold via `.u-acc__mlt p` (used for "How to Wear"/"Who Should Wear?" sub-headings inside the PDP details accordion). |
 
 ---
 
-## 4. Shopify gotchas that already bit us (DO NOT repeat)
+## 2. Workflow (NON-NEGOTIABLE)
 
-`shopify theme check` passes these but **Shopify's importer is stricter** and will
-**silently drop** an invalid section/template (→ 404 / blank / "section does not refer
-to an existing file"). Always self‑validate:
+1. **Always `git pull --no-rebase origin main` before editing or committing.** The
+   draft theme is bidirectionally synced: merchant edits in the Shopify editor land
+   in the repo as `Update from Shopify for theme upaasak/main` commits, sometimes
+   several per session. Check `git log --oneline main..origin/main` first; if
+   there are new commits, `git diff` them before pulling so you know what changed
+   and don't accidentally revert real content the merchant just added (real product
+   videos, reordered banners, filter tag renames, etc. have all happened before).
+2. **Push to `main`; the draft theme auto-syncs** within ~1 minute. Never publish.
+3. **Commit trailer** on every commit: `Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>`
+   (or whatever model is actually running the session).
+4. **Validate before every push** — see §4. This is not optional; two of the
+   validation checks exist specifically because their absence silently broke sync
+   for multiple sessions in a row (see §3, G1 and G2).
+5. **Verify UI changes in an isolated preview** before claiming done. The repo's
+   `preview/*.html` static mockups are **stale and disconnected** from the real
+   Liquid/CSS — don't trust them. Instead: copy `assets/upaasak.css`/`upaasak.js`
+   into a scratch dir, write a tiny standalone HTML file with just the markup
+   you're testing, serve it, and check with the preview tool (screenshots +
+   `preview_eval`/DOM measurements, not just eyeballing). This caught several real
+   bugs (dead-space in carousels, button text clipping, a stale-flag click bug)
+   that looked fine on paper.
+6. **Reload the Shopify editor after every push** — hard refresh, and if a "Restore
+   last session?" prompt appears, click **✕ dismiss**, never "Restore" (that
+   reloads the stale pre-sync draft).
 
-1. **Section schema `name` ≤ 25 characters.**
-2. **`type:"header"` setting `content` ≤ 50 characters.** (An over‑long one rejected the
-   whole banner section and blocked the show‑content toggle for several rounds.)
-3. **No 4‑byte UTF‑8 (emoji) anywhere in a schema** — e.g. `🇮🇳` broke `sitemap-footer`
-   import, which cascaded to drop `index.json` (homepage 404). 3‑byte chars are fine
-   (`ॐ ₹ — ·`). Scan: code points `> 0xFFFF`.
-4. **Header‑group sections must declare** `"enabled_on": {"groups": ["header"]}` or
-   Shopify won't place them → empty header. Keep the header group to only the 3 custom
-   sections (we removed the native header refs to stop it being rejected on sync).
-5. **Keep templates lean.** A JSON template bloated with many leftover section
-   instances, or referencing a section that fails to compile, gets dropped on import.
-   `index.json`/`product.json` contain only the sections they render.
-6. **Don't store the virtual `collection: "all"`** in a template setting — the importer
-   rejects it. Leave collection settings empty; `shop-by-purpose`/`best-seller` fall
-   back to `collections['all']` in Liquid at render time.
-7. Templates are **JSONC** once Shopify touches them (leading `/* auto-generated */`
-   comment). Strip it before `json.loads`: `re.sub(r'^\s*/\*.*?\*/','',s,count=1,flags=re.S)`.
+---
 
-### Self‑validation snippet (run before every push)
+## 3. Gotchas that have already caused real problems
+
+### G1 — Blank string `"default": ""` on ANY schema setting silently blocks sync (fixed 2026, cost multiple sessions)
+Shopify's importer rejects a section file with `FileSaveError: Invalid schema:
+setting with id="X" default can't be blank`. When this happens, **the entire file
+fails to sync** — the theme editor keeps showing whatever the *last successfully
+synced* version of that file was, no matter how many correct commits you push
+after that point. This is confusing because *other* files keep syncing fine, so it
+looks like an intermittent/random bug rather than one broken file stuck forever.
+**Fix:** never write `"default": ""` — either give a real default or omit the
+`default` key entirely (a setting with no default key just renders blank until
+filled in, which is the same visible behavior).
+
+### G2 — A string `"default"` on a `type: "url"` setting also blocks sync
+`FileSaveError: Invalid schema: setting with id="X" default must be a string or
+datasource access path` — despite the confusing wording, a `url`-type setting
+**cannot** have a plain URL string as its default. Omit `default` entirely for any
+`{ "type": "url", ... }` setting; set the real value on the section's live
+*instance* in the template JSON instead.
+
+### G3 — Other known schema-import constraints (theme-check does NOT catch these — self-validate)
+- Section schema `"name"` ≤ 25 characters.
+- A `type: "header"` setting's `"content"` ≤ 50 characters.
+- No 4-byte UTF-8 characters (real emoji like 🎁🚚, or 🇮🇳-style flags) anywhere in a
+  `{% schema %}` block or template JSON — these can silently break an import. 3-byte
+  characters (ॐ ₹ — ✓ ·) are fine. The merchant *has* since manually added real
+  emoji (🎁🚚) into announcement-bar content via the editor and it synced fine, so
+  the actual risk profile isn't 100% certain — but don't be the one to introduce
+  4-byte characters into a schema/settings value, only into rendered body copy if
+  truly needed, and even then prefer 3-byte-safe alternatives when you have the choice.
+
+### G4 — Validation script (run before every push)
 ```bash
-shopify theme check --output json 2>/dev/null > /tmp/tc.json
 python3 - <<'PY'
-import re,json,glob
-for p in glob.glob('sections/upaasak-*.liquid'):
-    s=open(p,encoding='utf-8').read()
-    m=re.search(r'\{%\s*schema\s*%\}(.*?)\{%\s*endschema\s*%\}',s,re.S)
+import re, json, glob
+for p in sorted(glob.glob('sections/upaasak-*.liquid')):
+    s = open(p, encoding='utf-8').read()
+    m = re.search(r'\{%\s*schema\s*%\}(.*?)\{%\s*endschema\s*%\}', s, re.S)
     if not m: continue
-    sc=json.loads(m.group(1))
-    if len(sc.get('name',''))>25: print('NAME>25',p)
-    if any(ord(c)>0xFFFF for c in s): print('4-BYTE',p)
-    def chk(a):
-        for st in a or []:
-            if st.get('type')=='header' and len(st.get('content',''))>50: print('HEADER>50',p)
-    chk(sc.get('settings'))
-    for b in sc.get('blocks',[]): chk(b.get('settings'))
-print('done')
+    try:
+        sc = json.loads(m.group(1))
+    except Exception as e:
+        print("PARSE ERROR", p, e); continue
+    if len(sc.get('name', '')) > 25:
+        print("NAME>25:", p, sc.get('name'))
+    if any(ord(c) > 0xFFFF for c in s):
+        print("4-BYTE:", p)
+    def check(arr, where):
+        for st in arr or []:
+            if not isinstance(st, dict): continue
+            if 'default' in st and st['default'] == '':
+                print(f"BLANK DEFAULT: {p} [{where}] id={st.get('id')}")
+            if st.get('type') == 'url' and 'default' in st:
+                print(f"URL WITH DEFAULT: {p} [{where}] id={st.get('id')}")
+    check(sc.get('settings'), 'settings')
+    for b in sc.get('blocks', []):
+        check(b.get('settings'), f"block:{b.get('type')}")
+print('scan complete')
 PY
+# Also validate any template JSON you touched:
+python3 -c "
+import re, json
+s = open('templates/index.json', encoding='utf-8').read()
+s2 = re.sub(r'^\s*/\*.*?\*/', '', s, count=1, flags=re.S)
+json.loads(s2); print('OK')
+"
+shopify theme check --fail-level=error --output=json 2>/dev/null | python3 -c "
+import json, sys
+d = json.load(sys.stdin)
+print('errors:', sum(1 for e in d for o in e.get('offenses', []) if o.get('severity')=='error'))
+"
+```
+**Baseline is 12 pre-existing errors that are NOT yours** — `img` missing
+width/height on the disabled `lesure-*`/`footer-section.liquid`/
+`upaasak-brand-bar.liquid` files, plus a Judge.me app-block `JSONMissingBlock` in
+both product templates (needs the Judge.me app installed to resolve, unrelated to
+theme code). Only worry about the count going *above* 12, or about anything the
+scripts above flag directly.
+
+### G5 — `collections.all` array filters can return empty on the live storefront
+`collections.all.products | sort/where/map` has misbehaved before (works in editor,
+empty on storefront). Iterate with a plain `{% for %}` loop instead of piping
+`collections.all.products` through array filters.
+
+### G6 — `upaasak.css`/`.js` only load where an `upaasak-*` section renders
+Native Shopify policy pages don't render any `upaasak-*` section, so they never get
+the shared stylesheet. Content for those pages (`legal-html/`) is self-contained,
+inline-styled HTML with no dependency on `upaasak.css`.
+
+### G7 — Merchant edits routinely reorder/rename block ids and tweak content live
+Don't assume the shape of a template JSON matches what you last wrote — always read
+the current file before editing it, and only change the specific keys your task
+needs. The merchant has: reordered homepage sections, renamed banner block ids,
+swapped icons, changed filter tag values to real deity names, uploaded real
+Instagram reel videos, and moved section instances to new ids via "Add section" in
+the editor (which mints a fresh id like `upaasak_instagram_reels_zXrRnD` — the old
+`u_insta` instance I originally created got replaced by this new one; that's
+expected, not a bug).
+
+---
+
+## 4. Two-tone section headings — the established pattern
+
+Several homepage/PDP sections (Shop by Collection, Shop by Purpose, Shop by Deity,
+Best Seller, New Arrivals, Reviews, Instagram Reels) use a two-color/two-weight
+heading: one part regular-weight charcoal, one part bold-italic maroon. This is
+implemented with **two explicit schema fields per section** (not a single
+auto-split field) so merchants have direct control:
+
+```liquid
+<h2 class="u-title">
+  {% if section.settings.heading_lead != blank %}<span class="u-title__lead">{{ section.settings.heading_lead }}</span> {% endif %}<em>{{ section.settings.heading_accent }}</em>
+</h2>
+```
+```json
+{ "type": "text", "id": "heading_lead", "label": "Heading (regular)", "default": "Shop by" },
+{ "type": "text", "id": "heading_accent", "label": "Heading (bold/maroon)", "default": "Collection" }
+```
+CSS (already in `upaasak.css`, don't duplicate):
+- `.u-title__lead` → Poppins **body** font (regular weight — deliberately uses
+  `--u-font-body`, not `--u-font-display`, because Shopify only loads the ONE
+  weight you pick per font role; using the heading role for "regular" text would
+  just render at whatever weight the heading role is set to, not actually lighter).
+- `.u-title em` → bold (700) + italic + `var(--u-maroon)`.
+
+**Order varies per section** — most sections render lead-then-accent ("Shop by"
+**Collection**), but Instagram Reels reverses it (accent-then-lead: **"4.1 million
++"** "Devotees Already Watched") because that's what the client's copy called for.
+Check the specific section file for which order it uses before assuming.
+
+The old `snippets/upaasak-split-heading.liquid` (auto-splits a single heading
+string on its last word) is legacy — still wired into
+`upaasak-product-recommendations.liquid` ("You May Also Like", 2-word accent) but
+every other section has since moved to the explicit two-field pattern above. If
+you touch a heading and it's still using the auto-split snippet, consider whether
+converting it to two explicit fields is in scope.
+
+---
+
+## 5. Desktop carousel "peek" math — don't reintroduce the dead-space bug
+
+Product carousels (Shop by Collection/Purpose/Deity, Best Seller, New Arrivals,
+You May Also Like) and the Reviews row show N full cards + a deliberate **50% peek**
+of the next one on desktop, so users get a visual cue there's more to scroll. This
+depends on exact arithmetic against the real container width — get it wrong and
+you get an ugly half-filled dead-space gap instead of a clean peek (this happened
+twice before it was fixed properly).
+
+The formula, given available track width `W` (the **scroller's own** clientWidth,
+NOT `.u-wrap`'s outer edge which includes padding), gap `g` = 20px, and wanting
+`N` full cards + a 0.5 peek:
+```
+cardWidth = (W - N*g) / (N + 0.5)
+```
+`.u-wrap`'s padding is `clamp(18px, 5vw, 64px)` per side — at the 1440px container
+width it maxes at 64px/side, so `W = 1440 - 128 = 1312px`. Current values (desktop
+only — mobile uses an unrelated static grid override):
+- `.u-pcard` / `.u-cslide__card`: `clamp(195px, 18vw, 220px)` → 5 cards + 0.5 peek.
+- `.u-revx__card` (reviews): `clamp(290px, 25vw, 358px)` → 3 cards + 0.5 peek.
+
+**Always verify with real DOM measurement**, not a screenshot: measure the
+scroller's `getBoundingClientRect().right` (not `.u-wrap`'s) against the target
+card's `left`, and check the visible fraction is close to 0.5. A screenshot can
+look "about right" while the real fraction is 57% or 80% — this happened during
+development and wasn't obvious visually.
+
+---
+
+## 6. Two separate "Trust" components — don't confuse them
+
+There are **two distinct sections**, easy to mix up:
+
+1. **`upaasak-trust-bar.liquid`** ("Upaasak Trust Bar") — the compact row right
+   below the hero banner. Styled to **match the PDP product-highlights row**
+   (small rounded-square icon badge, horizontal icon+text layout) per explicit
+   client feedback — do not restyle this back into a card-grid.
+2. **`upaasak-trust-banner.liquid`** ("Trust Banner") — a separate, later section
+   (currently positioned after Reviews) using the original card-grid treatment:
+   white bordered cards, 60px cream-circle icon, heading+subtext, 4/2/1-column
+   responsive grid. Both happen to use the same 4 USPs (Free Shipping / Devotee
+   Support / OSOC Certified / Energized) but render completely differently.
+
+If a future request says "the trust section," ask which one, or check the
+screenshot carefully — the icon-container shape (rounded square vs. circle) is the
+fastest visual tell.
+
+---
+
+## 7. Cart drawer — architecture and what NOT to touch
+
+There are **two parallel, independently-coded cart drawer implementations** in
+this theme, and only one is live:
+
+- **Active:** `sections/upaasak-cart-drawer.liquid` (`.u-cart` panel), rendered
+  unconditionally via `{% section 'upaasak-cart-drawer' %}` in
+  `layout/theme.liquid`. Its settings/blocks live in `config/settings_data.json`
+  under `sections.upaasak-cart-drawer` (**not** a template file, since it's a
+  global "sections everywhere" render). Opened via `assets/upaasak.js`
+  (`openCart()`), triggered by `[data-cart-toggle]` in `upaasak-brand-bar.liquid`.
+- **Dormant/unused:** stock Horizon `cart-drawer-component` markup inside
+  `snippets/header-actions.liquid`, gated behind `settings.cart_type == 'drawer'`
+  but never reached because `header-actions`/`sections/header.liquid` aren't part
+  of the active header group (`upaasak-brand-bar` is used instead). Don't waste
+  time editing this — it never renders.
+
+Current cart drawer features (all in `upaasak-cart-drawer.liquid`):
+- **Moving badge strip** at the top (replaces the old "add ₹X more for free
+  shipping" progress bar) — reuses the **exact same rotator mechanism** as the
+  announcement bar (`data-announce` + `.u-ann__msg` classes, driven by the
+  existing generic `initAnnouncements()` in `upaasak.js` — no new JS was needed).
+  Badges are repeatable blocks (`type: "badge"`), so more slides can be added via
+  the editor.
+- **"Buy Now"** button — see §8, same submitter-aware flow as the PDP one, redirects
+  straight to `/checkout` after the AJAX add succeeds (regular "Add to Cart" still
+  opens the drawer).
+- **"Need Help? WhatsApp us"** trust line (was "30-Day Returns Guarantee"), links
+  to the real merchant WhatsApp number.
+- **Payment Summary** breakdown (MRP / Item Discount / Sub Total / Shipping
+  Charges) — renders as **plain rows directly in the footer**, always visible, no
+  toggle/accordion/box (an earlier collapsible `<details>` version was explicitly
+  rejected by the client and removed — don't reintroduce it).
+- Font: every text class in the drawer has an explicit `font-family:
+  var(--u-font-body)` now (was previously relying on inheritance) per an explicit
+  "check the font is Poppins" request.
+
+---
+
+## 8. PDP Buy Now + the submitter-aware add-to-cart flow
+
+`sections/upaasak-product-info.liquid`'s buybox renders a **Buy Now** button to the
+left of Add to Cart, both `type="submit" name="add"` inside the same product form.
+The distinction is made in `assets/upaasak.js`'s global submit listener via the
+native `SubmitEvent.submitter` property:
+
+```js
+document.addEventListener('submit', function (e) {
+  ...
+  ajaxAdd(form, e.submitter);
+});
+function ajaxAdd(form, submitter) {
+  var buyNow = !!(submitter && submitter.hasAttribute('data-pdp-buynow'));
+  ...
+  // on success: if (buyNow) redirect to /checkout; else open the cart drawer
+}
+```
+The Buy Now button carries `data-pdp-buynow`. If you ever add a third submit
+button to a product form anywhere, make sure it either carries this attribute (to
+redirect) or doesn't (to behave like normal Add to Cart) — don't assume
+`form.querySelector('[type="submit"]')` finds the right one; that was the old,
+buggy pre-submitter-aware code.
+
+**Mobile layout note:** the quantity stepper does *not* force its own row anymore
+(an earlier `width:100%` fix was explicitly reverted per feedback — the client
+didn't want the stepper visually stretched). Current behavior: qty + Buy Now share
+row 1, Add to Cart wraps to row 2 alone. This is intentional/accepted, not a bug —
+if asked to change it again, that's a deliberate re-request, not a regression.
+
+---
+
+## 9. The drag-to-scroll click-suppression bug (fixed — understand before touching `initScrollers`)
+
+`assets/upaasak.js`'s `initScrollers()` adds pointer-based drag-to-scroll to every
+`[data-scroller]`/`[data-scroll]` carousel (added because hiding the arrow buttons
+left desktop users with no way to scroll). It tracks a `moved` flag to distinguish
+"the user dragged" (suppress the resulting click, so a product link doesn't
+navigate) from "the user just clicked" (let it through).
+
+**The bug that shipped once:** `moved` only ever got reset inside the click
+handler. If a drag ended via `pointerleave`/`pointercancel` (pointer exits the
+track bounds, or the browser cancels the gesture) *without* a click landing back
+inside the track, `moved` stayed `true` forever and silently ate the **next**,
+completely unrelated click on that carousel — this is exactly what "clicking a
+product card stopped working, intermittently" looks like from the outside.
+
+**The fix, already in place:** `stopDrag(abandoned)` resets `moved = false` when
+called from `pointerleave`/`pointercancel` (an abandoned drag), but *not* from a
+normal `pointerup` (where the following click is expected to consume it). If you
+ever touch this function again, preserve that distinction — it's the whole fix.
+Also: there's no `pointer-events: none` CSS trick on dragging children anymore
+(removed as an unnecessary extra risk factor once the flag logic was correct).
+
+---
+
+## 10. Current homepage section order
+
+```
+u_slides                          Banner slideshow
+u_trustbar                        Upaasak Trust Bar (PDP-row style, below hero)
+upaasak_collection_slider_FLwqJJ  Shop by Collection
+u_shop_purpose                    Shop by Purpose
+u_best                            Best Seller
+upaasak_shop_by_purpose_qViYEi    Shop by Deity
+upaasak_fullwidth_image_Dwmc3G    "Why Choose Us" full-width image
+upaasak_best_seller_aVta9j        New Arrivals
+u_reviews_x                       Reviews Scroll
+u_trustbanner                     Trust Banner (card-grid style)
+u_sitemap                         Footer (homepage-local instance; the REAL global
+                                   footer is a separate instance in footer-group.json)
+upaasak_instagram_reels_zXrRnD    Instagram Reels — merchant moved this here via
+                                   the editor after uploading real video content;
+                                   note it currently sits AFTER the footer, which
+                                   is unusual — worth confirming with the client
+                                   whether that's intentional or should move up
+                                   (original brief said "after New Arrivals").
 ```
 
 ---
 
-## 5. Local preview / verification (this dev environment)
+## 11. Outstanding / open items
 
-The sandbox blocks the normal `python3 -m http.server` (getcwd / file reads denied).
-Workaround used here:
-```bash
-mkdir -p /tmp/upaasak_pv/preview /tmp/upaasak_pv/assets
-cp preview/*.html /tmp/upaasak_pv/preview/; cp assets/upaasak.* /tmp/upaasak_pv/assets/
-printf 'import functools,http.server,socketserver\nH=functools.partial(http.server.SimpleHTTPRequestHandler,directory="/tmp/upaasak_pv")\nsocketserver.TCPServer.allow_reuse_address=True\nsocketserver.TCPServer(("127.0.0.1",8731),H).serve_forever()\n' > /tmp/serve_pv.py
-# point .claude/launch.json runtimeArgs to ["/tmp/serve_pv.py"], then preview_start
-```
-- **The screenshot tool only reliably captures the TOP viewport** — scrolled content
-  renders blank. To see lower sections: use a **tall viewport** (e.g. 1280×3300) or set
-  `document.body.style.marginTop = '-Npx'` then screenshot. For exact facts (sizes,
-  computed styles, click hit‑testing) use **`preview_eval`** with `getBoundingClientRect`
-  / `getComputedStyle` / `elementFromPoint` — that's how most things here were verified.
-- To verify the live theme, ask the merchant for a **fresh** preview link
-  (editor → Share/eye icon). Older `*.shopifypreview.com` links serve **cached page
-  renders** (assets bust separately), so they can mislead.
-- Restore `.claude/launch.json` `runtimeArgs` to `["-m","http.server","8731"]` before committing.
+**Needs Shopify Admin configuration (not theme code):**
+- [ ] **Collection page Purpose/Deity filters.** Native Shopify filters
+  (Search & Discovery app) need `Purpose` and `Deity` set up as **product
+  metafields** (not just tags) with "storefront filter" enabled, then added and
+  reordered (Purpose → Deity → Availability → Price) in
+  Apps → Search & Discovery → Filters. The theme already renders
+  `collection.filters` in whatever order that config provides —
+  `sections/upaasak-collection.liquid` needs no code change for this.
+- [ ] Rename the generic "More filters" tag-filter label to something like
+  "Categories" — also set in Search & Discovery → Filters, not code.
+- [ ] Real "About Us" story/copy + image (`upaasak-about-content.liquid` currently
+  ships with honest placeholder copy and no image — safe generic content, but not
+  the client's real story).
+- [ ] Real banner images per-slide for mobile, and confirm Yatra collection/link
+  once it exists.
 
----
+**Needs real assets (video/image) the client hasn't fully supplied yet:**
+- [x] Instagram Reels — merchant has since uploaded 3 real reel videos/posters/
+  URLs via the editor. Done.
+- [ ] Confirm the floating WhatsApp button's number/pre-filled message text with
+  the client (currently defaults to the real number used elsewhere, but the
+  message text is a guess: "Hi Upaasak, I have a question about").
 
-## 6. Notable section behaviours
+**Flagged, not yet actioned:**
+- [ ] Custom per-product badge system (own color/text per SKU) — real build effort,
+  was flagged Hard tier in the original correction-doc breakdown, not started.
+- [ ] Floating "Claim FREE 5 Mukhi Rudraksha" add-to-cart-on-click banner (both
+  homepage hero and PDP versions) — Hard tier, not started.
+- [ ] Sticky category nav on scroll — Hard tier, not started.
+- [ ] Collection page: move filters into a horizontal dropdown-pill bar instead of
+  the sidebar drawer — Hard tier, not started.
 
-- **`banner-slideshow`**: full‑bleed image banners. Per banner block: `image` (desktop),
-  `image_mobile` (swapped via `<picture>` under 749px), `link` (whole‑banner clickable),
-  `show_content` (toggle — **default off**, hides eyebrow/heading/sub/CTA so image‑only
-  banners look clean), plus overlay fields. JS sizes the slideshow to the **active**
-  slide's height (fixes the intermittent bottom blank space). Add‑to‑cart on cards uses
-  real variant ids.
-- **`shop-by-purpose` / `best-seller`**: filter‑pill tabs; each tab is a block with a
-  `collection` picker. Empty collection → falls back to `collections['all']`. JS `data-tabs`
-  toggles panels.
-- **Header on mobile**: announcement bar centred, "Track your order" hidden; a hamburger
-  (`[data-burger]`, in `brand-bar`, right of cart) toggles the **category nav as an
-  off‑canvas drawer** (`[data-catnav]` + `[data-catnav-close]`); the inline category bar
-  is hidden on mobile; trust bar is 2‑column on mobile.
-- **`sitemap-footer`**: 4‑column footer = Brand · Information · Policies · **Get in Touch**
-  (a `contact` block type: email/phone/address + WhatsApp/Instagram/Facebook/YouTube
-  icons). Brand column also shows section‑level social — leave section WhatsApp/Instagram
-  blank if you want social only in the contact column.
-- **`fullwidth-image`**: edge‑to‑edge image‑only section, separate desktop + mobile image.
+**Explicitly skipped this round** (per client instruction, not overlooked):
+Add to Cart drawer's original scope items not covered above, cart empty-state,
+SEO tasks, transactional email styling. Ask before starting any of these.
 
 ---
 
-## 7. Outstanding TODOs (what's left to complete)
+## 12. File map — what to touch for what
 
-**Editor configuration (merchant or you, in the Shopify editor — no code):**
-- [ ] Assign **collections** to each **Shop‑by‑Purpose** pill (All, Bhakti, Protection,
-      Prosperity, Healing, Gifting, New Arrivals) and each **Best‑Seller** tab
-      (Rudraksha, Bracelets, Mala, Stones, Gifting). They currently fall back to all‑products.
-- [ ] Upload per‑slide **mobile banner images**; set each banner's **link**.
-- [ ] Set real links: announcement **Track‑order**, **category‑nav** items → collections,
-      footer **Get‑in‑Touch** email/phone/social URLs.
-- [ ] Add the **Why Choose Us** journey banner image; resolve the duplicate
-      `why-choose-us` instance the merchant added (`upaasak_why_choose_us_grxyAX`).
-- [ ] Add the **Full‑width Image** section where wanted + its desktop/mobile images.
-
-**Build work (likely next requests):**
-- [ ] **Cart page** redesign — was in the original client brief (`Upaasak Home.docx`):
-      announcement bar → prominent "Continue Shopping" → top‑selling pitch. Not built yet.
-- [ ] **Free PDFs / Blog** wiring (category nav has a "Free PDFs" item meant to point to
-      a blog of PDFs).
-- [ ] Optionally promote `sitemap-footer` into the **global footer group** so it shows
-      site‑wide (currently a homepage section; the stock footer still renders elsewhere).
-- [ ] Verify all **spiritual copy** (deity/planet/chakra/mantra in product‑significance,
-      benefit claims) for accuracy before launch.
-- [ ] Final **mobile QA** pass across all sections on a real device/preview.
-
-**Then:** when the merchant approves, they **Publish** the `upaasak/main` draft.
+- **Any visual style** → `assets/upaasak.css`. Search by class name; the file is
+  organized in loose chronological sections, not alphabetically.
+- **Any interaction** → `assets/upaasak.js`, `initX(root)` pattern with a
+  `data-*-bound` guard, registered in `initAll`.
+- **New icon** → `snippets/upaasak-icon.liquid`, then expose it in the consuming
+  section's `icon` select options.
+- **New section** → `sections/upaasak-<name>.liquid`. Render the design-system
+  snippet first line, full schema + at least one preset, name ≤25 chars, run the
+  §4 validation script before pushing.
+- **Card anywhere** → reuse `snippets/upaasak-product-card.liquid`, don't fork it.
+- **Global elements** (cart drawer, WhatsApp float) → rendered directly via
+  `{% section '...' %}` in `layout/theme.liquid`; their settings live in
+  `config/settings_data.json`, not a template file.
+- **Homepage section content** → `templates/index.json`.
+- **Header** → `sections/header-group.json` (announcement bar + brand bar +
+  category nav — the real live header, not stock `sections/header.liquid`).
+- **Footer** → `sections/footer-group.json` (real global footer) — there's also a
+  disabled homepage-local instance of the same section type in `templates/index.json`
+  (`u_sitemap`), don't confuse the two when editing footer content.
 
 ---
 
-## 8. Quick start for the new chat
-
-```bash
-git clone https://github.com/Rahul100897/upaasak.git
-cd upaasak
-git pull --no-rebase origin main          # always
-# read this HANDOVER.md + README.md fully
-shopify theme check                        # baseline
-```
-Then make additive changes, run the §4 validation, push to `main`, and ask the merchant
-to reload the editor (dismiss "Restore last session"). Verify via a fresh preview link
-or `preview_eval`. Keep every change reversible and never overwrite merchant edits.
+_Read this fully before starting. When in doubt about current state, `git pull`
+and read the actual file rather than trusting a description here that might have
+drifted — but the gotchas in §3, §4, §5, §6, §9 are architectural/historical
+lessons that remain true regardless of what's changed since._
