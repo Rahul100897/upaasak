@@ -91,7 +91,7 @@
         "b1"
       ],
       "settings": {
-        "interval": 6
+        "interval": 4
       }
     },
     "u_trustbar": {
@@ -490,6 +490,50 @@
         "subheading": "Real people. Real experiences. Every word unedited."
       }
     },
+    "u_trustbanner": {
+      "type": "upaasak-trust-banner",
+      "blocks": {
+        "t1": {
+          "type": "tile",
+          "settings": {
+            "icon": "truck",
+            "heading": "Free Shipping",
+            "subtext": "No minimum order value. Delivered Pan India."
+          }
+        },
+        "t2": {
+          "type": "tile",
+          "settings": {
+            "icon": "headset",
+            "heading": "Devotee Support",
+            "subtext": "Reach us anytime via WhatsApp or Email."
+          }
+        },
+        "t3": {
+          "type": "tile",
+          "settings": {
+            "icon": "certificate",
+            "heading": "OSOC Certified",
+            "subtext": "QR code on every product links to original lab report."
+          }
+        },
+        "t4": {
+          "type": "tile",
+          "settings": {
+            "icon": "om",
+            "heading": "Energized",
+            "subtext": "Ready to wear. No activation needed."
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {}
+    },
     "u_sitemap": {
       "type": "upaasak-sitemap-footer",
       "blocks": {
@@ -599,50 +643,6 @@
         "copyright": "2026 UPAASAK. All rights reserved.",
         "bottom_note": "Made with devotion in India"
       }
-    },
-    "u_trustbanner": {
-      "type": "upaasak-trust-banner",
-      "blocks": {
-        "t1": {
-          "type": "tile",
-          "settings": {
-            "icon": "truck",
-            "heading": "Free Shipping",
-            "subtext": "No minimum order value. Delivered Pan India."
-          }
-        },
-        "t2": {
-          "type": "tile",
-          "settings": {
-            "icon": "headset",
-            "heading": "Devotee Support",
-            "subtext": "Reach us anytime via WhatsApp or Email."
-          }
-        },
-        "t3": {
-          "type": "tile",
-          "settings": {
-            "icon": "certificate",
-            "heading": "OSOC Certified",
-            "subtext": "QR code on every product links to original lab report."
-          }
-        },
-        "t4": {
-          "type": "tile",
-          "settings": {
-            "icon": "om",
-            "heading": "Energized",
-            "subtext": "Ready to wear. No activation needed."
-          }
-        }
-      },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3",
-        "t4"
-      ],
-      "settings": {}
     }
   },
   "order": [
