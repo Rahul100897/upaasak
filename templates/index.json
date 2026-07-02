@@ -428,6 +428,20 @@
         "view_all_label": "View All"
       }
     },
+    "u_insta": {
+      "type": "upaasak-instagram-reels",
+      "blocks": {
+        "r1": { "type": "reel", "settings": {} },
+        "r2": { "type": "reel", "settings": {} },
+        "r3": { "type": "reel", "settings": {} }
+      },
+      "block_order": ["r1", "r2", "r3"],
+      "settings": {
+        "heading_lead": "Devotees Already Watched",
+        "heading_accent": "4.1 million +",
+        "instagram_url": "https://www.instagram.com/upaasakofficial/"
+      }
+    },
     "u_reviews_x": {
       "type": "upaasak-reviews-scroll",
       "blocks": {
@@ -659,6 +673,7 @@
     "upaasak_shop_by_purpose_qViYEi",
     "upaasak_fullwidth_image_Dwmc3G",
     "upaasak_best_seller_aVta9j",
+    "u_insta",
     "u_reviews_x",
     "u_trustbanner",
     "u_sitemap"

@@ -1189,6 +1189,27 @@ body.u-noscroll { overflow: hidden; }
 .u-cart__empty h3 { font-family: var(--u-font-display); font-size: 1.4rem; color: var(--u-charcoal); margin: 0; }
 .u-cart__empty p { font-size: .9rem; color: var(--u-muted); line-height: 1.6; margin: 0 0 16px; max-width: 30ch; }
 
+/* ---- Instagram Reels ---- */
+.u-insta__head { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
+.u-insta__head .u-title { margin: 0; }
+.u-insta__follow { flex: none; white-space: nowrap; }
+.u-insta__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.u-insta__card { background: #fff; border: 1px solid var(--u-line); border-radius: var(--u-radius); overflow: hidden; box-shadow: var(--u-shadow-sm); transition: transform .35s var(--u-ease), box-shadow .35s var(--u-ease); }
+.u-insta__card:hover { transform: translateY(-5px); box-shadow: var(--u-shadow); }
+.u-insta__media { position: relative; aspect-ratio: 9 / 16; overflow: hidden; background: linear-gradient(160deg, var(--u-sand), var(--u-cream)); }
+.u-insta__video, .u-insta__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.u-insta__ph { position: absolute; inset: 0; display: grid; place-items: center; color: var(--u-maroon); opacity: .5; }
+.u-insta__ph svg { width: 48px; height: 48px; }
+.u-insta__view { display: block; text-align: center; padding: 15px; font-family: var(--u-font-body); font-weight: 600; font-size: .9rem; color: var(--u-charcoal); text-decoration: none; border-top: 1px solid var(--u-line); transition: background .3s var(--u-ease), color .3s var(--u-ease); }
+.u-insta__view:hover { background: var(--u-maroon); color: #fff; }
+@media (max-width: 980px) {
+  .u-insta__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .u-insta__grid { grid-template-columns: 1fr; }
+  .u-insta__head { justify-content: center; text-align: center; }
+}
+
 /* ---- Floating WhatsApp button (global, bottom-right) ---- */
 .u-wa-float { position: fixed; z-index: 900; bottom: 22px; right: 22px; width: 56px; height: 56px; border-radius: 50%; background: #25d366; color: #fff; display: grid; place-items: center; box-shadow: 0 6px 18px rgba(0,0,0,.28); transition: transform .3s var(--u-ease), box-shadow .3s var(--u-ease); text-decoration: none; }
 .u-wa-float:hover { transform: scale(1.08); box-shadow: 0 8px 22px rgba(0,0,0,.34); }

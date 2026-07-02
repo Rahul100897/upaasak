@@ -1,0 +1,82 @@
+{% render 'upaasak-design-system' %}
+
+<section class="u-section u-sec u-sec--ivory u-insta" data-section-id="{{ section.id }}">
+  <div class="u-wrap">
+    <div class="u-insta__head">
+      {% if section.settings.heading_lead != blank or section.settings.heading_accent != blank %}
+        <h2 class="u-title" data-reveal style="--d:60ms">
+          {% if section.settings.heading_accent != blank %}<em>{{ section.settings.heading_accent }}</em>{% endif %}
+          {% if section.settings.heading_lead != blank %}<span class="u-title__lead">{{ section.settings.heading_lead }}</span>{% endif %}
+        </h2>
+      {% endif %}
+      {% if section.settings.instagram_url != blank %}
+        <a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener" class="u-btn u-btn--gold u-insta__follow">
+          Follow Us on Instagram
+        </a>
+      {% endif %}
+    </div>
+
+    {% if section.blocks.size > 0 %}
+      <div class="u-insta__grid" data-reveal style="--d:120ms">
+        {% for block in section.blocks %}
+          <div class="u-insta__card" {{ block.shopify_attributes }}>
+            <div class="u-insta__media">
+              {% if block.settings.reel_video != blank %}
+                <video
+                  class="u-insta__video"
+                  controls
+                  playsinline
+                  preload="metadata"
+                  {% if block.settings.poster != blank %}poster="{{ block.settings.poster | image_url: width: 600 }}"{% endif %}
+                >
+                  <source src="{{ block.settings.reel_video.sources[1].url | default: block.settings.reel_video.sources[0].url }}" type="video/mp4">
+                </video>
+              {% elsif block.settings.poster != blank %}
+                {{ block.settings.poster | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', alt: 'Upaasak Instagram reel' | escape }}
+              {% else %}
+                <span class="u-insta__ph">{% render 'upaasak-icon', icon: 'sparkle' %}</span>
+              {% endif %}
+            </div>
+            {% if block.settings.reel_url != blank %}
+              <a href="{{ block.settings.reel_url }}" target="_blank" rel="noopener" class="u-insta__view">View Full Reel</a>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Instagram Reels",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading_lead", "label": "Heading (regular)", "info": "e.g. Devotees Already Watched", "default": "Devotees Already Watched" },
+    { "type": "text", "id": "heading_accent", "label": "Heading (bold/maroon)", "info": "e.g. 4.1 million +", "default": "4.1 million +" },
+    { "type": "url", "id": "instagram_url", "label": "Instagram profile URL", "default": "https://www.instagram.com/upaasakofficial/" }
+  ],
+  "blocks": [
+    {
+      "type": "reel",
+      "name": "Reel",
+      "limit": 3,
+      "settings": [
+        { "type": "video", "id": "reel_video", "label": "Reel video (MP4)" },
+        { "type": "image_picker", "id": "poster", "label": "Poster image", "info": "Shown before play, or as a static fallback if no video is uploaded." },
+        { "type": "url", "id": "reel_url", "label": "Instagram reel URL" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram Reels",
+      "blocks": [
+        { "type": "reel" },
+        { "type": "reel" },
+        { "type": "reel" }
+      ]
+    }
+  ]
+}
+{% endschema %}
