@@ -27,18 +27,6 @@
             "cta_link": "shopify://products/natural-5-mukhi-rudraksha-free-nepali"
           }
         },
-        "banner_MgWhED": {
-          "type": "banner",
-          "settings": {
-            "link": "",
-            "show_content": false,
-            "tip": "New Arrival",
-            "heading": "Sacred Rudraksha, Energized for You",
-            "subheading": "Hand-picked, lab-certified beads to elevate your daily sadhana.",
-            "cta_label": "Shop Now",
-            "cta_link": ""
-          }
-        },
         "b1": {
           "type": "banner",
           "name": "Bracelet",
@@ -102,7 +90,6 @@
       },
       "block_order": [
         "b5",
-        "banner_MgWhED",
         "b1",
         "b4",
         "b2",
