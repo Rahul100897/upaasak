@@ -71,7 +71,7 @@
           "settings": {
             "label": "Rudraksha",
             "link": "shopify://collections/rudraksha",
-            "icon": "leaf"
+            "icon": "mantra"
           }
         },
         "cat_czwUaa": {
@@ -111,7 +111,7 @@
           "settings": {
             "label": "Gemstones",
             "link": "shopify://collections/gemstones",
-            "icon": "gem"
+            "icon": "gemstone"
           }
         },
         "cat_HngTQa": {
@@ -119,7 +119,7 @@
           "settings": {
             "label": "Gifting",
             "link": "shopify://collections/gifting",
-            "icon": "bead"
+            "icon": "gift"
           }
         },
         "cat_a8pVdQ": {
