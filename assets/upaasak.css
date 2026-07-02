@@ -276,6 +276,84 @@
   .u-crumbs__current { max-width: 60vw; }
 }
 
+/* ----- Blog listing (native Horizon main-blog section) — brand reskin -----
+   CSS-only override of stock markup/classes (blog-posts, blog-post-item,
+   blog-post-card, etc. come from sections/main-blog.liquid + blocks/_blog-post-*
+   — not an upaasak-* section, so no schema/liquid changes here). Replaces the
+   stock dynamic hero+compact grid with one uniform card grid per client request.
+   !important is used only where the stock blocks set colors/spacing via inline
+   style attributes that would otherwise win over an external stylesheet. */
+.blog-posts-container {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 28px !important;
+}
+.blog-post-item {
+  grid-column: span 1 !important;
+  border: 1px solid var(--u-line) !important;
+  border-radius: var(--u-radius);
+  background: var(--u-paper);
+  padding: 0 !important;
+  overflow: hidden;
+  transition: box-shadow 0.3s var(--u-ease), transform 0.3s var(--u-ease);
+}
+.blog-post-item:hover {
+  box-shadow: var(--u-shadow);
+  transform: translateY(-3px);
+}
+.blog-post-card,
+.blog-post-item--horizontal .blog-post-card {
+  flex-direction: column !important;
+  height: 100%;
+}
+.blog-post-item--horizontal .blog-post-card > *:first-child,
+.blog-post-item--horizontal .blog-post-card > *:last-child {
+  flex-basis: auto !important;
+}
+.blog-post-card__image-container { margin: 0; }
+.blog-post-card__image {
+  height: auto !important;
+  aspect-ratio: 4 / 3 !important;
+  object-fit: cover;
+}
+.blog-post-card__content { padding: 20px 22px 24px !important; }
+.blog-post-card__content a { text-decoration: none !important; }
+.blog-post-card__content a:hover .text-block { color: var(--u-maroon) !important; }
+.blog-post-card__content .text-block.h4 {
+  font-family: var(--u-font-display) !important;
+  color: var(--u-ink) !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  transition: color 0.2s var(--u-ease);
+}
+.blog-post-details {
+  font-family: var(--u-font-body) !important;
+  color: var(--u-muted) !important;
+  font-size: 0.76rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.blog-post-card__content-text {
+  font-family: var(--u-font-body) !important;
+  color: var(--u-muted) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
+}
+.blog-post-card__content-text a {
+  color: var(--u-maroon) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  display: inline-block;
+  margin-top: 4px;
+}
+.blog-post-card__content-text a:hover { text-decoration: underline !important; }
+@media (min-width: 750px) {
+  .blog-posts-container { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (min-width: 1000px) {
+  .blog-posts-container { grid-template-columns: repeat(3, 1fr) !important; }
+}
+
 /* ============================================================================
    HERO
    ========================================================================== */
