@@ -428,20 +428,6 @@
         "view_all_label": "View All"
       }
     },
-    "u_insta": {
-      "type": "upaasak-instagram-reels",
-      "blocks": {
-        "r1": { "type": "reel", "settings": {} },
-        "r2": { "type": "reel", "settings": {} },
-        "r3": { "type": "reel", "settings": {} }
-      },
-      "block_order": ["r1", "r2", "r3"],
-      "settings": {
-        "heading_lead": "Devotees Already Watched",
-        "heading_accent": "4.1 million +",
-        "instagram_url": "https://www.instagram.com/upaasakofficial/"
-      }
-    },
     "u_reviews_x": {
       "type": "upaasak-reviews-scroll",
       "blocks": {
@@ -662,6 +648,42 @@
         "copyright": "2026 UPAASAK. All rights reserved.",
         "bottom_note": "Made with devotion in India"
       }
+    },
+    "upaasak_instagram_reels_zXrRnD": {
+      "type": "upaasak-instagram-reels",
+      "blocks": {
+        "reel_3HihBf": {
+          "type": "reel",
+          "settings": {
+            "reel_video": "shopify://files/videos/Script_8 Apr_v1.mp4",
+            "poster": "shopify://shop_images/Screenshot_2026-04-23-05-41-19-09_92460851df6f172a4592fca41cc2d2e6.jpg",
+            "reel_url": "https://www.instagram.com/reel/DXKFb75k46t/"
+          }
+        },
+        "reel_mYCAgF": {
+          "type": "reel",
+          "settings": {
+            "reel_url": ""
+          }
+        },
+        "reel_nJmnPH": {
+          "type": "reel",
+          "settings": {
+            "reel_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "reel_3HihBf",
+        "reel_mYCAgF",
+        "reel_nJmnPH"
+      ],
+      "name": "Instagram Reels",
+      "settings": {
+        "heading_lead": "Devotees Already Watched",
+        "heading_accent": "4.1 million +",
+        "instagram_url": ""
+      }
     }
   },
   "order": [
@@ -673,9 +695,9 @@
     "upaasak_shop_by_purpose_qViYEi",
     "upaasak_fullwidth_image_Dwmc3G",
     "upaasak_best_seller_aVta9j",
-    "u_insta",
     "u_reviews_x",
     "u_trustbanner",
-    "u_sitemap"
+    "u_sitemap",
+    "upaasak_instagram_reels_zXrRnD"
   ]
 }
